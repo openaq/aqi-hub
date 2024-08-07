@@ -31,7 +31,26 @@ const breakpoints = [
     {
         "x": 9.0,
         "y": 50,
-        "color": "red",
+    },
+    {
+        "x": 35.4,
+        "y": 100,
+    },
+    {
+        "x": 55.4,
+        "y": 150,
+    },
+    {
+        "x": 150.4,
+        "y": 200,
+    },
+    {
+        "x": 250.4,
+        "y": 300,
+    },
+    {
+        "x": 350.4,
+        "y": 400,
     },
 ]
 
@@ -51,8 +70,20 @@ export function piecewiseChart() {
       Plot.dot(breakpoints, {
         x: "x",
         y: "y",
-        fill: "color"
+        r: 4,
+        fill: 'black',
+
       }),
+      Plot.text(breakpoints, {
+        x: "x",
+        y: "y",
+        dy: 6,
+        dx: 6,
+        textAnchor: "start",
+        text: d => `${d.x},${d.y}`
+      }),
+      
+
     ],
   });
 }
