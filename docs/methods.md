@@ -1,0 +1,49 @@
+---
+title: Methods
+---
+
+## Averaging methods
+
+When computing concentration values, various averaging methods are employed to reflect air quality over different time periods by pollutant. Standard means, such as arithmetic averages, are commonly used to calculate average concentrations of pollutants over specified intervals, typically 24 hours. This method is straightforward and ensures consistency in reporting air quality levels. Weighted averaging methods, on the other hand, assign different weights to pollutant concentrations based on their health impacts and their temporal distribution. For example, higher weights may be given to peak pollution periods to better capture potential health risks during those times. These weighted averages are relevant because they provide a more nuanced understanding of air quality, considering the varying significance of pollution levels throughout the day.
+
+The NowCast algorithm, used for calculating real-time AQI values, exemplifies the practical application of weighted mean methods to provide timely and accurate air quality assessments. This algorithm is particularly beneficial in rapidly changing air quality conditions, such as during wildfires, industrial accidents, or high-traffic periods.
+
+Unlike fixed average methods, the NowCast algorithm dynamically adjusts the weights of pollutant concentrations based on the rate of change. For instance, if pollution levels are rising rapidly, the algorithm will give higher weights to the most recent data points. This approach captures sudden spikes in pollution that could pose immediate health risks, providing a more relevant AQI.
+
+## Piecewise linear function
+
+A piecewise linear function is a type of function that is defined by multiple linear segments, each applying to a specific interval of the input variable. Essentially, it means the function is made up of straight-line sections that connect to form a continuous graph. A continuous piecewise linear function is comprise of different linear functions at defined intervals. An example of how a piecewise linear function appears when graphed:
+
+```js
+import {piecewiseChart} from './components/piecewise-chart.js';
+```
+
+```js
+piecewiseChart()
+```
+
+This can be expressed as:
+
+```tex
+{f}(x) = \begin{cases} 
+5.55x & \text{if } x \leq 9.0 \\
+1.86x + 34.05 & \text{if } 9.1 < x \leq 35.4 \\
+2.46x + 13.59 & \text{if } 35.5 < x \leq 55.4 \\
+0.52x + 122.34 & \text{if } 55.5 < x \leq 150.4 \\
+0.99x + 51.86 & \text{if } 150.5 < x \leq 250.4 \\
+0.99x + 52.76 & \text{if } 250.5 < x \leq 350.4 \\
+0.66x + 169.52 & \text{if } 350.5 < x \leq 500.4 \\
+\end{cases}
+```
+
+Many AQIs use a piecewise linear function to translate from pollutants concentration averages into the final indcator value based on a pollutant specific breakpoints. A continuous piecewise linear function adjusts the air quality index smoothly as concentration values change, ensuring that each segment's linear slope reflects different rates of change in air quality based on specific concentration ranges. The most commonly used formula for AQIs across different countries is defined as:
+
+```js
+import {piecewiseLatexDoc} from './components/piecewise.js';
+```
+
+```js
+
+piecewiseLatexDoc('AQI')
+
+```

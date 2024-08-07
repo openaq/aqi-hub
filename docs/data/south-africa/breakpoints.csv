@@ -1,0 +1,31 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+ZA,,Good/low,#00b050,1,3,PM2.5,ug/m3,1,0,103
+ZA,,Good/low,#00b050,1,3,PM10,ug/m3,1,0,190
+ZA,,Good/low,#00b050,1,3,O3,ppb,1,0,80
+ZA,,Good/low,#00b050,1,3,NO2,ppb,1,0,106
+ZA,,Good/low,#00b050,1,3,SO2,ppb,1,0,134
+ZA,,Good/low,#00b050,1,3,CO,ppm,1,0,30
+ZA,,Moderate,#ffff00,4,5,PM2.5,ug/m3,1,104,153
+ZA,,Moderate,#ffff00,4,5,PM10,ug/m3,1,191,240
+ZA,,Moderate,#ffff00,4,5,O3,ppb,1,81,134
+ZA,,Moderate,#ffff00,4,5,NO2,ppb,1,107,178
+ZA,,Moderate,#ffff00,4,5,SO2,ppb,1,135,172
+ZA,,Moderate,#ffff00,4,5,CO,ppm,1,30.1,40.0
+ZA,,High/Unhealthy,#ffc100,6,7,PM2.5,ug/m3,1,154,203
+ZA,,High/Unhealthy,#ffc100,6,7,PM10,ug/m3,1,241,290
+ZA,,High/Unhealthy,#ffc100,6,7,O3,ppb,1,135,187
+ZA,,High/Unhealthy,#ffc100,6,7,NO2,ppb,1,179,249
+ZA,,High/Unhealthy,#ffc100,6,7,SO2,ppb,1,173,210
+ZA,,High/Unhealthy,#ffc100,6,7,CO,ppm,1,40.1,50.0
+ZA,,Very high/Very unhealthy,#ff0000,8,9,PM2.5,ug/m3,1,204,253
+ZA,,Very high/Very unhealthy,#ff0000,8,9,PM10,ug/m3,1,291,340
+ZA,,Very high/Very unhealthy,#ff0000,8,9,O3,ppb,1,188,240
+ZA,,Very high/Very unhealthy,#ff0000,8,9,NO2,ppb,1,250,320
+ZA,,Very high/Very unhealthy,#ff0000,8,9,SO2,ppb,1,211,249
+ZA,,Very high/Very unhealthy,#ff0000,8,9,CO,ppm,1,50.1,60
+ZA,,Hazardous,#7030a0,10,,PM2.5,ug/m3,1,254,
+ZA,,Hazardous,#7030a0,10,,PM10,ug/m3,1,341,
+ZA,,Hazardous,#7030a0,10,,O3,ppb,1,241,
+ZA,,Hazardous,#7030a0,10,,NO2,ppb,1,321,
+ZA,,Hazardous,#7030a0,10,,SO2,ppb,1,250,
+ZA,,Hazardous,#7030a0,10,,CO,ppm,1,60,
