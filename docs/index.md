@@ -43,19 +43,6 @@ Plot.plot({
 
 ### Read more
 
-```js
-const pages = await FileAttachment('./data/pages.json').json();
-
-```
-
-```js
-JSON.stringify(pages)
-```
-
-```js
-const f = pages.map(o => `* ${o}\n`);
-f
-```
 
 ## References
 

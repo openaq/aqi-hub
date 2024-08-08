@@ -12,4 +12,4 @@ This site built based upon the [Observable Framework](https://observablehq.com/f
 
 The source code for the repository is licensed under an MIT license, found at [LICENSE](./LICENSE).
 
-All content (markdown files) in the docs directory is licenses CC BY SA, found at [LICENSE-content](./LICENSE-content).
+All content (markdown files) in the docs directory is licensed CC BY SA, found at [LICENSE-content](./LICENSE-content).
