@@ -29,12 +29,12 @@ This can be expressed as:
 ```tex
 {f}(x) = \begin{cases} 
 5.55x & \text{if } x \leq 9.0 \\
-1.86x + 34.05 & \text{if } 9.1 < x \leq 35.4 \\
-2.46x + 13.59 & \text{if } 35.5 < x \leq 55.4 \\
-0.52x + 122.34 & \text{if } 55.5 < x \leq 150.4 \\
-0.99x + 51.86 & \text{if } 150.5 < x \leq 250.4 \\
-0.99x + 52.76 & \text{if } 250.5 < x \leq 350.4 \\
-0.66x + 169.52 & \text{if } 350.5 < x \leq 500.4 \\
+1.86x + 34.05 & \text{if } 9.0 < x \leq 35.4 \\
+2.46x + 13.59 & \text{if } 35.4 < x \leq 55.4 \\
+0.52x + 122.34 & \text{if } 55.4 < x \leq 150.4 \\
+0.99x + 51.86 & \text{if } 150.4 < x \leq 250.4 \\
+0.99x + 52.76 & \text{if } 250.4 < x \leq 350.4 \\
+0.66x + 169.52 & \text{if } 350.4 < x \leq 500.4 \\
 \end{cases}
 ```
 
