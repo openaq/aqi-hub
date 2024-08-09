@@ -32,6 +32,7 @@ export default {
         {name: "Mexico", path: "/indices/mexico"},
         {name: "Singapore", path: "/indices/singapore"},
         {name: "South Korea", path: "/indices/south-korea"},
+        {name: "Taiwan", path: "/indices/taiwan"},
         {name: "Thailand", path: "/indices/thailand"},
         {name: "UAE", path: "/indices/uae"},
         {name: "US", path: "/indices/us"},

@@ -14,17 +14,11 @@ AIRKOREA provides air pollution information on their website since December 2005
 
 import {breakpointsTable} from "../components/table.js";
 import { parseBreakpointsCsv, tableReshape, colorScaleReshape } from '../utils/utils.js';
-
-```
-
-```js
 import { colorScale } from '../components/color-scale.js';
-```
 
-```js
 const breakpoints = await FileAttachment('../data/south-korea/breakpoints.csv').text();
-
 const data = parseBreakpointsCsv(breakpoints);
+
 ```
 
 ```js

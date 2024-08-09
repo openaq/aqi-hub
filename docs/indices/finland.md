@@ -4,6 +4,19 @@
 
 ## Background
 
+```js
+
+import {breakpointsTable} from "../components/table.js";
+import { parseBreakpointsCsv, tableReshape, colorScaleReshape } from '../utils/utils.js';
+import { colorScale } from '../components/color-scale.js';
+
+const breakpoints = await FileAttachment('../data/finland/breakpoints.csv').text();
+const data = parseBreakpointsCsv(breakpoints);
+
+```
+
+
+
 The Finnish Air Quality Index accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, SO<sub>2</sub>, NO<sub>2</sub>, and total reduced sulfur compounds (TRS). The Finnish Air Quality Index reports a Daily AQI using hourly averaging periods [^2].
 
 The air quality index used in Finland was developed by the now Helsinki Region Environmental Services (HSY) and the Finnish Institute for Health and Welfare (THL). Helinski is the capital city of Finland. HSY first introduced the index in 1988\. The present method has been used for information communication since 1993, with the calculation methods revised in 2002 and 2007 [^3]. The HSY states that the “index differs from the indexes used in other countries in that it works on an hourly basis. Elsewhere, the value is influenced by 24-hour, 8-hour and 1-hour averages” [^3].
@@ -11,6 +24,10 @@ The air quality index used in Finland was developed by the now Helsinki Region E
 ## Color scale
 
 The Finnish Air Quality Index uses a five-level color scale [^2] [^3]:
+
+```js
+colorScale(colorScaleReshape(data))
+```
 
 ## Methods
 
