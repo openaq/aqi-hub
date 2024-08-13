@@ -1,7 +1,5 @@
 # Kuwait
 
-
-
 ## Kuwait Air Quality Index (KAQI)
 
 ```js

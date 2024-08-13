@@ -7,7 +7,8 @@ const searchStrings = [
     'PM10',
     'O3',
     'NO2',
-    'SO2'
+    'SO2',
+    'H2S'
 ];
 
 if (!directoryPath) {

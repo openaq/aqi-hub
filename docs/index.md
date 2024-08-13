@@ -30,7 +30,7 @@ Plot.plot({
   marginLeft: 150,
   width: width,
   height: 400,
-  x: {domain: [0,500], label: "PM2.5 24 hr. avg. µg/m3"},
+  x: {domain: [0,500], label: "PM<sub>2.5</sub> 24 hr. avg. µg/m3"},
   y: {
     label: "National AQI",
     padding: 0
