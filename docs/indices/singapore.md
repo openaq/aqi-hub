@@ -4,7 +4,7 @@
 
 ## Background
 
-The PSI was originally established by the National Environment Agency (NEA) in 2010, with the addition of PM<sub>2.5</sub> in 2014. Six criteria pollutants, PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub> , SO<sub>2</sub>, and NO<sub>2</sub> are covered in the methodology. The PSI is evaluated hourly with an option for short term rapid evaluation as well. The PSI as an air quality warning metric is largely centered around the Southeast Asia haze season.
+The PSI was originally established by the National Environment Agency (NEA) in 2010, with the addition of PM<sub>2.5</sub> in 2014. Six criteria pollutants, PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> are covered in the methodology. The PSI is evaluated hourly with an option for short term rapid evaluation as well. The PSI as an air quality warning metric is largely centered around the Southeast Asia haze season.
 
 ## Color scale
 
@@ -56,11 +56,11 @@ After computing all pollutant sub-index values the maximum sub-index is chosen a
 
 ## References
 
-[https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-%28psi%29.pdf\](https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-%28psi%29.pdf)
+[https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-%28psi%29.pdf](https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-%28psi%29.pdf)
 
 
 [https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-(psi).pdf](https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-(psi).pdf)
 
 [https://en.wikipedia.org/wiki/Southeast\_Asian\_haze](https://en.wikipedia.org/wiki/Southeast\_Asian\_haze)
 
-https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs
+[https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs](https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs)

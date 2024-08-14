@@ -50,7 +50,7 @@ piecewiseLatexDoc('AQI')
 
 ```
 
-The variable slope of a piecewise linear function can be demonstrated with different country AQI sub-index values for PM<sub>2.5</sub> and their varying breakpoints. For the same PM<sub>2.5</sub> concentration value different AQIs change and interpolate across their respective range at different rates, due to the different slopes in the piecewise linear function:
+The variable slope of a piecewise linear function can be demonstrated with different country AQI sub-index values for PM<sub>2.5</sub> and their varying breakpoints. For the same PM<sub>2.5</sub> concentration value different AQIs change and interpolate across their respective range at different rates, due to the different slopes in the piecewise linear function. The chart below shows how the different slopes within a piecewise function change the rate of increase across different AQIs given the same input concentration. Drag the concentration slider to see the output sub-index values change.
 
 ```js
 const concentration = view(Inputs.range([0, 500], {value: 42, step: 1, label: html`PM<sub>2.5</sub> 24 hr. mean concentration`}));

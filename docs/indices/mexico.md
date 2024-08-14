@@ -4,6 +4,18 @@
 
 ## Background
 
+```js
+
+import {breakpointsTable} from "../components/table.js";
+import { parseBreakpointsCsv, tableReshape, colorScaleReshape } from '../utils/utils.js';
+import { colorScale } from '../components/color-scale.js';
+```
+
+```js
+const breakpoints = await FileAttachment('../data/mexico/breakpoints.csv').text();
+const data = parseBreakpointsCsv(breakpoints);
+```
+
 Mexico’s Air Quality and Health Risk index, Índice de Calidad del Aire y Riesgos a la Salud, accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. It utilizes hourly average concentrations, 8-hour moving average concentrations, and 12-hour moving average concentrations.
 
 The Norma Oficial Mexicana, Official Mexican Standard, establishes the guidelines for obtaining Air Quality and Health Risk Index. This Official Mexican Standard not only unifies the air quality index among all cities and territories with pre-existing air quality indices, but also promotes the dissemination of those who did not yet provide such information. A single method of calculation and dissemination guidelines are established and expected to be applied by the state or municipal governments responsible for air quality monitoring.
@@ -12,20 +24,10 @@ The guidelines for calculating and communicating the Air Quality and Health Risk
 
 ## Color scale
 
-```js
-import { colorScale } from '../components/color-scale.js';
-```
-
 Mexico’s Air Quality and Health Risk index uses a color scale comprised of five levels:
 
 ```js
-colorScale([
-  { label: 'Good', color: '#00E400', range: '0-50' },
-  { label: 'Acceptable', color: '#FFFF00', range: '51-100' },
-  { label: 'Bad', color: '#FF7E00', range: '101-1500' },
-  { label: 'Very bad', color: '#FF0000', range: '151-200' },
-  { label: 'Extremely bad', color: '#8F3F97', range: '201-300' },
-])
+colorScale(colorScaleReshape(data))
 ```
 
 In cases of stations under maintenance and/or without viable information, the associated color is reported as white.
@@ -193,7 +195,7 @@ NOM standards for each pollutant provide measurement methods for determining the
   <tr>
    <td>O<sub>3</sub>
    </td>
-   <td><a href="https://r.search.yahoo.com/_ylt=AwrOuXtcnJFmOzIGG31XNyoA;_ylu=Y29sbwNncTEEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1722028380/RO=10/RU=https%3a%2f%2fbiblioteca.semarnat.gob.mx%2fjanium%2fDocumentos%2fCiga%2fagenda%2fDOFsr%2fNOM_036.pdf/RK=2/RS=t02.ciH0WGZ8DbipYRVPq.xJ470-">NOM-036-SEMARNAT-1933</a>
+   <td><a href="https%3a%2f%2fbiblioteca.semarnat.gob.mx%2fjanium%2fDocumentos%2fCiga%2fagenda%2fDOFsr%2fNOM_036.pdf">NOM-036-SEMARNAT-1933</a>
    </td>
   </tr>
   <tr>
@@ -231,13 +233,6 @@ For calculating the 12-hour weighted moving average of PM<sub>2.5</sub> and PM<s
 \overline{C}=\frac{\sum_{i=1}^{N}C_iW^{i-1}}{\sum_{i=1}^{N}W^{i-1}}
 
 ```
-
-
-
-
-
-
-
 
 ```tex
 

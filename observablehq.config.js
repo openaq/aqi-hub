@@ -15,6 +15,7 @@ export default {
       pages: [
         {name: "Introduction", path: "/index"},
         {name: "Pollutants", path: "/pollutants"},
+        {name: "Reporting periods", path: "/reporting-periods"},
         {name: "Methods", path: "/methods"},
       ]
     },

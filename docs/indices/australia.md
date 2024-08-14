@@ -52,6 +52,8 @@ The pollutant thresholds by state as reported by their relevant government websi
 
 \* _Documented as parts per hundred million (pphm) in source material. Converted here to remain consistent with the more common ppm/ppb in the other tables_
 
+_Note_: Adapted from "About the air quality categories" (31 July 2023) https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories
+
 ### Northern Territory[^2]
 
 | Pollutant |Avg. period  | Good | Fair | Poor | Very poor | Extremely poor |
@@ -148,7 +150,7 @@ Carbon monoxide is based on a 8 hour moving average.
 
 [^*]: [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)
 
-[^1]: adapted from [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie)
+[^1]: 
 
 [^2]: adapted from [http://ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx)
 

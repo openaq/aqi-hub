@@ -8,6 +8,8 @@ An Air Quality Index (AQI), also known as an Air Pollution Index (API) or Pollut
 
 ## What is the AQI Hub?
 
+The AQI is an important tool in communicating air quality to the public, but does not tell the whole story of air pollution. We developed the AQI Hub to present all national and regional AQIs in one place, making them easier to find and compare.
+
 AQIs can vary greatly between countries. The chart below shows how different AQI for a 24 hour average concentration for PM<sub>2.5</sub> can vary between different national AQIs:
 
 ```js
@@ -30,7 +32,7 @@ Plot.plot({
   marginLeft: 150,
   width: width,
   height: 400,
-  x: {domain: [0,500], label: "PM<sub>2.5</sub> 24 hr. avg. µg/m3"},
+  x: {domain: [0,500], label: 'PM2.5 24 hr. avg. µg/m3'},
   y: {
     label: "National AQI",
     padding: 0
@@ -40,6 +42,8 @@ Plot.plot({
   ]
 })
 ```
+
+_Note_: Adapted from "Why we should have a universal air quality index?" (2024), <https://doi.org/10.1016/j.envint.2024.108698>. Accessed August 5, 2024.
 
 ### Read more
 
