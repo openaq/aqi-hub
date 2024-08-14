@@ -86,17 +86,17 @@ The Finnish Air Quality index for this station is poor as the highest sub-index 
 
 ## References
 
-Ilmanlaatu - Ilmatieteen laitos (n.d.) [https://www.ilmatieteenlaitos.fi/teematietoa-ilmanlaadusta](https://www.ilmatieteenlaitos.fi/teematietoa-ilmanlaadusta)
+“Air Quality.” Finnish Meteorological Institute, [en.ilmatieteenlaitos.fi/air-quality-group](https://en.ilmatieteenlaitos.fi/air-quality-group).  
 
-PROFILE: The Use of a Simple Air Quality Index in the Helsinki Area, Finland, K Hämekoski (1998)[https://pubmed.ncbi.nlm.nih.gov/9582388/](https://pubmed.ncbi.nlm.nih.gov/9582388/)
+“Air Quality Index.” 3 April 2019, [web.archive.org/web/20190403173005/https://en.ilmatieteenlaitos.fi/air-quality-index](http://web.archive.org/web/20190403173005/https://en.ilmatieteenlaitos.fi/air-quality-index). 
 
-[https://en.ilmatieteenlaitos.fi/air-quality-group](https://en.ilmatieteenlaitos.fi/air-quality-group)
+“Air Quality Index.” Finnish Meteorological Institute, [en.ilmatieteenlaitos.fi/air-quality-index](https://en.ilmatieteenlaitos.fi/air-quality-index). 
 
-[https://web.archive.org/web/20190403173005/https://en.ilmatieteenlaitos.fi/air-quality-index](https://web.archive.org/web/20190403173005/https://en.ilmatieteenlaitos.fi/air-quality-index)
+Hämekoski, K. “PROFILE: The Use of a Simple Air Quality Index in the Helsinki Area, Finland.” 22 July 1998, [doi.org/10.1007/s002679900124](https://doi.org/10.1007/s002679900124). 
 
-[https://www.hsy.fi/en/air-quality-and-climate/air-protection-and-health/what-is-the-air-quality-index/](https://www.hsy.fi/en/air-quality-and-climate/air-protection-and-health/what-is-the-air-quality-index/)
+“Ilmanlaatu - Ilmatieteen laitos.” Ilmatieteen laitos, [www.ilmatieteenlaitos.fi/teematietoa-ilmanlaadusta](https://www.ilmatieteenlaitos.fi/teematietoa-ilmanlaadusta). 
 
-[https://en.ilmatieteenlaitos.fi/air-quality-index](https://en.ilmatieteenlaitos.fi/air-quality-index)
+“What is the air quality index?” Helsinki Region Environmental Services HSY, [www.hsy.fi/en/air-quality-and-climate/air-protection-and-health/what-is-the-air-quality-index/](https://www.hsy.fi/en/air-quality-and-climate/air-protection-and-health/what-is-the-air-quality-index/). 
 
 
 [^1]: [https://web.archive.org/web/20190403173005/https://en.ilmatieteenlaitos.fi/air-quality-index](https://web.archive.org/web/20190403173005/https://en.ilmatieteenlaitos.fi/air-quality-index)

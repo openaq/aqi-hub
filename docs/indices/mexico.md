@@ -1,6 +1,6 @@
 # Mexico
 
-## Air Quality Index (AQI)
+## Índice AIRE Y SALUD
 
 ## Background
 
@@ -16,15 +16,15 @@ const breakpoints = await FileAttachment('../data/mexico/breakpoints.csv').text(
 const data = parseBreakpointsCsv(breakpoints);
 ```
 
-Mexico’s Air Quality and Health Risk index, Índice de Calidad del Aire y Riesgos a la Salud, accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. It utilizes hourly average concentrations, 8-hour moving average concentrations, and 12-hour moving average concentrations.
+Mexico’s Air Quality and Health Risk index, Índice de Calidad del Aire y Riesgos a la Salud or Índice AIRE Y SALUD, accounts for pollutant concentrations of PM2.5, PM10, CO, O3, SO2, and NO2. It utilizes hourly average concentrations, 8-hour moving average concentrations, and 12-hour moving average concentrations. 
 
-The Norma Oficial Mexicana, Official Mexican Standard, establishes the guidelines for obtaining Air Quality and Health Risk Index. This Official Mexican Standard not only unifies the air quality index among all cities and territories with pre-existing air quality indices, but also promotes the dissemination of those who did not yet provide such information. A single method of calculation and dissemination guidelines are established and expected to be applied by the state or municipal governments responsible for air quality monitoring.
+The Norma Oficial Mexicana, Official Mexican Standard, establishes the guidelines for obtaining Air Quality and Health Risk Index. This Official Mexican Standard not only unifies the air quality index among all cities and territories with pre-existing air quality indices, but also promotes the dissemination of those who did not yet provide such information [^1]. A single method of calculation and dissemination guidelines are established and expected to be applied by the state or municipal governments responsible for air quality monitoring [^1]. 
 
-The guidelines for calculating and communicating the Air Quality and Health Risks Index was approved by the National Consultative Committee for the Standardization of the Environment and Natural Resources on December 8, 2017 for publication. Previous to this, local regulations and index standards were developed, however they lacked official documentation. The Official Mexican Standard was confirmed as definitive by the National Consultative Committee for the Standardization of the Environment of Natural Resources on October 10, 2019.
+The guidelines for calculating and communicating the Índice AIRE Y SALUD was approved by the National Consultative Committee for the Standardization of the Environment and Natural Resources on December 8, 2017 for publication. Previous to this, local regulations and index standards were developed, however they lacked official documentation. The Official Mexican Standard was confirmed as definitive by the National Consultative Committee for the Standardization of the Environment of Natural Resources on October 10, 2019. 
 
 ## Color scale
 
-Mexico’s Air Quality and Health Risk index uses a color scale comprised of five levels:
+The Índice AIRE Y SALUD uses a color scale comprised of five levels:
 
 ```js
 colorScale(colorScaleReshape(data))
@@ -32,9 +32,43 @@ colorScale(colorScaleReshape(data))
 
 In cases of stations under maintenance and/or without viable information, the associated color is reported as white.
 
-## Methods[1]
+## Methods
 
-Mexico’s Air Quality and Health Risk index establishes the following breakpoint concentrations:
+PM<sub>2.5</sub> and PM<sub>10</sub> use a 12-hour weighted moving average concentration, using the NowCast calculation method established by the US-EPA. This is used as the established average 24-hour concentration prevents “timely information to the population about risks of exposure to high levels of contamination by this pollutant” [^2].  CO uses an 8-hour moving average concentration, NO<sub>2</sub> uses an average hourly concentration, and SO<sub>2</sub> uses a 24-hour moving average concentration as an approximation of the 24-average. O<sub>3</sub> is measured using both an 8-hour moving average concentration and average hourly concentration.
+
+Concentrations of PM<sub>2.5</sub> and PM<sub>10</sub> are rounded to the nearest integer using standard rounding conventions. Concentrations of O<sub>3</sub>, NO<sub>2</sub>, and SO<sub>2</sub> are rounded to three significant digits, while CO is rounded to two significant digits.
+
+The hourly average concentration is defined as the “arithmetic mean of the concentrations recorded in the 60-minute time interval delimited by minutes of 0 and 59 of the hour.” It is considered valid when calculated with at least ¾ of the concentrations recorded within the hour.
+
+For calculating the 8-hour moving average concentration, at least ¾  of the average hourly concentrations are required. Therefore for calculating O<sub>3</sub> and CO, a minimum of 6 hourly average concentration information is required. The 8-hour moving average is calculated by taking the average of the selected hour with the previous seven concentrations recorded in the prior. “For example, to estimate the eight-hour moving average of 1:00 p.m., the average of the hourly concentrations recorded for a minimum of six hours between 6:00 a.m. and 1:00 p.m. is calculated.”[^1]
+
+For calculating the 12-hour weighted moving average of PM<sub>2.5</sub> and PM<sub>10</sub> concentrations, the following equation is used:
+
+```tex
+
+\overline{C}=\frac{\sum_{i=1}^{N}C_iW^{i-1}}{\sum_{i=1}^{N}W^{i-1}}
+
+```
+
+```tex
+
+W = \begin{cases}
+
+  w,  \text{if } w > 0.5, \\
+
+  0.5, \text{if } w \leq 0.5 .
+
+\end{cases}
+
+w = 1 - \frac{C_{max}-C_{min}}{C_{max}}
+
+```
+
+In order for the 12-hour moving concentration to be valid, at least ⅔ of the most recent 12 prior hours of measurement are required for the calculation. If this condition is not met, then the calculation should not be carried out. Additionally, the value of i, representing the consecutive hour of measurement, should be maintained even when there are hours that lack measured concentrations. For example, if within the most recent three hours of measurement there is only data for hours 1 and 3, the weighting of the concentration of hour 1 should remain as C<sub>1</sub>W<sup>0</sup> and the weighing of hour 3 should remain C<sub>2</sub>W<sup>3</sup>, as opposed to C<sub>2</sub>W<sup>1</sup>. The consecutive hour of measurement term remains i=3 as opposed to i=2 [^1].
+
+For calculating the 24-hour moving average concentration, at least ¾ of the average hourly concentrations are required. Therefore for calculating SO<sub>2</sub>, a minimum of 18 hourly average concentration data is required. The 24-hour moving average is calculated by taking the average of the selected hour with the 23 concentrations recorded prior. “For example, to estimate the 24-hour moving average of 10:00 a.m., the average of the hourly concentrations recorded for a minimum of 18 hours between 10:00 a.m. and 9:00 a.m. of the previous day is calculated” [^1].
+
+A specific equation to relate pollutant concentration values to sub-index values was not able to be found. No specific values for each risk category are assigned as well. We assume that the final Índice AIRE Y SALUD simply takes the maximum sub-index value. After the pollutant concentration values have been calculated using the appropriate averaging periods, the sub-index values are determined using the breakpoint concentration table established by the Índice AIRE Y SALUD:
 
 <table>
   <tr>
@@ -218,42 +252,6 @@ NOM standards for each pollutant provide measurement methods for determining the
   </tr>
 </table>
 
-PM<sub>2.5</sub> and PM<sub>10</sub> use a 12-hour weighted moving average concentration, using the NowCast calculation method established by the US-EPA. This is used as the established average 24-hour concentration prevents “timely information to the population about risks of exposure to high levels of contamination by this pollutant” [2].  CO uses an 8-hour moving average concentration, NO<sub>2</sub> uses an average hourly concentration, and SO<sub>2</sub> uses a 24-hour moving average concentration as an approximation of the 24-average. O<sub>3</sub> is measured using both an 8-hour moving average concentration and average hourly concentration.
-
-Concentrations of PM<sub>2.5</sub> and PM<sub>10</sub> are rounded to the nearest integer using standard rounding conventions. Concentrations of O<sub>3</sub>, NO<sub>2</sub>, and SO<sub>2</sub> are rounded to three significant digits, while CO is rounded to two significant digits.
-
-The hourly average concentration is defined as the “arithmetic mean of the concentrations recorded in the 60-minute time interval delimited by minutes of 0 and 59 of the hour.” It is considered valid when calculated with at least ¾ of the concentrations recorded within the hour.
-
-For calculating the 8-hour moving average concentration, at least ¾  of the average hourly concentrations are required. Therefore for calculating O<sub>3</sub> and CO, a minimum of 6 hourly average concentration information is required. The 8-hour moving average is calculated by taking the average of the selected hour with the previous seven concentrations recorded in the prior. “For example, to estimate the eight-hour moving average of 1:00 p.m., the average of the hourly concentrations recorded for a minimum of six hours between 6:00 a.m. and 1:00 p.m. is calculated.”[1]
-
-For calculating the 12-hour weighted moving average of PM<sub>2.5</sub> and PM<sub>10</sub> concentrations, the following equation is used:
-
-```tex
-
-\overline{C}=\frac{\sum_{i=1}^{N}C_iW^{i-1}}{\sum_{i=1}^{N}W^{i-1}}
-
-```
-
-```tex
-
-W = \begin{cases}
-
-  w,  \text{if } w > 0.5, \\
-
-  0.5, \text{if } w \leq 0.5 .
-
-\end{cases}
-
-w = 1 - \frac{C_{max}-C_{min}}{C_{max}}
-
-```
-
-In order for the 12-hour moving concentration to be valid, at least ⅔ of the most recent 12 prior hours of measurement are required for the calculation. If this condition is not met, then the calculation should not be carried out. Additionally, the value of i, representing the consecutive hour of measurement, should be maintained even when there are hours that lack measured concentrations. For example, if within the most recent three hours of measurement there is only data for hours 1 and 3, the weighting of the concentration of hour 1 should remain as C<sub>1</sub>W<sup>0</sup> and the weighing of hour 3 should remain C<sub>2</sub>W<sup>3</sup>, as opposed to C<sub>2</sub>W<sup>1</sup>. The consecutive hour of measurement term remains i=3 as opposed to i=2 [1].
-
-For calculating the 8-hour moving average concentration, at least ¾ of the average hourly concentrations are required. Therefore for calculating SO<sub>2</sub>, a minimum of 18 hourly average concentration data is required. The 24-hour moving average is calculated by taking the average of the selected hour with the 23 concentrations recorded prior. “For example, to estimate the
-
-24-hour moving average of 10:00 a.m., the average of the hourly concentrations recorded for a minimum of 18 hours between 10:00 a.m. and 9:00 a.m. of the previous day is calculated” [1].
-
 ## Example
 
 12-hour weighted moving average calculation:
@@ -324,12 +322,15 @@ Suppose the following PM<sub>2.5</sub> monitoring data is reported in µg/m<sup>
 
 ## References
 
-[1] [https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf](https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf)
+[^1]: [https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf](https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf)
 
-[2] [https://www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf](https://www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf)
+[^2]: [https://www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf](https://www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf)
 
-Other useful links:
 
-[http://www.aire.cdmx.gob.mx/default.php?opc=%27ZaBhnmI=&dc=%27Zw==](http://www.aire.cdmx.gob.mx/default.php?opc=%27ZaBhnmI=&dc=%27Zw==)
+Duarte, Filiberto Perez. “Normas Oficiales Mexicanas (NOM) - Salud Ambiental.” 18 Aug.1994, Mexico City, [sinaica.inecc.gob.mx/pags/noms.php](https://sinaica.inecc.gob.mx/pags/noms.php). 
 
-[https://sinaica.inecc.gob.mx/pags/noms.php](https://sinaica.inecc.gob.mx/pags/noms.php)
+“Índice AIRE y SALUD: Características y aplicación.” 28 May 2020, [www.gob.mx/cms/uploads/attachment/file/554459/Indice_AIRE_y_SALUD_28mayo2020_vFinal.pdf](https://www.gob.mx/cms/uploads/attachment/file/554459/Indice_AIRE_y_SALUD_28mayo2020_vFinal.pdf). 
+
+“ÍNDICE AIRE Y SALUD: CARACTERÍSTICAS Y APLICACIÓN. DOCUMENTO INFORMATIVO.” May 2020, [www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf](https://www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf). 
+
+Segura, Julio César Jesús Trujillo. “SECRETARIA DE MEDIO AMBIENTE Y RECURSOS NATURALES.” 20 Nov. 2019, [sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf](https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf).

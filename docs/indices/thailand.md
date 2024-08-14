@@ -52,6 +52,6 @@ piecewiseLatexDoc('AQI')
 
 ## References
 
-[http://air4thai.pcd.go.th/webV3/\#/AQIInfo](http://air4thai.pcd.go.th/webV3/\#/AQIInfo)
+“ข้อมูลดัชนีคุณภาพอากาศ.” Air4Thai, [air4thai.pcd.go.th/webV3/\#/AQIInfo](http://air4thai.pcd.go.th/webV3/\#/AQIInfo)
 
-[https://www.pcd.go.th/wp-content/uploads/2023/07/pcdnew-2023-07-05\_08-52-06\_006507.pdf](https://www.pcd.go.th/wp-content/uploads/2023/07/pcdnew-2023-07-05\_08-52-06\_006507.pdf)
+“ประกาศกรมควบคุมมลพิษ. เรื่อง ดัชนีคุณภาพอากาศของประเทศไทย. พ.ศ. ๒๕๖๖.” ราชกิจจานุเบกษา, เลม ๑๔๐ ตอนพิเศษ ๑๕๗, 3 July 2023, [www.pcd.go.th/wp-content/uploads/2023/07/pcdnew-2023-07-05\_08-52-06\_006507.pdf](https://www.pcd.go.th/wp-content/uploads/2023/07/pcdnew-2023-07-05\_08-52-06\_006507.pdf)
