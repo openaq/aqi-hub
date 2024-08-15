@@ -8,7 +8,9 @@ An Air Quality Index (AQI), also known as an Air Pollution Index (API) or Pollut
 
 ## What is the AQI Hub?
 
-The AQI is an important tool in communicating air quality to the public, but does not tell the whole story of air pollution. We developed the AQI Hub to present all national and regional AQIs in one place, making them easier to find and compare.
+The AQI Hub is a comprehensive online resource dedicated to deepening the public's understanding of AQIs worldwide. It offers detailed descriptions of various national and regional AQI systems, enabling users to compare and contrast how different countries assess and communicate air quality. By exploring the methodologies, scales, and health implications associated with each AQI, the hub empowers individuals to better interpret air quality data, fostering informed decisions about health and environmental protection.
+
+The AQI Hub is crucial because air quality information can often be inconsistent and confusing, especially when comparing data from different regions. Many people are unaware of how AQIs are calculated or the differences between systems, which can lead to misunderstandings about the risks posed by air pollution. By centralizing this information, the AQI Hub solves the problem of fragmented and opaque air quality data, providing clarity and transparency. This makes it easier for users to assess their environment accurately, ensuring they can take appropriate actions to safeguard their health and well-being.
 
 AQIs can vary greatly between countries. The chart below shows how different AQI for a 24 hour average concentration for PM<sub>2.5</sub> can vary between different national AQIs:
 
