@@ -96,7 +96,7 @@ export const tableReshape = (data) => data.reduce((acc, { category, categoryLowe
 }, {});
 
 
-export const colorScaleReshape = (data) => data.map(o => {return { label: o.category, color: o.hex, range: `${o.categoryLower}${o.categoryUpper ? `-${o.categoryUpper}`: '+'}` }});
+export const colorScaleReshape = (data, range=true) => data.map(o => {return { label: o.category, color: o.hex, range: `${o.categoryLower}${o.categoryUpper ? `-${o.categoryUpper}`: range ? '+' : ''}` }});
 
 export function normalizePollutantLabel(value) {
     switch (value) {
