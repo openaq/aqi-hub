@@ -49,7 +49,7 @@ export default {
   header: '<h1 class="gradient-title">Air Quality Index Hub</h1>', // what to show in the header (HTML)
   footer: '<div>Developed by <a href="https://openaq.org">OpenAQ</a>. Are we missing an AQI? Did you spot a bug? <a href="https://github.com/openaq/aqi-hub">contribute on github</a></div><div>Content licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a></div>', // what to show in the footer (HTML)
   toc: true, // whether to show the table of contents
-  pager: false, // whether to show previous & next links in the footer
+  pager: true, // whether to show previous & next links in the footer
   style: "style.css",
   root: "docs", // path to the source root for preview
   output: "dist", // path to the output root for build
