@@ -41,7 +41,7 @@ The Nowcast value is a weighted average of the 12 most recent one hour average v
 Hourly AQI Calculation:  
 In calculating the hourly index, the weight value of each PM<sub>2.5</sub> and PM<sub>10</sub> is first calculated for reporting the Nowcast values. The weight value is equal to the minimum concentration over the maximum concentrations among the 12 hourly average values. The Nowcast value can only be calculated if at least 3 valid 1-hour average values are collected, otherwise it is reported as “no data.”
 
-${tex`c_1 , c_2 , \dots, c_12 = 12 average of 1-hour monitoring values`} (with ${tex`c_1`} being the current 1-hour averaging monitoring value and ${tex`c_12`} being the 1-hour monitoring value 12 hours ago)  
+${tex`c_1 , c_2 , \dots, c_{12} `}= Averages of 1-hour monitoring values (with ${tex`c_1`} being the current 1-hour averaging monitoring value and ${tex`c_{12}`} being the 1-hour monitoring value 12 hours ago)  
 
 The weight value, ${tex`w^*`}, is first determined using the following equation:
 
@@ -115,40 +115,6 @@ piecewiseLatexDoc('VNAQI')
 
 When the 8 hour average value of the day exceeds 400 µg/m3 for O<sub>3</sub>, the 8 hour averaging period AQI should not be used; instead the AQI should only be calculated using the maximum one hour average of the day.
 
-## Example
-
-Nowcast calculation:
-Suppose the following PM<sub>2.5</sub> monitoring data is reported:
-
-| 9am | 10am | 11am | 12pm | 1pm | 2pm | 3pm | 4pm | 5pm | 6pm | 7pm | 20:00 |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| 30.2 | 28.9 | 23.4 | 20.6 | 21.7 | 19.2 | 20.4 | 22.3 | 17.5 | 18.4 | 26.3 | 20.3 |
-
-1. The weighted value is calculated:  
-   w\* \= c mix / c max \= 17.5/30.2 \= 0.579 \> 0.5, thus w=w\*=0.579  
-
-2. Nowcast \= \[20.3(0.579)0\+ 26.3(0.579)1 \+ 18.4(0.579)2 \+ 17.4(0.579)3 \+ 22.3(0.579)4 \+ 20.4(0.579)5 \+ 19.2(0.579)6 \+ 21.7(0.579)7 \+ 20.6(0.579)8 \+ 23.4(0.579)9 \+ 28.9(0.579)10 \+ 30.2(0.579)11\] / \[ 0.5790 \+ 0.5791 \+ 0.5792 \+ 0.5793 \+ 0.5794 \+ 0.5795 \+ 0.5796 \+ 0.5797 \+ 0.5798 \+ 0.5799 \+ 0.57910 \+ 0.57911\] \= 21.4 µg/m3
-
-Hourly AQI value:
-
-| Pollutant | Average Concentration per One Hour | Sub-Index | Sub-Index Level |
-| :---- | :---- | :---- | :---- |
-| PM<sub>2.5</sub> | 20.74 µg/m3 | 42 | Good |
-| O<sub>3</sub>   | 140.56 µg/m3 | 121 | Unhealthy for Sensitive Groups |
-| NO<sub>2</sub> | 73.49 µg/m3 | 37 | Good |
-
-The hourly AQI value is 121.
-
-Daily AQI value:
-
-| Pollutant | Average Concentration per Period | Sub-Index | Sub-Index Level |
-| :---- | :---- | :---- | :---- |
-| PM<sub>2.5</sub> (Average 24 hours) | 20.74 µg/m3 | 42 | Good |
-| O<sub>3</sub>  (Average 8 hours of the day) | 140.56 µg/m3 | 121 | Unhealthy for Sensitive Groups |
-| O<sub>3</sub>  (Average of the maximum one hour of the day) | 95.62 µg/m3 | 60 | Moderate |
-| NO<sub>2</sub> (Average of the maximum one hour of the day) | 73.49 µg/m3 | 37 | Good |
-
-The daily AQI value is 121.
 
 ## References
 

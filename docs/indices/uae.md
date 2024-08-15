@@ -1,14 +1,14 @@
 # United Arab Emirates (UAE)
 
-## Air Quality Index (AQI)
+## Emirati Air Quality Index (EAQI)
 
 ## Background
 
-The UAE has an established Emirati Air Quality Index as _established_ by the United Arab Emirates Ministry of Climate Change and Environment as of 2023 [3]. The Emirati Air Quality Index incorporates the pollutants PM<sub>10</sub>, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> as controlled by the National Ambient Air Quality Standards (_as established by the UAE Cabinet Decree 12 of 2006  Regarding Regulation Concerning Protection of Air from Pollution, Annex 8_), as well as PM<sub>2.5</sub>.
+The UAE has an established Emirati Air Quality Index as _established_ by the United Arab Emirates Ministry of Climate Change and Environment as of 2023 [^3]. The Emirati Air Quality Index incorporates the pollutants PM<sub>10</sub>, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> as controlled by the National Ambient Air Quality Standards (_as established by the UAE Cabinet Decree 12 of 2006  Regarding Regulation Concerning Protection of Air from Pollution, Annex 8_), as well as PM<sub>2.5</sub>.
 
-The Emirati Air Quality Index holds data validation procedures regarding the averaging period for sub-index calculations. For 8 and 24 rolling averaging periods, there must be a minimum 75% coverage rate, equal to at least 6 and 18 valid hourly averages respectively. If there is a lack of sufficient valid data for calculations and all available hourly values are “below the standards'', the sub-index for the respective pollutant is reported as null [3]. If there is a lack of sufficient valid data and at least one of the values is “above the standards,” the maximum hourly value is used to estimate the sub-index [3].
+The Emirati Air Quality Index holds data validation procedures regarding the averaging period for sub-index calculations. For 8 and 24 rolling averaging periods, there must be a minimum 75% coverage rate, equal to at least 6 and 18 valid hourly averages respectively. If there is a lack of sufficient valid data for calculations and all available hourly values are “below the standards'', the sub-index for the respective pollutant is reported as null [^3]. If there is a lack of sufficient valid data and at least one of the values is “above the standards,” the maximum hourly value is used to estimate the sub-index [^3].
 
-Additionally, when the hourly concentration of pollutant exceeds the following values, the respective sub-index is reported as null [3]. _The reason behind this invalidation of exceeding concentration is not clarified, nor the reasoning behind the threshold exact values._
+Additionally, when the hourly concentration of pollutant exceeds the following values, the respective sub-index is reported as null [^3]. _The reason behind this invalidation of exceeding concentration is not clarified, nor the reasoning behind the threshold exact values._
 
 <table>
   <tr>
@@ -57,7 +57,7 @@ Additionally, when the hourly concentration of pollutant exceeds the following v
 
 The Emirati Air Quality index uses conversion factors for ppb to µg/m<sup>3</sup> at standard pressure and temperature: 1 atmosphere of pressure and 25 degrees Celsius. The unit notation of µg/Nm<sup>3</sup> is frequently used when referring to pollutant concentration, with the capital “N” indicating values assuming standard pressure and temperature.
 
-The UAE has established a National Air Quality Platform to provide real-time information of air quality as received by 31 air pollution monitoring stations across the UAE[1]. This platform uses an Air Quality Index platform that is able to forecast the air quality status for up to three days in advance. It is said to predict the concentration of dust and particulate matters within a diameter less than 2.5 microns[1].
+The UAE has established a National Air Quality Platform to provide real-time information of air quality as received by 31 air pollution monitoring stations across the UAE[^1]. This platform uses an Air Quality Index platform that is able to forecast the air quality status for up to three days in advance. It is said to predict the concentration of dust and particulate matters within a diameter less than 2.5 microns[^1].
 
 ## Color scale
 
@@ -263,7 +263,7 @@ mg/Nm<sup>3</sup>
   </tr>
 </table>
 
-The Emirati Air Quality Index is a composite index value calculated using the EPA AQI 2018 methodology [3] with slightly altered breakpoints.
+The Emirati Air Quality Index is a composite index value calculated using the EPA AQI 2018 methodology [^3] with slightly altered breakpoints.
 
 The following piecewise linear function is used to perform all sub-index calculations:
 
@@ -293,21 +293,21 @@ The UAE’s Air Quality Index has multiple sub-indexes, with both different aver
 
 For PM<sub>10</sub>, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> sub-index calculations, the concentrations are truncated to the nearest µg/Nm<sup>3</sup>. For CO and PM<sub>2.5</sub>, the concentrations are truncated to the nearest 0.1 mg/Nm3 and 0.1 µg/Nm<sup>3</sup>, respectively. For the composite Emirati Air Quality Index calculation, the final index value obtained is rounded to the nearest whole number.
 
-Breakpoints for each pollutant are based on the EPA guidance for the Air Quality Index of September 2018 (link to reference 5 on page 11 of [3] ) along with the National Ambient Air Quality Standards (link to reference as stated above, also in [3]).
+Breakpoints for each pollutant are based on the EPA guidance for the Air Quality Index of September 2018 (link to reference 5 on page 11 of [^3] ) along with the National Ambient Air Quality Standards (link to reference as stated above, also in [^3]).
 
-For all pollutants, the upper breakpoints in the “Moderate” category correspond to the National Ambient Air Quality Standards[3].
+For all pollutants, the upper breakpoints in the “Moderate” category correspond to the National Ambient Air Quality Standards[^3].
 
 For O<sub>3</sub>, the “good” category is set in accordance with the WHO Air Quality Guideline level[4 in doc] while the breakpoints in all other categories are set in accordance with the US-EPA guideline for Air Quality Index [5 from doc]. An 8 hour running averaging period is used as effects from Ozone exposure occur over several hours.
 
-For CO, all breakpoints are in accordance with the US-EPA guidance for the Air Quality Index. An 8 hour averaging period is used as it “provides the most suitable control to keep blood carboxyhemoglobin levels below 2.5% where health effects (including a safety margin) can be observed.”[3]
+For CO, all breakpoints are in accordance with the US-EPA guidance for the Air Quality Index. An 8 hour averaging period is used as it “provides the most suitable control to keep blood carboxyhemoglobin levels below 2.5% where health effects (including a safety margin) can be observed.”[^3]
 
-For SO<sub>2</sub>, breakpoints are set in accordance with the US-EPA guidance for the Air Quality Index for all categories except “Very unhealthy” and “Hazardous” categories, where the 24 hour averaging period breakpoints are used. This is due to the fact that the US-EPA does not define breakpoints for one hour rolling averages in these categories. A one hour averaging period is ideal for SO<sub>2</sub> measurements as “the effects of sulfur dioxide exposure occur very rapidly[3].”
+For SO<sub>2</sub>, breakpoints are set in accordance with the US-EPA guidance for the Air Quality Index for all categories except “Very unhealthy” and “Hazardous” categories, where the 24 hour averaging period breakpoints are used. This is due to the fact that the US-EPA does not define breakpoints for one hour rolling averages in these categories. A one hour averaging period is ideal for SO<sub>2</sub> measurements as “the effects of sulfur dioxide exposure occur very rapidly[^3].”
 
 For NO<sub>2</sub>, all breakpoints are set in accordance with US EPA guidance for the Air Quality Index. A 1 hour averaging period is used as “the effects on health in experimental studies on people with asthma were detectable within an hour of exposure.”
 
-For PM<sub>10</sub>, all breakpoints are set in accordance with US EPA guidance for the Air Quality Index. A 24 rolling averaging period is used as “evidence indicates that acute health effects occur after pollution episodes lasting at least 24 hours.[3]”
+For PM<sub>10</sub>, all breakpoints are set in accordance with US EPA guidance for the Air Quality Index. A 24 rolling averaging period is used as “evidence indicates that acute health effects occur after pollution episodes lasting at least 24 hours.[^3]”
 
-For PM<sub>2.5</sub>, the upper breakpoint in the ‘Moderate’ category corresponds to the proposed ambient standard by the UAE. The upper breakpoint in the ‘Good’ category corresponds to the WHO Interim Target 2 and the upper breakpoint in the ‘Unhealthy for sensitive groups’ category corresponds to the WHO Interim target 1. All other breakpoints were established according to the US-EPA guidance for the Air Quality Index.
+For PM<sub>2.5</sub>, the upper breakpoint in the ‘Moderate’ category corresponds to the proposed ambient standard by the UAE. The upper breakpoint in the ‘Good’ category corresponds to the WHO Interim Target 2 and the upper breakpoint in the ‘Unhealthy for sensitive groups’ category corresponds to the WHO Interim target 1 [^3]. All other breakpoints were established according to the US-EPA guidance for the Air Quality Index.
 
 ### Example
 
@@ -386,22 +386,18 @@ For PM<sub>2.5</sub>, the upper breakpoint in the ‘Moderate’ category corres
 
 The Emirati Air Quality Index is 122 and category ‘Unhealthy for sensitive groups,’ with Ozone being the primary pollutant.
 
-References
+## References
 
-[1] [Overview](https://u.ae/en/information-and-services/environment-and-energy/improving-air-quality)
+[^1]: [u.ae/en/information-and-services/environment-and-energy/improving-air-quality](https://u.ae/en/information-and-services/environment-and-energy/improving-air-quality).
+[^2]: [www.moccae.gov.ae/assets/91c95f18/uae-air-quality-index-manual.aspx](https://www.moccae.gov.ae/assets/91c95f18/uae-air-quality-index-manual.aspx)
+[^3]: [airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf)
 
-[2] [AQI Manual PDF](https://www.moccae.gov.ae/assets/91c95f18/uae-air-quality-index-manual.aspx)
+“Air Quality.”  United Arab Emirates Ministry of Climate Change and Environment, [www.moccae.gov.ae/en/knowledge-and-statistics/air-quality.aspx](https://www.moccae.gov.ae/en/knowledge-and-statistics/air-quality.aspx). 
 
-[3] [AQI Guideline PDF](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf)
+“Guideline for calculating the Emirati Air Quality Index (EAQI).” United Arab Emirates Ministry of Climate Change and Environment, 2023, [airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf). 
 
-Other Helpful Links:
+“Improving air quality.” 23 Jan. 2024, [u.ae/en/information-and-services/environment-and-energy/improving-air-quality](https://u.ae/en/information-and-services/environment-and-energy/improving-air-quality). 
 
-[https://www.moccae.gov.ae/en/knowledge-and-statistics/air-quality.aspx](https://www.moccae.gov.ae/en/knowledge-and-statistics/air-quality.aspx)
+“National Air Quality Platform.” National Center of Meteorology, [airquality.ncm.gov.ae/?lang=en](https://airquality.ncm.gov.ae/?lang=en). 
 
-[https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf)
-
-[https://airquality.ncm.gov.ae/?lang=en](https://airquality.ncm.gov.ae/?lang=en)
-
-_[https://www.moccae.gov.ae/assets/91c95f18/uae-air-quality-index-manual.aspx](https://www.moccae.gov.ae/assets/91c95f18/uae-air-quality-index-manual.aspx)_
-
-_[https://u.ae/en/information-and-services/environment-and-energy/improving-air-quality](https://u.ae/en/information-and-services/environment-and-energy/improving-air-quality)_
+“UAE AIR QUALITY INDEX MANUAL.” United Arab Emirates Ministry of Climate Change and Environment, [www.moccae.gov.ae/assets/91c95f18/uae-air-quality-index-manual.aspx](https://www.moccae.gov.ae/assets/91c95f18/uae-air-quality-index-manual.aspx). 
