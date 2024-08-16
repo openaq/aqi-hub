@@ -6,8 +6,7 @@
 
 Australia established national guidelines and standards for air quality in 1998.
 
-In April 2021 the National Environment Protection Council Ambient Air Quality (AAQ) National Environment Protection Measures (NEPM) adopted changes to reporting and NO<sub>2</sub> SO<sub>2</sub> and O<sub>3</sub>.
-https://www.nepc.gov.au/nepms/ambient-air-quality/variation-ambient-air-quality-nepm-ozone-nitrogen-dioxide-and-sulfur
+In April 2021 the National Environment Protection Council Ambient Air Quality (AAQ) National Environment Protection Measures (NEPM) adopted changes to reporting and NO<sub>2</sub> SO<sub>2</sub> and O<sub>3</sub>[^9]. 
 
 ## Color scale
 
@@ -123,7 +122,7 @@ _Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.) [epa.t
 | SO<sub>2</sub> ppb |  1 hr. | 0-100 | 100-200 | 200-300 | 300-600 | 600+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-60 | 60-120 |120-180 | 180-360 | 360+ |
 
-_Note_: Adapted from “How we calculate air quality categories” (13 Jan. 2021)
+_Note_: Adapted from “How we calculate air quality categories” (13 January 2021)
 [www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)[^6]
 
 
@@ -170,23 +169,27 @@ An exception to this convention is South Australia. In both South Australia and 
 
 “Real-time Air Quality Data for Tasmania.” Environment Protection Authority Tasmanian Government, [epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards).
 
+“Variation to Ambient Air Quality NEPM - ozone, nitrogen dioxide and sulfur dioxide.” Australian Government National Environment Protection Council, 2021, [www.nepc.gov.au/nepms/ambient-air-quality/variation-ambient-air-quality-nepm-ozone-nitrogen-dioxide-and-sulfur](https://www.nepc.gov.au/nepms/ambient-air-quality/variation-ambient-air-quality-nepm-ozone-nitrogen-dioxide-and-sulfur). 
+
 [^*]: [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)
 
-[^1]: adapted from [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie)
+[^1]: [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie)
 
 
-[^2]: adapted from [http://ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx)
+[^2]: [http://ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx)
 
-[^3]: adapted from [https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)
+[^3]: [https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)
 
-[^4]: adapted from [https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)
+[^4]: [https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)
 
-[^5]: adapted from [https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)
+[^5]: [https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)
 
 
 
-[^6]: adapted from [https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)
+[^6]: [https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)
 
-[^7]: adapted from [https://www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)
+[^7]: [https://www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)
 
 [^8]: [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality](https://www.health.tas.gov.au/health-topics/environmental-health/air-quality)
+
+[^9]: [www.nepc.gov.au/nepms/ambient-air-quality/variation-ambient-air-quality-nepm-ozone-nitrogen-dioxide-and-sulfur](https://www.nepc.gov.au/nepms/ambient-air-quality/variation-ambient-air-quality-nepm-ozone-nitrogen-dioxide-and-sulfur)
