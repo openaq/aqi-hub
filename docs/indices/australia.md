@@ -37,7 +37,7 @@ There is no documentation indicating that a minimum number of pollutant sub-inde
 
 The pollutant thresholds by state as reported by their relevant government website are:
 
-### New South Wales[^1]
+### New South Wales
 
 | Pollutant |Avg. period  | Good | Fair | Poor | Very poor | Extremely poor |
 |---|---|---|---|---|---|---|
@@ -52,9 +52,9 @@ The pollutant thresholds by state as reported by their relevant government websi
 
 \* _Documented as parts per hundred million (pphm) in source material. Converted here to remain consistent with the more common ppm/ppb in the other tables_
 
-_Note_: Adapted from "About the air quality categories" (31 July 2023) https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories
+_Note_: Adapted from "About the air quality categories" (31 July 2023) https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories [^1]
 
-### Northern Territory[^2]
+### Northern Territory
 
 | Pollutant |Avg. period  | Good | Fair | Poor | Very poor | Extremely poor |
 |---|---|---|---|---|---|---|
@@ -67,7 +67,9 @@ _Note_: Adapted from "About the air quality categories" (31 July 2023) https://w
 
 Carbon monoxide is based on a 8 hour moving average.
 
-### Queensland[^3]
+_Note_: Adapted from “About the air quality categories” (n.d.) [www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)[^2]
+
+### Queensland
 
 | Pollutant |Avg. period  | Good | Fair | Poor | Very poor | Extremely poor |
 |---|---|---|---|---|---|---|
@@ -79,7 +81,10 @@ Carbon monoxide is based on a 8 hour moving average.
 | SO<sub>2</sub> ppb |  1 hr. | 0-133 | 133-200 | 200-300 | 300-400 | 400+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
 
-### South Australia[^4]
+_Note_: Adapted from “Air quality categories” (21 September 2023) [www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)[^3]
+
+
+### South Australia
 
 | Pollutant |Avg. period  | Good | Fair | Poor | Very poor | Extremely poor |
 |---|---|---|---|---|---|---|
@@ -93,7 +98,9 @@ Carbon monoxide is based on a 8 hour moving average.
 
 \* _Documented as parts per million ppm in source material. Converted here to remain consistent with the more common ppb in the other tables_
 
-### Tasmania[^5]
+Note: Adapted from “Air quality monitoring” (14 June 2024) [www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)[^4]
+
+### Tasmania
 
 Tasmania references a separate 6 point scale and only provides break points for PM<sub>2.5</sub>.
 
@@ -101,7 +108,11 @@ Tasmania references a separate 6 point scale and only provides break points for 
 |---|---|---|---|---|---|---|---|
 | PM<sub>2.5</sub> µg/m<sup>3</sup>  | 1 hr. | 0-9 | 10-24 | 25-49 | 50-99 | 100-299 | 300+ |
 
-### Victoria[^6]
+_Note_: Color scale adapted from “Air Quality” (9 July 2024) [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality][^8]
+
+_Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.) [epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)[^5]
+
+### Victoria
 
 | Pollutant |Avg. period  | Good | Fair | Poor | Very poor | Extremely poor |
 |---|---|---|---|---|---|---|
@@ -112,7 +123,11 @@ Tasmania references a separate 6 point scale and only provides break points for 
 | SO<sub>2</sub> ppb |  1 hr. | 0-100 | 100-200 | 200-300 | 300-600 | 600+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-60 | 60-120 |120-180 | 180-360 | 360+ |
 
-### West Australia[^7]
+_Note_: Adapted from “How we calculate air quality categories” (13 Jan. 2021)
+[www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)[^6]
+
+
+### West Australia
 
 | Pollutant |Avg. period  | Good | Fair | Poor | Very poor | Extremely poor |
 |---|---|---|---|---|---|---|
@@ -123,34 +138,42 @@ Tasmania references a separate 6 point scale and only provides break points for 
 | SO<sub>2</sub> ppb |  1 hr. | 0-133 | 133-200 | 200-300 | 300-400 | 400+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
 
+_Note_: Adapted from “Air quality index” (n.d) [www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)[^7]
+
 Carbon monoxide is based on a 8 hour moving average.
+
+Note that in the recorded breakpoint concentrations for all regions except Queensland and Tasmania, there was overlap between the lower and upper limits of subsequent risk categories. To mitigate this, all pollutants were assumed to hold one significant figure for the upper limit based on reported data. We have assumed that the upper limit is not inclusive and is rounded/truncated to the first decimal place. This is inferred as the first column in the provided breakpoint table includes the non inclusive less than symbol.
+
+An exception to this convention is South Australia. In both South Australia and Queensland, breakpoints for O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> were converted from ppb to ppm for consistency with the other regions. For South Australia where there was overlap in breakpoint limits, PM<sub>2.5</sub>, PM<sub>10</sub>, and CO were held to one significant figure while O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> were rounded to the nearest integer to reflect that of Queensland. 
+
 
 ## References
 
-[National Clean Air Agreement](https://www.dcceew.gov.au/environment/protection/air-quality/national-clean-air-agreement
-)
+“About the air quality categories.” NSW Government, [www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories).
 
-[https://www.nepc.gov.au/sites/default/files/2022-09/methodology-air-quality-standards-australia-parta.pdf](https://www.nepc.gov.au/sites/default/files/2022-09/methodology-air-quality-standards-australia-parta.pdf)
+“Air quality.” Tasmanian Government, 9 Jul. 2024, [www.health.tas.gov.au/health-topics/environmental-health/air-quality](https://www.health.tas.gov.au/health-topics/environmental-health/air-quality).
 
-[https://www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)
+“Air quality categories.” Queensland Government, 21 Sept. 2023, [www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories).
 
-[https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)
+“Air quality categories on EPA AirWatch.” EPA Victoria State of Government Victoria, 16 Mar. 2021, [www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/air-quality-categories).
 
-[https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)
+“Air quality index.” Government of Western Australia Department of Water and Environmental Regulation, [www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index).
 
-[https://www.health.tas.gov.au/health-topics/environmental-health/air-quality](https://www.health.tas.gov.au/health-topics/environmental-health/air-quality)
+“AQC Summary Dynamic Table.” Northern Territory Environment Protection Authority, [ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx).
 
-[https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/air-quality-categories)
+“How we calculate air quality categories.”  EPA Victoria State of Government Victoria, 13 Jan. 2021,
+[www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories).
 
-[http://ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx)
+“Methodology for setting air quality standards in Australia. Part A.” National Environment Protection Council, Feb. 2011, [www.nepc.gov.au/sites/default/files/2022-09/methodology-air-quality-standards-australia-parta.pdf](https://www.nepc.gov.au/sites/default/files/2022-09/methodology-air-quality-standards-australia-parta.pdf).
 
-[https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)
+“National Clean Air Agreement.” Australian Government Department of Climate Change, Energy, the Environment and Water, [www.dcceew.gov.au/environment/protection/air-quality/national-clean-air-agreement](https://www.dcceew.gov.au/environment/protection/air-quality/national-clean-air-agreement).
 
-[https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)
+“Real-time Air Quality Data for Tasmania.” Environment Protection Authority Tasmanian Government, [epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards).
 
 [^*]: [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)
 
-[^1]: 
+[^1]: adapted from [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie)
+
 
 [^2]: adapted from [http://ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx)
 
@@ -159,7 +182,11 @@ Carbon monoxide is based on a 8 hour moving average.
 [^4]: adapted from [https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)
 
 [^5]: adapted from [https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)
-]
+
+
+
 [^6]: adapted from [https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)
 
 [^7]: adapted from [https://www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)
+
+[^8]: [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality](https://www.health.tas.gov.au/health-topics/environmental-health/air-quality)
