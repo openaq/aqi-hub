@@ -23,12 +23,12 @@ The air quality index used in Finland was developed by the now Helsinki Region E
 
 ## Color scale
 
-The Finnish Air Quality Index uses a five-level color scale [^2] [^3]:
+The Finnish Air Quality Index uses a five-level color scale:
 
 ```js
 colorScale(colorScaleReshape(data))
 ```
-
+_Note_: Adapted from “Air Quality Index” (n.d.), [https://en.ilmatieteenlaitos.fi/air-quality-index](https://en.ilmatieteenlaitos.fi/air-quality-index)[^2]. Accessed July 2, 2024. 
 ## Methods
 
 The Finnish Air Quality Index uses sub-indices assigned to each of the measured compounds. The highest sub-index determines the overall AQI of the station [^3]. The index is an hourly index based on hourly values, and updated every hour [^2].
@@ -41,7 +41,7 @@ Both information from the Finnish Meteorological Institute [^2] and HSY [^3] hav
 {AQI} = {Max}({I}_{PM_{10}},{I}_{PM_{2.5}},{I}_{SO_{2}},{I}_{O_{3}},{I}_{CO},{I}_{TRS})  
 ```  
 
-The following breakpoint concentrations are reported by the Finnish Meteorological Institute [^2], without CO guidelines. Breakpoint upper and lower limits, as well as rounding conventions, are not specified.
+The following breakpoint concentrations are reported by the Finnish Meteorological Institute, without CO guidelines. Breakpoint upper and lower limits, as well as rounding conventions, are not specified.
 
 |  | Good | Satisfactory | Fair | Poor | Very Poor |
 | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -53,7 +53,9 @@ The following breakpoint concentrations are reported by the Finnish Meteorologic
 | BC µg/m3 | 0-1 | 1-3 | 3-7 | 7-12 | 12+ |
 | TRS µg/m3 | 0-5 | 5-10 | 10-20 | 20-50 | 50+ |
 
-The following pollutant breakpoint concentrations are reported by HSY [^3], and include CO guidelines.
+_Note_: Adapted from “Air Quality Index” (n.d.), [https://en.ilmatieteenlaitos.fi/air-quality-index](https://en.ilmatieteenlaitos.fi/air-quality-index)[^2]. Accessed July 2, 2024. 
+
+The following pollutant breakpoint concentrations are reported by HSY, and include CO guidelines.
 
 |  | Good | Satisfactory | Fair | Poor | Very Poor |
 | :---- | :---- | :---- | :---- | :---- | :---- |
@@ -65,6 +67,8 @@ The following pollutant breakpoint concentrations are reported by HSY [^3], and 
 | NO<sub>2</sub> µg/m3 | 0-40 | 41-70 | 71-150 | 151-200 | 201+ |
 | TRS µg/m3 | 0-5 | 6-10 | 11-20 | 21-50 | 51+ |
 
+_Note_: Adapted from “What is the air quality index?” (n.d.), [https://www.hsy.fi/en/air-quality-and-climate/air-protection-and-health/what-is-the-air-quality-index/](https://www.hsy.fi/en/air-quality-and-climate/air-protection-and-health/what-is-the-air-quality-index/)[^3]. Accessed July 11, 2024. 
+
 HSY additionally includes a separate table for breakpoint concentrations of BC, lung-deposited surface area (LDSA), and particle number concentration (PNC) as those concentrations are not included in the health-based air quality index developed by HSY and THL. Breakpoint upper and lower limits, and rounding conventions, are not specified.
 
 |  | Good | Satisfactory | Fair | Poor | Very Poor |
@@ -73,16 +77,7 @@ HSY additionally includes a separate table for breakpoint concentrations of BC, 
 | LDSA µm2 / cm3 | 0-20 | 20-40 | 40-80 | 80-120 | 120+ |
 | PNC 103 / cm3 | 0-15 | 16-30 | 31-60 | 61-100 | 101+ |
 
-## Example
-
-Suppose the following pollutant concentrations are reported at a certain station in Helsinki:
-
-| Pollutant | PM<sub>2.5</sub> µg/m3 | PM<sub>10</sub> µg/m3 | CO mg/m3 | O<sub>3</sub> µg/m3 | SO<sub>2</sub> µg/m3 | NO<sub>2</sub> µg/m3 | TRS µg/m3 |
-| :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| Concentration | 11 | 18 | 19 | 147 | 24 | 36 | 15 |
-| Sub-index | Satisfactory | Good | Fair | Poor | Satisfactory | Good | Fair |
-
-The Finnish Air Quality index for this station is poor as the highest sub-index is of O<sub>3</sub>.
+_Note_: Adapted from “What is the air quality index?” (n.d.), [https://www.hsy.fi/en/air-quality-and-climate/air-protection-and-health/what-is-the-air-quality-index/](https://www.hsy.fi/en/air-quality-and-climate/air-protection-and-health/what-is-the-air-quality-index/)[^3]. Accessed July 11, 2024. 
 
 ## References
 

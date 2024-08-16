@@ -51,7 +51,7 @@ The pollutant thresholds by state as reported by their relevant government websi
 
 \* _Documented as parts per hundred million (pphm) in source material. Converted here to remain consistent with the more common ppm/ppb in the other tables_
 
-_Note_: Adapted from "About the air quality categories" (31 July 2023) https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories [^1]
+_Note_: Adapted from "About the air quality categories" (31 July 2023) https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories [^1]. Accessed August 16, 2024. 
 
 ### Northern Territory
 
@@ -66,7 +66,7 @@ _Note_: Adapted from "About the air quality categories" (31 July 2023) https://w
 
 Carbon monoxide is based on a 8 hour moving average.
 
-_Note_: Adapted from “About the air quality categories” (n.d.) [www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)[^2]
+_Note_: Adapted from “About the air quality categories” (n.d.) [www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)[^2]. Accessed August 16, 2024. 
 
 ### Queensland
 
@@ -80,7 +80,7 @@ _Note_: Adapted from “About the air quality categories” (n.d.) [www.environm
 | SO<sub>2</sub> ppb |  1 hr. | 0-133 | 133-200 | 200-300 | 300-400 | 400+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
 
-_Note_: Adapted from “Air quality categories” (21 September 2023) [www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)[^3]
+_Note_: Adapted from “Air quality categories” (21 September 2023) [www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)[^3]. Accessed August 16, 2024. 
 
 
 ### South Australia
@@ -97,7 +97,7 @@ _Note_: Adapted from “Air quality categories” (21 September 2023) [www.qld.g
 
 \* _Documented as parts per million ppm in source material. Converted here to remain consistent with the more common ppb in the other tables_
 
-Note: Adapted from “Air quality monitoring” (14 June 2024) [www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)[^4]
+_Note_: Adapted from “Air quality monitoring” (14 June 2024) [www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)[^4]. Accessed August 16, 2024. 
 
 ### Tasmania
 
@@ -107,9 +107,9 @@ Tasmania references a separate 6 point scale and only provides break points for 
 |---|---|---|---|---|---|---|---|
 | PM<sub>2.5</sub> µg/m<sup>3</sup>  | 1 hr. | 0-9 | 10-24 | 25-49 | 50-99 | 100-299 | 300+ |
 
-_Note_: Color scale adapted from “Air Quality” (9 July 2024) [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality][^8]
+_Note_: Color scale adapted from “Air Quality” (9 July 2024) [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality][^8]. Accessed August 16, 2024. 
 
-_Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.) [epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)[^5]
+_Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.) [epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)[^5]. Accessed August 16, 2024. 
 
 ### Victoria
 
@@ -123,7 +123,7 @@ _Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.) [epa.t
 | NO<sub>2</sub> ppb |  1 hr. | 0-60 | 60-120 |120-180 | 180-360 | 360+ |
 
 _Note_: Adapted from “How we calculate air quality categories” (13 January 2021)
-[www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)[^6]
+[www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)[^6]. Accessed August 16, 2024. 
 
 
 ### West Australia
@@ -137,7 +137,7 @@ _Note_: Adapted from “How we calculate air quality categories” (13 January 2
 | SO<sub>2</sub> ppb |  1 hr. | 0-133 | 133-200 | 200-300 | 300-400 | 400+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
 
-_Note_: Adapted from “Air quality index” (n.d) [www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)[^7]
+_Note_: Adapted from “Air quality index” (n.d) [www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)[^7]. Accessed August 16, 2024. 
 
 Carbon monoxide is based on a 8 hour moving average.
 

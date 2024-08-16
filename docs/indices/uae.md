@@ -78,6 +78,7 @@ colorScale([
 
 ])
 ```
+_Note_: Adapted from “Guideline for calculating the Emirati Air Quality Index (EAQI).” (2023), [airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf) [^3]. Accessed June 22, 2024. 
 
 
 ## Methods
@@ -262,6 +263,8 @@ mg/Nm<sup>3</sup>
    </td>
   </tr>
 </table>
+
+_Note_: Adapted from “Guideline for calculating the Emirati Air Quality Index (EAQI).” (2023), [airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf) [^3]. Accessed June 22, 2024. 
 
 The Emirati Air Quality Index is a composite index value calculated using the EPA AQI 2018 methodology [^3] with slightly altered breakpoints.
 

@@ -26,13 +26,14 @@ The Vietnam Air Quality Index consists of six categories:
 colorScale(colorScaleReshape(data))
 ```
 
-Note: Adapted from "Các màu sắc nào biểu thị cho chất lượng môi trường không khí ô nhiễm? Mức độ ô nhiễm không khí nghiêm trọng nhất được quy định bằng màu gì?" (n.d.), <https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb> [^2]. Accessed August 5, 2024.
+_Note_: Adapted from "Các màu sắc nào biểu thị cho chất lượng môi trường không khí ô nhiễm? Mức độ ô nhiễm không khí nghiêm trọng nhất được quy định bằng màu gì?" (n.d.), <https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb> [^2]. Accessed August 5, 2024.
 
-## Methods[^1]
+## Methods
 
 ```js
 breakpointsTable(data)
 ```
+_Note_: Adapted from "Quyết định 1459/QĐ-TCMT 2019 kỹ thuật tính toán và công bố chỉ số chất lượng không khí Việt Nam" (12 November 2019), [thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx](https://thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx)[^1]. Accessed 28 June, 2024. 
 
 It is not specified if sub-index values are rounded or truncated, however the final AQI value is truncated[^1]. For the breakpoint concentrations and for AQI calculations, we assume that all data values are rounded to the nearest integer.
 
@@ -119,6 +120,8 @@ When the 8 hour average value of the day exceeds 400 µg/m3 for O<sub>3</sub>, t
 ## References
 
 [^1]: [https://thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx](https://thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx)  
-[^2]:
-[https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb](https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb)  
-[https://thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx](https://thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx)
+[^2]:[https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb](https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb)  
+
+"Quyết định 1459/QĐ-TCMT 2019 kỹ thuật tính toán và công bố chỉ số chất lượng không khí Việt Nam." CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM, 12 Nov. 2019, Hanoi, [thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx](https://thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx). 
+
+"Các màu sắc nào biểu thị cho chất lượng môi trường không khí ô nhiễm? Mức độ ô nhiễm không khí nghiêm trọng nhất được quy định bằng màu gì?" Công ty THƯ VIỆN PHÁP LUẬT, [thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb](https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb). 
