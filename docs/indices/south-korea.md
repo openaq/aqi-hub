@@ -4,9 +4,9 @@
 
 ## Background
 
-South Korea uses a Comprehensive air-quality index (CAI) that accounts for six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, CO, SO<sub>2</sub> and NO<sub>2</sub>. Although not explicitly stated, the CAI is assumed to be reported as a daily index value from reported data in the AIRKOREA Current Air Quality map [^3].
+South Korea uses a Comprehensive Air-quality Index (CAI) that accounts for six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, CO, SO<sub>2</sub> and NO<sub>2</sub>. Although not explicitly stated, the CAI is assumed to be reported as a daily index value from reported data in the AIRKOREA Current Air Quality map [^3].
 
-AIRKOREA provides air pollution information on their website since December 2005 [^4]. However, the Korean Ministry of Environment has released air quality levels of 16 stations nearby the World Cup Stadium on a real-time basis since April 2002 [^4].
+AIRKOREA has provided air pollution information on their website since December 2005 [^4]. And prior to that, the Korean Ministry of Environment began releasing air quality information from 16 stations near the World Cup Stadium on a real-time basis since April 2002 [^4].
 
 ## Color scale
 
@@ -97,7 +97,7 @@ C_{4} = \frac{( C_{ai} + C_{a(i-1)} + C_{a(i-2)} + C_{a(i-3)})}{4}
 
 ```
 
-If the concentration for the interval is less than the defined threshold M then the concentration interval remained unadjusted, if not an adjusted value is used.
+If the concentration for the interval is less than the defined threshold M then the concentration interval remains unadjusted; if not an adjusted value is used.
 
 ```tex
 
@@ -115,7 +115,7 @@ C_i ＜ M \Rightarrow C_{ai} = C_i
 
 ```
 
-If the concentration at interval i is greater than or equal to the defined threshold value M
+If the concentration at interval i is greater than or equal to the defined threshold value
 M, and the ratio of the concentration at interval i to the concentration at interval 12 is either less than 0.9 or greater than 1.7, then the adjusted concentration at interval i is equal to the concentration at interval i.
 
 ```tex
@@ -125,7 +125,7 @@ Ci \geq M, \frac{C_i}{C_{12}} ＜ 0.9~or~\frac{C_i}{C_{12}} ＞ 1.7 \Rightarrow 
 ```
 
 If the concentration at interval i is greater than or equal to the defined threshold value
-M, and the ratio of the concentration at interval i to the concentration at interval 12 is between 0.9 and 1.7 (inclusive), then the adjusted concentration at intervali is 75% of the concentration at interval i.
+M, and the ratio of the concentration at interval i to the concentration at interval 12 is between 0.9 and 1.7 (inclusive), then the adjusted concentration at interval i is 75% of the concentration at interval i.
 
 ```tex
 
@@ -135,7 +135,7 @@ Ci \geq M, \frac{0.9 \leq C_{i}}{C_{12} \leq 1.7} \Rightarrow C_{ai} =0.75 \time
 
 There are no restrictions included for the minimum number of pollutants needed for a valid calculation. There is also no provided information on rounding or truncating conventions.
 
-AIRKOREA does provide information on how the CAI is adjusted if more than two pollutants exceed the ‘bad’ category [^2]. If one pollutant exceeds, its value becomes the CAI. If two or more pollutants are exceeding, the pollutant with the maximum value is described as the responsible pollutant and 50 is added to the maximum value to become the CAI [^1]. If three pollutants are exceeding, the pollutant with the maximum value is described as the responsible pollutant, and 75 is added to the maximum value to become the CAI [^1].
+AIRKOREA provides information on how the CAI is adjusted if more than two pollutants exceed the ‘bad’ category [^2]. If one pollutant exceeds, its value becomes the CAI. If two or more pollutants are exceeding, the pollutant with the maximum value is described as the responsible pollutant and 50 is added to the maximum value to become the CAI [^1]. If three pollutants are exceeding, the pollutant with the maximum value is described as the responsible pollutant, and 75 is added to the maximum value to become the CAI [^1].
 
 ## References
 
