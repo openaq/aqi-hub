@@ -10,6 +10,7 @@ The NowCast algorithm, used for calculating real-time AQI values, exemplifies th
 
 Unlike fixed average methods, the NowCast algorithm dynamically adjusts the weights of pollutant concentrations based on the rate of change. For instance, if pollution levels are rising rapidly, the algorithm will give higher weights to the most recent data points. This approach captures sudden spikes in pollution that could pose immediate health risks, providing a more relevant AQI.
 
+
 ## Piecewise linear function
 
 A piecewise linear function is a type of function that is defined by multiple linear segments, each applying to a specific interval of the input variable. Essentially, it means the function is made up of straight-line sections that connect to form a continuous graph. An example of how a piecewise linear function appears when graphed based on the US EPA PM<sub>2.5</sub> concentration breakpoints:
@@ -38,7 +39,7 @@ This can be expressed as:
 \end{cases}
 ```
 
-Many AQIs use a piecewise linear function to translate from pollutants concentration averages into the final indcator value based on a pollutant specific breakpoints. A continuous piecewise linear function adjusts the air quality index smoothly as concentration values change, ensuring that each segment's linear slope reflects different rates of change in air quality based on specific concentration ranges. The most commonly used formula for AQIs across different countries is defined as:
+Many AQIs use a piecewise linear function to translate from pollutant concentration averages into the final indicator value based on a pollutant-specific breakpoint. A continuous piecewise linear function adjusts the AQI smoothly as concentration values change, ensuring that each segment's linear slope reflects different rates of change in air quality based on specific concentration ranges. The most commonly used formula for AQIs across different countries is defined as:
 
 ```js
 import {piecewiseLatexDoc} from './components/piecewise.js';
@@ -50,7 +51,7 @@ piecewiseLatexDoc('AQI')
 
 ```
 
-The variable slope of a piecewise linear function can be demonstrated with different country AQI sub-index values for PM<sub>2.5</sub> and their varying breakpoints. For the same PM<sub>2.5</sub> concentration value different AQIs change and interpolate across their respective range at different rates, due to the different slopes in the piecewise linear function. The chart below shows how the different slopes within a piecewise function change the rate of increase across different AQIs given the same input concentration. Drag the concentration slider to see the output sub-index values change.
+The variable slope of a piecewise linear function can be demonstrated with different country AQI sub-index values for PM<sub>2.5</sub> and their varying breakpoints. For the same PM<sub>2.5</sub> concentration value, different AQIs change and interpolate across their respective range at different rates due to the different slopes in the piecewise linear function. The chart below shows how the different slopes within a piecewise function change the rate of increase across different AQIs given the same input concentration. Drag the concentration slider to see the output sub-index values change. This dynamic chart shows large differences in how countries assess danger levels.
 
 ```js
 const concentration = view(Inputs.range([0, 500], {value: 42, step: 1, label: html`PM<sub>2.5</sub> 24 hr. mean concentration`}));

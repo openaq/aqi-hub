@@ -25,7 +25,7 @@ export default {
       pages: [
         {name: "Australia", path: "/indices/australia"},
         {name: "Canada", path: "/indices/canada"},
-        {name: "EU", path:"/indices/eu"},
+        {name: "European Union", path:"/indices/eu"},
         {name: "Finland", path:"/indices/finland"},
         {name: "Indonesia", path: "/indices/indonesia"},
         {name: "Kuwait", path: "/indices/kuwait"},
@@ -36,9 +36,9 @@ export default {
         {name: "South Korea", path: "/indices/south-korea"},
         {name: "Taiwan", path: "/indices/taiwan"},
         {name: "Thailand", path: "/indices/thailand"},
-        {name: "UAE", path: "/indices/uae"},
-        {name: "UK", path: "/indices/uk"},
-        {name: "US", path: "/indices/us"},
+        {name: "United Arab Emirates", path: "/indices/uae"},
+        {name: "United Kingdom", path: "/indices/uk"},
+        {name: "United States of America", path: "/indices/us"},
         {name: "Vietnam", path: "/indices/vietnam"},
       ]
     }
