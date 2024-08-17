@@ -8,7 +8,7 @@ The Malaysia Index Pencemar Udara (IPU), translated as Air Pollution Index (API)
 
 ## Color scale
 
-The Malaysia API scale ranges from 0-500 and uses five colors to represent different bands.
+The Malaysia API scale ranges from 0-500 and uses five colors to represent different bands:
 
 ```js
 
@@ -33,7 +33,7 @@ colorScale(colorScaleReshape(data))
 
 ## Method
 
-The API uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final API value is chosen from the highest sub-index value of all pollutants evaluated. There is no guidance on the requirements on the minimum number of pollutants to be included in the calculation. Specific guidance on rounding/truncation is also not included in the source material.
+The API uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final API value is chosen from the highest sub-index value of all pollutants evaluated. There is no guidance on the minimum number of pollutants to be included in the calculation. Specific guidance on rounding/truncation is also not included in the source material.
 
 API values are reported hourly from a rolling average of the pollutant defined period.
 
@@ -41,9 +41,9 @@ API values are reported hourly from a rolling average of the pollutant defined p
 breakpointsTable(data)
 ```
 
-The Malaysia Department of Environment site does not provide any specific requirements for temporal coverage, the minimum number of valid data points required within the averaging period, for 8 hour and 24 hour measurement periods.
+The Malaysia Department of Environment site does not provide specific requirements for temporal coverage, the minimum number of valid data points required within the averaging period, for 8-hour and 24-hour measurement periods.
 
-Using the breakpoint values in the table above, a piecewise linear function is used to convert the concentration values to API values. The function is defined as:
+Based on the breakpoint values in the table above, a piecewise linear function is used to convert the concentration values to API values. The function is defined as:
 
 ```js
 import {piecewiseLatexDoc} from '../components/piecewise.js';
