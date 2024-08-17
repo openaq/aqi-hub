@@ -17,9 +17,9 @@ const data = parseBreakpointsCsv(breakpoints);
 
 Taiwan’s Air Quality Index (AQI) accounts for PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. Taiwan reports a daily AQI along with a real-time AQI.
 
-The Ministry of Environment (MOENV) is responsible for air quality management and establishing and implementing AQIs. It also provides a map of AQI values across Taiwan for users.
+The Taiwan Ministry of Environment (MOENV) is responsible for air quality management and establishing and implementing AQIs. It also provides a map of AQI values across Taiwan.
 
-The newest AQI documentation was implemented in December 2016, with the first air pollution control fees levied in 1994 [A].
+The newest AQI documentation was implemented in December 2016[^A].
 
 ## Color scale
 
@@ -51,19 +51,19 @@ piecewiseLatexDoc('AQI')
 
 ### Daily AQI
 
-The reported daily AQI is the maximum sub-index value calculated for each pollutant of the day. The concentrations of each pollutant in a day are averaged over the specific period to determine sub-index values. The equation used for calculating sub-indices is not provided.
+The reported daily AQI is the maximum sub-index value calculated for each pollutant of the day. The concentrations of each pollutant in a day are averaged over the specific period to determine sub-index values. The equation used for calculating sub-indices is not provided in Taiwan's documentation.
 
-In general, an 8 hour averaging period for O<sub>3</sub> is used to report the AQI. However, there are a few areas in which using a 1 hour averaging period for O<sub>3</sub> is beneficial for further precaution. In these areas, a sub-index value may be calculated using a 1 hour averaging period in addition to the value calculated using the standard 8 hour averaging period. The maximum sub-index value is reported.
+In general, an 8-hour averaging period for O<sub>3</sub> is used to report the AQI. However, there are a few areas in which using a 1-hour averaging period for O<sub>3</sub> is deemed beneficial for further precaution. In these areas, a sub-index value may be calculated using a 1-hour averaging period in addition to the value calculated using the standard 8-hour averaging period. The maximum sub-index value is reported.
 
-A 1 hour averaging period for O<sub>3</sub> is used when AQI values are calculated to be 301 or higher, as opposed to using an 8 hour period. A 24 hour averaging period for SO<sub>2</sub> is used to calculate AQI values of 200 or greater, as opposed to a 1 hour period.
+A 1-hour averaging period for O<sub>3</sub> is used when AQI values are calculated to be 301 or higher, as opposed to using an 8-hour period. A 24-hour averaging period for SO<sub>2</sub> is used to calculate AQI values of 200 or greater, as opposed to a 1-hour period.
 
 ### Real-time AQI
 
 MOENV also reports real-time AQI values to issue early warnings to the public and offers data for hourly monitoring. The real-time concentration for each pollutant is calculated based on varying equations and compared to the breakpoint concentration table to determine the sub-index. The maximum sub-index is equal to the real-time AQI value and leading pollutant.
 
-For O<sub>3</sub> using an 8 hour averaging period, the real-time concentration is equal to the value of the last 8 hour moving average rounded to the nearest integer. For example, for an 8 hour average concentration published at 9 a.m., data from 1 a.m. to 8 a.m. was averaged.
+For O<sub>3</sub> using an 8-hour averaging period, the real-time concentration is equal to the value of the last 8-hour moving average rounded to the nearest integer. For example, for an 8-hour average concentration published at 09:00, data from 01:00 to 08:00 was averaged.
 
-For O<sub>3</sub> using a 1 hour averaging period, the real-time concentration is equal to the monitoring data at the time of reporting. A rounding convention is not specified.
+For O<sub>3</sub> using a 1-hour averaging period, the real-time concentration is equal to the monitoring data at the time of reporting. A rounding convention is not specified.
 
 For PM<sub>2.5</sub> and PM<sub>10</sub>, the real-time concentrations are calculated using the following equation:
 
@@ -81,13 +81,13 @@ C_{4} = \frac{\sum_{n=1}^{4} C_{n}}{4}
 SI = 0.5 \times C_{12} + 0.5 \times C_{4}
 ```
 
-6 out of the first 12 hour data entries and 2 out of the first 4 hour data entries are required for this equation to be valid. The moving average of PM<sub>2.5</sub> is rounded to one decimal place, while the moving average of PM<sub>10</sub> is rounded to the nearest integer. The rounding convention for the real-time concentration is not specified for either pollutant.
+6 out of the first 12-hour data entries and 2 out of the first 4-hour data entries are required for this equation to be valid. The moving average of PM<sub>2.5</sub> is rounded to one decimal place, while the moving average of PM<sub>10</sub> is rounded to the nearest integer. The rounding convention for the real-time concentration is not specified for either pollutant.
 
-For CO, the real-time concentration is calculated using   a moving average of the last 8 hours. A rounding convention is not specified.
+For CO, the real-time concentration is calculated using a moving average of the last 8 hours. A rounding convention is not specified.
 
-For SO<sub>2</sub> using a 24 hour averaging period, the real-time concentration is equal to the average concentration values in the last 24 hours. For example, for a 24 hour average concentration published at 9 a.m., data from 9 a.m. yesterday to 8 a.m. today was averaged. A rounding convention is not specified.
+For SO<sub>2</sub> using a 24-hour averaging period, the real-time concentration is equal to the average concentration values in the last 24 hours. For example, for a 24-hour average concentration published at 09:00, data from 09:00 yesterday to 08:00 today is averaged. A rounding convention is not specified.
 
-For SO<sub>2</sub> using a 1 hour averaging period, the real-time concentration is equal to the monitoring data at the time of reporting. A rounding convention is not specified.
+For SO<sub>2</sub> using a 1-hour averaging period, the real-time concentration is equal to the monitoring data at the time of reporting. A rounding convention is not specified.
 
 For NO<sub>2</sub>, the real-time concentration is equal to the monitoring data at the time of reporting. A rounding convention is not specified.
 
