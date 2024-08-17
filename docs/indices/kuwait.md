@@ -30,7 +30,7 @@ Note: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eM
 
 ## Methods
 
-The KAQI uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final KAQI value is chosen from the highest sub-index value of all pollutants evaluated. There is no guidance on the requirements on the minimum number of pollutants to be included in the calculation. Specific guidance on rounding/truncation is also not included in the source material.
+The KAQI uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final KAQI value is chosen from the highest sub-index value of all pollutants evaluated. There is no guidance on the minimum number of pollutants to be included in the calculation. Specific guidance on rounding/truncation is also not included in the source material.
 
 ```js
 breakpointsTable(data)
@@ -40,9 +40,9 @@ Note: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eM
 
 KAQI values are reported hourly from a rolling average of the pollutant defined period.
 
-The Environment Public Authority in Kuwait site does not provide any specific requirements for temporal coverage, the minimum number of valid data points required within the averaging period, for 8 hour and 24 hour measurement periods.
+The KEPA site does not provide specific requirements for temporal coverage, i.e. the minimum number of valid data points required within the averaging period, for 8-hour and 24-hour measurement periods.
 
-Using the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to KAQI values. The function is defined as:
+Based on the breakpoint values in the table above, a piecewise linear function is used to convert the concentration values to KAQI values. The function is defined as:
 
 ```js
 
@@ -56,13 +56,11 @@ piecewiseLatexDoc('KAQI')
 
 ```
 
-After all sub-indices for a station are computed the maximum sub-index value is taken as the final KAQI value for a given station.
+After all sub-indices for a station are computed, the maximum sub-index value is taken as the final KAQI value for a given station.
 
 ```tex  
 KAQI = {Max}(SI_{PM_{2.5}}, SI_{PM_{10}}, SI_{NO_{2}}, SI_{SO{2}}, SI_{O_{3}}, SI_{CO})
 ```
-
-## Example
 
 ## References
 
