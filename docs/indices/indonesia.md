@@ -4,7 +4,7 @@
 
 ## Background
 
-The Indeks Standar Pencemar Udara (ISPU), translated as Air Pollution Standard Index, is an air quality index developed and standardized by the Indonesia Ministry of Environment and Forestry. The ISPU covers 7 criteria pollutants, PM<sub>2.5</sub>,PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub> and Hydrocarbon. Its current form was codified in the Regulation of the Minister of Environment and Forestry Number 14 in 2020 as a replacement for a previous version from 1997. This change added Hydrocarbon and PM<sub>2.5</sub> as new criteria pollutants. 
+The Indeks Standar Pencemar Udara (ISPU), translated as Air Pollution Standard Index, is an air quality index developed and standardized by the Indonesia Ministry of Environment and Forestry. The ISPU covers 7 criteria pollutants, PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub> and Hydrocarbon. Its current form was codified in the Regulation of the Minister of Environment and Forestry Number 14 in 2020 as a replacement for a previous version from 1997. This change added Hydrocarbon and PM<sub>2.5</sub> as new criteria pollutants.
 
 ## Color scale
 
@@ -31,7 +31,7 @@ colorScale(colorScaleReshape(data))
 
 ## Methods
 
-All pollutant breakpoints are reported in µg/m3 and determined off 24 hour averaging periods. Each measured pollutant is converted to a ISPU value and then shared. Values appear to be rounded to either one decimal place depending on the pollutant and units, the source material does not provide specific guidance on whether this is rounding or truncation. Source documentation does not provide specific guidance on a sub-index to composite index method, but it appears from the reporting systems that when multiple pollutants are measured the ISPU value for each is reported and the maximum ISPU value is shown as the site ISPU value. 
+All pollutant breakpoints are reported in µg/m3 and determined off 24-hour averaging periods. Each measured pollutant is converted to a ISPU value and then shared. Values appear to be rounded to one decimal place depending on the pollutant and units; the source material does not provide specific guidance on whether this is rounding or truncation. Source documentation does not provide specific guidance on a sub-index to composite index method, but it appears from the reporting systems that when multiple pollutants are measured the ISPU value for each is reported and the maximum ISPU value is shown as the site ISPU value. 
 
 Pollutants use the following breakpoints for calculating ISPU:
 
@@ -40,9 +40,9 @@ Pollutants use the following breakpoints for calculating ISPU:
 breakpointsTable(data)
 ```
 
-Note: lower bounds of breakpoints have been inferred from source material. Explicit lower bound values are not listed; we have assumed in the case where whole numbers are used the lower bound is +1 from the previous bound and when a decimal point is used the next bound is +0.1.
+Note: lower bounds of breakpoints have been inferred from source material. Explicit lower bound values are not listed; we  assume in the case where whole numbers are used the lower bound is +1 from the previous bound and when a decimal point is used the next bound is +0.1.
 
-Using the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to ISPU values. The function is defined as:
+Based on the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to ISPU values. The function is defined as:
 
 
 ```js
