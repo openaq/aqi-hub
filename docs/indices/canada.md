@@ -6,9 +6,9 @@
 
 Canada’s AQHI accounts for three criteria pollutants: PM2.5, O3 and NO2. The AQHI is reported as a daily and forecast value for the next 48 hours.
 
-The AQHI was first developed and applied by the Healthy Environments and Consumer Safety Branch of Canada in 2008 [^1].
+The AQHI was first developed and applied by the Healthy Environments and Consumer Safety Branch of Canada in 2008 [^1] and was established to report on the health risk caused by pollutant mixing.
 
-Previous to the AQHI, Canada used the Air Quality Index (AQI). The AQI reported air quality based on specific pollutant levels and reported the maximum concentration as the value for that station. The AQHI was established to report on the health risk caused by pollutant mixing.
+Previous to the AQHI, Canada used the Air Quality Index (AQI). The AQI reported air quality based on specific pollutant levels and reported the maximum concentration as the value for that station.
 
 ## Color scale
 
@@ -39,7 +39,7 @@ Note: Adapted from “About the Air Quality Health Index” (April 2021), [https
 
 ## Methods
 
-Canada’s AQHI uses 3-hour averaging periods of PM2.5, O3, and NO2. A 3-hour averaging period was chosen as it provides more stability than a 1-hour averaging period [^1]. It is not specified if this 3-hour average is rolling. Data from at least 2 hours out of the 3-hour period is required for the AQHI calculation; if this requirement is not met, the 3-hour average is set to ‘missing’ [^1]. If more than 6 rolling 3-hour averages are missing, the daily 3-hour maximum was set to missing [^1]. Note that this procedure is described in a report outlining a recommendation for an improved AQHI [^1] and is confirmed by the Alberta government website to be the same procedure for calculating the national AQHI [^5].
+Canada’s AQHI uses 3-hour averaging periods of PM2.5, O3, and NO2. A 3-hour averaging period was chosen as it provides more stability than a 1-hour averaging period [^1]. It is not specified if this 3-hour average is rolling. Data from at least 2 hours out of the 3-hour period is required for the AQHI calculation; if this requirement is not met, the 3-hour average is set to ‘missing’ [^1]. If more than 6 rolling 3-hour averages are missing, the daily 3-hour maximum is set to missing [^1]. This procedure is described in a report outlining a recommendation for an improved AQHI [^1] and is confirmed by the Alberta government website to be the same procedure for calculating the national AQHI [^5].
 The 3-hour averaging periods are plugged into the AQHI formula, a simple linear combination [^1]:
 
 ```tex  
@@ -52,7 +52,7 @@ The slopes in this formula are estimations of exposure-response coefficients of 
 
 The ‘Low Risk’ category encompasses AQHI values from 1 to 3, ‘Moderate Risk’ from 4 to 6, ‘High Risk’ from 7 to 10, and ‘Very High’ for values greater than 10.
 
-The AQHI accounts for the cumulative effect of pollutant mixing, instead of simply basing the air quality on the greatest pollutant concentration. The AQHI is assumed to be an hourly value, as the observed AQHI in the British Columbia interactive map reports the ‘last hour’ value [^6].
+The AQHI accounts for the cumulative effect of pollutant mixing, instead of basing the air quality on the greatest pollutant concentration. The AQHI is assumed to be an hourly value, as the observed AQHI in the British Columbia interactive map reports the ‘last hour’ value [^6].
 
 Canada additionally has an Info-Smog program that provides air quality forecasting. Numerical models established by the Environment and Climate Change Canada are used to predict PM2.5 and O3 concentrations for the next several hours [^3]. A calculation method based on the AQHI formula is used to forecast the AQHI, however it only accounts for predicted concentrations of PM2.5 and O3. The air quality forecast is reported in three categories: good, fair, and poor. Two forecasts are issued daily: at 5 a.m. EST the forecast for today, tonight, and tomorrow is issued, and at 4 p.m. EST, the forecast for tonight and tomorrow is issued [^3]. Note that another government website states that the first AQHI forecast is issued at 6 a.m. and second at 5 p.m. local time [^4], however it is unclear which time is correct. Forecast amendments can be issued at any time if necessary to provide the most relevant information.
 
