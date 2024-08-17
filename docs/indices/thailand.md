@@ -13,7 +13,7 @@ const data = parseBreakpointsCsv(breakpoints);
 
 ## Background
 
-The Thailand air quality index (AQI) was developed by the Thailand Pollution Control Department (PCB). Six criteria pollutants, PM<sub>10</sub>, PM<sub>2.5</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> are covered in the methodology. The Thailand AQI reports a daily AQI value based on the reported pollutants.
+The Thailand air quality index (AQI) was developed by the Thailand Pollution Control Department (PCB). Six criteria pollutants, PM<sub>10</sub>, PM<sub>2.5</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>, are covered in the methodology. The Thailand AQI reports a daily AQI value based on the reported pollutants.
 
 ## Color scale
 
@@ -22,25 +22,26 @@ The Thailand AQI scale is composed of 6 value bands ranging from 0 to 201, with 
 ```js
 colorScale(colorScaleReshape(data))
 ```
-_Note_: Adapted from “ข้อมูลดัชนีคุณภาพอากาศ” (n.d.), [air4thai.pcd.go.th/webV3/\#/AQIInfo](http://air4thai.pcd.go.th/webV3/\#/AQIInfo)[^1]. Accessed July 18, 2024. 
+
+_Note_: Adapted from “ข้อมูลดัชนีคุณภาพอากาศ” (n.d.), [air4thai.pcd.go.th/webV3/\#/AQIInfo](http://air4thai.pcd.go.th/webV3/\#/AQIInfo)[^1]. Accessed July 18, 2024.
 
 ## Methods
 
-The Thailand AQI uses a sub-index method where each pollutant is calculated against pollutant specific breakpoints into a pollutant sub-index value. All pollutants are then compared and the largest sub-index value determines the full composite AQI value. There is no specific guidance provided on the minimum number of pollutants required to compute a full composite index.
+The Thailand AQI uses a sub-index method where each pollutant is calculated against pollutant-specific breakpoints into a pollutant sub-index value. All pollutants are then compared and the largest sub-index value determines the full composite AQI value. The PCB provides no specific guidance provided on the minimum number of pollutants required to compute a full composite index.
 
 Pollutant breakpoints are defined in the table below:
 
 ```js
 breakpointsTable(data)
 ```
-_Note_: Adapted from “ข้อมูลดัชนีคุณภาพอากาศ” (n.d.), [air4thai.pcd.go.th/webV3/\#/AQIInfo](http://air4thai.pcd.go.th/webV3/\#/AQIInfo)[^1]. Accessed July 18, 2024. 
 
+_Note_: Adapted from “ข้อมูลดัชนีคุณภาพอากาศ” (n.d.), [air4thai.pcd.go.th/webV3/\#/AQIInfo](http://air4thai.pcd.go.th/webV3/\#/AQIInfo)[^1]. Accessed July 18, 2024.
 
 <div class="note">  
 Pollutant concentration levels that exceed the minimum value of the highest index range, i.e. “Impact on health”, are automatically given an AQI of 201. This is not directly documented in the source material but is demonstrated in the interactive calculator. This solves an issue wherein the highest index range does not have ceiling values i.e. ${tex`I_j`} and ${tex`X_j`}. There is conflicting information in the source material.  
 </div>
 
-Using the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to AQI values. There is no specific guidance in the source material about rounding or truncating concentration values, but based on the table above values are either whole numbers or up to one decimal place of precision. The piecewise linear function is defined as:
+Using the breakpoint values in the table above, a [piecewise linear function](/methods#piecewise-linear-function) is used to convert the concentration values to AQI values. There is no specific guidance in the source material about rounding or truncating concentration values, but based on the table above, values are either whole numbers or up to one decimal place of precision. The piecewise linear function is defined as:
 
 ```js
 import {piecewiseLatexDoc} from '../components/piecewise.js';
