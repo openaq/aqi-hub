@@ -41,17 +41,6 @@ Pollutant values use the following break points to calculate the NAQI:
 breakpointsTable(data)
 ```
 
-## Example
-
-Tempbisa Station in Thembisa Township Gauteng Province  
-PM<sub>2.5</sub> \- 68 \-\> 2  
-PM<sub>10</sub> \- 117 \-\> 2  
-SO<sub>2</sub> \-1  \-\> 1  
-CO \-4 \-\> 1  
-NO<sub>2</sub> \- 182 \-\> 6
-
-The NAQI value for this station would be 6 or high/unhealthy, with NO<sub>2</sub> being the highest pollutant.
-
 ## References
 
 [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10625908](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10625908)
