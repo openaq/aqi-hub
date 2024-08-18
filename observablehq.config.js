@@ -24,8 +24,10 @@ export default {
       pages: [
         {name: "Australia", path: "/indices/australia"},
         {name: "Canada", path: "/indices/canada"},
+        {name: "China", path: "/indices/china"},
         {name: "European Union", path:"/indices/eu"},
         {name: "Finland", path:"/indices/finland"},
+        {name: "Hong Kong", path: "/indices/hong-kong"},
         {name: "India", path: "/indices/india"},
         {name: "Indonesia", path: "/indices/indonesia"},
         {name: "Kuwait", path: "/indices/kuwait"},
