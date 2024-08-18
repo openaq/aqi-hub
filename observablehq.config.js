@@ -26,6 +26,7 @@ export default {
         {name: "Canada", path: "/indices/canada"},
         {name: "European Union", path:"/indices/eu"},
         {name: "Finland", path:"/indices/finland"},
+        {name: "India", path: "/indices/india"},
         {name: "Indonesia", path: "/indices/indonesia"},
         {name: "Kuwait", path: "/indices/kuwait"},
         {name: "Macao", path: "/indices/macao"},
