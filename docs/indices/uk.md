@@ -6,7 +6,7 @@
 
 The United Kingdom’s Daily Air Quality Index (DAQI) accounts for five primary pollutants: PM2.5, PM10, O3, NO2 and SO2. The DAQI displays the air quality for the previous day. A forecast AQI also provides information on predicted pollutant levels for the next 5 days.
 
-The United Kingdom Department for Environment Food & Rural Affairs (DEFRA) has developed the Daily Air Quality Index (DAQI). Following a review, Defra and the Devolved Administrations replaced the older UK Air Quality Index with the Daily Air Quality Index (DAQI) in 2012 [^3].
+The United Kingdom Department for Environment Food & Rural Affairs (Defra) developed the Daily Air Quality Index (DAQI). Defra and the Devolved Administrations replaced the older UK Air Quality Index with the Daily Air Quality Index (DAQI) in 2012 [^3].
 
 ## Color scale
 
@@ -66,9 +66,9 @@ breakpointsTable(data, false)
 Note: Adapted from “Guide to UK Air Pollution Information  
 Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed August 12, 2024.
 
-The maximum sub-index is used as the overall DAQI for that station. It is reported as its respective category and corresponding color. All pollutant concentration values should be rounded to the nearest whole number integer value before applying it to the concentration breakpoints [^3]. For the 8-hour and daily mean concentration calculations, un-rounded hourly means should be used [^3].
+The maximum sub-index is used as the overall DAQI for that station. It is reported as its respective category and corresponding color. All pollutant concentration values are rounded to the nearest whole number integer value before applying it to the concentration breakpoints [^3]. For the 8-hour and daily mean concentration calculations, unrounded hourly means are used [^3].
 
-When calculating the hourly, 8-hour or daily mean concentration, at least a 75% coverage rate is required. For calculating the hourly mean, at least 3 15 minute mean concentrations are required. For calculating an 8-hour mean, at least 6 hourly mean concentration values are required. For calculating a daily mean, 18 hourly mean concentrations are required.
+When calculating the hourly, 8-hour or daily mean concentration, at least a 75% coverage rate is required. For calculating the hourly mean, at least 3 15-minute mean concentrations are required. For calculating an 8-hour mean, at least 6 hourly mean concentration values are required. For calculating a daily mean, 18 hourly mean concentrations are required.
 
 ## References
 

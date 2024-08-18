@@ -21,7 +21,6 @@ export default {
     },
     {
       name: "Indices",
-      open: true,
       pages: [
         {name: "Australia", path: "/indices/australia"},
         {name: "Canada", path: "/indices/canada"},
