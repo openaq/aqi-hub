@@ -2,7 +2,7 @@
 
 ## Air Quality Health Index (AQHI)
 
-## Summary
+## Background
 
 The Air Quality Health Index (AQHI) accounts for 4 criteria pollutants: Particulate Matter (PM), O3, NO2 and SO2. For PM, both PM2.5 and PM10 are considered, however only the PM that poses the higher health risk is used in the AQHI calculation. Hong Kong reports hourly and forecast AQHIs.
 

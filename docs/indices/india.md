@@ -31,7 +31,7 @@ colorScale(colorScaleReshape(data))
 
 Note: Adapted from “National Air Quality Index” (2014) [http://app.cpcbccr.com/ccr_docs/FINAL-REPORT_AQI_.pdf](http://app.cpcbccr.com/ccr_docs/FINAL-REPORT_AQI_.pdf) [^1]. Accessed August 16, 2024. 
 
-## Method
+## Methods
 
 India uses a sub-index method where the index value for each pollutant is calculated according to the following breakpoints:
 
@@ -69,7 +69,7 @@ Monitoring sites are then averaged weighted by the population of the 2km x 2km g
 
 Other specifics around the computation of the city AQI are outlined by the CPCB and are out of scope for this document.
 
-## Reference
+## References
 
 “About National Air Quality Index.” Central Pollution Control Board, [[cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==](https://cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==)](http://cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==](https://cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==)).
 

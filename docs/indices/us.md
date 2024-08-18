@@ -2,7 +2,7 @@
 
 ## Air Quality Index (AQI)
 
-## Overview
+## Background
 
 The United States of America (US) uses an Air Quality Index that accounts for PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, NO<sub>2</sub>, and SO<sub>2</sub>. The US reports a daily AQI as well as a NowCast and Forecast AQI.
 

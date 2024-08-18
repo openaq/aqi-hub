@@ -31,7 +31,7 @@ const data = parseBreakpointsCsv(breakpoints);
 colorScale(colorScaleReshape(data))
 ```
 
-## Method
+## Methods
 
 The API uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final API value is chosen from the highest sub-index value of all pollutants evaluated. There is no guidance on the minimum number of pollutants to be included in the calculation. Specific guidance on rounding/truncation is also not included in the source material.
 
@@ -58,9 +58,6 @@ After all sub-indices for a station are computed, the maximum sub-index value is
 ```tex  
 {API} = {Max}({I}_{PM_{10}},{I}_{PM_{2.5}},SI_{SO_{2}},{I}_{SO_{2}},{I}_{O_{3}},{I}_{CO})
 ```
-
-## Example
-
 
 ## References
 

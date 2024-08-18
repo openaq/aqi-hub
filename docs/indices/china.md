@@ -2,7 +2,7 @@
 
 ## Air Quality Index (AQI)
 
-## Summary
+## Background
 
 China’s Air Quality Index accounts for six primary pollutants: PM2.5, PM10, CO, O3, NO2 and SO2. A daily and real-time AQI is reported, along with a forecasting AQI.
 

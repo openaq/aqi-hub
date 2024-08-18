@@ -2,7 +2,7 @@
 
 ## Daily Air Quality Index (DAQI)
 
-## Overview
+## Background
 
 The United Kingdom’s Daily Air Quality Index (DAQI) accounts for five primary pollutants: PM2.5, PM10, O3, NO2 and SO2. The DAQI displays the air quality for the previous day. A forecast AQI also provides information on predicted pollutant levels for the next 5 days.
 

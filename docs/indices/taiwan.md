@@ -2,7 +2,7 @@
 
 ## Air Quality Index (AQI)
 
-## Summary
+## Background
 
 ```js
 
@@ -90,8 +90,6 @@ For SO<sub>2</sub> using a 24-hour averaging period, the real-time concentration
 For SO<sub>2</sub> using a 1-hour averaging period, the real-time concentration is equal to the monitoring data at the time of reporting. A rounding convention is not specified.
 
 For NO<sub>2</sub>, the real-time concentration is equal to the monitoring data at the time of reporting. A rounding convention is not specified.
-
-## Example
 
 ## References
 
