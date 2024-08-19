@@ -30,6 +30,7 @@ const data = parseBreakpointsCsv(breakpoints);
 ```js
 colorScale(colorScaleReshape(data))
 ```
+_Note_: Adapted from "PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX (API) CALCULATION" (n.d.), [https://apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf) [^1]. Accessed 27 July 2024. 
 
 ## Methods
 
@@ -40,6 +41,7 @@ API values are reported hourly from a rolling average of the pollutant defined p
 ```js
 breakpointsTable(data)
 ```
+_Note_: Adapted from "PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX (API) CALCULATION" (n.d.), [https://apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf) [^1]. Accessed 27 July 2024. 
 
 The Malaysia Department of Environment site does not provide specific requirements for temporal coverage, the minimum number of valid data points required within the averaging period, for 8-hour and 24-hour measurement periods.
 
@@ -61,5 +63,6 @@ After all sub-indices for a station are computed, the maximum sub-index value is
 
 ## References
 
-[https://apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf> 
-)  
+[^1]: [https://apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf)  
+
+"PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX (API)CALCULATION." Jabatan Alam Sekitar Kementerian Sumber Asli dan Kelestarian Alam, [apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf). 

@@ -35,7 +35,7 @@ colorScale([
     ])
 ```
 
-Note: Adapted from “About the Air Quality Health Index” (April 2021), [https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html](https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html)  [^1]. Accessed August 13, 2024.
+_Note_: Adapted from “About the Air Quality Health Index” (April 2021), [https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html](https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html)  [^1]. Accessed 13 August 2024.
 
 ## Methods
 
@@ -70,7 +70,18 @@ Canada additionally has an Info-Smog program that provides air quality forecasti
 
 [^6]: [https://www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html](https://www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html)
 
-Other references:
-[https://weather.gc.ca/airquality/pages/index_e.html](https://weather.gc.ca/airquality/pages/index_e.html)
+"About the Air Quality Health Index." Government of Canada, 28 Apr. 2021, [www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html](https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html). 
 
-[https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html](https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html)
+"Air Quality Health Index – Calculation." Government of Alberta, [www.alberta.ca/air-quality-health-index-calculation](https://www.alberta.ca/air-quality-health-index-calculation). 
+
+Chen, H., Copes, R. "Review of Air Quality Index and Air Quality Health Index." Public Health Ontario, 30 Jan. 2013, [www.publichealthontario.ca/-/media/documents/A/2013/air-quality-health-index.pdf](https://www.publichealthontario.ca/-/media/documents/A/2013/air-quality-health-index.pdf). 
+
+"Guide to Air Quality Health Index forecasts." Government of Canada, 28 April 2021, [www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html](https://www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html). 
+
+"How Info-Smog works." Government of Canada, 15 March 2024, [www.canada.ca/en/environment-climate-change/services/info-smog/how-it-works.html](https://www.canada.ca/en/environment-climate-change/services/info-smog/how-it-works.html). 
+
+"Latest air quality data map - Air Quality Health Index." Government of British Columbia, [www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html](https://www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html). 
+
+"Local Air Quality Health Index." Government of Canada, 19 Aug. 2024, [weather.gc.ca/airquality/pages/index_e.html](https://weather.gc.ca/airquality/pages/index_e.html). 
+
+Stieb, David M. et al. "A New Multipollutant, No-Threshold Air Quality Health IndexBased on Short-Term Associations Observed in Daily Time-Series Analyses." Journal of the Air & Waste Management Association, Mar. 2008, [www.tandfonline.com/doi/epdf/10.3155/1047-3289.58.3.435?needAccess=true](https://www.tandfonline.com/doi/epdf/10.3155/1047-3289.58.3.435?needAccess=true). 
