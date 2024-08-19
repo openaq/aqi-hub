@@ -27,28 +27,23 @@ const data = parseBreakpointsCsv(breakpoints);
 
 The composite index uses a four color color scale:
 
-```js
-colorScale(colorScaleReshape(data, false))
-```
+```js  
+colorScale([  
+  { label: 'Low', color: '#009900', range:'1-3'},  
+  { label: 'Moderate', color: '#ff9900', range: '4-6' },  
+  { label: 'High', color: '#ff0000', range: '7-9' },  
+  { label: 'Very High', color: '#990099', range: '10'},  
+])  
+```  
 
 _Note_: Adapted from “Daily Air Quality Index” (n.d.), [https://uk-air.defra.gov.uk/air-pollution/daqi](https://uk-air.defra.gov.uk/air-pollution/daqi)  [^4]. Accessed 12 August 2024.
 
 Sub-indexes have a separate, expanded color scale:
 
-```js  
-colorScale([  
-  { label: 'Low', color: '#9cfe9c' },  
-  { label: 'Low', color: '#30fe00'},  
-  { label: 'Low', color: '#30ce00' },  
-  { label: 'Moderate', color: '#fffe00' },  
-  { label: 'Moderate', color: '#fecf02'},  
-  { label: 'Moderate', color: '#fe9a01'},  
-  { label: 'High', color: '#ff6363' },  
-  { label: 'High', color: '#ff0000'},  
-  { label: 'High', color: '#990000' },  
-  { label: 'Very High', color: '#ce30fe'},  
-])  
-```  
+
+```js
+colorScale(colorScaleReshape(data, false))
+```
 
 _Note_: Adapted from “Guide to UK Air Pollution Information  
 Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed 12 August 2024.
