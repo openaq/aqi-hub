@@ -30,6 +30,7 @@ The NAQI scale ranges from 1-10 and uses five colors to represent different band
 ```js
 colorScale(colorScaleReshape(data))
 ```
+_Note_: Adapted from "Knowing the quality of the air you breathe and how it is reported" (n.d.), [https://saaqis.environment.gov.za/Pagesfiles/SAAQIS%20Air%20Quality%20Index%20for%20General%20Public-Summary.pdf](https://saaqis.environment.gov.za/Pagesfiles/SAAQIS%20Air%20Quality%20Index%20for%20General%20Public-Summary.pdf)[^1]. Accessed 13 July 2024. 
 
 ## Methods
 
@@ -40,15 +41,16 @@ Pollutant values use the following break points to calculate the NAQI:
 ```js
 breakpointsTable(data)
 ```
+_Note_: Adapted from "Knowing the quality of the air you breathe and how it is reported" (n.d.), [https://saaqis.environment.gov.za/Pagesfiles/SAAQIS%20Air%20Quality%20Index%20for%20General%20Public-Summary.pdf](https://saaqis.environment.gov.za/Pagesfiles/SAAQIS%20Air%20Quality%20Index%20for%20General%20Public-Summary.pdf)[^1]. Accessed 13 July 2024. 
 
 ## References
 
-[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10625908](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10625908)
 
-[https://www.ssph-journal.org/journals/international-journal-of-public-health/articles/10.3389/ijph.2023.1606349/full\#supplementary-material](https://www.ssph-journal.org/journals/international-journal-of-public-health/articles/10.3389/ijph.2023.1606349/full\#supplementary-material)
 
-[https://saaqis.environment.gov.za/Pagesfiles/SAAQIS%20Air%20Quality%20Index%20for%20General%20Public-Summary.pdf](https://saaqis.environment.gov.za/Pagesfiles/SAAQIS%20Air%20Quality%20Index%20for%20General%20Public-Summary.pdf)
+Adebayo-Ojo, Wichmaan, Arowosegbe, et al. "A New Global Air Quality Health Index Based on the WHO Air Quality Guideline Values With Application in Cape Town." Int J Public Health, 23 October 2023, [www.ncbi.nlm.nih.gov/pmc/articles/PMC10625908](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10625908).
 
-[https://doi.org/10.17159/2410-972X/2018/v28n1a1](https://doi.org/10.17159/2410-972X/2018/v28n1a1)
+[^1]: [https://saaqis.environment.gov.za/Pagesfiles/SAAQIS%20Air%20Quality%20Index%20for%20General%20Public-Summary.pdf](https://saaqis.environment.gov.za/Pagesfiles/SAAQIS%20Air%20Quality%20Index%20for%20General%20Public-Summary.pdf)
 
-[https://www.gov.za/sites/default/files/gcis\_document/201409/328161210.pdf](https://www.gov.za/sites/default/files/gcis\_document/201409/328161210.pdf)
+"Knowing the quality of the air you breathe and how it is reported." Environment, Forestry and Fisheries Republic of South Africa, [doi.org/10.17159/2410-972X/2018/v28n1a1](https://doi.org/10.17159/2410-972X/2018/v28n1a1).
+
+Sonjica, Buyelwa Patience. "NATIONAL ENVIRONMENTAL MANAGEMENT: AIR QUALITY ACT, 2004. ACT NO. 39 OF 2004." Government Gazette, 24 Dec. 2009, [www.gov.za/sites/default/files/gcis_document/201409/328161210.pdf](https://www.gov.za/sites/default/files/gcis_document/201409/328161210.pdf). 
