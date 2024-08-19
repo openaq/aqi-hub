@@ -24,7 +24,7 @@ const data = parseBreakpointsCsv(breakpoints);
 ```js
 colorScale(colorScaleReshape(data))
 ```
-
+_Note_: Adapted from "Introduction to the CAI" (n.d.), [https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166)[^1]. Accessed 26 July 2024. 
 
 The system also provides a set of pictograms for representing each level in the scale [^1]:
 
@@ -62,7 +62,7 @@ CAI values are calculated for each of the six pollutants and the maximum is used
 ```js
 breakpointsTable(data)
 ```
-
+_Note_: Adapted from "Introduction to the CAI" (n.d.), [https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166)[^1]. Accessed 26 July 2024. 
 
 ```js
 import {piecewiseLatexDoc} from '../components/piecewise.js';
@@ -146,3 +146,12 @@ AIRKOREA provides information on how the CAI is adjusted if more than two pollut
 [^3]: [https://www.airkorea.or.kr/eng/currentAirQuality?pMENU_NO=68](https://www.airkorea.or.kr/eng/currentAirQuality?pMENU_NO=68)
 
 [^4]: [https://www.airkorea.or.kr/eng/contents/contentView/?pMENU_NO=169&cntnts_no=21](https://www.airkorea.or.kr/eng/contents/contentView/?pMENU_NO=169&cntnts_no=21)
+
+
+"About AIRKOREA." Ministry of Environment, [www.airkorea.or.kr/eng/contents/contentView/?pMENU_NO=169&cntnts_no=21](https://www.airkorea.or.kr/eng/contents/contentView/?pMENU_NO=169&cntnts_no=21). 
+
+"Current Air Quality." Ministry of Environment, [www.airkorea.or.kr/eng/currentAirQuality?pMENU_NO=68](https://www.airkorea.or.kr/eng/currentAirQuality?pMENU_NO=68). 
+
+"Introduction to the CAI." Ministry of Environment, [www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166). 
+
+"통합대기환경지수."  한국환경공단, [airkorea.or.kr/web/khaiInfo?pMENU_NO=129](https://airkorea.or.kr/web/khaiInfo?pMENU_NO=129). 

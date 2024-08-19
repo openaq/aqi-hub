@@ -30,6 +30,7 @@ const data = parseBreakpointsCsv(breakpoints);
 ```js
 colorScale(colorScaleReshape(data))
 ```
+_Note_: Adapted from "Air Pollution - FAQs." National Environment Agency, [http://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs](https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs)[^2]. Accessed 20 July 2024. 
 
 ## Methods
 
@@ -38,6 +39,8 @@ The Singapore PSI differentiates between two different methods for evaluating he
 ```js
 breakpointsTable(data)
 ```
+_Note_: Adapted from "Computation of the Pollutant Standards Index (PSI)" (March 2014), 
+[https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-(psi).pdf](https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-(psi).pdf)[^1]. Accessed 26 July 2024. 
 
 Based on the breakpoint values in the table above, a [piecewise linear function](/methods#piecewise-linear-function) is used to convert the concentration values to PSI values. No specific guidance on rounding or truncating values before applying the concentrations to the linear function are in the source material. The function is defined as:
 
@@ -53,10 +56,12 @@ After computing all pollutant sub-index values, the maximum sub-index is chosen 
 
 ## References
 
-[https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-%28psi%29.pdf](https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-%28psi%29.pdf)
+"Air Pollution - FAQs." National Environment Agency, [www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs](https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs). 
 
-[https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-(psi).pdf](https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-(psi).pdf)
+"Computation of the Pollutant Standards Index (PSI)." National Environment Agency, Mar. 2014, [www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-%28psi%29.pdf](https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-%28psi%29.pdf). 
 
-[https://en.wikipedia.org/wiki/Southeast\_Asian\_haze](https://en.wikipedia.org/wiki/Southeast\_Asian\_haze)
+"Southeast Asian haze." Wikipedia, [en.wikipedia.org/wiki/Southeast_Asian_haze](https://en.wikipedia.org/wiki/Southeast_Asian_haze).
 
-[https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs](https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs)
+
+[^1]: [https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-(psi).pdf](https://www.haze.gov.sg/docs/default-source/faq/computation-of-the-pollutant-standards-index-(psi).pdf)
+[^2]: [http://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs](https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs)
