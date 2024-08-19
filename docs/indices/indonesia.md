@@ -28,6 +28,7 @@ const data = parseBreakpointsCsv(breakpoints);
 ```js
 colorScale(colorScaleReshape(data))
 ```
+_Note_: Adapted from "INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUTU UDARA AMBIEN DI INDONESIA" (24 Sept. 2020), [https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)[^1]. Accessed 19 July 2024. 
 
 ## Methods
 
@@ -39,8 +40,9 @@ Pollutants use the following breakpoints for calculating ISPU:
 ```js
 breakpointsTable(data)
 ```
+_Note_: Adapted from "INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUTU UDARA AMBIEN DI INDONESIA" (24 Sept. 2020), [https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)[^1]. Accessed 19 July 2024. 
 
-Note: lower bounds of breakpoints have been inferred from source material. Explicit lower bound values are not listed; we  assume in the case where whole numbers are used the lower bound is +1 from the previous bound and when a decimal point is used the next bound is +0.1.
+**Callout***Note: lower bounds of breakpoints have been inferred from source material. Explicit lower bound values are not listed; we  assume in the case where whole numbers are used the lower bound is +1 from the previous bound and when a decimal point is used the next bound is +0.1.
 
 Based on the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to ISPU values. The function is defined as:
 
@@ -54,28 +56,14 @@ piecewiseLatexDoc('ISPU')
 
 ```
 
-### Example
-
-Given measurement values for all pollutant such as: 
-
-| Pollutant  | Value |  | ISPU |
-| :---- | :---- | :---- | :---- |
-| PM<sub>2.5</sub>  | 152 µg/m3  | ${tex`\frac{300 - 201}{350 - 151} (152 - 151) + 201 `} | 201 |
-| PM<sub>10</sub>  | 32 µg/m3  | ${tex` \frac{50 - 0}{50 - 0} (32 - 0) + 0 `} | 32 |
-| CO  | 3200 µg/m3  | ${tex` \frac{50 - 0}{4000 - 0} (3200 - 0) + 0 `} | 40 |
-| O<sub>3</sub>   | 145 µg/m3  | ${tex` \frac{100 - 50}{235 - 121} (145 - 121) + 50 `} | 60 |
-| SO<sub>2</sub>  | 51 µg/m3  | ${tex` \frac{50 - 0}{52 - 0} (51 - 0) + 0 `} | 49 |
-| NO<sub>2</sub>  | 78 µg/m3  | ${tex`\frac{50 - 0}{80 - 0} (78 - 0) + 0 `} | 49 |
-| HC  | 12 µg/m3  | ${tex`\frac{50 - 0}{45 - 0} (12 - 0) + 0 `} | 13 |
-
-The overall site ISPU will be 201 or very unhealthy due to the prevailing level of PM<sub>2.5</sub>.
-
 ## References
 
-[https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)
+[^1]: [https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)
 
-[https://ppkl.menlhk.go.id/website/filebox/770/190930181350KEPMENH-45%20TAHUN%201997.pdf](https://ppkl.menlhk.go.id/website/filebox/770/190930181350KEPMENH-45%20TAHUN%201997.pdf)
+"INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUTU UDARA AMBIEN DI INDONESIA." Kementerian Lingkungan Hidup dan Kehutanan, 24 Sept. 2020, [ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia). 
 
-[https://peraturan.bpk.go.id/Details/163466/permen-lhk-no-14-tahun-2020](https://peraturan.bpk.go.id/Details/163466/permen-lhk-no-14-tahun-2020) 
+"Keputusan Menteri Negara Lingkungan Hidup No. 45 Tahun 1997. Tentang : Indeks Standar Pencemar Udara." 1997, [ppkl.menlhk.go.id/website/filebox/770/190930181350KEPMENH-45%20TAHUN%201997.pdf](https://ppkl.menlhk.go.id/website/filebox/770/190930181350KEPMENH-45%20TAHUN%201997.pdf). 
+
+"Peraturan Menteri Lingkungan Hidup Dan Kehutanan Nomor 14 Tahun 2020 tentang Indeks Standar Pencemar Udara." 2020, [peraturan.bpk.go.id/Details/163466/permen-lhk-no-14-tahun-2020](https://peraturan.bpk.go.id/Details/163466/permen-lhk-no-14-tahun-2020). 
 
 
