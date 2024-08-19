@@ -61,7 +61,7 @@ CAMS provides forecasts of pollutants up to 4 days in advance based on the regio
 
 ## References
 
-“Air Quality.” European Commission, [environment.ec.europa.eu/topics/air/air-quality\_en\#:\~:text=Background%20Since%20the%201980s%2C%20the%20EU%20has%20adopted,for%20most%20air%20pollutants%20over%20the%20past%20decade](https://environment.ec.europa.eu/topics/air/air-quality\_en\#:\~:text=Background%20Since%20the%201980s%2C%20the%20EU%20has%20adopted,for%20most%20air%20pollutants%20over%20the%20past%20decade).
+“Air Quality.” European Commission, [environment.ec.europa.eu/topics/air/air-quality_en](https://environment.ec.europa.eu/topics/air/air-quality_en).
 
 Baran, Paulina. “Guidelines for the demonstration and subtraction of exceedances attributable to natural sources.” European Commission, [circabc.europa.eu/ui/group/cd69a4b9-1a68-4d6c-9c48-77c0399f225d/library/dfbc1f99-f763-4a14-aff8-a8c597a65103/details](https://circabc.europa.eu/ui/group/cd69a4b9-1a68-4d6c-9c48-77c0399f225d/library/dfbc1f99-f763-4a14-aff8-a8c597a65103/details).
 
