@@ -25,7 +25,7 @@ NO<sub>2</sub>, O<sub>3</sub>, and SO<sub>2</sub> use hourly concentrations, whi
 Using the breakpoint concentration table below, a sub-index is determined for each pollutant with provided data. The overall European Air Quality Index for a station corresponds to the poorest sub-index of that station.
 
 (breakpoint table)
-_Note_: Adapted from European Air Quality Index," (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024. 
+_Note_: Adapted from European Air Quality Index" (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024. 
 
 Note: We have assumed a convention of rounding to one significant figure to avoid overlapping limit values within the breakpoint concentration table. This was used to determine the lower limit as the map released by the European Union to provide public information uses pollutant concentrations to one significant figure [^2]. 
 

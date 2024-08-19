@@ -19,7 +19,7 @@ Taiwan’s Air Quality Index (AQI) accounts for PM<sub>2.5</sub>, PM<sub>10</sub
 
 The Taiwan Ministry of Environment (MOENV) is responsible for air quality management and establishing and implementing AQIs. It also provides a map of AQI values across Taiwan.
 
-The newest AQI documentation was implemented in December 2016[^A].
+The newest AQI documentation was implemented in December 2016[^1].
 
 ## Color scale
 
@@ -28,8 +28,10 @@ Taiwan’s Air Quality Index is comprised of six categories:
 ```js
 colorScale(colorScaleReshape(data))
 ```
+_Note_: Adapted from "Air Quality Index" (n.d.), [https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx)[^1]. Accessed 24 July 2024. 
 
-Note that the Taiwan Air Quality Monitoring Network includes two categories within ‘Hazardous:’ 301-400 and 401-500. Each category has distinct breakpoints.
+
+The Taiwan Air Quality Monitoring Network includes two categories within ‘Hazardous:’ 301-400 and 401-500. Each category has distinct breakpoints.
 
 ## Methods
 
@@ -38,6 +40,8 @@ The following is the pollutant breakpoint concentration values provided by MOENV
 ```js
 breakpointsTable(data)
 ```
+_Note_: Adapted from "Air Quality Index" (n.d.), [https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx) [^1]. Accessed 24 July 2024. 
+
 
 The source material does not document specific sub-index calculation equations. However, through back-calculation of provided pollutant values on the MOENV Taiwan Air Quality Monitoring Network, it appears to follow the standard sub-index piecewise linear function:
 
@@ -59,9 +63,9 @@ A 1-hour averaging period for O<sub>3</sub> is used when AQI values are calculat
 
 ### Real-time AQI
 
-MOENV also reports real-time AQI values to issue early warnings to the public and offers data for hourly monitoring. The real-time concentration for each pollutant is calculated based on varying equations and compared to the breakpoint concentration table to determine the sub-index. The maximum sub-index is equal to the real-time AQI value and leading pollutant.
+MOENV also reports real-time AQI values to issue early warnings to the public and offers data for hourly monitoring [^1]. The real-time concentration for each pollutant is calculated based on varying equations and compared to the breakpoint concentration table to determine the sub-index. The maximum sub-index is equal to the real-time AQI value and leading pollutant.
 
-For O<sub>3</sub> using an 8-hour averaging period, the real-time concentration is equal to the value of the last 8-hour moving average rounded to the nearest integer. For example, for an 8-hour average concentration published at 09:00, data from 01:00 to 08:00 was averaged.
+For O<sub>3</sub> using an 8-hour averaging period, the real-time concentration is equal to the value of the last 8-hour moving average rounded to the nearest integer. For example, for an 8-hour average concentration published at 09:00, data from 01:00 to 08:00 was averaged [^1].
 
 For O<sub>3</sub> using a 1-hour averaging period, the real-time concentration is equal to the monitoring data at the time of reporting. A rounding convention is not specified.
 
@@ -93,5 +97,6 @@ For NO<sub>2</sub>, the real-time concentration is equal to the monitoring data 
 
 ## References
 
-[1]<https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx>
-[2]
+[^1]:[https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx)
+
+"Air Quality Index" Taiwan Air Quality Monitoring Network, [airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx).

@@ -26,7 +26,7 @@ colorScale(colorScaleReshape(data))
 
 ```
 
-Note: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eMISKAirQuality/#/KAQI> [^2]. Accessed August 5, 2024.
+_Note_: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eMISKAirQuality/#/KAQI> [^2]. Accessed August 5, 2024.
 
 ## Methods
 
@@ -36,7 +36,7 @@ The KAQI uses a sub-index method, wherein an index value is calculated for each 
 breakpointsTable(data)
 ```
 
-Note: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eMISKAirQuality/#/KAQI> [^2]. Accessed August 5, 2024.
+_Note_: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eMISKAirQuality/#/KAQI> [^2]. Accessed August 5, 2024.
 
 KAQI values are reported hourly from a rolling average of the pollutant defined period.
 
@@ -64,6 +64,8 @@ KAQI = {Max}(SI_{PM_{2.5}}, SI_{PM_{10}}, SI_{NO_{2}}, SI_{SO{2}}, SI_{O_{3}}, S
 
 ## References
 
-[^1]: [https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf](https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf)
+[^1]: [https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf](https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf). 
 
 [^2]: [https://enterprise.emisk.org/eMISKAirQuality/\#/KAQI](https://enterprise.emisk.org/eMISKAirQuality/\#/KAQI)
+
+"What is KAQI?"الهيئة العامة للبيئة, [epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf](https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf). 
