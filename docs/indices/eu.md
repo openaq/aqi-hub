@@ -16,11 +16,18 @@ Note that the AQI map provided by the European Environment Agency depicts the ai
 
 The European Air Quality Index is comprised of six categories:
 
+_Note_: Adapted from “European Air Quality Index," (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024. 
+
 ## Methods
 
 NO<sub>2</sub>, O<sub>3</sub>, and SO<sub>2</sub> use hourly concentrations, while PM<sub>2.5</sub> and PM<sub>10</sub> use 24-hour running means for the previous 24 hours when calculating the European Air Quality Index. A 24-hour running mean is calculated if there is corresponding data for at least 18 hours out of the previous 24. There are no rounding conventions stated for concentration or sub-index values.
 
-Using the breakpoint concentration table above, a sub-index is determined for each pollutant with provided data. The overall European Air Quality Index for a station corresponds to the poorest sub-index of that station.
+Using the breakpoint concentration table below, a sub-index is determined for each pollutant with provided data. The overall European Air Quality Index for a station corresponds to the poorest sub-index of that station.
+
+(breakpoint table)
+_Note_: Adapted from European Air Quality Index," (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024. 
+
+Note: We have assumed a convention of rounding to one significant figure to avoid overlapping limit values within the breakpoint concentration table. This was used to determine the lower limit as the map released by the European Union to provide public information uses pollutant concentrations to one significant figure [^2]. 
 
 Air quality measurements that exceed the upper bound of the ‘extremely poor’ category are not taken into account as they are typically found to be erroneous [^2].
 
@@ -36,12 +43,19 @@ CAMS provides forecasts of pollutants up to 4 days in advance based on the regio
 
 ## References
 
+“Air Quality.” European Commission, [environment.ec.europa.eu/topics/air/air-quality\_en\#:\~:text=Background%20Since%20the%201980s%2C%20the%20EU%20has%20adopted,for%20most%20air%20pollutants%20over%20the%20past%20decade](https://environment.ec.europa.eu/topics/air/air-quality\_en\#:\~:text=Background%20Since%20the%201980s%2C%20the%20EU%20has%20adopted,for%20most%20air%20pollutants%20over%20the%20past%20decade).
+
+Baran, Paulina. “Guidelines for the demonstration and subtraction of exceedances attributable to natural sources.” European Commission, [circabc.europa.eu/ui/group/cd69a4b9-1a68-4d6c-9c48-77c0399f225d/library/dfbc1f99-f763-4a14-aff8-a8c597a65103/details](https://circabc.europa.eu/ui/group/cd69a4b9-1a68-4d6c-9c48-77c0399f225d/library/dfbc1f99-f763-4a14-aff8-a8c597a65103/details).
+
+“European air quality forecast plots.” Copernicus Atmosphere Monitoring Service, 
+[atmosphere.copernicus.eu/european-air-quality-forecast-plots](https://atmosphere.copernicus.eu/european-air-quality-forecast-plots).
+
+“European Air Quality Index.” European Environment Agency, [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html).
+
+“European Air Quality Index Calculation.” Copernicus Atmosphere Monitoring Service, [ecmwf-projects.github.io/copernicus-training-cams/proc-aq-index.html](https://ecmwf-projects.github.io/copernicus-training-cams/proc-aq-index.html).
+
 [^1]: [https://environment.ec.europa.eu/topics/air/air-quality\_en\#:\~:text=Background%20Since%20the%201980s%2C%20the%20EU%20has%20adopted,for%20most%20air%20pollutants%20over%20the%20past%20decade](https://environment.ec.europa.eu/topics/air/air-quality\_en\#:\~:text=Background%20Since%20the%201980s%2C%20the%20EU%20has%20adopted,for%20most%20air%20pollutants%20over%20the%20past%20decade).
 
 [^2]: [https://airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)
 
 [^3]: [https://atmosphere.copernicus.eu/european-air-quality-forecast-plots](https://atmosphere.copernicus.eu/european-air-quality-forecast-plots)
-
-* [https://ecmwf-projects.github.io/copernicus-training-cams/proc-aq-index.html](https://ecmwf-projects.github.io/copernicus-training-cams/proc-aq-index.html)
-
-* [https://circabc.europa.eu/ui/group/cd69a4b9-1a68-4d6c-9c48-77c0399f225d/library/dfbc1f99-f763-4a14-aff8-a8c597a65103/details](https://circabc.europa.eu/ui/group/cd69a4b9-1a68-4d6c-9c48-77c0399f225d/library/dfbc1f99-f763-4a14-aff8-a8c597a65103/details)
