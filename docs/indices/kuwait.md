@@ -64,8 +64,10 @@ KAQI = {Max}(SI_{PM_{2.5}}, SI_{PM_{10}}, SI_{NO_{2}}, SI_{SO{2}}, SI_{O_{3}}, S
 
 ## References
 
-[^1]: [https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf](https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf). 
+[^1]: [https://kdipa.gov.kw/wp-content/uploads/2022/08/Law-No.-42-of-2014-regarding-Environment-protection.pdf](https://kdipa.gov.kw/wp-content/uploads/2022/08/Law-No.-42-of-2014-regarding-Environment-protection.pdf) 
 
 [^2]: [https://enterprise.emisk.org/eMISKAirQuality/\#/KAQI](https://enterprise.emisk.org/eMISKAirQuality/\#/KAQI)
+
+Environment protection law number (42) for year 2014 With it’s modification by law number (99) for year 2015 [https://kdipa.gov.kw/wp-content/uploads/2022/08/Law-No.-42-of-2014-regarding-Environment-protection.pdf](https://kdipa.gov.kw/wp-content/uploads/2022/08/Law-No.-42-of-2014-regarding-Environment-protection.pdf) 
 
 "What is KAQI?"الهيئة العامة للبيئة, [epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf](https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf). 
