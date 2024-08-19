@@ -28,7 +28,9 @@ The Finnish Air Quality Index uses a five-level color scale:
 ```js
 colorScale(colorScaleReshape(data))
 ```
-_Note_: Adapted from “Air Quality Index” (n.d.), [https://en.ilmatieteenlaitos.fi/air-quality-index](https://en.ilmatieteenlaitos.fi/air-quality-index)[^2]. Accessed July 2, 2024. 
+
+_Note_: Adapted from “Air Quality Index” (n.d.), [https://en.ilmatieteenlaitos.fi/air-quality-index](https://en.ilmatieteenlaitos.fi/air-quality-index)[^2]. Accessed July 2, 2024.
+
 ## Methods
 
 The Finnish Air Quality Index uses sub-indices assigned to each of the measured compounds. The highest sub-index determines the overall AQI of the station [^3]. The index is an hourly index based on hourly values and updated every hour [^2].

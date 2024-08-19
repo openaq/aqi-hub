@@ -14,9 +14,24 @@ Note that the AQI map provided by the European Environment Agency depicts the ai
 
 ## Color scale
 
+```js
+
+import {breakpointsTable} from "../components/table.js";
+import { parseBreakpointsCsv, tableReshape, colorScaleReshape } from '../utils/utils.js';
+import { colorScale } from '../components/color-scale.js';
+
+const breakpoints = await FileAttachment('../data/eu/breakpoints.csv').text();
+const data = parseBreakpointsCsv(breakpoints);
+
+```
+
 The European Air Quality Index is comprised of six categories:
 
-_Note_: Adapted from “European Air Quality Index," (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024. 
+```js
+colorScale(colorScaleReshape(data, false))
+```
+
+_Note_: Adapted from “European Air Quality Index," (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024.
 
 ## Methods
 
@@ -24,10 +39,13 @@ NO<sub>2</sub>, O<sub>3</sub>, and SO<sub>2</sub> use hourly concentrations, whi
 
 Using the breakpoint concentration table below, a sub-index is determined for each pollutant with provided data. The overall European Air Quality Index for a station corresponds to the poorest sub-index of that station.
 
-(breakpoint table)
-_Note_: Adapted from European Air Quality Index" (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024. 
+```js
+breakpointsTable(data, false)
+```
 
-Note: We have assumed a convention of rounding to one significant figure to avoid overlapping limit values within the breakpoint concentration table. This was used to determine the lower limit as the map released by the European Union to provide public information uses pollutant concentrations to one significant figure [^2]. 
+_Note_: Adapted from European Air Quality Index" (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024.
+
+Note: We have assumed a convention of rounding to one significant figure to avoid overlapping limit values within the breakpoint concentration table. This was used to determine the lower limit as the map released by the European Union to provide public information uses pollutant concentrations to one significant figure [^2].
 
 Air quality measurements that exceed the upper bound of the ‘extremely poor’ category are not taken into account as they are typically found to be erroneous [^2].
 
@@ -47,7 +65,7 @@ CAMS provides forecasts of pollutants up to 4 days in advance based on the regio
 
 Baran, Paulina. “Guidelines for the demonstration and subtraction of exceedances attributable to natural sources.” European Commission, [circabc.europa.eu/ui/group/cd69a4b9-1a68-4d6c-9c48-77c0399f225d/library/dfbc1f99-f763-4a14-aff8-a8c597a65103/details](https://circabc.europa.eu/ui/group/cd69a4b9-1a68-4d6c-9c48-77c0399f225d/library/dfbc1f99-f763-4a14-aff8-a8c597a65103/details).
 
-“European air quality forecast plots.” Copernicus Atmosphere Monitoring Service, 
+“European air quality forecast plots.” Copernicus Atmosphere Monitoring Service,
 [atmosphere.copernicus.eu/european-air-quality-forecast-plots](https://atmosphere.copernicus.eu/european-air-quality-forecast-plots).
 
 “European Air Quality Index.” European Environment Agency, [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html).
