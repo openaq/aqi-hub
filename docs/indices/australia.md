@@ -51,7 +51,7 @@ The pollutant thresholds by state as reported by their relevant government websi
 
 \* _Documented as parts per hundred million (pphm) in source material. Converted here to remain consistent with the more common ppm/ppb in the other tables_
 
-_Note_: Adapted from "About the air quality categories" (31 July 2023) https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories [^1]. Accessed August 16, 2024. 
+_Note_: Adapted from "About the air quality categories" (31 July 2023) https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories [^1]. Accessed August 16, 2024.
 
 ### Northern Territory
 

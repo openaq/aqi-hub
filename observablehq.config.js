@@ -34,6 +34,7 @@ export default {
         {name: "Macao", path: "/indices/macao"},
         {name: "Malaysia", path: "/indices/malaysia"},
         {name: "Mexico", path: "/indices/mexico"},
+        {name: "Peru", path: "/indices/peru"},
         {name: "Singapore", path: "/indices/singapore"},
         {name: "South Africa", path: "/indices/south-africa"},
         {name: "South Korea", path: "/indices/south-korea"},
