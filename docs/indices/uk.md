@@ -31,7 +31,7 @@ The composite index uses a four color color scale:
 colorScale(colorScaleReshape(data, false))
 ```
 
-Note: Adapted from “Daily Air Quality Index” (n.d.), [https://uk-air.defra.gov.uk/air-pollution/daqi](https://uk-air.defra.gov.uk/air-pollution/daqi)  [^4]. Accessed August 12, 2024.
+_Note_: Adapted from “Daily Air Quality Index” (n.d.), [https://uk-air.defra.gov.uk/air-pollution/daqi](https://uk-air.defra.gov.uk/air-pollution/daqi)  [^4]. Accessed 12 August 2024.
 
 Sub-indexes have a separate, expanded color scale:
 
@@ -50,8 +50,8 @@ colorScale([
 ])  
 ```  
 
-Note: Adapted from “Guide to UK Air Pollution Information  
-Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed August 12, 2024.
+_Note_: Adapted from “Guide to UK Air Pollution Information  
+Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed 12 August 2024.
 
 ## Methods
 
@@ -63,8 +63,8 @@ Recorded pollutant data is assigned a sub-index value 1 through 10 according to 
 breakpointsTable(data, false)
 ```
 
-Note: Adapted from “Guide to UK Air Pollution Information  
-Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed August 12, 2024.
+_Note_: Adapted from “Guide to UK Air Pollution Information  
+Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed 12 August 2024.
 
 The maximum sub-index is used as the overall DAQI for that station. It is reported as its respective category and corresponding color. All pollutant concentration values are rounded to the nearest whole number integer value before applying it to the concentration breakpoints [^3]. For the 8-hour and daily mean concentration calculations, unrounded hourly means are used [^3].
 
@@ -72,7 +72,7 @@ When calculating the hourly, 8-hour or daily mean concentration, at least a 75% 
 
 ## References
 
-Forecasting: [https://uk-air.defra.gov.uk/forecasting/](https://uk-air.defra.gov.uk/forecasting/)
+
 
 [^1]: [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf)
 
@@ -81,3 +81,13 @@ Forecasting: [https://uk-air.defra.gov.uk/forecasting/](https://uk-air.defra.gov
 [^3]: [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1304251155_Update_on_Implementation_of_the_DAQI_April_2013_Final.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1304251155_Update_on_Implementation_of_the_DAQI_April_2013_Final.pdf)  
 
 [^4]: [https://uk-air.defra.gov.uk/air-pollution/daqi](https://uk-air.defra.gov.uk/air-pollution/daqi)
+
+"Daily Air Quality Index." Department for Environment Food & Rural Affairs, [uk-air.defra.gov.uk/air-pollution/daqi](https://uk-air.defra.gov.uk/air-pollution/daqi). 
+
+"Guide to UK Air Pollution Information Resources." Department for Environment Food & Rural Affairs, Jun. 2024, [uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf). 
+
+"Pollution forecast." Department for Environment Food & Rural Affairs, [uk-air.defra.gov.uk/forecasting/](https://uk-air.defra.gov.uk/forecasting/). 
+
+"Update on Implementation of the Daily Air Quality Index. Information for Data Providers and Publishers." Department for Environment Food & Rural Affairs, Apr. 2013, [uk-air.defra.gov.uk/assets/documents/reports/cat14/1304251155_Update_on_Implementation_of_the_DAQI_April_2013_Final.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1304251155_Update_on_Implementation_of_the_DAQI_April_2013_Final.pdf). 
+
+"What is the Daily Air Quality Index?" Department for Environment Food & Rural Affairs, [uk-air.defra.gov.uk/air-pollution/daqi?view=more-info](https://uk-air.defra.gov.uk/air-pollution/daqi?view=more-info). 
