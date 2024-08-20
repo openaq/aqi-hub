@@ -18,7 +18,7 @@ References are based off of MLA 8th edition formatting with adjustments to bette
 
 This platform uses Markdown it footnotes. All citations used within the text should be indicated using brackets and a carrot, as such: [^X]. In the Reference section, ensure that the citation uses the following format:
 
-[^X]: Author. "Title." Publisher, Publication Date, Location, url.
+[^X] : Author. "Title." Publisher, Publication Date, Location, url.
 
 No space should be used between the closing bracket and the colon. 
 
