@@ -18,7 +18,7 @@ References are based off of MLA 8th edition formatting with adjustments to bette
 
 This platform uses Markdown it footnotes. All citations used within the text should be indicated using brackets and a carrot, as such: [^X]. In the Reference section, ensure that the citation uses the following format:
 
-[^X]: Author. "Title." Publisher, Publication Date, Location, url. 
+**[^X]: Author. "Title." Publisher, Publication Date, Location, url. **
 
 No space should be used between the closing bracket and the colon. 
 
@@ -30,7 +30,7 @@ The http:// should be omitted before all links. The Reference section is ordered
 The titles and publishers in their native language should be listed rather than manually translating it to English. 
 
 Example 1: Specific author is listed on a digital PDF. 
-Duarte, Filiberto Perez. “Normas Oficiales Mexicanas (NOM) - Salud Ambiental.” 18 Aug.1994, Mexico City, sinaica.inecc.gob.mx/pags/noms.php. 
+Duarte, Filiberto Perez. “Normas Oficiales Mexicanas (NOM) - Salud Ambiental.” 18 Aug. 1994, Mexico City, sinaica.inecc.gob.mx/pags/noms.php. 
 
 Example 2: Government website where no author or date modified is listed. 
 “Air Quality Index.” Finnish Meteorological Institute, en.ilmatieteenlaitos.fi/air-quality-index. 
@@ -40,8 +40,8 @@ Example 2: Government website where no author or date modified is listed.
 Note sections are added under all breakpoint concentration tables and color scales. These sections include a reference to the source where the information was adapted from. 
 
 The general Note citation format is:
-_Note_: Adapted from "Title" (Publication Date), url. Access Date.
-
+**_Note_: Adapted from "Title" (Publication Date), url. Access Date.
+**
 The "Note:" text is italicized and followed by "Adapted from."
 
 Similarly to the Reference citation, the date last modified is used for relevant webpages. All dates should follow the form Day Month Year and use the standard abbreviations for the month, as listed above. If there is no date listed, then it is labeled n.d., standing for 'no date.'
