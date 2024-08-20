@@ -31,7 +31,7 @@ The European Air Quality Index is comprised of six categories:
 colorScale(colorScaleReshape(data, false))
 ```
 
-_Note_: Adapted from “European Air Quality Index," (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024.
+_Note_: Adapted from “European Air Quality Index" (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024.
 
 ## Methods
 
