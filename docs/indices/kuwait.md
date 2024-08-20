@@ -26,21 +26,23 @@ colorScale(colorScaleReshape(data))
 
 ```
 
-_Note_: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eMISKAirQuality/#/KAQI> [^2]. Accessed August 5, 2024.
+_Note_: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eMISKAirQuality/#/KAQI> [^2]. Accessed 5 Aug. 2024.
 
 ## Methods
 
-The KAQI uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final KAQI value is chosen from the highest sub-index value of all pollutants evaluated. There is no guidance on the minimum number of pollutants to be included in the calculation. Specific guidance on rounding/truncation is also not included in the source material.
+The KAQI uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final KAQI value is chosen from the highest sub-index value of all pollutants evaluated. 
 
 ```js
 breakpointsTable(data)
 ```
 
-_Note_: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eMISKAirQuality/#/KAQI> [^2]. Accessed August 5, 2024.
+_Note_: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/eMISKAirQuality/#/KAQI> [^2]. Accessed 5 Aug. 2024.
+
+<div class = 'note'>
+There is no guidance on the minimum number of pollutants to be included in the calculation. Specific guidance on rounding/truncation is also not included in the source material. The KEPA site does not provide specific requirements for temporal coverage, i.e. the minimum number of valid data points required within the averaging period, for 8-hour and 24-hour measurement periods.
+</div>
 
 KAQI values are reported hourly from a rolling average of the pollutant defined period.
-
-The KEPA site does not provide specific requirements for temporal coverage, i.e. the minimum number of valid data points required within the averaging period, for 8-hour and 24-hour measurement periods.
 
 Based on the breakpoint values in the table above, a piecewise linear function is used to convert the concentration values to KAQI values. The function is defined as:
 
@@ -68,6 +70,6 @@ KAQI = {Max}(SI_{PM_{2.5}}, SI_{PM_{10}}, SI_{NO_{2}}, SI_{SO{2}}, SI_{O_{3}}, S
 
 [^2]: [https://enterprise.emisk.org/eMISKAirQuality/\#/KAQI](https://enterprise.emisk.org/eMISKAirQuality/\#/KAQI)
 
-Environment protection law number (42) for year 2014 With it’s modification by law number (99) for year 2015 [https://kdipa.gov.kw/wp-content/uploads/2022/08/Law-No.-42-of-2014-regarding-Environment-protection.pdf](https://kdipa.gov.kw/wp-content/uploads/2022/08/Law-No.-42-of-2014-regarding-Environment-protection.pdf) 
+"Environment protection law number (42) for year 2014 With it’s modification by law number (99) for year 2015." 2015, [kdipa.gov.kw/wp-content/uploads/2022/08/Law-No.-42-of-2014-regarding-Environment-protection.pdf](https://kdipa.gov.kw/wp-content/uploads/2022/08/Law-No.-42-of-2014-regarding-Environment-protection.pdf).
 
-"What is KAQI?"الهيئة العامة للبيئة, [epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf](https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf). 
+"What is KAQI?" الهيئة العامة للبيئة, [epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf](https://epa.gov.kw/Portals/0/PDF/EPALAWEN.pdf). 

@@ -42,7 +42,9 @@ breakpointsTable(data)
 ```
 _Note_: Adapted from "INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUTU UDARA AMBIEN DI INDONESIA" (24 Sept. 2020), [https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)[^1]. Accessed 19 July 2024. 
 
-**Callout***Note: lower bounds of breakpoints have been inferred from source material. Explicit lower bound values are not listed; we  assume in the case where whole numbers are used the lower bound is +1 from the previous bound and when a decimal point is used the next bound is +0.1.
+<div class = 'note'>
+Lower bounds of breakpoints have been inferred from source material. Explicit lower bound values are not listed; we  assume in the case where whole numbers are used the lower bound is +1 from the previous bound and when a decimal point is used the next bound is +0.1.
+</div>
 
 Based on the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to ISPU values. The function is defined as:
 

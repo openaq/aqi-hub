@@ -4,7 +4,7 @@
 
 ## Background
 
-The Air Quality Health Index (AQHI) accounts for 4 criteria pollutants: Particulate Matter (PM), O3, NO2 and SO2. For PM, both PM2.5 and PM10 are considered, however only the PM that poses the higher health risk is used in the AQHI calculation. Hong Kong reports hourly and forecast AQHIs.
+The Air Quality Health Index (AQHI) accounts for 4 criteria pollutants: Particulate Matter (PM), O<sub>3</sub>, NO<sub>2</sub> and SO<sub>2</sub>. For PM, both PM<sub>2.5</sub> and PM<sub>10</sub> are considered, however only the PM that poses the higher health risk is used in the AQHI calculation. Hong Kong reports hourly and forecast AQHIs.
 
 AQHIs are reported in two categories, ‘General AQHI’ and ‘Roadside AQHI,’ based on where the monitoring station is located. The ‘Roadside AQHI’ is more relevant for those who conduct most of their daily activities along roadsides or in high-traffic areas, while the ‘General AQHI’ is suitable for all others [^1].
 
@@ -59,7 +59,7 @@ FileAttachment('../imgs/hk_icon_serious.svg').image({height: 90})
 
 </div>
 
-Note: Adapted from “What is the Air Quality Health Index?” (January 2016), [https://www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html](https://www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html) [^1]. Accessed August 8, 2024
+Note: Adapted from “What is the Air Quality Health Index?” (Jan. 2016), [https://www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html](https://www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html) [^1]. Accessed 8 Aug. 2024.
 
 ## Methods
 
@@ -79,7 +79,7 @@ The AQHI utilizes the following pollutant breakpoint concentration levels based 
 | Very high | 10 | 17.23-19.37 |
 | Serious | 10+ | 19.38+ |
 
-Note: Adapted from “The AQHI System . FAQs” (n.d.), [https://www.aqhi.gov.hk/en/what-is-aqhi/faqs.html](https://www.aqhi.gov.hk/en/what-is-aqhi/faqs.html) [^1]. Accessed August 8, 2024
+Note: Adapted from “The AQHI System. FAQs” (n.d.), [https://www.aqhi.gov.hk/en/what-is-aqhi/faqs.html](https://www.aqhi.gov.hk/en/what-is-aqhi/faqs.html) [^1]. Accessed 8 Aug. 2024.
 
 Note rounded
 
@@ -90,7 +90,7 @@ The AQHI of the current hour also accounts for the added health risk (%AR), also
 \sum_{i=1,\dots,p}{}(e^{\beta ixij} - 1) \times 100%
 ```
 
-The hourly AQHI is calculated from the sum of the %AR of daily hospital admissions attributable to the 3-hour moving average concentrations of PM (either PM2.5 or PM10 depending on the posed health risks), O3, NO2 and SO2. The %AR is then compared to a scale to obtain the appropriate banding of the AQHI using the following equation [^1]:
+The hourly AQHI is calculated from the sum of the %AR of daily hospital admissions attributable to the 3-hour moving average concentrations of PM (either PM<sub>2.5</sub> or PM<sub>10</sub> depending on the posed health risks), O<sub>3</sub>, NO<sub>2</sub> and SO<sub>2</sub>. The %AR is then compared to a scale to obtain the appropriate banding of the AQHI using the following equation [^1]:
 
 
 ```tex
@@ -165,7 +165,7 @@ Hsu, Angel. “China's new Air Quality Index: How does it measure up?” Data Dr
 
 “What's AQHI.” 空氣質素健康指數 Air Quality Health Index, [[www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html](https://www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html)](<http://www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html>](<https://www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html>))
 
-Wong TW, Tam WWS, Lau AKH, Ng SKW, Yu ITS, Wong AHS, Yeung D. “A Study of the Air Pollution Index Reporting System. Final Report.” 27 June 2012, [/www.aqhi.gov.hk/common/pdf/related_websites/APIreview_report.pdf](https://www.aqhi.gov.hk/common/pdf/related_websites/APIreview_report.pdf)
+Wong Tze Wai et al. “A Study of the Air Pollution Index Reporting System. Final Report.” 27 June 2012, [/www.aqhi.gov.hk/common/pdf/related_websites/APIreview_report.pdf](https://www.aqhi.gov.hk/common/pdf/related_websites/APIreview_report.pdf)
 
 [^1]: [https://www.aqhi.gov.hk/en/what-is-aqhi/faqs.html](https://www.aqhi.gov.hk/en/what-is-aqhi/faqs.html)  
 [^2]: [https://datadrivenlab.org/air-quality-2/chinas-new-air-quality-index-how-does-it-measure-up/](https://datadrivenlab.org/air-quality-2/chinas-new-air-quality-index-how-does-it-measure-up/)  
