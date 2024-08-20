@@ -20,4 +20,6 @@ The NowCast AQI is a specific type of hourly AQI updated every hour based on the
 
 ## References
 
+"What’s the difference between the Current AQI and the Daily (24-hour) AQI?" Spokane Regional Clean Air Agency, 15 Sept. 2020, [https://spokanecleanair.org/whats-the-difference-between-the-current-aqi-and-the-daily-24-hour-aqi/](https://spokanecleanair.org/whats-the-difference-between-the-current-aqi-and-the-daily-24-hour-aqi/). 
+
 [^1]: [https://spokanecleanair.org/whats-the-difference-between-the-current-aqi-and-the-daily-24-hour-aqi/](https://spokanecleanair.org/whats-the-difference-between-the-current-aqi-and-the-daily-24-hour-aqi/)

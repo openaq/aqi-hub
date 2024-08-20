@@ -47,13 +47,14 @@ Plot.plot({
 })
 ```
 
-_Note_: Adapted from "Why we should have a universal air quality index?" (2024), <https://doi.org/10.1016/j.envint.2024.108698>. Accessed August 5, 2024.
+_Note_: Adapted from "Why we should have a universal air quality index?" (2024), <https://doi.org/10.1016/j.envint.2024.108698>. Accessed 5 Aug. 2024.
 
 ### Read more
 
 
 ## References
 
-[https://doi.org/10.1016/j.envint.2024.108698](https://doi.org/10.1016/j.envint.2024.108698)
+Ravindra, Khaiwal et al. "Why we should have a universal air quality index?" Environment International, Vol. 187, May 2024, [https://doi.org/10.1016/j.envint.2024.108698](https://doi.org/10.1016/j.envint.2024.108698).
 
-https://metone.com/how-to-calculate-aqi-and-nowcast-indices
+"How to Calculate AQI and NowCast Indices." Met One Instruments,
+[https://metone.com/how-to-calculate-aqi-and-nowcast-indices](https://metone.com/how-to-calculate-aqi-and-nowcast-indices/).
