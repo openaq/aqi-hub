@@ -25,6 +25,7 @@ colorScale([
     ,{label: 'Extremely poor', color: '#590018'}
     ])
 ```
+_Note_: Adapted from “About the air quality categories” (n.d.), [www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)[^2]. Accessed 16 Aug. 2024. 
 
 ## Methods
 
@@ -51,7 +52,7 @@ The pollutant thresholds by state as reported by their relevant government websi
 
 \* _Documented as parts per hundred million (pphm) in source material. Converted here to remain consistent with the more common ppm/ppb in the other tables_
 
-_Note_: Adapted from "About the air quality categories" (31 July 2023) https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories [^1]. Accessed August 16, 2024.
+_Note_: Adapted from "About the air quality categories" (5 July 2024), https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories [^1]. Accessed 16 Aug. 2024.
 
 ### Northern Territory
 
@@ -64,9 +65,8 @@ _Note_: Adapted from "About the air quality categories" (31 July 2023) https://w
 | SO<sub>2</sub> ppb |  1 hr. | 0-133 | 133-200 | 200-300 | 300-400 | 400+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
 
-Carbon monoxide is based on a 8 hour moving average.
+_Note_: Adapted from “AQC Summary Dynamic Table” (n.d.), [http://ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx)[^2]. Accessed 16 Aug. 2024. 
 
-_Note_: Adapted from “About the air quality categories” (n.d.) [www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)[^2]. Accessed August 16, 2024. 
 
 ### Queensland
 
@@ -80,7 +80,7 @@ _Note_: Adapted from “About the air quality categories” (n.d.) [www.environm
 | SO<sub>2</sub> ppb |  1 hr. | 0-133 | 133-200 | 200-300 | 300-400 | 400+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
 
-_Note_: Adapted from “Air quality categories” (21 September 2023) [www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)[^3]. Accessed August 16, 2024. 
+_Note_: Adapted from “Air quality categories” (21 Sept. 2023), [www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)[^3]. Accessed 16 Aug. 2024. 
 
 
 ### South Australia
@@ -97,19 +97,29 @@ _Note_: Adapted from “Air quality categories” (21 September 2023) [www.qld.g
 
 \* _Documented as parts per million ppm in source material. Converted here to remain consistent with the more common ppb in the other tables_
 
-_Note_: Adapted from “Air quality monitoring” (14 June 2024) [www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)[^4]. Accessed August 16, 2024. 
+_Note_: Adapted from “Air quality monitoring” (14 June 2024), [www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)[^4]. Accessed 16 Aug. 2024. 
 
 ### Tasmania
 
 Tasmania references a separate 6 point scale and only provides break points for PM<sub>2.5</sub>.
 
+```js
+colorScale([
+    {label: 'Good', color: '#65b249'}
+    ,{label: 'Fairly good', color: '#ffff00'}
+    ,{label: 'Fairly poor', color: '#fdbd77'}
+    ,{label: 'Poor', color: '#f78507'}
+    ,{label: 'Very poor', color: '#ff0000'}
+    ,{label: 'Extremely poor', color: '#9a7660'}
+    ])
+```
+_Note_: Adapted from “Air Quality” (9 July 2024), [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality][^8]. Accessed 16 Aug. 2024. 
+
 | Pollutant |Avg. period  | Good | Fairly good | Fairly poor | Poor | Very poor | Extremely poor |
 |---|---|---|---|---|---|---|---|
 | PM<sub>2.5</sub> µg/m<sup>3</sup>  | 1 hr. | 0-9 | 10-24 | 25-49 | 50-99 | 100-299 | 300+ |
 
-_Note_: Color scale adapted from “Air Quality” (9 July 2024) [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality][^8]. Accessed August 16, 2024. 
-
-_Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.) [epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)[^5]. Accessed August 16, 2024. 
+_Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.), [epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)[^5]. Accessed 16 Aug. 2024. 
 
 ### Victoria
 
@@ -122,8 +132,8 @@ _Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.) [epa.t
 | SO<sub>2</sub> ppb |  1 hr. | 0-100 | 100-200 | 200-300 | 300-600 | 600+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-60 | 60-120 |120-180 | 180-360 | 360+ |
 
-_Note_: Adapted from “How we calculate air quality categories” (13 January 2021)
-[www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)[^6]. Accessed August 16, 2024. 
+_Note_: Adapted from “How we calculate air quality categories” (13 Jan 2021),
+[www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)[^6]. Accessed 16 Aug. 2024. 
 
 
 ### West Australia
@@ -137,13 +147,16 @@ _Note_: Adapted from “How we calculate air quality categories” (13 January 2
 | SO<sub>2</sub> ppb |  1 hr. | 0-133 | 133-200 | 200-300 | 300-400 | 400+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
 
-_Note_: Adapted from “Air quality index” (n.d) [www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)[^7]. Accessed August 16, 2024. 
+_Note_: Adapted from “Air quality index” (n.d.), [www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)[^7]. Accessed 16 Aug. 2024. 
 
-Carbon monoxide is based on a 8 hour moving average.
+<div class="note">
+In the recorded breakpoint concentrations for all regions except Queensland and Tasmania, there was overlap between the lower and upper limits of subsequent risk categories. To mitigate this, all pollutants were assumed to hold one significant figure for the upper limit based on reported data. We have assumed that the upper limit is not inclusive and is rounded/truncated to the first decimal place. This is inferred as the first column in the provided breakpoint table includes the non inclusive less than symbol. 
 
-Note that in the recorded breakpoint concentrations for all regions except Queensland and Tasmania, there was overlap between the lower and upper limits of subsequent risk categories. To mitigate this, all pollutants were assumed to hold one significant figure for the upper limit based on reported data. We have assumed that the upper limit is not inclusive and is rounded/truncated to the first decimal place. This is inferred as the first column in the provided breakpoint table includes the non inclusive less than symbol.
-
+```tex 
+\thinspace
+``` 
 An exception to this convention is South Australia. In both South Australia and Queensland, breakpoints for O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> were converted from ppb to ppm for consistency with the other regions. For South Australia where there was overlap in breakpoint limits, PM<sub>2.5</sub>, PM<sub>10</sub>, and CO were held to one significant figure while O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> were rounded to the nearest integer to reflect that of Queensland. 
+</div>
 
 
 ## References

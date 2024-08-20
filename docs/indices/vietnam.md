@@ -4,7 +4,7 @@
 
 ## Background
 
-The Vietnam Air Quality Index (VN AQI) accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. It reports a Daily and Hourly AQI, as well as a Nowcast value exclusivel for particulate matter concentrations.
+The Vietnam Air Quality Index (VN AQI) accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. It reports a Daily and Hourly AQI, as well as a NowCast value exclusivel for particulate matter concentrations.
 
 The VVN AQI is calculated using data from continuous automatic air quality stations across the country. The Daily AQI is the AQI value representing one day, while the Hourly AQI is the AQI value representing one hour.
 
@@ -38,10 +38,10 @@ _Note_: Adapted from "Quyết định 1459/QĐ-TCMT 2019 kỹ thuật tính toá
 
 It is not specified in Vietnam’s documentation whether sub-index values are rounded or truncated, however the final AQI value is truncated[^1]. For the breakpoint concentrations and for AQI calculations, we assume that all data values are rounded to the nearest integer.
 
-The Nowcast value is a weighted average of the 12 most recent 1-hour average values relative to the calculation time, and is reported for PM<sub>10</sub> and PM<sub>2.5</sub> pollutants only. The AQI value is calculated for the data of each monitoring station, and the final AQI value reported is the largest of the values for each parameter. The AQI calculation requires at least one of PM<sub>10</sub> and PM<sub>2.5</sub> parameters within the formula.
+The NowCast value is a weighted average of the 12 most recent 1-hour average values relative to the calculation time, and is reported for PM<sub>10</sub> and PM<sub>2.5</sub> pollutants only. The AQI value is calculated for the data of each monitoring station, and the final AQI value reported is the largest of the values for each parameter. The AQI calculation requires at least one of PM<sub>10</sub> and PM<sub>2.5</sub> parameters within the formula.
 
 Hourly AQI Calculation:  
-In calculating the hourly index, the weight value of each PM<sub>2.5</sub> and PM<sub>10</sub> is first calculated for reporting the Nowcast values. The weight value is equal to the minimum concentration over the maximum concentrations among the 12 hourly average values. The Nowcast value can only be calculated if at least 3 valid 1-hour average values are collected, otherwise it is reported as “no data.”
+In calculating the hourly index, the weight value of each PM<sub>2.5</sub> and PM<sub>10</sub> is first calculated for reporting the NowCast values. The weight value is equal to the minimum concentration over the maximum concentrations among the 12 hourly average values. The NowCast value can only be calculated if at least 3 valid 1-hour average values are collected, otherwise it is reported as “no data.”
 
 ${tex`c_1 , c_2 , \dots, c_{12} `}= Averages of 1-hour monitoring values (with ${tex`c_1`} being the current 1-hour averaging monitoring value and ${tex`c_{12}`} being the 1-hour monitoring value 12 hours ago)  
 
@@ -82,12 +82,12 @@ NowCast = \frac{1}{2} c_1 + (\frac{1}{2})^2 c_2 + \dots + (\frac{1}{2})^{12} c_{
 ```
 
 <div class="note">
-Note that at least 2 of the 3 values ${tex`c_1`}, ${tex`c_2`}, and ${tex`c_3`} must have data in order for the NowCast calculation to be valid. If this requirement is not fulfilled, then the NowCast value cannot be calculated and it is considered ‘no data.’ If ${tex`c_i`} has no data, then ${tex`c^{i-1} = 0`}.
+At least 2 of the 3 values ${tex`c_1`}, ${tex`c_2`}, and ${tex`c_3`} must have data in order for the NowCast calculation to be valid. If this requirement is not fulfilled, then the NowCast value cannot be calculated and it is considered ‘no data.’ If ${tex`c_i`} has no data, then ${tex`c^{i-1} = 0`}.
 </div>
 
 The Hourly AQI for PM<sub>10</sub> and PM<sub>2.5</sub> is then calculated using the formula:
 
-{custom piecewise where Concentration is the above Nowcast instead}
+{custom piecewise where Concentration is the above NowCast instead}
 
 The maximum Hourly AQI value is reported as the aggregate hourly AQI value, with the values being rounded to integers.
 
