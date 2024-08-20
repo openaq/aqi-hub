@@ -56,16 +56,30 @@ piecewiseLatexDoc('AQI')
 After calculating the sub-index for each measured pollutant all measured pollutants are compared and the maximum sub-index value is chosen to indicate the composite AQI value. The composite AQI value must be calculated against at minimum 3 pollutants, one of which must be particulate matter (PM<sub>2.5</sub> or PM<sub>10</sub>)[^3].
 
 ```tex
-{AQI} = {Max}({I}_{PM_{10}},{I}_{PM_{2.5}},SI_{SO_{2}},{I}_{SO_{2}},{I}_{O_{3}},{I}*{CO},{I}_{NH*_3},{I}_{Pb})  
+{AQI} = {Max}({I}_{PM_{10}},{I}_{PM_{2.5}},I_{SO_{2}},{I}_{SO_{2}},{I}_{O_{3}},{I}_{CO},{I}_{NH_3},{I}_{Pb})  
 ```
 
 The CPCB also provides some guidance on calculating city-wide AQI based on the station level measurements. A city AQI requires a minimum of 3 stations and is advised in cities of 1 million residents or higher. Pollutant sub-index values are then averaged, instead of choosing the maximum value as in the station level AQI:
 
 ```tex
-
+Average AQI= \frac{\sum{AQI_i}}{n}
 ```
+where  
 
-Monitoring sites are then averaged weighted by the population of the 2km by 2km gridded area around the station:
+* ${tex`AQI_i`} - AQI of respective pollutants
+* ${tex`n`} - Number of pollutants (minimum of 3)
+* ${tex`m`} - Number of sites in the city (minimum of 3)
+
+Monitoring sites are then averaged weighted by the population of the 2km by 2km gridded area around the station, using a simplified calculation method[^1]:
+
+```tex  
+AQI_R = \frac{(\sum{\frac{AQI_i}{n}})_1 + (\sum{\frac{AQI_i}{n}})_2 + \dots + (\sum{\frac{AQI_i}{n}})_m}{m}
+```
+where  
+* ${tex`AQI_R`} - City-wide AQI
+* ${tex`AQI_i`} - AQI of respective pollutants
+* ${tex`n`} - Number of pollutants (minimum of 3)
+* ${tex`m`} - Number of sites in the city (minimum of 3)
 
 Other specifics around the computation of the city AQI are outlined by the CPCB and are out of scope for this document.
 
