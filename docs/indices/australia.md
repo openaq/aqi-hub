@@ -113,7 +113,7 @@ colorScale([
     ,{label: 'Extremely poor', color: '#9a7660'}
     ])
 ```
-_Note_: Adapted from “Air Quality” (9 July 2024), [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality][^8]. Accessed 16 Aug. 2024. 
+_Note_: Adapted from “Air Quality” (9 July 2024), [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality](https://www.health.tas.gov.au/health-topics/environmental-health/air-quality)[^8]. Accessed 16 Aug. 2024. 
 
 | Pollutant |Avg. period  | Good | Fairly good | Fairly poor | Poor | Very poor | Extremely poor |
 |---|---|---|---|---|---|---|---|
