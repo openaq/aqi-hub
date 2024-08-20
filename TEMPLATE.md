@@ -1,4 +1,4 @@
-# Country or Regulatory entity
+# Country or Regulatory entity name
 
 ## Index Name
 
