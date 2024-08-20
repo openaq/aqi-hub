@@ -57,7 +57,9 @@ O<sub>3</sub> and CO use a running average of the most recent 8 hours. Example a
 
 For PM<sub>2.5</sub> and PM<sub>10</sub> sub-index calculations, the time period average of the day, from 01h-24h, is used in the daily review calculation. For CO, O<sub>3</sub>, and NO<sub>2</sub> sub-index calculations, the highest time period average of the day is used.
 
+<div class = 'note'>
 The official reference documentation does not provide guidance on minimum data coverage requirements or how to handle missing data for averaging periods. It also does not state any rounding or truncating conventions.
+</div>
 
 A [piecewise linear function](/methods#piecewise-linear-function) is used to calculate the sub-index of each individual pollutant:
 
@@ -94,7 +96,7 @@ Air Quality Guidelines. Global Update 2005." World Health Organization Europe, p
 
 "Guangdong-Hong Kong-Macao Pearl River Delta Regional Air Quality Monitoring Network." PRDAIE-2021-03, 2021, [gdee.gd.gov.cn/attachment/0/478/478309/3739643.pdf](https://gdee.gd.gov.cn/attachment/0/478/478309/3739643.pdf). 
 
-Moura, Nelson. "Air quality guideline standards raised." MNA Macau, 6. Nov. 2020, [www.macaubusiness.com/air-quality-guideline-standards-raised/](https://www.macaubusiness.com/air-quality-guideline-standards-raised/). 
+Moura, Nelson. "Air quality guideline standards raised." MNA Macau, 6 Nov. 2020, [www.macaubusiness.com/air-quality-guideline-standards-raised/](https://www.macaubusiness.com/air-quality-guideline-standards-raised/). 
 
 "New Definition of Air Quality Index." Macao Special Administrative Region Government Macao Meteorological and Geophysical Bureau, 21 Dec. 2023, [www.smg.gov.mo/en/subpage/784/page/347](https://www.smg.gov.mo/en/subpage/784/page/347). 
 

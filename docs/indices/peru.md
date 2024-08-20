@@ -24,7 +24,7 @@ colorScale([
     ])
 ```
 
-Note: Adapted from "Concepto INCA" (n.d.) <https://infoaireperu.minam.gob.pe/indice-de-la-calidad-del-aire/concepto-inca/>. Accessed on August 16, 2024.
+Note: Adapted from "Concepto INCA" (n.d.), <https://infoaireperu.minam.gob.pe/indice-de-la-calidad-del-aire/concepto-inca/>. Accessed on 16 Aug. 2024.
 
 The valor umbral del estado de cuidado (VUEC), or threshold of concern, is variable between each pollutant as can be seen below.
 
@@ -61,10 +61,10 @@ The ministerial resolutions and other sources only provide guidance on computing
 
 ## References
 
-“Concepto INCA.: Bicentenario Perú 2021, [[infoaireperu.minam.gob.pe/indice-de-la-calidad-del-aire/concepto-inca/#:~:text=El%20%C3%8Dndice%20de%20Calidad%20del%20Aire%20(INCA)%20tiene%20un%20valor,de%20Calidad%20Ambiental%20de%20Aire](https://infoaireperu.minam.gob.pe/indice-de-la-calidad-del-aire/concepto-inca/#:~:text=El%20%C3%8Dndice%20de%20Calidad%20del%20Aire%20(INCA)%20tiene%20un%20valor,de%20Calidad%20Ambiental%20de%20Aire)]
+“Concepto INCA." Bicentenario Perú 2021, [infoaireperu.minam.gob.pe/indice-de-la-calidad-del-aire/concepto-inca/#:~:text=El%20%C3%8Dndice%20de%20Calidad%20del%20Aire%20(INCA)%20tiene%20un%20valor,de%20Calidad%20Ambiental%20de%20Aire](https://infoaireperu.minam.gob.pe/indice-de-la-calidad-del-aire/concepto-inca/#:~:text=El%20%C3%8Dndice%20de%20Calidad%20del%20Aire%20(INCA)%20tiene%20un%20valor,de%20Calidad%20Ambiental%20de%20Aire).
 
 “Decreto Supremo N.° 003-2017-MINAM.” 7 June 2017, [www.gob.pe/institucion/minam/normas-legales/3670-003-2017-minam](https://www.gob.pe/institucion/minam/normas-legales/3670-003-2017-minam).
 
-“Resolución Ministerial N.° 181-2016-MINAM.” 14 Jul. 2016, Lima, [www.gob.pe/institucion/minam/normas-legales/318191-181-2016-minam](https://www.gob.pe/institucion/minam/normas-legales/318191-181-2016-minam).
+“Resolución Ministerial N.° 181-2016-MINAM.” 14 July 2016, Lima, [www.gob.pe/institucion/minam/normas-legales/318191-181-2016-minam](https://www.gob.pe/institucion/minam/normas-legales/318191-181-2016-minam).
 
-[^1]: “Resolución Ministerial N.° 181-2016-MINAM.” [www.gob.pe/institucion/minam/normas-legales/318191-181-2016-minam](https://www.gob.pe/institucion/minam/normas-legales/318191-181-2016-minam)
+[^1]: [https://www.gob.pe/institucion/minam/normas-legales/318191-181-2016-minam](https://www.gob.pe/institucion/minam/normas-legales/318191-181-2016-minam)
