@@ -29,7 +29,7 @@ The US EPA uses a six color scale:
 ```js
 colorScale(colorScaleReshape(data))
 ```
-_Note_: Adapted fr 1
+_Note_: “Technical Assistance Document for the Reporting of Daily Air Quality the Air Quality Index (AQI)” (May 2004), [https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf). Accessed 25 July 2024. 
 
 
 Previous to the most recent update of the AQI Technical Assistance Document for Reporting of Air Quality Data issued in May 2024, the ‘Hazardous’ category had an upper limit of 500. AQI values greater than 500 were considered “Beyond the AQI,” and the same warnings and cautions as the ‘Hazardous’ category were to be reported.
@@ -39,13 +39,12 @@ Previous to the most recent update of the AQI Technical Assistance Document for 
 ```js
 breakpointsTable(data)
 ```
-_Note_: Adapted fr
+_Note_: “Technical Assistance Document for the Reporting of Daily Air Quality the Air Quality Index (AQI)” (May 2004), [https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf). Accessed 25 July 2024. 
 
 
 ### Forecast AQI
 
-Forecast AQI predicts the next day’s AQI, usually issued in the afternoon for the next day by state and local air quality forecasters [^5]. These utilize numerous sources such as weather forecast models, satellite images, air monitoring data, and computer models that estimate the travel of pollution through the air [^5
-]. Forecast AQIs are mainly issued for O<sub>3</sub> and PM, however some areas also issue NO<sub>2</sub> and CO forecasts.
+Forecast AQI predicts the next day’s AQI, usually issued in the afternoon for the next day by state and local air quality forecasters [^5]. These utilize numerous sources such as weather forecast models, satellite images, air monitoring data, and computer models that estimate the travel of pollution through the air [^5]. Forecast AQIs are mainly issued for O<sub>3</sub> and PM, however some areas also issue NO<sub>2</sub> and CO forecasts.
 
 ### Daily AQI
 
@@ -81,7 +80,13 @@ For AQI values within the Hazardous category greater than 500, the calculation i
 
 Given that the AQI represents a full day, which is a fairly long timeframe, the US EPA developed the NowCast algorithm to better represent short-term air quality changes. The NowCast calculation methods use longer averaging periods when there is stable air quality and shorter averaging periods when the air quality is rapidly changing, such as during a fire or extreme winds [^3].
 
-NowCast values are only calculated for two pollutants, PM and O<sub>3</sub>, each with a distinct algorithm [^4]. Both calculations require that 2 of the past 3 hourly data points must be valid [^4]. It utilizes raw hourly concentrations without rounding or truncating as input.
+<div class = 'note'>
+NowCast values are only calculated for two pollutants, PM and O<sub>3</sub>, each with a distinct algorithm. Both calculations require that 2 of the past 3 hourly data points must be valid. It utilizes raw hourly concentrations without rounding or truncating as input.
+</div>
+
+```tex 
+% above referenced [^4] after "must be valid"
+```
 
 #### Particulate Matter
 
@@ -146,7 +151,7 @@ Hylton, Marcus. “The NowCast for PM2.5 and PM10.” AirNow.gov., 15 Jul. 2016,
 
 “PM NowCast.” AirNow.gov., Dec. 2014, [www.epa.gov/sites/default/files/2018-01/documents/nowcastfactsheet.pdf](https://www.epa.gov/sites/default/files/2018-01/documents/nowcastfactsheet.pdf).
 
-“Technical Assistance Document for the Reporting of Daily Air Quality the Air Quality Index (AQI).” United States Environmental Protection Agency, May 2004, [https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf)
+“Technical Assistance Document for the Reporting of Daily Air Quality the Air Quality Index (AQI).” United States Environmental Protection Agency, May 2004, [https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf).
 
 
 “Timeline of Particulate Matter (PM) National Ambient Air Quality Standards (NAAQS).” United States Environmental Protection Agency, 7 Feb. 2024, [www.epa.gov/pm-pollution/timeline-particulate-matter-pm-national-ambient-air-quality-standards-naaqs](https://www.epa.gov/pm-pollution/timeline-particulate-matter-pm-national-ambient-air-quality-standards-naaqs). 

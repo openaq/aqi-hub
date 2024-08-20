@@ -30,9 +30,9 @@ colorScale(colorScaleReshape(data))
 ```
 _Note_: Adapted from "Air Quality Index" (n.d.), [https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx)[^1]. Accessed 24 July 2024. 
 
-
-The Taiwan Air Quality Monitoring Network includes two categories within ‘Hazardous:’ 301-400 and 401-500. Each category has distinct breakpoints.
-
+<div class = 'note'>
+The Taiwan Air Quality Monitoring Network includes two categories within ‘Hazardous:’ 301-400 and 401-500. Each category has distinct breakpoints provided.
+</div>
 ## Methods
 
 The following is the pollutant breakpoint concentration values provided by MOENV:
@@ -99,4 +99,4 @@ For NO<sub>2</sub>, the real-time concentration is equal to the monitoring data 
 
 [^1]:[https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx)
 
-"Air Quality Index" Taiwan Air Quality Monitoring Network, [airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx).
+"Air Quality Index." Taiwan Air Quality Monitoring Network, [airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx).

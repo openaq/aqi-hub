@@ -26,7 +26,7 @@ The Vietnam Air Quality Index consists of six categories:
 colorScale(colorScaleReshape(data))
 ```
 
-_Note_: Adapted from "Các màu sắc nào biểu thị cho chất lượng môi trường không khí ô nhiễm? Mức độ ô nhiễm không khí nghiêm trọng nhất được quy định bằng màu gì?" (n.d.), <https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb> [^2]. Accessed August 5, 2024.
+_Note_: Adapted from "Các màu sắc nào biểu thị cho chất lượng môi trường không khí ô nhiễm? Mức độ ô nhiễm không khí nghiêm trọng nhất được quy định bằng màu gì?" (n.d.), <https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb> [^2]. Accessed 5 Aug. 2024.
 
 ## Methods
 
@@ -34,13 +34,19 @@ _Note_: Adapted from "Các màu sắc nào biểu thị cho chất lượng môi
 breakpointsTable(data)
 ```
 
-_Note_: Adapted from "Quyết định 1459/QĐ-TCMT 2019 kỹ thuật tính toán và công bố chỉ số chất lượng không khí Việt Nam" (12 November 2019), [thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx](https://thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx)[^1]. Accessed 28 June, 2024.
+_Note_: Adapted from "Quyết định 1459/QĐ-TCMT 2019 kỹ thuật tính toán và công bố chỉ số chất lượng không khí Việt Nam" (12 November 2019), [thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx](https://thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx)[^1]. Accessed 28 June 2024.
 
-It is not specified in Vietnam’s documentation whether sub-index values are rounded or truncated, however the final AQI value is truncated[^1]. For the breakpoint concentrations and for AQI calculations, we assume that all data values are rounded to the nearest integer.
+<div class="note">
+It is not specified in Vietnam’s documentation whether sub-index values are rounded or truncated, however the final AQI value is truncated. For the breakpoint concentrations and for AQI calculations, we assume that all data values are rounded to the nearest integer.
+</div>
+
+```tex  
+% above referenced [^1] after "final AQI value is truncated"
+```
 
 The NowCast value is a weighted average of the 12 most recent 1-hour average values relative to the calculation time, and is reported for PM<sub>10</sub> and PM<sub>2.5</sub> pollutants only. The AQI value is calculated for the data of each monitoring station, and the final AQI value reported is the largest of the values for each parameter. The AQI calculation requires at least one of PM<sub>10</sub> and PM<sub>2.5</sub> parameters within the formula.
 
-Hourly AQI Calculation:  
+### Hourly AQI Calculation
 In calculating the hourly index, the weight value of each PM<sub>2.5</sub> and PM<sub>10</sub> is first calculated for reporting the NowCast values. The weight value is equal to the minimum concentration over the maximum concentrations among the 12 hourly average values. The NowCast value can only be calculated if at least 3 valid 1-hour average values are collected, otherwise it is reported as “no data.”
 
 ${tex`c_1 , c_2 , \dots, c_{12} `}= Averages of 1-hour monitoring values (with ${tex`c_1`} being the current 1-hour averaging monitoring value and ${tex`c_{12}`} being the 1-hour monitoring value 12 hours ago)  
@@ -99,7 +105,7 @@ For calculating the hourly AQI for CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub
 
 For O<sub>3</sub>, only the one 1-hour averaging period breakpoints are used during calculations. The maximum value of all the parameters is selected as the aggregate hourly AQI value, reported as an integer.
 
-Daily AQI Calculation:  
+### Daily AQI Calculation 
 The daily AQI value for PM<sub>10</sub> and PM<sub>2.5</sub> uses a 24-hour averaging period, while for SO<sub>2</sub>, NO<sub>2</sub>, and CO the maximum 1-hour average value of the day is used. Although not specifically stated, it is assumed that this 24-hour averaging period is daily, recorded from hour 1 to 24, as opposed to an ongoing rolling period. For the daily AQI value for O<sub>3</sub>, both the maximum one hour average value of the day and maximum 8-hour average value of the day are used. The 8-hour average value is calculated by taking the average of the one hour average values over 8 consecutive hours.
 
 The daily AQI for each parameter is calculated by the formula:

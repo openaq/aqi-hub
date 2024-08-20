@@ -4,11 +4,11 @@
 
 ## Background
 
-The UAE has an Emirati Air Quality Index as established by the United Arab Emirates Ministry of Climate Change and Environment as of 2023 [^3]. The Emirati Air Quality Index incorporates the pollutants PM<sub>10</sub>, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> as controlled by the National Ambient Air Quality Standards (_as established by the UAE Cabinet Decree 12 of 2006 Regarding Regulation Concerning Protection of Air from Pollution, Annex 8_), as well as PM<sub>2.5</sub>.
+The UAE has an Emirati Air Quality Index as established by the United Arab Emirates Ministry of Climate Change and Environment as of 2023 [^3]. The Emirati Air Quality Index incorporates the pollutants PM<sub>10</sub>, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> as controlled by the National Ambient Air Quality Standards (as established by the UAE Cabinet Decree 12 of 2006 Regarding Regulation Concerning Protection of Air from Pollution, Annex 8), as well as PM<sub>2.5</sub>.
 
 The Emirati Air Quality Index holds data validation procedures regarding the averaging period for sub-index calculations. For 8- and 24-hour rolling averaging periods, there must be a minimum 75% coverage rate, equal to at least 6 and 18 valid hourly averages respectively. If there is a lack of sufficient valid data for calculations and all available hourly values are “below the standards'', the sub-index for the respective pollutant is reported as null [^3]. If there is a lack of sufficient valid data and at least one of the values is “above the standards,” the maximum hourly value is used to estimate the sub-index [^3].
 
-Additionally, when the hourly concentration of pollutant exceeds the following values, the respective sub-index is reported as null [^3]. _The reason behind this invalidation of exceeding concentration is not clarified in the source materialsa, nor the reasoning behind the threshold exact values._
+Additionally, when the hourly concentration of pollutant exceeds the following values, the respective sub-index is reported as null [^3]. The reason behind this invalidation of exceeding concentration is not clarified in the source materials, nor the reasoning behind the threshold exact values.
 
 <table>
   <tr>
@@ -55,7 +55,9 @@ Additionally, when the hourly concentration of pollutant exceeds the following v
   </tr>
 </table>
 
+<div class = 'note'>
 The Emirati Air Quality index uses conversion factors for ppb to µg/m<sup>3</sup> at standard pressure and temperature: 1 atmosphere of pressure and 25 degrees Celsius. The unit notation of µg/Nm<sup>3</sup> is frequently used when referring to pollutant concentration, with the capital “N” indicating values assuming standard pressure and temperature.
+</div>
 
 The UAE has established a National Air Quality Platform to provide real-time information on air quality as received by 31 air pollution monitoring stations across the UAE[^1]. This platform uses an Air Quality Index platform that is able to forecast the air quality status for up to three days in advance. It is said to predict the concentration of dust and particulate matter within a diameter less than 2.5 microns[^1].
 
@@ -78,7 +80,7 @@ colorScale([
 
 ])
 ```
-_Note_: Adapted from “Guideline for calculating the Emirati Air Quality Index (EAQI).” (2023), [airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf) [^3]. Accessed June 22, 2024. 
+_Note_: Adapted from “Guideline for calculating the Emirati Air Quality Index (EAQI)” (2023), [airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf) [^3]. Accessed 22 June 2024. 
 
 
 ## Methods
@@ -264,7 +266,7 @@ mg/Nm<sup>3</sup>
   </tr>
 </table>
 
-_Note_: Adapted from “Guideline for calculating the Emirati Air Quality Index (EAQI).” (2023), [airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf) [^3]. Accessed June 22, 2024. 
+_Note_: Adapted from “Guideline for calculating the Emirati Air Quality Index (EAQI)” (2023), [airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf) [^3]. Accessed 22 June 2024. 
 
 The Emirati Air Quality Index is a composite index value calculated using the EPA AQI 2018 methodology [^3] with slightly altered breakpoints.
 
@@ -290,13 +292,13 @@ SI_p = \frac{I_{Hi} - I_{LO}}{BP_{Ho} - BP_{Lo}} \times (C_- BP_{Lo}) + I_{Lo}
 
 * ${tex`C_P`} - Truncated concentration of pollutant P
 
-The Emirati Air Quality Index only reports a composite AQI corresponding to the highest sub-index value calculated for PM<sub>10</sub>, PM<sub>2.5</sub>, O<sub>3</sub>, NO<sub>2</sub>, and SO<sub>2</sub>. The average concentration of each pollutant is calculated using the corresponding averaging period. If the averaging period exceeds 1 hour, the moving average is used (_terminology: end-of-period / end-of-hour calculation?_) with the last hour range corresponding to the hour for reporting the index.
+The Emirati Air Quality Index only reports a composite AQI corresponding to the highest sub-index value calculated for PM<sub>10</sub>, PM<sub>2.5</sub>, O<sub>3</sub>, NO<sub>2</sub>, and SO<sub>2</sub>. The average concentration of each pollutant is calculated using the corresponding averaging period. If the averaging period exceeds 1 hour, the moving average is used with the last hour range corresponding to the hour for reporting the index.
 
 The UAE's Air Quality Index has multiple sub-indexes, with different averaging periods and breakpoint values for O<sub>3</sub> and SO<sub>2</sub>. This indicates that different average periods are used according to varying pollutant levels. For O<sub>3</sub>, a 1 hour averaging period is used if the pollutant concentration is above 200 µg/Nm<sup>3</sup>, while any concentration less than are measured using an 8-hour rolling averaging period. For SO<sub>2</sub>, a 1-hour averaging period is used for pollutant concentrations up to 797 µg/Nm<sup>3</sup>, while for exceeding concentrations a 24-hour rolling averaging period is used. For PM<sub>2.5</sub> and PM<sub>10</sub>, a 24-hour rolling averaging period is used. For CO, an 8-hour rolling averaging period is used, while for NO<sub>2</sub>, a 1-hour averaging period is used. It is unclear what level the pollutant concentrations above the upper bound are classified as.
 
 For PM<sub>10</sub>, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> sub-index calculations, the concentrations are truncated to the nearest µg/Nm<sup>3</sup>. For CO and PM<sub>2.5</sub>, the concentrations are truncated to the nearest 0.1 mg/Nm3 and 0.1 µg/Nm<sup>3</sup>, respectively. For the composite Emirati Air Quality Index calculation, the final index value obtained is rounded to the nearest whole number.
 
-Breakpoints for each pollutant are based on the EPA guidance for the Air Quality Index of September 2018 (link to reference 5 on page 11 of [^3] ) along with the National Ambient Air Quality Standards (link to reference as stated above, also in [^3]).
+Breakpoints for each pollutant are based on the EPA guidance for the Air Quality Index of September 2018 along with the National Ambient Air Quality Standards [^3].
 
 For all pollutants, the upper breakpoints in the “Moderate” category correspond to the National Ambient Air Quality Standards[^3].
 

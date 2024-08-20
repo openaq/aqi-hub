@@ -56,7 +56,7 @@ FileAttachment('../imgs/211_character04.webp').image()
 
 
 
-CAI values are calculated for each of the six pollutants and the maximum is used as the CAI value for that station[^1]. The following piecewise linear function is used to calculate each pollutant sub-index:
+CAI values are calculated for each of the six pollutants and the maximum is used as the CAI value for that station[^1]. The following breakpoint concentrations are provided for calculations:
 
 
 ```js
@@ -64,6 +64,7 @@ breakpointsTable(data)
 ```
 _Note_: Adapted from "Introduction to the CAI" (n.d.), [https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166)[^1]. Accessed 26 July 2024. 
 
+The following piecewise linear function is used to calculate each pollutant sub-index:
 ```js
 import {piecewiseLatexDoc} from '../components/piecewise.js';
 ```
@@ -132,8 +133,9 @@ M, and the ratio of the concentration at interval i to the concentration at inte
 Ci \geq M, \frac{0.9 \leq C_{i}}{C_{12} \leq 1.7} \Rightarrow C_{ai} =0.75 \times C_{i}
 
 ```
-
+<div class = 'note'>
 There are no restrictions included for the minimum number of pollutants needed for a valid calculation. There is also no provided information on rounding or truncating conventions.
+</div>
 
 AIRKOREA provides information on how the CAI is adjusted if more than two pollutants exceed the ‘bad’ category [^2]. If one pollutant exceeds, its value becomes the CAI. If two or more pollutants are exceeding, the pollutant with the maximum value is described as the responsible pollutant and 50 is added to the maximum value to become the CAI [^1]. If three pollutants are exceeding, the pollutant with the maximum value is described as the responsible pollutant, and 75 is added to the maximum value to become the CAI [^1].
 

@@ -36,7 +36,7 @@ colorScale([
 ])  
 ```  
 
-_Note_: Adapted from “Daily Air Quality Index” (n.d.), [https://uk-air.defra.gov.uk/air-pollution/daqi](https://uk-air.defra.gov.uk/air-pollution/daqi)  [^4]. Accessed 12 August 2024.
+_Note_: Adapted from “Daily Air Quality Index” (n.d.), [https://uk-air.defra.gov.uk/air-pollution/daqi](https://uk-air.defra.gov.uk/air-pollution/daqi) [^4]. Accessed 12 Aug. 2024.
 
 Sub-indexes have a separate, expanded color scale:
 
@@ -46,7 +46,7 @@ colorScale(colorScaleReshape(data, false))
 ```
 
 _Note_: Adapted from “Guide to UK Air Pollution Information  
-Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed 12 August 2024.
+Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed 12 Aug. 2024.
 
 ## Methods
 
@@ -59,11 +59,13 @@ breakpointsTable(data, false)
 ```
 
 _Note_: Adapted from “Guide to UK Air Pollution Information  
-Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed 12 August 2024.
+Resources” (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed 12 Aug. 2024.
+
+<div class = 'note'>
+When calculating the hourly, 8-hour or daily mean concentration, at least a 75% coverage rate is required. For calculating the hourly mean, at least 3 15-minute mean concentrations are required. For calculating an 8-hour mean, at least 6 hourly mean concentration values are required. For calculating a daily mean, 18 hourly mean concentrations are required.
+</div>
 
 The maximum sub-index is used as the overall DAQI for that station. It is reported as its respective category and corresponding color. All pollutant concentration values are rounded to the nearest whole number integer value before applying it to the concentration breakpoints [^3]. For the 8-hour and daily mean concentration calculations, unrounded hourly means are used [^3].
-
-When calculating the hourly, 8-hour or daily mean concentration, at least a 75% coverage rate is required. For calculating the hourly mean, at least 3 15-minute mean concentrations are required. For calculating an 8-hour mean, at least 6 hourly mean concentration values are required. For calculating a daily mean, 18 hourly mean concentrations are required.
 
 ## References
 
