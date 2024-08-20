@@ -4,11 +4,11 @@
 
 ## Background
 
-China’s Air Quality Index accounts for six primary pollutants: PM2.5, PM10, CO, O3, NO2 and SO2. A daily and real-time AQI is reported, along with a forecasting AQI.
+China’s Air Quality Index accounts for six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, NO<sub>2</sub> and SO<sub>2</sub>. A daily and real-time AQI is reported, along with a forecasting AQI.
 
 The current AQI was formulated by the Department of Science, Technology and Standards of the Ministry of Environment [^1]. It was approved as a national environmental protection standard as of February 29, 2012 outlined in the “Technical Provisions of Ambient Air Quality Index (AQI) (Trial)” [^1]. It was implemented simultaneously with the updated air quality standard, “Ambient Air Quality Standard.”
 
-Previous to this AQI implementation, China used the Air Pollution Index (API) to report air quality data [^2]. According to external sources, the API seems to have originally omitted PM2.5 levels [^5].  
+Previous to this AQI implementation, China used the Air Pollution Index (API) to report air quality data [^2]. According to external sources, the API seems to have originally omitted PM<sub>2.5</sub> levels [^5].  
 
 ## Color scale
 
@@ -32,7 +32,7 @@ The China Air Quality Index consists of six categories:
 colorScale(colorScaleReshape(data))
 ```
 
-_Note_: Adapted from “What is the Air Quality Health Index?” (n.d.), [https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf) [^1]. Accessed August 8, 2024.
+_Note_: Adapted from “What is the Air Quality Health Index?” (n.d.), [https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf) [^1]. Accessed 8 Aug. 2024.
 
 ## Methods
 
@@ -42,9 +42,11 @@ The pollutant breakpoint concentrations for the AQI are as follows:
 breakpointsTable(data)
 ```
 
-_Note_: Adapted from “What is the Air Quality Health Index?” (n.d.), [https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf) [^1]. Accessed August 8, 2024.
+_Note_: Adapted from “What is the Air Quality Health Index?” (n.d.), [https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf) [^1]. Accessed 8 Aug. 2024.
 
-Note that no rounding or truncation conventions are stated for individual pollutant breakpoint concentrations and sub-index calculations. We have assumed that all pollutant values are rounded to the nearest integer except CO, which is rounded to one decimal place. This is assumed as numerous reported pollutant concentrations [^3] seem to follow this convention. Lower breakpoint limits were also assumed according to this rounding convention to avoid overlapping limit values. 
+<div class = 'note'>
+No rounding or truncation conventions are stated for individual pollutant breakpoint concentrations and sub-index calculations. We have assumed that all pollutant values are rounded to the nearest integer except CO, which is rounded to one decimal place. This is assumed as numerous reported pollutant concentrations [^3] seem to follow this convention. Lower breakpoint limits were also assumed according to this rounding convention to avoid overlapping limit values. 
+</div>
 
 If the 1 hour average concentration value for SO2 is greater than 800 μm/m3, the sub-index calculation is not performed. The sub-index for SO2 for the 24-hour average concentration is used instead [^1]. 
 

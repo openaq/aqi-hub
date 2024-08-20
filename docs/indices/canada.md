@@ -4,11 +4,11 @@
 
 ## Background
 
-Canada’s AQHI accounts for three criteria pollutants: PM2.5, O3 and NO2. The AQHI is reported as a daily and forecast value for the next 48 hours.
+Canada’s AQHI accounts for three criteria pollutants: PM<sub>2.5</sub>, O<sub>3</sub> and NO<sub>2</sub>. The AQHI is reported as a daily and forecast value for the next 48 hours.
 
 The AQHI was first developed and applied by the Healthy Environments and Consumer Safety Branch of Canada in 2008 [^1] and was established to report on the health risk caused by pollutant mixing.
 
-Previous to the AQHI, Canada used the Air Quality Index (AQI). The AQI reported air quality based on specific pollutant levels and reported the maximum concentration as the value for that station.
+Previous to the AQHI, Canada used the Air Quality Index (AQI). The AQI reported air quality based on specific pollutant levels and reported the maximum pollutant sub-index as the value for that station.
 
 ## Color scale
 
@@ -35,18 +35,28 @@ colorScale([
     ])
 ```
 
-_Note_: Adapted from “About the Air Quality Health Index” (April 2021), [https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html](https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html)  [^1]. Accessed 13 August 2024.
+_Note_: Adapted from “About the Air Quality Health Index” (Apr. 2021), [https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html](https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html)  [^1]. Accessed 13 Aug. 2024.
 
 ## Methods
 
-Canada’s AQHI uses 3-hour averaging periods of PM2.5, O3, and NO2. A 3-hour averaging period was chosen as it provides more stability than a 1-hour averaging period [^1]. It is not specified if this 3-hour average is rolling. Data from at least 2 hours out of the 3-hour period is required for the AQHI calculation; if this requirement is not met, the 3-hour average is set to ‘missing’ [^1]. If more than 6 rolling 3-hour averages are missing, the daily 3-hour maximum is set to missing [^1]. This procedure is described in a report outlining a recommendation for an improved AQHI [^1] and is confirmed by the Alberta government website to be the same procedure for calculating the national AQHI [^5].
+Canada’s AQHI uses 3-hour averaging periods of PM<sub>2.5</sub>, O<sub>3</sub> and NO<sub>2</sub>. A 3-hour averaging period was chosen as it provides more stability than a 1-hour averaging period [^1]. 
+
+<div class = 'note'>
+It is not specified if this 3-hour average is rolling. Data from at least 2 hours out of the 3-hour period is required for the AQHI calculation; if this requirement is not met, the 3-hour average is set to ‘missing’. If more than 6 rolling 3-hour averages are missing, the daily 3-hour maximum is set to 'missing'. 
+</div>
+
+```tex  
+% above referenced source [^1] after both 'missing's     
+```
+
+The calculation procedure is described in a report outlining a recommendation for an improved AQHI [^1] and is confirmed by the Alberta government website to be the same procedure for calculating the national AQHI [^5].
 The 3-hour averaging periods are plugged into the AQHI formula, a simple linear combination [^1]:
 
 ```tex  
 AQHI = (\frac{10}{10.4}) \times 100 \times [({e^{(0.000871*NO2)} -1) + (e^{(0.000537*O3)} -1) + (e^{(0.000487*PM2.5)} -1})]  
 ```  
 
-Note: Adapted from “A New Multipollutant, No-Threshold Air Quality Health IndexBased on Short-Term Associations Observed in Daily Time-Series Analyses” (March 2008), <https://www.tandfonline.com/doi/epdf/10.3155/1047-3289.58.3.435?needAccess=true> [^1]. Accessed August 13, 2024.
+Note: Adapted from “A New Multipollutant, No-Threshold Air Quality Health IndexBased on Short-Term Associations Observed in Daily Time-Series Analyses” (Mar. 2008), <https://www.tandfonline.com/doi/epdf/10.3155/1047-3289.58.3.435?needAccess=true> [^1]. Accessed 13 Aug. 2024.
 
 The slopes in this formula are estimations of exposure-response coefficients of each pollutant multiplied by a scaling factor [^2]. The final AQHI value is rounded to the nearest integer value and translated to its respective risk category to be reported.
 
@@ -54,7 +64,10 @@ The ‘Low Risk’ category encompasses AQHI values from 1 to 3, ‘Moderate Ris
 
 The AQHI accounts for the cumulative effect of pollutant mixing, instead of basing the air quality on the greatest pollutant concentration. The AQHI is assumed to be an hourly value, as the observed AQHI in the British Columbia interactive map reports the ‘last hour’ value [^6].
 
-Canada additionally has an Info-Smog program that provides air quality forecasting. Numerical models established by the Environment and Climate Change Canada are used to predict PM2.5 and O3 concentrations for the next several hours [^3]. A calculation method based on the AQHI formula is used to forecast the AQHI, however it only accounts for predicted concentrations of PM2.5 and O3. The air quality forecast is reported in three categories: good, fair, and poor. Two forecasts are issued daily: at 5 a.m. EST the forecast for today, tonight, and tomorrow is issued, and at 4 p.m. EST, the forecast for tonight and tomorrow is issued [^3]. Note that another government website states that the first AQHI forecast is issued at 6 a.m. and second at 5 p.m. local time [^4], however it is unclear which time is correct. Forecast amendments can be issued at any time if necessary to provide the most relevant information.
+Canada additionally has an Info-Smog program that provides air quality forecasting. Numerical models established by the Environment and Climate Change Canada are used to predict PM<sub>2.5</sub> and O<sub>3</sub> concentrations for the next several hours [^3]. A calculation method based on the AQHI formula is used to forecast the AQHI, however it only accounts for predicted concentrations of PM<sub>2.5</sub> and O<sub>3</sub>. The air quality forecast is reported in three categories: good, fair, and poor. Two forecasts are issued daily: at 5 a.m. EST the forecast for today, tonight, and tomorrow is issued, and at 4 p.m. EST, the forecast for tonight and tomorrow is issued [^3]. 
+Another government site states that the first AQHI forecast is issued at 6 a.m. and second at 5 p.m. local time. It is unclear which time is correct.  
+
+Forecast amendments can be issued at any time if necessary to provide the most relevant information.
 
 ## References
 
@@ -76,9 +89,9 @@ Canada additionally has an Info-Smog program that provides air quality forecasti
 
 Chen, H., Copes, R. "Review of Air Quality Index and Air Quality Health Index." Public Health Ontario, 30 Jan. 2013, [www.publichealthontario.ca/-/media/documents/A/2013/air-quality-health-index.pdf](https://www.publichealthontario.ca/-/media/documents/A/2013/air-quality-health-index.pdf). 
 
-"Guide to Air Quality Health Index forecasts." Government of Canada, 28 April 2021, [www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html](https://www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html). 
+"Guide to Air Quality Health Index forecasts." Government of Canada, 28 Apr. 2021, [www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html](https://www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html). 
 
-"How Info-Smog works." Government of Canada, 15 March 2024, [www.canada.ca/en/environment-climate-change/services/info-smog/how-it-works.html](https://www.canada.ca/en/environment-climate-change/services/info-smog/how-it-works.html). 
+"How Info-Smog works." Government of Canada, 15 Mar. 2024, [www.canada.ca/en/environment-climate-change/services/info-smog/how-it-works.html](https://www.canada.ca/en/environment-climate-change/services/info-smog/how-it-works.html). 
 
 "Latest air quality data map - Air Quality Health Index." Government of British Columbia, [www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html](https://www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html). 
 
