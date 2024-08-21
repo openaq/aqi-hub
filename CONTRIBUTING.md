@@ -59,9 +59,9 @@ _Note_: Adapted from "Title" (Publication Date), url. Access Date.
 
 The "Note:" text is italicized and followed by "Adapted from."
 
-Similarly to the Reference citation, the date last modified is used for relevant webpages. All dates should follow the form Day Month Year and use the standard abbreviations for the month, as listed above. If there is no date listed, then n.d. is used in place of the date in parenthesis, standing for 'no date.'
+Similar to the Reference citation, the date last modified is used for relevant webpages. All dates should follow the form Day Month Year and use the standard abbreviations for the month, as listed above. If there is no date listed, then n.d. is used in place of the date in parenthesis, standing for 'no date.'
 
-Unlike the Reference citation, there is only a period used after the url and access date. The publication date or date last modified is also in paranthesis. A superscripted bracket should be included after the url link so that it is connected to the Reference citations.
+Unlike the Reference citation, there is only a period used after both the url and access date. The publication date or date last modified is in paranthesis. A superscripted bracket should be included after the url link so that it is connected to its respective source listed in the Reference citations.
 
 The titles in their native language should be used rather than manually translating it to English.
 
