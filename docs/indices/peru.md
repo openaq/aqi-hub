@@ -17,10 +17,10 @@ import {colorScale} from "../components/color-scale.js";
 
 ```js
 colorScale([
-    {label: 'Good', color: '#04ff00'}
-    ,{label: 'Moderate', color: '#ffff00'}
-    ,{label: 'Bad', color: '#f79645'}
-    ,{label: 'VUEC', color: '#ff0000'}
+    {label: 'Good', color: '#04ff00', range: '0-50'}
+    ,{label: 'Moderate', color: '#ffff00', range: '51-100'}
+    ,{label: 'Bad', color: '#f79645', range: '101-VUEC'}
+    ,{label: 'VUEC', color: '#ff0000', range: 'VUEC+'}
     ])
 ```
 
