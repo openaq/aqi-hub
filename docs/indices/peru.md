@@ -30,9 +30,9 @@ The valor umbral del estado de cuidado (VUEC), or threshold of concern, is varia
 
 ## Methods
 
-MINAM determines pollutant specific standards which forms the basis for computing the sub-index for the INCA. There is no specific guidance on rounding or truncating values before computing the index.
+MINAM determines pollutant-specific standards which form the basis for computing the sub-index for the INCA. There is no specific guidance on rounding or truncating values before computing the index.
 
-To calculate the INCA index for a pollutant we multiply the pollutant by 100 divided the pollutant standard for that pollutant:
+To calculate the INCA index for a pollutant the pollutant is multiplied by 100 then divided by the pollutant standard for that pollutant:
 
 ```tex
 
@@ -55,9 +55,9 @@ The values of the weighting standard for each pollutant are as followed:
 * ${tex`CO`} = 10000  
 * ${tex`H_2S`} = 150  
 
-Due to the nature of this function, each pollutant has different upper INCA scores for the “bad” category and varying lower values for the “Threshold of Concern” or VUEC. The 100 value divided by the pollutant standard appears to be to pin the value against the “bad” category for each pollutant, determining the slope of the linear function for the INCA score.
+Due to the nature of this function, each pollutant has different upper INCA scores for the “bad” category and varying lower values for the “Threshold of Concern” or VUEC. The 100 value divided by the pollutant standard appears to pin the value against the “bad” category for each pollutant, determining the slope of the linear function for the INCA score.
 
-The ministerial resolutions and other sources only provide guidance on computing pollutant specific indices, there is no additional guidance on if a composite or cross pollutant index method exists.
+The ministerial resolutions and other sources provide guidance on computing pollutant-specific indices, but do not appear to provide guidance on whether a composite or cross pollutant index method exists.
 
 ## References
 
