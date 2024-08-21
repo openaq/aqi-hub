@@ -45,17 +45,18 @@ breakpointsTable(data)
 _Note_: Adapted from “环境空气质量指数（AQI）技术规定（试行）. Technical Regulation on Ambient Air Quality Index (on trial)” (1 Jan. 2016), [https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf) [^1]. Accessed 8 Aug. 2024.
 
 <div class = 'note'>
-No rounding or truncation conventions are stated for individual pollutant breakpoint concentrations and sub-index calculations. We have assumed that all pollutant values are rounded to the nearest integer except CO, which is rounded to one decimal place. This is assumed as numerous reported pollutant concentrations seem to follow this convention. Lower breakpoint limits were also assumed according to this rounding convention to avoid overlapping limit values. 
+No rounding or truncation conventions are stated for individual pollutant breakpoint concentrations and sub-index calculations. We assume that all pollutant values are rounded to the nearest integer except CO, which is rounded to one decimal place. This is assumed because numerous reported pollutant concentrations seem to follow this convention. Lower breakpoint limits are also assumed according to this rounding convention to avoid overlapping limit values.
 </div>
 
 ```tex  
 % above referenced source [^3] after "numerous reported pollutant concentrations
 ```
-If the 1 hour average concentration value for SO<sub>2</sub> is greater than 800 μm/m<sup>3</sup>, the sub-index calculation is not performed. The sub-index for SO<sub>2</sub> for the 24-hour average concentration is used instead [^1]. 
 
-If the 8-hour average concentration of O<sub>3</sub> is greater than 800 μm/m<sup>3</sup>, the sub-index calculation is not performed. The sub-index for O<sub>3</sub> for the 24-hour average concentration is used instead [^1]. 
+If the 1-hour average concentration value for SO<sub>2</sub> is greater than 800 μm/m<sup>3</sup>, the sub-index calculation is not performed. The sub-index for SO<sub>2</sub> for the 24-hour average concentration is used instead [^1].
 
-The sub-index for individual pollutants is calculated using the following piecewise linear function: 
+If the 8-hour average concentration of O<sub>3</sub> is greater than 800 μm/m<sup>3</sup>, the sub-index calculation is not performed. The sub-index for O<sub>3</sub> for the 24-hour average concentration is used instead [^1].
+
+The sub-index for individual pollutants is calculated using the following piecewise linear function:
 
 ```js  
 import {piecewiseLatexDoc} from '../components/piecewise.js';  
@@ -71,9 +72,9 @@ The reported AQI is the maximum sub-index value. When the AQI is greater than 50
 {AQI} = {Max}({I}_{PM_{2.5}},{I}_{PM_{10}},{I}_{CO},{I}_{O_{3}},{I}_{SO_{2}},{I}_{NO_{2}})
 ```
 
-The final AQI is rounded to the nearest integer [^1]. 
+The final AQI is rounded to the nearest integer [^1].
 
-The daily AQI uses a daily 24-hour average, with the time period being 24 hours before midnight of the day [^1]. The real-time AQI is 1-hour and can be released after every hour. The lag time should not exceed 1 hour in reporting [^1]. 
+The daily AQI uses a daily 24-hour average, with the time period being 24 hours before midnight of the day [^1]. The real-time AQI is 1-hour and can be released after every hour. The lag time should not exceed 1 hour in reporting [^1].
 
 There are different averaging periods for daily and real-time AQIs [^1]:
 
@@ -82,9 +83,9 @@ There are different averaging periods for daily and real-time AQIs [^1]:
 | Daily | 24 hr. | 24 hr. | 24 hr. | Max. 1hr. &  rolling 8 hr. | 24 hr. | 24 hr. |
 | Real-time | 1 hr. & rolling 24 hr.  | 1 hr. & 24 hr. rolling | 1 hr. | 1 hr.  | 1 hr. | 1 hr. |
 
-The forecasting AQI evaluates PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, NO<sub>2</sub> and SO<sub>2</sub> concentrations, AQI and levels, and primary pollutant [^4]. The forecast models 24 hours, 48 hours, and 72 hours in advance. There are three evaluation categories: single pollutant concentration forecast evaluation, air quality index forecast evaluation, and heavy pollution day forecast evaluation [^4]. 
+The forecasting AQI evaluates PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, NO<sub>2</sub> and SO<sub>2</sub> concentrations, AQI and levels, and primary pollutant [^4]. The forecast models 24 hours, 48 hours, and 72 hours in advance. There are three evaluation categories: single pollutant concentration forecast evaluation, air quality index forecast evaluation, and heavy pollution day forecast evaluation [^4].
 
-The statistical evaluation of a single pollutant concentration forecast mainly includes the standardized mean deviation, root mean square error and correlation coefficient. 
+The statistical evaluation of a single pollutant concentration forecast mainly includes the standardized mean deviation, root mean square error and correlation coefficient.
 
 ```tex  
 NMB = \frac{\frac{1}{N}\sum_{i=1}^{N}(F_i-O_i)}{\frac{1}{N}\sum_{i=1}^{N} O_i}  
@@ -101,11 +102,11 @@ where
 RSME = \sqrt{\frac{1}{N}\sum_{i=1}^{N} (F_i-O_i)^2}  
 ```  
 
-where   
+where
 
 * ${tex`RSME`} - Root mean square error  
 * ${tex`N`} - Number of sample pairs involved in the calculation (a sample pair consists of a forecasted and predicted sample)  
-* ${tex`F_i`} - Numerical prediction concentration value of the pollutant in the i-th sample pair   
+* ${tex`F_i`} - Numerical prediction concentration value of the pollutant in the i-th sample pair
 * ${tex`O_i`} - Actual concentration value of the pollutants in the i-th sample pair
 
 ```tex  
@@ -116,20 +117,19 @@ where
 
 * ${tex`r`} - Correlation coefficient  
 * ${tex`N`} - Number of sample pairs involved in the calculation (a sample pair consists of a forecasted and predicted sample)  
-* ${tex`F_i`} - Numerical prediction concentration value of the pollutant in the i-th sample pair   
+* ${tex`F_i`} - Numerical prediction concentration value of the pollutant in the i-th sample pair
 * ${tex`\bar{F}`} - Average value of the numerical forecast concentration of pollutants involved in the calculation  
-* ${tex`O_i`} - Actual concentration value of the pollutants in the i-th sample pair   
+* ${tex`O_i`} - Actual concentration value of the pollutants in the i-th sample pair
 * ${tex`\bar{O}`} - Average actual concentration value of pollutants involved in the calculation
 
-Forecasted AQI values undergo an evaluation process to ensure that it is accurate. Based on the AQI forecast value of the numerical model, the AQI forecast range is set to be plus of minus 25% [^4]. The true AQI value is within the forecast level, it is considered accurate. The percentage of the number of days with accurate AQI level forecasts annually should not be less than 60%, including both the accuracy of the sub-index and AQI values. 
+Forecasted AQI values undergo an evaluation process to ensure that they are accurate. Based on the AQI forecast value of the numerical model, the AQI forecast range is set to be plus or minus 25% [^4]. If the true AQI value is within the forecast level, it is considered accurate.  It is required that the percentage of the number of days with accurate AQI level forecasts annually not be less than 60%, including both the accuracy of the sub-index and AQI values.
 
 The evaluation of the accuracy for forecasts for primary pollutants depends on the AQI level. When the AQI level is 1, there is no primary pollutant and it does not undergo the primary pollutant forecast assessment [^4]. When the AQI level is 2 or greater, if the predicted primary pollutant is equal to the true primary pollutant reported, the forecast is deemed accurate [^4]. Further details of the procedure for evaluating the accuracy of the forecast is beyond the scope of this guide.
 
 ## References
 
-[^1]:[https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/t20120302_224166.shtml](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/t20120302_224166.shtml)   
+[^1]:[https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/t20120302_224166.shtml](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/t20120302_224166.shtml)
 [^2]: [https://web.archive.org/web/20041025222827/http://www.sepa.gov.cn/quality/air.php3?offset=60](https://web.archive.org/web/20041025222827/http://www.sepa.gov.cn/quality/air.php3?offset=60)  
-[^3]: [https://air.cnemc.cn:18007/](https://air.cnemc.cn:18007/)  
 [^4]: [https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202005/W020200518771113314010.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202005/W020200518771113314010.pdf)  
 [^5]: [https://datadrivenlab.org/air-quality-2/chinas-new-air-quality-index-how-does-it-measure-up/](https://datadrivenlab.org/air-quality-2/chinas-new-air-quality-index-how-does-it-measure-up/)
 
@@ -139,9 +139,9 @@ The evaluation of the accuracy for forecasts for primary pollutants depends on t
 
 “城市空气质量.” 全国城市空气质量实时发布平台, [air.cnemc.cn:18007/](https://air.cnemc.cn:18007/).
 
-“环境空气质量数值预报技术规范 Technical guideline for numerical forecasting of ambient air quality（发布稿）.” 中华人民共和国国家环境保护标准, HJ 1130-2020, 15 Aug. 2020, [www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202005/W020200518771113314010.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202005/W020200518771113314010.pdf). 
+“环境空气质量数值预报技术规范 Technical guideline for numerical forecasting of ambient air quality（发布稿）.” 中华人民共和国国家环境保护标准, HJ 1130-2020, 15 Aug. 2020, [www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202005/W020200518771113314010.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/202005/W020200518771113314010.pdf).
 
-Qinghua Sun, Huanhuan Zhu, Wanying Shi, Yu Zhong, Yingjian Zhang; Tiantian Li. “Preplanned Studies: Development of the National Air Quality Health Index — China, 2013−2018.” CCDC weekly, 22 Jan. 2021, [weekly.chinacdc.cn/en/article/doi/10.46234/ccdcw2021.011](https://weekly.chinacdc.cn/en/article/doi/10.46234/ccdcw2021.011). 
+Qinghua Sun, Huanhuan Zhu, Wanying Shi, Yu Zhong, Yingjian Zhang; Tiantian Li. “Preplanned Studies: Development of the National Air Quality Health Index — China, 2013−2018.” CCDC weekly, 22 Jan. 2021, [weekly.chinacdc.cn/en/article/doi/10.46234/ccdcw2021.011](https://weekly.chinacdc.cn/en/article/doi/10.46234/ccdcw2021.011).
 
 Hsu, Angel. “China's new Air Quality Index: How does it measure up?” Data Driven Envirolab, 28 Mar. 2012, [datadrivenlab.org/air-quality/chinas-new-air-quality-index-how-does-it-measure-up/](https://datadrivenlab.org/air-quality/chinas-new-air-quality-index-how-does-it-measure-up/).
 
