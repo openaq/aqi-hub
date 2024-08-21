@@ -23,6 +23,10 @@ jobs:
 
     - name: Build static site
       run: npm run build
+    
+    - name: move extras
+      run: | 
+        cp ./extras/robots.txt ./dist/robots.txt
 
     - uses: jakejarvis/s3-sync-action@master
       with:

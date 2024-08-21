@@ -9,7 +9,11 @@ export default {
   // The pages and sections in the sidebar. If you don’t specify this option,
   // all pages will be listed in alphabetical order. Listing pages explicitly
   // lets you organize them into sections and have unlisted pages.
-  head: `<script defer data-domain="aqihub.info" src="https://plausible.io/js/script.js"></script>`,
+  head: `
+    <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+    <script defer data-domain="aqihub.info" src="https://plausible.io/js/script.js"></script>
+  `,
   pages: [
     {
       name: "",
