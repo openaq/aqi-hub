@@ -93,7 +93,17 @@ At least 2 of the 3 values ${tex`c_1`}, ${tex`c_2`}, and ${tex`c_3`} must have d
 
 The Hourly AQI for PM<sub>10</sub> and PM<sub>2.5</sub> is then calculated using the formula:
 
-{custom piecewise where Concentration is the above NowCast instead}
+```tex
+{AQI}_x = \frac{I_{i+1}-I_{i}}{BP_{i+1}-BP_{i}}(NowCast_x - BP_i) + I_i  
+```
+
+where 
+* ${tex`AQI_{x}`} - AQI value of the respective pollutant, x
+* ${tex`BP_{i}`} - Lower limit concentration of the respective pollutant corresponding to level i
+* ${tex`BP_{i+1}`} - Upper limit concentration of the respective pollutant corresponding to level i+1
+* ${tex`I_{i}`} - AQI value at level i (as listed in the breakpoint concentration table)
+* ${tex`I_{i+1}`} - AQI value at level i+1 (as listed in the breakpoint concentration table)
+* ${tex`NowCast_{x}`} - NowCast value previously calculated above for the respective pollutant, x
 
 The maximum Hourly AQI value is reported as the aggregate hourly AQI value, with the values being rounded to integers.
 
@@ -102,6 +112,13 @@ For calculating the hourly AQI for CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub
 ```tex
 {AQI}_x = \frac{I_{i+1}-I_{i}}{BP_{i+1}-BP_{i}}(C_x - BP_i) + I_i  
 ```
+where 
+* ${tex`AQI_{x}`} - AQI value of the respective pollutant, x
+* ${tex`BP_{i}`} - Lower limit concentration of the respective pollutant corresponding to level i
+* ${tex`BP_{i+1}`} - Upper limit concentration of the respective pollutant corresponding to level i+1
+* ${tex`I_{i}`} - AQI value at level i (as listed in the breakpoint concentration table)
+* ${tex`I_{i+1}`} - AQI value at level i+1 (as listed in the breakpoint concentration table)
+* ${tex`C_{x}`} - Average hourly observed value of the respective pollutant, x
 
 For O<sub>3</sub>, only the one 1-hour averaging period breakpoints are used during calculations. The maximum value of all the parameters is selected as the aggregate hourly AQI value, reported as an integer.
 
