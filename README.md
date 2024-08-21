@@ -4,9 +4,11 @@ A comprehensive reference documentation site for different country/administratio
 
 ## Development
 
-This site built based upon the [Observable Framework](https://observablehq.com/framework/).
+This site built using the [Observable Framework](https://observablehq.com/framework/).
 
-[markdown-lint](https://github.com/markdownlint/markdownlint) is used for Markdown linting to maintain a consistent style. Ignored rules are held in the [.markdownlint.json](./.markdownlint.json) file at the project root.
+### Contributing 
+
+Contributions are welcome! See the [CONTRIBUTING.md](./CONTRIBUTING.md) guide for more information.
 
 ## License
 
