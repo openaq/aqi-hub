@@ -5,11 +5,11 @@
 
 ## Background
 
-The India Air Quality Index (AQI) covers eight major pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub>, Ammonia (NH<sub>3</sub>), and lead (Pb). Introduced in 2014 by the Central Pollution Control Board (CPCB) under the Ministry of Environment, Forest and Climate Change (MoEFCC), the system was developed to standardize air quality reporting across the country.
+The India Air Quality Index (AQI) covers eight major pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub>, ammonia (NH<sub>3</sub>), and lead (Pb). Introduced in 2014 by the Central Pollution Control Board (CPCB) under the Ministry of Environment, Forest and Climate Change (MoEFCC), the system was developed to standardize air quality reporting across the country.
 
 ## Color scale
 
-The India AQI has a six color scale with category names (good to severe) and numerical ranges, ranging from 0 to 500, for each category.
+The India AQI has a six-color scale with category names (good to severe) and numerical ranges, ranging from 0 to 500, for each category.
 
 ```js
 
@@ -29,7 +29,7 @@ const data = parseBreakpointsCsv(breakpoints);
 colorScale(colorScaleReshape(data))
 ```
 
-Note: Adapted from “National Air Quality Index” (2014), [http://app.cpcbccr.com/ccr_docs/FINAL-REPORT_AQI_.pdf](http://app.cpcbccr.com/ccr_docs/FINAL-REPORT_AQI_.pdf) [^1]. Accessed 16 Aug. 2024. 
+Note: Adapted from “National Air Quality Index” (2014), [http://app.cpcbccr.com/ccr_docs/FINAL-REPORT_AQI_.pdf](http://app.cpcbccr.com/ccr_docs/FINAL-REPORT_AQI_.pdf) [^1]. Accessed 16 Aug. 2024.
 
 ## Methods
 
@@ -39,11 +39,11 @@ India uses a sub-index method where the index value for each pollutant is calcul
 breakpointsTable(data)
 ```
 
-Note: Adapted from “About National Air Quality Index” (n.d.), [https://cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==](https://cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==) [^4]. Accessed 16 Aug. 2024. 
+Note: Adapted from “About National Air Quality Index” (n.d.), [https://cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==](https://cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==) [^4]. Accessed 16 Aug. 2024.
 
-Particulate matter, SO2, NO2, Ammonia and lead are all calculated from 24-hour averages: this can be a natural day 24-hour period or a running 24 hour period [^2]. Ozone and Carbon Monoxide are calculated from 8 hour averages: this can be an 8 hour daytime period, roughly 09:00-17:00. When the 8 hour average of O<sub>3</sub> exceeds 208 ug/m<sup>3</sup>, the 1 hour average value is used instead.  For 24-hour averaging periods 16 hours of valid data must be present or else the 24-hour is not considered valid and representative. 
+Particulate matter, SO<sub>2</sub>, NO<sub>2</sub>, Ammonia and lead are all calculated from 24-hour averages: this can be a natural day 24-hour period or a running 24 hour period [^2]. O<sub>3</sub> and CO are calculated from 8-hour averages: this can be an 8-hour daytime period, roughly 09:00-17:00. When the 8-hour average of O<sub>3</sub> exceeds 208 µg/m<sup>3</sup>, the 1 hour average value is used instead.  For 24-hour averaging periods 16 hours of valid data must be present or else the 24-hour is not considered valid and representative.
 
-The India AQI uses a piecewise linear function to convert concentration values to sub-index values based on the breakpoints defined above.The piecewise linear function is defined as:
+The India AQI uses a piecewise linear function to convert concentration values to sub-index values based on the breakpoints defined above. The piecewise linear function is defined as:
 
 ```js  
 import {piecewiseLatexDoc} from '../components/piecewise.js';  
@@ -59,29 +59,32 @@ After calculating the sub-index for each measured pollutant all measured polluta
 {AQI} = {Max}({I}_{PM_{10}},{I}_{PM_{2.5}},I_{SO_{2}},{I}_{SO_{2}},{I}_{O_{3}},{I}_{CO},{I}_{NH_3},{I}_{Pb})  
 ```
 
-The CPCB also provides some guidance on calculating city-wide AQI based on the station level measurements. A city AQI requires a minimum of 3 stations and is advised in cities of 1 million residents or higher. Pollutant sub-index values are then averaged, instead of choosing the maximum value as in the station level AQI:
+The CPCB also provides guidance on calculating city-wide AQIs based on the station level measurements. A city AQI requires a minimum of 3 stations and is advised in cities of 1 million residents or higher. Pollutant sub-index values are then averaged instead of choosing the maximum value as in the station-level AQI:
 
 ```tex
 Average AQI= \frac{\sum{AQI_i}}{n}
 ```
+
 where  
 
 * ${tex`AQI_i`} - AQI of respective pollutants
 * ${tex`n`} - Number of pollutants (minimum of 3)
 * ${tex`m`} - Number of sites in the city (minimum of 3)
 
-Monitoring sites are then averaged weighted by the population of the 2km by 2km gridded area around the station, using a simplified calculation method[^1]:
+Monitoring sites are then averaged, weighted by the population of the 2km by 2km gridded area around the station, using a simplified calculation method[^1]:
 
 ```tex  
 AQI_R = \frac{(\sum{\frac{AQI_i}{n}})_1 + (\sum{\frac{AQI_i}{n}})_2 + \dots + (\sum{\frac{AQI_i}{n}})_m}{m}
 ```
+
 where  
+
 * ${tex`AQI_R`} - City-wide AQI
 * ${tex`AQI_i`} - AQI of respective pollutants
 * ${tex`n`} - Number of pollutants (minimum of 3)
 * ${tex`m`} - Number of sites in the city (minimum of 3)
 
-Other specifics around the computation of the city AQI are outlined by the CPCB and are out of scope for this document.
+See the CPCB documentation for other specifics around the computation of the city AQI.
 
 ## References
 
