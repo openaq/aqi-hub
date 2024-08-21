@@ -1,5 +1,7 @@
 # OpenAQ AQI Hub
 
+![AQI_Hub](https://github.com/user-attachments/assets/401cb4e6-1a48-402e-8106-ddd977116bb5)
+
 A comprehensive reference documentation site for different country/administration air quality index scales.
 
 ## Development
