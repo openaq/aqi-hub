@@ -59,11 +59,12 @@ _Note_: Adapted from "Title" (Publication Date), url. Access Date.
 
 The "Note:" text is italicized and followed by "Adapted from."
 
-Similarly to the Reference citation, the date last modified is used for relevant webpages. All dates should follow the form Day Month Year and use the standard abbreviations for the month, as listed above. If there is no date listed, then it is labeled n.d., standing for 'no date.'
+Similarly to the Reference citation, the date last modified is used for relevant webpages. All dates should follow the form Day Month Year and use the standard abbreviations for the month, as listed above. If there is no date listed, then n.d. is used in place of the date in parenthesis, standing for 'no date.'
 
 Unlike the Reference citation, there is only a period used after the url and access date. The publication date or date last modified is also in paranthesis. A superscripted bracket should be included after the url link so that it is connected to the Reference citations.
 
 The titles in their native language should be used rather than manually translating it to English.
 
 Example:
+
 _Note_: Adapted from "PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX (API)CALCULATION" (n.d.), [https://apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf) [^1]. Accessed 27 July 2024.
