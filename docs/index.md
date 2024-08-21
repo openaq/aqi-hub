@@ -14,7 +14,7 @@ The AQI Hub is a comprehensive online resource dedicated to deepening the public
 
 Many people do not know how AQIs are calculated and do not realize that they vary significantly.  This can lead to misunderstandings about the risks posed by air pollution and difficulty in comparing AQIs across regions. By “decoding” the opaque nature of AQIs and centralizing fragmented information, the AQI Hub provides clarity and transparency. People can better assess their exposure to air pollution and take appropriate actions to safeguard their health and well-being.
 
-AQIs vary greatly between countries. The chart below shows how AQIs representing a 24-hour average concentration for PM2.5 vary across nations:
+The chart below shows how AQIs representing a 24-hour average concentration for PM<sub>2.5</sub> vary greatly across nations, demonstrating the importance of understanding each country’s methodology:
 
 ```js
 
@@ -49,8 +49,9 @@ Plot.plot({
 
 _Note_: Adapted from "Why we should have a universal air quality index?" (2024), <https://doi.org/10.1016/j.envint.2024.108698>. Accessed 5 Aug. 2024.
 
-### Read more
+## Who built the AQI Hub?
 
+[OpenAQ](https://openaq.org), a nonprofit non-governmental organization, built the AQI Hub. OpenAQ is the world’s first and largest open-source, open-access database of real-time and historical outdoor air quality measurements. OpenAQ harmonizes the data for easy comparison and shares the data in physical units rather than as an air quality index. OpenAQ serves as a resource for air quality analysis, communications, advocacy and more, enabling countless applications and initiatives. Data on OpenAQ are accessible via an [API](https://api.openaq.org) or via [OpenAQ Explorer](https://explore.openaq.org), a map-based interface showing real-time data and related visualizations.
 
 ## References
 
