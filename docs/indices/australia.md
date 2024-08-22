@@ -35,7 +35,13 @@ For each measured pollutant, determine the category based on the breakpoints pro
 
 There is no documentation indicating that a minimum number of pollutant sub-indexes are required before selecting a highest value for the composite air quality standard value. Additionally, no guidance is provided for data coverage for averaging periods over one hour, such as 4 hour and 8 hour used for CO and Ozone in some states.
 
-The pollutant thresholds by state as reported by their relevant government website are:
+The pollutant thresholds by state as reported by their relevant government website are as followed:
+
+
+<div class="note">
+In the recorded breakpoint concentrations for all regions except Queensland and Tasmania, there was overlap between the lower and upper limits of subsequent risk categories. To mitigate this, all pollutants were assumed to be rounded according to the apparent convention as reported by their respective government organizations. Reported pollutant concentration data, either in tables or in map format, was analyzed to determine how many significant figures each pollutant was reported with. The number of significant figures reported for each pollutant was assumed to be the same number of significant figures values were rounded to when establishing the upper limits of the breakpoint concentration table. We have assumed that the upper limit values are not inclusive. This is inferred as the first column in the provided breakpoint concentration tables include the non inclusive less than symbol. 
+</div>
+
 
 ### New South Wales
 
@@ -52,6 +58,10 @@ The pollutant thresholds by state as reported by their relevant government websi
 
 \* _Documented as parts per hundred million (pphm) in source material. Converted here to remain consistent with the more common ppm/ppb in the other tables_
 
+<div class="note">
+The upper breakpoint limits for all pollutants are assumed to be rounded to 1 significant figure according to reported pollutant data. 
+</div>
+
 _Note_: Adapted from "About the air quality categories" (5 July 2024), https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories [^1]. Accessed 16 Aug. 2024.
 
 ### Northern Territory
@@ -64,6 +74,10 @@ _Note_: Adapted from "About the air quality categories" (5 July 2024), https://w
 | O<sub>3</sub> ppb  |  1 hr. | 0-67 | 67-100 | 100-150  | 150-200 | 200+ |
 | SO<sub>2</sub> ppb |  1 hr. | 0-133 | 133-200 | 200-300 | 300-400 | 400+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
+
+<div class="note">
+The upper breakpoint limits for all pollutants except CO are assumed to be rounded to 2 significant figures according to reported pollutant data. CO is assumed to be rounded to 3 significant figures according to reported data.
+</div>
 
 _Note_: Adapted from “AQC Summary Dynamic Table” (n.d.), [http://ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx)[^2]. Accessed 16 Aug. 2024. 
 
@@ -79,6 +93,10 @@ _Note_: Adapted from “AQC Summary Dynamic Table” (n.d.), [http://ntepa.webho
 | O<sub>3</sub> ppb  |  4 hr. | 0-54 | 54-80 | 80-120  | 120-160 | 200+ |
 | SO<sub>2</sub> ppb |  1 hr. | 0-133 | 133-200 | 200-300 | 300-400 | 400+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
+
+<div class="note">
+There is no reported overlap between upper and lower limits of the breakpoint table, thus no values are assumed.
+</div>
 
 _Note_: Adapted from “Air quality categories” (21 Sept. 2023), [www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)[^3]. Accessed 16 Aug. 2024. 
 
@@ -96,6 +114,10 @@ _Note_: Adapted from “Air quality categories” (21 Sept. 2023), [www.qld.gov.
 | NO<sub>2</sub> (ppb<sup>*</sup>) |  1 hr. | 0-80 | 80-120 |120-180 | 180-240 | 240+ |
 
 \* _Documented as parts per million ppm in source material. Converted here to remain consistent with the more common ppb in the other tables_
+
+<div class="note">
+The upper breakpoint limits for PM<sub>2.5</sub>, PM<sub>10</sub>, and CO are assumed to be rounded to 1 significant figure according to reported pollutant data. O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> have been converted from ppm to ppb are assumed to be rounded to the nearest integer, as data in ppm is originally reported with 3 significant figures.
+</div>
 
 _Note_: Adapted from “Air quality monitoring” (14 June 2024), [www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)[^4]. Accessed 16 Aug. 2024. 
 
@@ -119,6 +141,10 @@ _Note_: Adapted from “Air Quality” (9 July 2024), [https://www.health.tas.go
 |---|---|---|---|---|---|---|---|
 | PM<sub>2.5</sub> µg/m<sup>3</sup>  | 1 hr. | 0-9 | 10-24 | 25-49 | 50-99 | 100-299 | 300+ |
 
+<div class="note">
+There is no reported overlap between upper and lower limits of the breakpoint table, thus no values are assumed.
+</div>
+
 _Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.), [epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)[^5]. Accessed 16 Aug. 2024. 
 
 ### Victoria
@@ -131,6 +157,10 @@ _Note_: Adapted from “Real-time Air Quality Data for Tasmania” (n.d.), [epa.
 | O<sub>3</sub> ppb  |  1 hr. | 0-50 | 50-100 | 100-150  | 150-300 | 300+ |
 | SO<sub>2</sub> ppb |  1 hr. | 0-100 | 100-200 | 200-300 | 300-600 | 600+ |
 | NO<sub>2</sub> ppb |  1 hr. | 0-60 | 60-120 |120-180 | 180-360 | 360+ |
+
+<div class="note">
+The upper breakpoint limits for PM<sub>2.5</sub>, SO<sub>2</sub>, and CO are assumed to be rounded to 2 significant figures according to reported pollutant data. PM<sub>10</sub> is assumed to be rounded to 1 significant figure while NO<sub>2</sub> and O<sub>3</sub> are assumed to be rounded to the nearest integer. 
+</div>
 
 _Note_: Adapted from “How we calculate air quality categories” (13 Jan 2021),
 [www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)[^6]. Accessed 16 Aug. 2024. 
@@ -150,14 +180,8 @@ _Note_: Adapted from “How we calculate air quality categories” (13 Jan 2021)
 _Note_: Adapted from “Air quality index” (n.d.), [www.der.wa.gov.au/your-environment/air/air-quality-index](https://www.der.wa.gov.au/your-environment/air/air-quality-index)[^7]. Accessed 16 Aug. 2024. 
 
 <div class="note">
-In the recorded breakpoint concentrations for all regions except Queensland and Tasmania, there was overlap between the lower and upper limits of subsequent risk categories. To mitigate this, all pollutants were assumed to hold one significant figure for the upper limit based on reported data. We have assumed that the upper limit is not inclusive and is rounded/truncated to the first decimal place. This is inferred as the first column in the provided breakpoint table includes the non inclusive less than symbol. 
-
-```tex 
-\thinspace
-``` 
-An exception to this convention is South Australia. In both South Australia and Queensland, breakpoints for O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> were converted from ppb to ppm for consistency with the other regions. For South Australia where there was overlap in breakpoint limits, PM<sub>2.5</sub>, PM<sub>10</sub>, and CO were held to one significant figure while O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> were rounded to the nearest integer to reflect that of Queensland. 
+The upper breakpoint limits for all pollutants are assumed to be rounded to the nearest integer according to reported pollutant data. 
 </div>
-
 
 ## References
 
@@ -186,7 +210,7 @@ An exception to this convention is South Australia. In both South Australia and 
 
 [^*]: [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)
 
-[^1]: [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categorie)
+[^1]: [https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories](https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories)
 
 
 [^2]: [http://ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx)
