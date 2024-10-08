@@ -1,0 +1,31 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+CR,,Good,#02af4f,0,20,PM2.5,ug/m3,24,0,15
+CR,,Good,#02af4f,0,20,PM10,ug/m3,24,0,60
+CR,,Good,#02af4f,0,20,O3,ppm,8,0,0.055
+CR,,Good,#02af4f,0,20,NO2,ppm,1,0,0.105
+CR,,Good,#02af4f,0,20,SO2,ppm,24,0,0.065
+CR,,Good,#02af4f,0,20,CO,ppm,8,0,5.5
+CR,,Unfavorable for sensitive groups,#ffff00,21,40,PM2.5,ug/m3,24,15.1,40
+CR,,Unfavorable for sensitive groups,#ffff00,21,40,PM10,ug/m3,24,61,100
+CR,,Unfavorable for sensitive groups,#ffff00,21,40,O3,ppm,8,0.056,0.11
+CR,,Unfavorable for sensitive groups,#ffff00,21,40,NO2,ppm,1,0.106,0.21
+CR,,Unfavorable for sensitive groups,#ffff00,21,40,SO2,ppm,24,0.066,0.13
+CR,,Unfavorable for sensitive groups,#ffff00,21,40,CO,ppm,8,5.51,11
+CR,,Unhealthy,#ffa500,41,60,PM2.5,ug/m3,24,40.1,65
+CR,,Unhealthy,#ffa500,41,60,PM10,ug/m3,24,101,200
+CR,,Unhealthy,#ffa500,41,60,O3,ppm,8,0.111,0.165
+CR,,Unhealthy,#ffa500,41,60,NO2,ppm,1,0.211,0.315
+CR,,Unhealthy,#ffa500,41,60,SO2,ppm,24,0.131,0.195
+CR,,Unhealthy,#ffa500,41,60,CO,ppm,8,11.01,16.5
+CR,,Very Unhealthy,#ff0000,61,80,PM2.5,ug/m3,24,66,100
+CR,,Very Unhealthy,#ff0000,61,80,PM10,ug/m3,24,201,250
+CR,,Very Unhealthy,#ff0000,61,80,O3,ppm,8,0.166,0.22
+CR,,Very Unhealthy,#ff0000,61,80,NO2,ppm,1,0.316,0.42
+CR,,Very Unhealthy,#ff0000,61,80,SO2,ppm,24,0.196,0.26
+CR,,Very Unhealthy,#ff0000,61,80,CO,ppm,8,16.51,22
+CR,,Hazardous,#800080,81,100,PM2.5,ug/m3,24,101,
+CR,,Hazardous,#800080,81,100,PM10,ug/m3,24,251,
+CR,,Hazardous,#800080,81,100,O3,ppm,8,0.221,
+CR,,Hazardous,#800080,81,100,NO2,ppm,1,0.421,
+CR,,Hazardous,#800080,81,100,SO2,ppm,24,0.261,
+CR,,Hazardous,#800080,81,100,CO,ppm,8,22.1,
