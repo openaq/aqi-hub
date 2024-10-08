@@ -8,6 +8,10 @@
   --theme-foreground-muted: #5a6672;
 }
 
+#observablehq-header {
+  position: absolute;
+}
+
 .gradient-title {
     font-size: 48px;
     -webkit-text-fill-color: transparent;
