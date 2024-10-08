@@ -30,7 +30,7 @@ _Note_: Adapted from "Air Quality Status" (n.d.), <https://enterprise.emisk.org/
 
 ## Methods
 
-The KAQI uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final KAQI value is chosen from the highest sub-index value of all pollutants evaluated. 
+The KAQI uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final KAQI value is chosen from the highest sub-index value of all pollutants evaluated.
 
 ```js
 breakpointsTable(data)

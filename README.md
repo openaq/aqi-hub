@@ -16,4 +16,4 @@ Contributions are welcome! See the [CONTRIBUTING.md](./CONTRIBUTING.md) guide fo
 
 The source code for the repository is licensed under an MIT license, found at [LICENSE](./LICENSE).
 
-All content (markdown files) in the docs directory is licensed CC BY SA, found at [LICENSE-content](./LICENSE-content).
+All content (markdown files) in the docs directory is licensed CC BY-SA 4.0, found at [LICENSE-content](./LICENSE-content).

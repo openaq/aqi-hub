@@ -8,7 +8,7 @@ Contributors must adhere to the OpenAQ [Code of Conduct](https://github.com/open
 
 ## Licensing
 
-All contributions to this project will be licensed under the Creative Commons Attribution-ShareAlike (CC BY-SA) license. By submitting your work, you agree that your contributions will be freely available for others to use, modify, and share, as long as they attribute you and share any derivative works under the same license. This ensures that the project and any adaptations remain open and accessible to the community.
+All contributions to this project will be licensed under the Creative Commons Attribution-ShareAlike (CC BY-SA 4.0) license. By submitting your work, you agree that your contributions will be freely available for others to use, modify, and share, as long as they attribute you and share any derivative works under the same license. This ensures that the project and any adaptations remain open and accessible to the community.
 
 ## Style guide
 
