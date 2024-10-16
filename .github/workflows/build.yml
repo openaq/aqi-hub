@@ -24,6 +24,11 @@ jobs:
 
     - name: Build static site
       run: npm run build
+
+    - name: Build sitemap
+      run: | 
+        npm run sitemap && \
+        mv ./sitemap.xml dist/sitemap.xml
     
     - name: move extras
       run: | 
