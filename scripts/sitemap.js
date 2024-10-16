@@ -19,7 +19,7 @@ const getLastModified = (filePath) => {
 function writeSitemap(pages) {
   const baseUrl = 'https://aqihub.info';
   let sitemapContent = '<?xml version="1.0" encoding="UTF-8"?>\n';
-  sitemapContent += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  sitemapContent += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n';
 
   pages.forEach((page) => {
     const filePath = path.join(path.resolve(), 'docs',`${page.path}.md`);
