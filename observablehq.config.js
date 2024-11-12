@@ -30,6 +30,7 @@ export default {
         {name: "Australia", path: "/indices/australia"},
         {name: "Canada", path: "/indices/canada"},
         {name: "China", path: "/indices/china"},
+        {name: "Costa Rica", path: "/indices/costa-rica"},
         {name: "European Union", path:"/indices/eu"},
         {name: "Finland", path:"/indices/finland"},
         {name: "Hong Kong", path: "/indices/hong-kong"},
@@ -45,6 +46,7 @@ export default {
         {name: "South Korea", path: "/indices/south-korea"},
         {name: "Taiwan", path: "/indices/taiwan"},
         {name: "Thailand", path: "/indices/thailand"},
+        {name: "Türkiye", path: "/indices/turkiye"},
         {name: "United Arab Emirates", path: "/indices/uae"},
         {name: "United Kingdom", path: "/indices/uk"},
         {name: "United States of America", path: "/indices/us"},
@@ -56,7 +58,7 @@ export default {
   // Some additional configuration options and their defaults:
   theme: "light", // try "light", "dark", "slate", etc.
   header: '<h1 class="gradient-title">Air Quality Index Hub</h1>', // what to show in the header (HTML)
-  footer: '<div>Developed by <a href="https://openaq.org">OpenAQ</a>. Are we missing an AQI? Did you spot a bug? <a href="https://github.com/openaq/aqi-hub">contribute on github</a></div><div>Content licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a></div>', // what to show in the footer (HTML)
+  footer: '<div>Developed by <a href="https://openaq.org">OpenAQ</a>. Are we missing an AQI? Did you spot a bug? <a href="https://github.com/openaq/aqi-hub">contribute on github</a></div><div>Content licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div>', // what to show in the footer (HTML)
   toc: true, // whether to show the table of contents
   pager: true, // whether to show previous & next links in the footer
   style: "style.css",
