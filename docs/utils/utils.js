@@ -108,6 +108,8 @@ export function normalizePollutantLabel(value) {
             return html`O<sub>3</sub>`
         case 'NO2':
             return html`NO<sub>2</sub>`
+        case 'NOX':
+            return html`NO<sub>x</sub>`
         case 'SO2':
             return html`SO<sub>2</sub>`
         default:
