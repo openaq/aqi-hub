@@ -3,9 +3,9 @@ import {html} from "npm:htl";
 
 import { tableReshape, normalizePollutantLabel, normalizeUnitsLabel } from '../utils/utils.js';
 
-export function breakpointsTable(data, range=true) {
+export function breakpointsTable(data, range=true, label=true) {
 
-    const headerColumns = data.map((i) => html`<th>${i.category}<br/>${i.categoryLower}${i.categoryUpper ? `-${i.categoryUpper}`: range ? '+': ''}</th>`)
+    const headerColumns = data.map((i) => html`<th>${label ? i.category: ''}<br/>${i.categoryLower}${i.categoryUpper ? `-${i.categoryUpper}`: range ? '+': ''}</th>`)
 
 
     return html`<table>

@@ -28,7 +28,11 @@ const countriesMap = await FileAttachment('./data/countries.json').json();
 let pm2524hr = breakpoints.filter(o => o.pollutant == 'PM2.5' && o.averaging_period == '24');
 pm2524hr = pm2524hr.map(o => { o.concentration_upper ? o.concentration_upper : o.concentration_upper = 500; return o})
 pm2524hr = pm2524hr.map(o => { o.country = countriesMap[o.ISO]; return o})
+pm2524hr = pm2524hr.filter(o =>  o.ISO !== 'IL')
+```
 
+```js
+pm2524hr
 ```
 
 ```js

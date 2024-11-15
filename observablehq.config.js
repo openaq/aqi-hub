@@ -36,6 +36,7 @@ export default {
         {name: "Hong Kong", path: "/indices/hong-kong"},
         {name: "India", path: "/indices/india"},
         {name: "Indonesia", path: "/indices/indonesia"},
+        {name: "Israel", path: "/indices/israel"},
         {name: "Kuwait", path: "/indices/kuwait"},
         {name: "Macao", path: "/indices/macao"},
         {name: "Malaysia", path: "/indices/malaysia"},
