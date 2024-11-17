@@ -32,10 +32,6 @@ pm2524hr = pm2524hr.filter(o =>  o.ISO !== 'IL')
 ```
 
 ```js
-pm2524hr
-```
-
-```js
 Plot.plot({
   marginLeft: 150,
   width: width,
