@@ -29,8 +29,18 @@ The US EPA uses a six color scale:
 ```js
 colorScale(colorScaleReshape(data))
 ```
-_Note_: “Technical Assistance Document for the Reporting of Daily Air Quality the Air Quality Index (AQI)” (May 2004), [https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf). Accessed 25 July 2024. 
 
+```js
+const colorAssistData = [{"label":"Good","color":"#9dff91","range":"0-50"},{"label":"Moderate","color":"#ffc907","range":"51-100"},{"label":"Unhealthy for Sensitive Groups","color":"#ff8203","range":"101-150"},{"label":"Unhealthy","color":"#f12100","range":"151-200"},{"label":"Very Unhealthy","color":"#890997","range":"201-300"},{"label":"Hazardous","color":"#640115","range":"301+"}];
+```
+
+As of May 2024, the US EPA also offers a "ColorVision Assist" version of the color palette, designed to be more accessible for those with color vision deficiencies. The South Coast Air Quality Management District’s Air Quality Sensor Performance Evaluation Center and Air Quality Assessment Group led the development of this palette. 
+
+```js
+colorScale(colorAssistData)
+```
+
+_Note_: “Technical Assistance Document for the Reporting of Daily Air Quality the Air Quality Index (AQI)” (May 2024), [https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf). Accessed 24 November 2024.
 
 Previous to the most recent update of the AQI Technical Assistance Document for Reporting of Air Quality Data issued in May 2024, the ‘Hazardous’ category had an upper limit of 500. AQI values greater than 500 were considered “Beyond the AQI,” and the same warnings and cautions as the ‘Hazardous’ category were to be reported.
 
