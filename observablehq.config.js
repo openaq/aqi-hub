@@ -12,7 +12,7 @@ export default {
   head: `
     <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
     <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
-    <script defer data-domain="aqihub.info" src="https://plausible.io/js/script.js" integrity="sha384-oVF9DbF4NWd2p6qK5BpoPkVXKPCuXwWJLB7pbsRMbGPZR+ybhyzZ333GfZUpEdXE" crossorigin="anonymous"></script>
+    <script defer data-domain="aqihub.info" src="https://plausible.io/js/script.js" crossorigin="anonymous"></script>
   `,
   pages: [
     {
