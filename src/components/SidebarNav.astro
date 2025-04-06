@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+
+const indices = await getCollection('indices');
+---
+
+<style lang="scss">
+  .sidebar {
+    width: 18.75rem;
+  }
+</style>
+
+<aside class="sidebar">
+  <h1>OpenAQ AQI Hub</h1>
+  <nav class="pages-nav">
+    <ul></ul>
+  </nav>
+  <nav class="indices-nav">
+    <ul>
+      {
+        indices.map((o) => (
+          <li>
+            <a href={`/indices/${o.id}`}>{o.data.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>

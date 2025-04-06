@@ -1,19 +1,48 @@
-# OpenAQ AQI Hub
+# Astro Starter Kit: Basics
 
-![AQI_Hub](https://github.com/user-attachments/assets/401cb4e6-1a48-402e-8106-ddd977116bb5)
+```sh
+npm create astro@latest -- --template basics
+```
 
-A comprehensive reference documentation site for different country/administration air quality index scales.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-## Development
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-This site built using the [Observable Framework](https://observablehq.com/framework/).
+![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
-### Contributing 
+## 🚀 Project Structure
 
-Contributions are welcome! See the [CONTRIBUTING.md](./CONTRIBUTING.md) guide for more information.
+Inside of your Astro project, you'll see the following folders and files:
 
-## License
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-The source code for the repository is licensed under an MIT license, found at [LICENSE](./LICENSE).
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-All content (markdown files) in the docs directory is licensed CC BY-SA 4.0, found at [LICENSE-content](./LICENSE-content).
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

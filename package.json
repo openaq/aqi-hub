@@ -1,25 +1,15 @@
 {
+  "name": "aqi-hub",
   "type": "module",
-  "private": true,
+  "version": "0.0.1",
   "scripts": {
-    "clean": "rimraf docs/.observablehq/cache",
-    "build": "rimraf dist && observable build",
-    "sitemap": "node ./scripts/sitemap.js",
-    "dev": "observable preview",
-    "deploy": "observable deploy",
-    "observable": "observable"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@observablehq/framework": "^1.12.0",
-    "d3-dsv": "^3.0.1",
-    "d3-time-format": "^4.1.0",
-    "markdown-it": "^14.1.0",
-    "markdown-it-footnote": "^4.0.0"
-  },
-  "devDependencies": {
-    "rimraf": "^5.0.5"
-  },
-  "engines": {
-    "node": ">=20"
+    "@astrojs/mdx": "^4.2.3",
+    "astro": "^5.6.1"
   }
 }
