@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import PageLayout from "@layouts/PageLayout.astro";
 import { render } from "astro:content";
 import { getCollection } from "astro:content";
 
@@ -17,7 +17,8 @@ const { indice } = Astro.props;
 const { Content } = await render(indice);
 ---
 
-<BaseLayout>
+<PageLayout>
   <h1>{indice.data.name}</h1>
+  <p>{indice.data.indexName} ({indice.data.indexAcronym})</p>
   <Content />
-</BaseLayout>
+</PageLayout>

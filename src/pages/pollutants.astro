@@ -1,0 +1,16 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
+
+const pollutants = await getEntry("pages", "pollutants");
+if (!pollutants) {
+  throw new Error("Could not find pollutants");
+}
+
+const { Content } = await render(pollutants);
+---
+
+<PageLayout>
+  <Content />
+</PageLayout>

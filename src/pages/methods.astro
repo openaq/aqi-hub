@@ -1,0 +1,16 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
+
+const methods = await getEntry("pages", "methods");
+if (!methods) {
+  throw new Error("Could not find methods");
+}
+
+const { Content } = await render(methods);
+---
+
+<PageLayout>
+  <Content />
+</PageLayout>
