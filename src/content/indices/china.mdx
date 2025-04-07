@@ -68,19 +68,20 @@ If the 8-hour average concentration of O<sub>3</sub> is greater than 800 μm/m<s
 
 The sub-index for individual pollutants is calculated using the following piecewise linear function:
 
-```js
-import { piecewiseLatexDoc } from "../components/piecewise.js";
-```
+$AQI_P = \frac{I_{HI} - I_{LO}}{BP_{HI} - BP_{LO}} \times (C_P - BP_{LO}) + I_{LO}$
 
-```js
-piecewiseLatexDoc("AQI");
-```
+- $I_P$ – AQI for pollutant P
+- $I_{HI}$ – AQI value corresponding to $BP_{HI}$
+- $I_{LO}$ – AQI value corresponding to $BP_{LO}$
+- $BP_{HI}$ – Concentration breakpoint that is greater than or equal to $C_P$
+- $BP_{LO}$ – Concentration breakpoint that is less than or equal to $C_P$
+- $C_P$ – Concentration of pollutant P
 
 The reported AQI is the maximum sub-index value. When the AQI is greater than 50, the pollutant with the largest sub-index value is the primary pollutant [^1]. If there are two or more pollutants with sub-indices greater than 50, both are listed as the primary pollutants [^1]. Pollutants with a sub-index greater than 100 are considered excessive pollutants [^1].
 
-```tex
+$$
 {AQI} = {Max}({I}_{PM_{2.5}},{I}_{PM_{10}},{I}_{CO},{I}_{O_{3}},{I}_{SO_{2}},{I}_{NO_{2}})
-```
+$$
 
 The final AQI is rounded to the nearest integer [^1].
 
@@ -97,40 +98,40 @@ The forecasting AQI evaluates PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</su
 
 The statistical evaluation of a single pollutant concentration forecast mainly includes the standardized mean deviation, root mean square error and correlation coefficient.
 
-```tex
+$$
 NMB = \frac{\frac{1}{N}\sum_{i=1}^{N}(F_i-O_i)}{\frac{1}{N}\sum_{i=1}^{N} O_i}
-```
+$$
 
 where
 
-- ${tex`NMB`} - Normalized mean bias, or the standardized mean deviation
-- ${tex`N`} - Number of sample pairs involved in the calculation (a sample pair consists of a forecasted and predicted sample)
-- ${tex`F_i`} - Numerical prediction concentration value of the pollutant in the i-th sample pair
-- ${tex`O_i`} - Actual concentration value of the pollutants in the i-th sample pair
+- ${NMB}$ - Normalized mean bias, or the standardized mean deviation
+- ${N}$ - Number of sample pairs involved in the calculation (a sample pair consists of a forecasted and predicted sample)
+- ${F_i}$ - Numerical prediction concentration value of the pollutant in the i-th sample pair
+- ${O_i}$ - Actual concentration value of the pollutants in the i-th sample pair
 
-```tex
+$$
 RSME = \sqrt{\frac{1}{N}\sum_{i=1}^{N} (F_i-O_i)^2}
-```
+$$
 
 where
 
-- ${tex`RSME`} - Root mean square error
-- ${tex`N`} - Number of sample pairs involved in the calculation (a sample pair consists of a forecasted and predicted sample)
-- ${tex`F_i`} - Numerical prediction concentration value of the pollutant in the i-th sample pair
-- ${tex`O_i`} - Actual concentration value of the pollutants in the i-th sample pair
+- ${RSME}$ - Root mean square error
+- ${N}$ - Number of sample pairs involved in the calculation (a sample pair consists of a forecasted and predicted sample)
+- ${F_i}$ - Numerical prediction concentration value of the pollutant in the i-th sample pair
+- ${O_i}$ - Actual concentration value of the pollutants in the i-th sample pair
 
-```tex
+$$
 r = \frac{\sum_{i=1}^{N}(F_i-F)\sum_{i=1}^{N}(O_i -\bar{O})}{\sqrt{\sum_{i=1}^{N}(F_i-\bar{F})^2}\sqrt{\sum_{i=1}^{N}(O_i-\bar{O})^2}}
-```
+$$
 
 where
 
-- ${tex`r`} - Correlation coefficient
-- ${tex`N`} - Number of sample pairs involved in the calculation (a sample pair consists of a forecasted and predicted sample)
-- ${tex`F_i`} - Numerical prediction concentration value of the pollutant in the i-th sample pair
-- ${tex`\bar{F}`} - Average value of the numerical forecast concentration of pollutants involved in the calculation
-- ${tex`O_i`} - Actual concentration value of the pollutants in the i-th sample pair
-- ${tex`\bar{O}`} - Average actual concentration value of pollutants involved in the calculation
+- ${r}$ - Correlation coefficient
+- ${N}$ - Number of sample pairs involved in the calculation (a sample pair consists of a forecasted and predicted sample)
+- ${F_i}$ - Numerical prediction concentration value of the pollutant in the i-th sample pair
+- ${\bar{F}}$ - Average value of the numerical forecast concentration of pollutants involved in the calculation
+- ${O_i}$ - Actual concentration value of the pollutants in the i-th sample pair
+- ${\bar{O}}$ - Average actual concentration value of pollutants involved in the calculation
 
 Forecasted AQI values undergo an evaluation process to ensure that they are accurate. Based on the AQI forecast value of the numerical model, the AQI forecast range is set to be plus or minus 25% [^4]. If the true AQI value is within the forecast level, it is considered accurate. It is required that the percentage of the number of days with accurate AQI level forecasts annually not be less than 60%, including both the accuracy of the sub-index and AQI values.
 

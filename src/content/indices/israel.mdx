@@ -49,25 +49,26 @@ _Note_: Adapted from "חישוב מדד איכות האוויר" [https://air.sv
 
 Using the breakpoint values in the table above, a [piecewise linear function](/methods#piecewise-linear-function) is used to convert the concentration values to AQI values. The piecewise linear function is defined as:
 
-```js
-import { piecewiseLatexDoc } from "../components/piecewise.js";
-```
+$AQI_P = \frac{I_{HI} - I_{LO}}{BP_{HI} - BP_{LO}} \times (C_P - BP_{LO}) + I_{LO}$
 
-```js
-piecewiseLatexDoc("AQI");
-```
+- $I_P$ – AQI for pollutant P
+- $I_{HI}$ – AQI value corresponding to $BP_{HI}$
+- $I_{LO}$ – AQI value corresponding to $BP_{LO}$
+- $BP_{HI}$ – Concentration breakpoint that is greater than or equal to $C_P$
+- $BP_{LO}$ – Concentration breakpoint that is less than or equal to $C_P$
+- $C_P$ – Concentration of pollutant P
 
 After computing the AQI value for each measuremed pollutant, the maximum pollutant value it taken as the prevailing value.
 
-```tex
+$$
 {AQI{^\prime}} = {Max}({I}_{PM_{2.5}},{I}_{PM_{10}},{I}_{CO},{I}_{O_{3}},{I}_{SO_{2}},{I}_{NO_{2}},{I}_{NO_{x}})
-```
+$$
 
 The final Israel AQI value is then derived by substracting the previous AQI value from 100.
 
-```tex
+$$
 AQI = 100 - AQI{^\prime}
-```
+$$
 
 ## References
 

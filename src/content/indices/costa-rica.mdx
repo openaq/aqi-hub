@@ -42,29 +42,26 @@ breakpointsTable(data);
 
 Based on the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to ICCA values. The function is defined as:
 
-```js
-import { piecewiseLatexDoc } from "../components/piecewise.js";
-```
+$AQI_P = \frac{I_{HI} - I_{LO}}{BP_{HI} - BP_{LO}} \times (C_P - BP_{LO}) + I_{LO}$
 
-```js
-piecewiseLatexDoc("ICCA");
-```
+- $I_P$ – AQI for pollutant P
+- $I_{HI}$ – AQI value corresponding to $BP_{HI}$
+- $I_{LO}$ – AQI value corresponding to $BP_{LO}$
+- $BP_{HI}$ – Concentration breakpoint that is greater than or equal to $C_P$
+- $BP_{LO}$ – Concentration breakpoint that is less than or equal to $C_P$
+- $C_P$ – Concentration of pollutant P
 
 The ICCA does not provide specific requirements for temporal coverage, the minimum number of valid data points required within the averaging period, for 8-hour and 24-hour measurement periods.
 
 The ICCA uses sub-indices assigned to each of the measured pollutants. The highest sub-index determines the overall ICCA of the station.
 
-```tex
+$$
 {AQI} = {Max}({I}_{PM_{10}},{I}_{PM_{2.5}},{I}_{SO_{2}},{I}_{NO_{2}},{I}_{O_{3}},{I}_{CO})
-```
+$$
 
 ## References
 
 Ministerio de Salud anuncia creación de Red Nacional de Monitoreo de la Calidad
 del Aire, November 2, 2016,
-<https://elmundo.cr/costa-rica/ministerio-de-salud-anuncia-creacion-de-red-nacional-de-monitoreo-de-la-calidad-del-aire/>
 
 Reglamento de Calidad del Aire para Contaminantes Criterio, August 9 2016,
-<http://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?param1=NRTC&nValor1=1&nValor2=82827&nValor3=106098&strTipM=TC/>
-
-[^1]: <http://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?param1=NRTC&nValor1=1&nValor2=82827&nValor3=106098&strTipM=TC>
