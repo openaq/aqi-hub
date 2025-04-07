@@ -1,0 +1,42 @@
+---
+const { pageTitle } = Astro.props;
+import "@assets/styles/main.scss";
+import Footer from "@components/Footer.astro";
+import SidebarNav from "@components/SidebarNav.astro";
+---
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap.xml" /> 
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    {import.meta.env.PROD && (
+      <>
+        <script
+          is:inline
+          defer
+          data-domain="ambassadors.openaq.org"
+          crossorigin="anonymous"
+          src="https://plausible.io/js/script.outbound-links.js"></script>
+        <script is:inline>
+          window.plausible =
+            window.plausible ||
+            function () {
+              (window.plausible.q = window.plausible.q || []).push(arguments);
+            };
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <SidebarNav />
+    <main class="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
