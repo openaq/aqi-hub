@@ -1,7 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-const indices = await getCollection('indices');
+const indices = await getCollection("indices");
+const pages = await getCollection("pages");
 ---
 
 <style lang="scss">
@@ -13,7 +14,15 @@ const indices = await getCollection('indices');
 <aside class="sidebar">
   <h1>OpenAQ AQI Hub</h1>
   <nav class="pages-nav">
-    <ul></ul>
+    <ul>
+      {
+        pages.map((o) => (
+          <li>
+            <a href={`/pages/${o.id}`}>{o.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
   </nav>
   <nav class="indices-nav">
     <ul>

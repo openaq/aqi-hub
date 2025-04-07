@@ -22,4 +22,5 @@ const pages = defineCollection({
 
 export const collections = {
   indices,
+  pages,
 };

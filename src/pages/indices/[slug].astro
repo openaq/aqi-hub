@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const indices = await getCollection("indices");
+
+  return [...indices].map((indice) => ({
+    params: { slug: indice.id },
+    props: { indice },
+  }));
+}
+
+const { indice } = Astro.props;
+
+const { Content } = await render(indice);
+---
+
+<BaseLayout>
+  <h1>{indice.data.name}</h1>
+  <Content />
+</BaseLayout>

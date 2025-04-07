@@ -1,0 +1,9 @@
+@use "openaq-design-system/scss/resets";
+@use "openaq-design-system/scss/mixins/index.scss" as mixins;
+@use "openaq-design-system/scss/mixins/typography" as *;
+@use "openaq-design-system/scss/utilities/types.scss";
+@use "openaq-design-system/scss/variables";
+
+body {
+  display: flex;
+}
