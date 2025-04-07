@@ -2,6 +2,7 @@
 const { pageTitle } = Astro.props;
 import "@assets/styles/main.scss";
 import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
 import SidebarNav from "@components/SidebarNav.astro";
 ---
 
@@ -33,10 +34,12 @@ import SidebarNav from "@components/SidebarNav.astro";
     )}
   </head>
   <body>
+
     <SidebarNav />
     <main class="main">
+      <Header />
       <slot />
     </main>
-    <Footer />
+    <!-- <Footer /> -->
   </body>
 </html>

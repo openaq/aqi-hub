@@ -1,0 +1,17 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<style lang="scss">
+  .content {
+    min-height: 100vh;
+    width: 640px;
+    margin-left: 100px;
+  }
+</style>
+
+<BaseLayout>
+  <div class="content">
+    <slot />
+  </div>
+</BaseLayout>
