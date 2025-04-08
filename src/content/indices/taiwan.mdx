@@ -80,17 +80,17 @@ For PM<sub>2.5</sub> and PM<sub>10</sub>, the real-time concentrations are calcu
 
 0.5 _average of the first 12 hours + 0.5_ average of the first 4 hours.
 
-```tex
+$$
 C_{12} = \frac{\sum_{n=1}^{12} C_{n}}{12}
-```
+$$
 
-```tex
+$$
 C_{4} = \frac{\sum_{n=1}^{4} C_{n}}{4}
-```
+$$
 
-```tex
+$$
 SI = 0.5 \times C_{12} + 0.5 \times C_{4}
-```
+$$
 
 6 out of the first 12-hour data entries and 2 out of the first 4-hour data entries are required for this equation to be valid. The moving average of PM<sub>2.5</sub> is rounded to one decimal place, while the moving average of PM<sub>10</sub> is rounded to the nearest integer. The rounding convention for the real-time concentration is not specified for either pollutant.
 

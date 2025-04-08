@@ -109,31 +109,31 @@ Given that the AQI represents a full day, which is a fairly long timeframe, the 
   without rounding or truncating as input.
 </div>
 
-```tex
+$$
 % above referenced [^4] after "must be valid"
-```
+$$
 
 #### Particulate Matter
 
-For calculating the NowCast for PM, the past 12 hours of PM measurements are used in units of µg/m3. The range of concentration is calculated by subtracting the minimum value of the series (${tex`M_{min}`}) from the maximum value of the series (${tex`M_{max}`}). Then the the resulting range is divided by the maximum value of the series (${tex`M_{max}`}). This yields what is called the scaled rate of change (${tex`SRoC`}).
+For calculating the NowCast for PM, the past 12 hours of PM measurements are used in units of µg/m3. The range of concentration is calculated by subtracting the minimum value of the series (${M_{min}}$) from the maximum value of the series (${M_{max}}$). Then the the resulting range is divided by the maximum value of the series (${M_{max}}$). This yields what is called the scaled rate of change (${SRoC}$).
 
-```tex
+$$
 {SRoC} = \frac{M_{max} - M_{min}}{M_{max}}
-```
+$$
 
 Next, the weight factor (WF) is determined from the scaled rate of change (SRoC) using the following equation:
 
-```tex
+$$
 {WF} = {Max}(1 - SRoC, 0.5)
-```
+$$
 
 If the WF is less than 0.5, it is set equal to 0.5 as it approximates a 3-hour average [^3].
 
 The NowCast is calculated using the following equation using the appropriate WF:
 
-```tex
+$$
 \frac{\sum_{i=1}^{n}  ({C}_i \times {WF}^i )}{\sum_{i=1}^{n} {WF}^i}
-```
+$$
 
 The final concentration value is then truncated to the nearest integer for PM<sub>10</sub> and 1 decimal place for PM<sub>2.5</sub>. It is then converted to an AQI and reported using the aforementioned piecewise linear function.
 
@@ -147,12 +147,12 @@ If the criterion is met and there is at least 1 hour of valid O<sub>3</sub> data
 
 If the criterion is not met and there is at least 1 hour of valid O<sub>3</sub> data within the past 3 hours, the Surrogate method is used as a secondary method to produce an O<sub>3</sub> NowCast value [^5]. This method uses the following simple linear equation:
 
-```tex
+$$
 y = 0.85x + 4.5 ppb
-```
+$$
 
-- ${tex`x`} = Hourly O<sub>3</sub> Value
-- ${tex`y`} = Resulting O<sub>3</sub> NowCast Value
+- ${x} = Hourly O<sub>3</sub> Value$
+- ${y} = Resulting O<sub>3</sub> NowCast Value$
 
 The Surrogate method is used as a secondary method used to produce an O<sub>3</sub> NowCast value. It has been derived from linear regression between concurrent 8-hour average and 1-hour O<sub>3</sub> concentrations using historical data from approximately 40 monitoring sites across major continental US cities[^5].
 

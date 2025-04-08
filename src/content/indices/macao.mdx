@@ -71,21 +71,20 @@ For PM<sub>2.5</sub> and PM<sub>10</sub> sub-index calculations, the time period
 
 A [piecewise linear function](/methods#piecewise-linear-function) is used to calculate the sub-index of each individual pollutant:
 
-```js
-import { piecewiseLatexDoc } from "../components/piecewise.js";
-```
+$AQI_P = \frac{I_{HI} - I_{LO}}{BP_{HI} - BP_{LO}} \times (C_P - BP_{LO}) + I_{LO}$
 
-```js
-piecewiseLatexDoc("AQI");
-```
+- $I_P$ – AQI for pollutant P
+- $I_{HI}$ – AQI value corresponding to $BP_{HI}$
+- $I_{LO}$ – AQI value corresponding to $BP_{LO}$
+- $BP_{HI}$ – Concentration breakpoint that is greater than or equal to $C_P$
+- $BP_{LO}$ – Concentration breakpoint that is less than or equal to $C_P$
+- $C_P$ – Concentration of pollutant P
 
 After determining the levels for each pollutant, the highest sub-index is used to determine the composite air quality standard value of the station. There is no specified minimum number of sub-index values required to compute the composite index referenced. If the composite index exceeds 100, indicating an air quality level of bad to harmful, the major pollutant is also indicated.
 
-```tex
-
+$$
 {AQI} = {Max}({I}_{PM_{10}},{I}_{PM_{2.5}},{I}_{SO_{2}},{I}_{O_{3}},{I}_{CO})
-
-```
+$$
 
 ## References
 

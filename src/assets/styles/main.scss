@@ -8,6 +8,25 @@ body {
   display: flex;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  border-bottom: 2px solid #ddd;
+  text-align: left;
+}
+td {
+  padding: 8px;
+  text-align: left;
+}
+tr {
+  border-bottom: 1px solid #ddd;
+}
+tr:last-child {
+  border-bottom: none;
+}
+
 @font-face {
   font-family: "Space Grotesk";
   src: url("/fonts/SpaceGrotesk-Regular.woff2") format("woff2"),

@@ -51,13 +51,14 @@ For calculating the 8-hour moving average concentration, at least ¾ of the aver
 
 For calculating the 12-hour weighted moving average of PM<sub>2.5</sub> and PM<sub>10</sub> concentrations, the following equation is used:
 
-```tex
+$$
 
 \overline{C}=\frac{\sum_{i=1}^{N}C_iW^{i-1}}{\sum_{i=1}^{N}W^{i-1}}
 
-```
 
-```tex
+$$
+
+$$
 
 W = \begin{cases}
 
@@ -69,7 +70,8 @@ W = \begin{cases}
 
 w = 1 - \frac{C_{max}-C_{min}}{C_{max}}
 
-```
+
+$$
 
 In order for the 12-hour moving concentration to be valid, at least ⅔ of the most recent 12 prior hours of measurements are required for the calculation. If this condition is not met, then the calculation is not carried out. Additionally, the value of i, representing the consecutive hour of measurement, is required to be maintained even when there are hours that lack measured concentrations. For example, if within the most recent 3 hours of measurements there is only data for hours 1 and 3, the weighting of the concentration of hour 1 remains as C<sub>1</sub>W<sup>0</sup> and the weighing of hour 3 remains C<sub>2</sub>W<sup>3</sup>, as opposed to C<sub>2</sub>W<sup>1</sup>. The consecutive hour of measurements term remains i=3 as opposed to i=2 [^1].
 
@@ -86,146 +88,88 @@ After the pollutant concentration values have been calculated using the appropri
 
 <table>
   <tr>
-   <td>Pollutant
-   </td>
-   <td>Avg. Period
-   </td>
-   <td>Good
-   </td>
-   <td>Acceptable
-   </td>
-   <td>Bad
-   </td>
-   <td>Very bad
-   </td>
-   <td>Extremely Bad
-   </td>
+    <th>Pollutant</th>
+    <th>Avg. Period</th>
+    <th>Good</th>
+    <th>Acceptable</th>
+    <th>Bad</th>
+    <th>Very bad</th>
+    <th>Extremely Bad</th>
   </tr>
   <tr>
-   <td>PM<sub>2.5</sub>
-<p>
-µg/m<sup>3</sup>
-   </td>
-   <td>24 hr.
-   </td>
-   <td>0-25
-   </td>
-   <td>26-45
-   </td>
-   <td>46-79
-   </td>
-   <td>80-147
-   </td>
-   <td>147+
-   </td>
+    <td>
+      PM<sub>2.5</sub> (µg/m<sup>3</sup>)
+    </td>
+    <td>24 hr.</td>
+    <td>0–25</td>
+    <td>26–45</td>
+    <td>46–79</td>
+    <td>80–147</td>
+    <td>147+</td>
   </tr>
   <tr>
-   <td>PM<sub>10</sub>
-<p>
-µg/m<sup>3</sup>
-   </td>
-   <td>12 hr.
-   </td>
-   <td>0-50
-   </td>
-   <td>51-75
-   </td>
-   <td>76-155
-   </td>
-   <td>156-235
-   </td>
-   <td>236+
-   </td>
+    <td>
+      PM<sub>10</sub> (µg/m<sup>3</sup>)
+    </td>
+    <td>12 hr.</td>
+    <td>0–50</td>
+    <td>51–75</td>
+    <td>76–155</td>
+    <td>156–235</td>
+    <td>236+</td>
   </tr>
   <tr>
-   <td>CO
-<p>
-ppm
-   </td>
-   <td>8 hr.
-   </td>
-   <td>0-8.75
-   </td>
-   <td>8.76-11.00
-   </td>
-   <td>11.01-13.30
-   </td>
-   <td>13.31-15.50
-   </td>
-   <td>15.51+
-   </td>
+    <td>CO (ppm)</td>
+    <td>8 hr.</td>
+    <td>0–8.75</td>
+    <td>8.76–11.00</td>
+    <td>11.01–13.30</td>
+    <td>13.31–15.50</td>
+    <td>15.51+</td>
   </tr>
   <tr>
-   <td>O<sub>3</sub>
-<p>
-ppm
-   </td>
-   <td>1 hr.
-   </td>
-   <td>0-0.051
-   </td>
-   <td>0.052-0.095
-   </td>
-   <td>0.096-0.135
-   </td>
-   <td>0.136-0.175
-   </td>
-   <td>0.176+
-   </td>
+    <td>
+      O<sub>3</sub> (ppm)
+    </td>
+    <td>1 hr.</td>
+    <td>0–0.051</td>
+    <td>0.052–0.095</td>
+    <td>0.096–0.135</td>
+    <td>0.136–0.175</td>
+    <td>0.176+</td>
   </tr>
   <tr>
-   <td>O<sub>3</sub>
-<p>
-ppm
-   </td>
-   <td>8 hr.
-   </td>
-   <td>0-0.051
-   </td>
-   <td>0.052-0.070
-   </td>
-   <td>0.071-0.092
-   </td>
-   <td>0.093-0.114
-   </td>
-   <td>0.115+
-   </td>
+    <td>
+      O<sub>3</sub> (ppm)
+    </td>
+    <td>8 hr.</td>
+    <td>0–0.051</td>
+    <td>0.052–0.070</td>
+    <td>0.071–0.092</td>
+    <td>0.093–0.114</td>
+    <td>0.115+</td>
   </tr>
   <tr>
-   <td>SO<sub>2</sub>
-<p>
-ppm
-   </td>
-   <td>24 hr.
-   </td>
-   <td>0-0.008
-   </td>
-   <td>0.009-0.110
-   </td>
-   <td>0.111-0.165
-   </td>
-   <td>0.166-0.220
-   </td>
-   <td>0.221+
-   </td>
+    <td>
+      SO<sub>2</sub> (ppm)
+    </td>
+    <td>24 hr.</td>
+    <td>0–0.008</td>
+    <td>0.009–0.110</td>
+    <td>0.111–0.165</td>
+    <td>0.166–0.220</td>
+    <td>0.221+</td>
   </tr>
   <tr>
-   <td>NO<sub>2</sub>
-<p>
-ppm
-   </td>
-   <td>Hourly
-   </td>
-   <td>0-0.107
-   </td>
-   <td>0.108-0.210
-   </td>
-   <td>0.211-0.230
-   </td>
-   <td>0.231-0.250
-   </td>
-   <td>0.250+
-   </td>
+    <td>
+      NO<sub>2</sub> (ppm)
+    </td>
+    <td>Hourly</td>
+    <td>0–0.107</td>
+    <td>0.108–0.210</td>
+    <td>0.211–0.230</td>
+    <td>0.231–0.250</td>
+    <td>0.250+</td>
   </tr>
 </table>
 

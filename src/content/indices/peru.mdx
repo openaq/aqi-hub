@@ -23,8 +23,6 @@ colorScale([
 ]);
 ```
 
-Note: Adapted from "Concepto INCA" (n.d.), <https://infoaireperu.minam.gob.pe/indice-de-la-calidad-del-aire/concepto-inca/>. Accessed on 16 Aug. 2024.
-
 The valor umbral del estado de cuidado (VUEC), or threshold of concern, is variable between each pollutant as can be seen below.
 
 ## Methods
@@ -33,26 +31,24 @@ MINAM determines pollutant-specific standards which form the basis for computing
 
 To calculate the INCA index for a pollutant the pollutant is multiplied by 100 then divided by the pollutant standard for that pollutant:
 
-```tex
-
+$$
 I_{P} = {C} \times \frac{100}{S_{P}}
-
-```
+$$
 
 where
 
-- ${tex`S_{P}`} = Weighting standard of pollutant ${tex`P`}
-- ${tex`C`} = Concentration value of respective pollutant in µg/m<sup>3</sup>
+- ${S_{P}}$ = Weighting standard of pollutant ${P}$
+- ${C}$ = Concentration value of respective pollutant in µg/m<sup>3</sup>
 
 The values of the weighting standard for each pollutant are as followed:
 
-- ${tex`PM_{2.5}`} = 25
-- ${tex`PM_{10}`} = 150
-- ${tex`O_3`} = 120
-- ${tex`NO_2`} = 200
-- ${tex`SO_2`} = 20
-- ${tex`CO`} = 10000
-- ${tex`H_2S`} = 150
+- ${PM_{2.5}}$ = 25
+- ${PM_{10}}$ = 150
+- ${O_3}$ = 120
+- ${NO_2}$ = 200
+- ${SO_2}$ = 20
+- ${CO}$ = 10000
+- ${H_2S}$ = 150
 
 Due to the nature of this function, each pollutant has different upper INCA scores for the “bad” category and varying lower values for the “Threshold of Concern” or VUEC. The 100 value divided by the pollutant standard appears to pin the value against the “bad” category for each pollutant, determining the slope of the linear function for the INCA score.
 

@@ -79,63 +79,49 @@ piecewiseLatexDoc("CAI");
 
 PM<sub>2.5</sub> and PM<sub>10 </sub> use a 24-hour forecast moving average in CAI calculation. The 24-hour forecast is calculated using the following equation [^1] :
 
-```tex
-
+$$
 C_{24E} = \frac{(C_{12} \times 12 + C_{4} \times 12 )}{24}
+$$
 
-```
+Where ${C_{12}}$ is the 12 hour mean defined as:
 
-Where ${tex`C_{12}`} is the 12 hour mean defined as:
-
-```tex
-
+$$
 C_{12} = \frac{(C_i + C_{i-1} + C_{i-2} + C_{i-3}...+ C_{i-11})}{12}
+$$
 
-```
+and where ${C_{4}}$ is the 4 hour mean defined as:
 
-and where ${tex`C_{4}`} is the 4 hour mean defined as:
-
-```tex
-
+$$
 C_{4} = \frac{( C_{ai} + C_{a(i-1)} + C_{a(i-2)} + C_{a(i-3)})}{4}
-
-```
+$$
 
 If the concentration for the interval is less than the defined threshold M then the concentration interval remains unadjusted; if not an adjusted value is used.
 
-```tex
-
+$$
 M =
 \begin{cases}
 70 \, \mu \text{g/m}^3 & \text{for PM}_{10} \\
 30 \, \mu \text{g/m}^3 & \text{for PM}_{2.5}
 \end{cases}
+$$
 
-```
-
-```tex
-
+$$
 C_i ＜ M \Rightarrow C_{ai} = C_i
-
-```
+$$
 
 If the concentration at interval i is greater than or equal to the defined threshold value
 M, and the ratio of the concentration at interval i to the concentration at interval 12 is either less than 0.9 or greater than 1.7, then the adjusted concentration at interval i is equal to the concentration at interval i.
 
-```tex
-
+$$
 Ci \geq M, \frac{C_i}{C_{12}} ＜ 0.9~or~\frac{C_i}{C_{12}} ＞ 1.7 \Rightarrow C_{ai} = C_{i}
-
-```
+$$
 
 If the concentration at interval i is greater than or equal to the defined threshold value
 M, and the ratio of the concentration at interval i to the concentration at interval 12 is between 0.9 and 1.7 (inclusive), then the adjusted concentration at interval i is 75% of the concentration at interval i.
 
-```tex
-
+$$
 Ci \geq M, \frac{0.9 \leq C_{i}}{C_{12} \leq 1.7} \Rightarrow C_{ai} =0.75 \times C_{i}
-
-```
+$$
 
 <div class="note">
   There are no restrictions included for the minimum number of pollutants needed

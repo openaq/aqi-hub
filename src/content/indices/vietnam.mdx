@@ -32,8 +32,6 @@ The Vietnam Air Quality Index consists of six categories:
 colorScale(colorScaleReshape(data));
 ```
 
-_Note_: Adapted from "Các màu sắc nào biểu thị cho chất lượng môi trường không khí ô nhiễm? Mức độ ô nhiễm không khí nghiêm trọng nhất được quy định bằng màu gì?" (n.d.), <https://thuvienphapluat.vn/hoi-dap-phap-luat/83A155E-hd-cac-mau-sac-nao-bieu-thi-cho-chat-luong-moi-truong-khong-khi-o-nhiem-muc-do-o-nhiem-khong-khi-nghie.html?rel=hoidap\_chitietvb> [^2]. Accessed 5 Aug. 2024.
-
 ## Methods
 
 ```js
@@ -49,9 +47,9 @@ _Note_: Adapted from "Quyết định 1459/QĐ-TCMT 2019 kỹ thuật tính toá
   values are rounded to the nearest integer.
 </div>
 
-```tex
+$$
 % above referenced [^1] after "final AQI value is truncated"
-```
+$$
 
 The NowCast value is a weighted average of the 12 most recent 1-hour average values relative to the calculation time, and is reported for PM<sub>10</sub> and PM<sub>2.5</sub> pollutants only. The AQI value is calculated for the data of each monitoring station, and the final AQI value reported is the largest of the values for each parameter. The AQI calculation requires at least one of PM<sub>10</sub> and PM<sub>2.5</sub> parameters within the formula.
 
@@ -61,80 +59,80 @@ In calculating the hourly index, the weight value of each PM<sub>2.5</sub> and P
 
 First, the pollutant concentrations are averaged:
 
-${tex`c_1 , c_2 , \dots, c_{12} `}= Averages of 1-hour monitoring values (with ${tex`c_1`} being the current 1-hour averaging monitoring value and ${tex`c_{12}`} being the 1-hour monitoring value 12 hours ago)
+${c_1 , c_2 , \dots, c_{12}}$= Averages of 1-hour monitoring values (with ${c_1}$ being the current 1-hour averaging monitoring value and ${c_{12}}$ being the 1-hour monitoring value 12 hours ago)
 
-The weight value, ${tex`w^*`}, is determined using the following equation:
+The weight value, ${w^*}$, is determined using the following equation:
 
-```tex
+$$
 % step 1: define weighting factor w^\*
 w^* = \frac{c_{min}}{c_{max}}
-```
+$$
 
 where
 
-- ${tex`c_{min}`} - Minimum value among the 12 hourly average values
-- ${tex`c_{max}`} - Maximum value among the 12 hourly average values
+- ${c_{min}} - Minimum value among the 12 hourly average values$
+- ${c_{max}} - Maximum value among the 12 hourly average values$
 
-The weighting factor, ${tex`w`}, is then determined in terms of ${tex`w^*`}:
+The weighting factor, ${w}$, is then determined in terms of ${w^*}$:
 
-```tex
+$$
 % step 2: define w in terms of weighting factor
 w = \begin{cases}
   w^*,  \text{if } w > \frac{1}{2}, \
   0.5, \text{if } w \leq \frac{1}{2} .
 \end{cases}
-```
+$$
 
-The NowCast value is determined using the following equation, dependent on the value of ${tex`w`}:
+The NowCast value is determined using the following equation, dependent on the value of ${w}$:
 
-When ${tex`w>\frac{1}{2}`}:
+When ${w>\frac{1}{2}}$:
 
-```tex
+$$
 NowCast = \frac{\sum_{n=1}^{12} w^{i-1} c_i}{\sum_{n=1}^{12} w^{i-1}}
-```
+$$
 
-When ${tex`w=\frac{1}{2}`}:
+When ${w=\frac{1}{2}}$:
 
-```tex
+$$
 NowCast = \frac{1}{2} c_1 + (\frac{1}{2})^2 c_2 + \dots + (\frac{1}{2})^{12} c_{12}
-```
+$$
 
 <div class="note">
-  At least 2 of the 3 values ${tex`c_1`}, ${tex`c_2`}, and ${tex`c_3`} must have
+  At least 2 of the 3 values ${c_1}$, ${c_2}$, and ${c_3}$ must have
   data in order for the NowCast calculation to be valid. If this requirement is
   not fulfilled, then the NowCast value cannot be calculated and it is
-  considered ‘no data.’ If ${tex`c_i`} has no data, then ${tex`c^{i-1} = 0`}.
+  considered ‘no data.’ If ${c_i}$ has no data, then ${c^{i-1} = 0}$.
 </div>
 
 The hourly AQI for PM<sub>10</sub> and PM<sub>2.5</sub> is calculated using the following formula:
 
-```tex
+$$
 {AQI}_x = \frac{I_{i+1}-I_{i}}{BP_{i+1}-BP_{i}}(NowCast_x - BP_i) + I_i
-```
+$$
 
 where
 
-- ${tex`AQI_{x}`} - AQI value of the respective pollutant, x
-- ${tex`BP_{i}`} - Lower limit concentration of the respective pollutant corresponding to level i
-- ${tex`BP_{i+1}`} - Upper limit concentration of the respective pollutant corresponding to level i+1
-- ${tex`I_{i}`} - AQI value at level i (as listed in the breakpoint concentration table)
-- ${tex`I_{i+1}`} - AQI value at level i+1 (as listed in the breakpoint concentration table)
-- ${tex`NowCast_{x}`} - NowCast value previously calculated above for the respective pollutant, x
+- ${AQI_{x}}$ - AQI value of the respective pollutant, x
+- ${BP_{i}}$ - Lower limit concentration of the respective pollutant corresponding to level i
+- ${BP_{i+1}}$ - Upper limit concentration of the respective pollutant corresponding to level i+1
+- ${I_{i}}$ - AQI value at level i (as listed in the breakpoint concentration table)
+- ${I_{i+1}}$ - AQI value at level i+1 (as listed in the breakpoint concentration table)
+- ${NowCast_{x}}$ - NowCast value previously calculated above for the respective pollutant, x
 
 The hourly AQI for CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> is calculated using the following formula:
 
-```tex
+$$
 {AQI}_x = \frac{I_{i+1}-I_{i}}{BP_{i+1}-BP_{i}}(C_x - BP_i) + I_i
-```
+$$
 
 where
 
-- ${tex`AQI_{x}`} - AQI value of the respective pollutant, x
-- ${tex`BP_{i}`} - Lower limit concentration of the respective pollutant corresponding to level i
-- ${tex`BP_{i+1}`} - Upper limit concentration of the respective pollutant corresponding to level i+1
-- ${tex`I_{i}`} - AQI value at level i (as listed in the breakpoint concentration table)
-- ${tex`I_{i+1}`} - AQI value at level i+1 (as listed in the breakpoint concentration table)
-- ${tex`C_{x}`} - Average hourly observed value of the respective pollutant, x
+- ${AQI_{x}}$ - AQI value of the respective pollutant, x
+- ${BP_{i}}$ - Lower limit concentration of the respective pollutant corresponding to level i
+- ${BP_{i+1}}$ - Upper limit concentration of the respective pollutant corresponding to level i+1
+- ${I_{i}}$ - AQI value at level i (as listed in the breakpoint concentration table)
+- ${I_{i+1}}$ - AQI value at level i+1 (as listed in the breakpoint concentration table)
+- ${C_{x}}$ - Average hourly observed value of the respective pollutant, x
 
 The maximum hourly AQI value is reported as the aggregate hourly AQI value, with the values being rounded to integers.
 
