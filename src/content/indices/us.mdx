@@ -27,30 +27,39 @@ const data = parseBreakpointsCsv(breakpoints);
 
 The US EPA uses a six color scale:
 
-```js
-colorScale(colorScaleReshape(data));
-```
-
-```js
-const colorAssistData = [
-  { "label": "Good", "color": "#9dff91", "range": "0-50" },
-  { "label": "Moderate", "color": "#ffc907", "range": "51-100" },
-  {
-    "label": "Unhealthy for Sensitive Groups",
-    "color": "#ff8203",
-    "range": "101-150",
-  },
-  { "label": "Unhealthy", "color": "#f12100", "range": "151-200" },
-  { "label": "Very Unhealthy", "color": "#890997", "range": "201-300" },
-  { "label": "Hazardous", "color": "#640115", "range": "301+" },
-];
-```
+<ColorScale
+  values={[
+    { "label": "Good", "color": "#00e400", "range": "0-50" },
+    { "label": "Moderate", "color": "#fffe00", "range": "51-100" },
+    {
+      "label": "Unhealthy for Sensitive Groups",
+      "color": "#ff8203",
+      "range": "101-150",
+    },
+    { "label": "Unhealthy", "color": "#f12100", "range": "151-200" },
+    { "label": "Very Unhealthy", "color": "#890997", "range": "201-300" },
+    { "label": "Hazardous", "color": "#640115", "range": "301+" },
+  ]}
+/>
 
 As of May 2024, the US EPA also offers a "ColorVision Assist" version of the color palette, designed to be more accessible for those with color vision deficiencies. The South Coast Air Quality Management District’s Air Quality Sensor Performance Evaluation Center and Air Quality Assessment Group led the development of this palette.
 
-```js
-colorScale(colorAssistData);
-```
+import ColorScale from "../../components/ColorScale.astro";
+
+<ColorScale
+  values={[
+    { "label": "Good", "color": "#9dff91", "range": "0-50" },
+    { "label": "Moderate", "color": "#ffc907", "range": "51-100" },
+    {
+      "label": "Unhealthy for Sensitive Groups",
+      "color": "#ff8203",
+      "range": "101-150",
+    },
+    { "label": "Unhealthy", "color": "#f12100", "range": "151-200" },
+    { "label": "Very Unhealthy", "color": "#890997", "range": "201-300" },
+    { "label": "Hazardous", "color": "#640115", "range": "301+" },
+  ]}
+/>
 
 _Note_: “Technical Assistance Document for the Reporting of Daily Air Quality the Air Quality Index (AQI)” (May 2024), [https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf](https://document.airnow.gov/technical-assistance-document-for-the-reporting-of-daily-air-quailty.pdf). Accessed 24 November 2024.
 

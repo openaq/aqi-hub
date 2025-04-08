@@ -71,20 +71,22 @@ import { colorScale } from "../components/color-scale.js";
 
 UAE uses a color scale comprised of six levels:
 
-```js
-colorScale([
-  { label: "Good", color: "#92ce50", range: "0-50" },
-  { label: "Acceptable", color: "#ffff00", range: "51-100" },
-  {
-    label: "Unhealthy for sensitive groups",
-    color: "#ffc000",
-    range: "101-1500",
-  },
-  { label: "Unhealthy", color: "#FF0000", range: "151-200" },
-  { label: "Very unhealthy", color: "#7030a0", range: "201-300" },
-  { label: "Hazardous", color: "#660033", range: "301-500" },
-]);
-```
+import ColorScale from "../../components/ColorScale.astro";
+
+<ColorScale
+  values={[
+    { label: "Good", color: "#92ce50", range: "0-50" },
+    { label: "Acceptable", color: "#ffff00", range: "51-100" },
+    {
+      label: "Unhealthy for sensitive groups",
+      color: "#ffc000",
+      range: "101-1500",
+    },
+    { label: "Unhealthy", color: "#FF0000", range: "151-200" },
+    { label: "Very unhealthy", color: "#7030a0", range: "201-300" },
+    { label: "Hazardous", color: "#660033", range: "301-500" },
+  ]}
+/>
 
 _Note_: Adapted from “Guideline for calculating the Emirati Air Quality Index (EAQI)” (2023), [airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf](https://airquality.ncm.gov.ae/resources/pdf/aqi-quickguide-en-2023.pdf) [^3]. Accessed 22 June 2024.
 

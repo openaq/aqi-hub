@@ -1,0 +1,45 @@
+---
+import { getContrast } from "../utils/colors";
+
+interface ColorScaleItem {
+  color: string;
+  label: string;
+  range: string;
+}
+
+const { values } = Astro.props;
+---
+
+<style lang="scss">
+  .color-scale {
+    display: flex;
+  }
+
+  .color-scale__item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+</style>
+
+<div class="color-scale">
+  {
+    values.map((o: ColorScaleItem) => (
+      <div
+        class="color-scale__item"
+        style={`background-color: ${o.color}; color: ${getContrast(o.color)}`}
+      >
+        <p>{o.label}</p>
+        <p>{o.range}</p>
+      </div>
+    ))
+  }
+</div>

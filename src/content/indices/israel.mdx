@@ -24,14 +24,16 @@ The Israel Air Quality Index (AQI) was developed by the Ministry of Environmenta
 
 The Israel AQI is represented with a diverging scale composed of 4 value bands ranging from -400 to 100, with a distinct color for each band.
 
-```js
-colorScale([
-  { color: "#984806", label: "Very low", range: "−201–−400" },
-  { color: "#ff0000", label: "Low", range: "−1–−200" },
-  { color: "#ffff00", label: "Medium", range: "0–50" },
-  { color: "#04ff00", label: "Good", range: "51–100" },
-]);
-```
+import ColorScale from "../../components/ColorScale.astro";
+
+<ColorScale
+  values={[
+    { color: "#984806", label: "Very low", range: "−201–−400" },
+    { color: "#ff0000", label: "Low", range: "−1–−200" },
+    { color: "#ffff00", label: "Medium", range: "0–50" },
+    { color: "#04ff00", label: "Good", range: "51–100" },
+  ]}
+/>
 
 _Note_: Adapted from "חישוב מדד איכות האוויר" [https://air.sviva.gov.il/Pagesfiles/החישוב שלמדדזיהוםהאוויר AQIלאתרהחדש.pdf](https://air.sviva.gov.il/Pagesfiles/%D7%94%D7%97%D7%99%D7%A9%D7%95%D7%91%20%D7%A9%D7%9C%20%D7%9E%D7%93%D7%93%20%D7%96%D7%99%D7%94%D7%95%D7%9D%20%D7%94%D7%90%D7%95%D7%95%D7%99%D7%A8%20AQI%20%D7%9C%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9.pdf). Accessed November 12, 2024.
 

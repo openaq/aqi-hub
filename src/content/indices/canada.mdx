@@ -14,25 +14,23 @@ Previous to the AQHI, Canada used the Air Quality Index (AQI). The AQI reported 
 
 The AQHI uses a color scale consisting of 11 colors for 4 risk categories:
 
-```js
-import { colorScale } from "../components/color-scale.js";
-```
+import ColorScale from "../../components/ColorScale.astro";
 
-```js
-colorScale([
-  { label: "Low", color: "#02cbff", range: 1 },
-  { label: "Low", color: "#0099ca", range: 2 },
-  { label: "Low", color: "#01649b", range: 3 },
-  { label: "Moderate", color: "#fffe02", range: 4 },
-  { label: "Moderate", color: "#ffcb00", range: 5 },
-  { label: "Moderate", color: "#fe9933", range: 6 },
-  { label: "High", color: "#fd6765", range: 7 },
-  { label: "High", color: "#fc0100", range: 8 },
-  { label: "High", color: "#cb0003", range: 9 },
-  { label: "High", color: "#9a0000", range: 10 },
-  { label: "Very High", color: "#650100", range: "10+" },
-]);
-```
+<ColorScale
+  values={[
+    { label: "Low", color: "#02cbff", range: 1 },
+    { label: "Low", color: "#0099ca", range: 2 },
+    { label: "Low", color: "#01649b", range: 3 },
+    { label: "Moderate", color: "#fffe02", range: 4 },
+    { label: "Moderate", color: "#ffcb00", range: 5 },
+    { label: "Moderate", color: "#fe9933", range: 6 },
+    { label: "High", color: "#fd6765", range: 7 },
+    { label: "High", color: "#fc0100", range: 8 },
+    { label: "High", color: "#cb0003", range: 9 },
+    { label: "High", color: "#9a0000", range: 10 },
+    { label: "Very High", color: "#650100", range: "10+" },
+  ]}
+/>
 
 _Note_: Adapted from “About the Air Quality Health Index” (Apr. 2021), [https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html](https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html) [^1]. Accessed 13 Aug. 2024.
 

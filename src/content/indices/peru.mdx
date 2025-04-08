@@ -10,18 +10,16 @@ The Peru Índice de Calidad del Aire (INCA) covers 6 pollutants including PM<sub
 
 The INCA color scale consists of four colors each with a numerical range of the INCA score and a category name.
 
-```js
-import { colorScale } from "../components/color-scale.js";
-```
+import ColorScale from "../../components/ColorScale.astro";
 
-```js
-colorScale([
-  { label: "Good", color: "#04ff00", range: "0-50" },
-  { label: "Moderate", color: "#ffff00", range: "51-100" },
-  { label: "Bad", color: "#f79645", range: "101-VUEC" },
-  { label: "VUEC", color: "#ff0000", range: "VUEC+" },
-]);
-```
+<ColorScale
+  values={[
+    { label: "Good", color: "#04ff00", range: "0-50" },
+    { label: "Moderate", color: "#ffff00", range: "51-100" },
+    { label: "Bad", color: "#f79645", range: "101-VUEC" },
+    { label: "VUEC", color: "#ff0000", range: "VUEC+" },
+  ]}
+/>
 
 The valor umbral del estado de cuidado (VUEC), or threshold of concern, is variable between each pollutant as can be seen below.
 
