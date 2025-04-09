@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "openaq-design-system": "github:openaq/openaq-design-system#v-4.0.0",
     "@astrojs/mdx": "^4.2.3",
     "astro": "^5.6.1",
     "rehype-katex": "^7.0.1",
