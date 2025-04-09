@@ -179,6 +179,36 @@ EU,,Extremely poor,#7d2181,6,,PM10,ug/m3,24,150.1,1200
 EU,,Extremely poor,#7d2181,6,,O3,ug/m3,1,380.1,800
 EU,,Extremely poor,#7d2181,6,,SO2,ug/m3,1,750.1,1250
 EU,,Extremely poor,#7d2181,6,,NO2,ug/m3,1,800.1,1000
+FI,,Good,#67e567,0,50,PM2.5,ug/m3,1,0,10
+FI,,Good,#67e567,0,50,PM10,ug/m3,1,0,20
+FI,,Good,#67e567,0,50,O3,ug/m3,1,0,60
+FI,,Good,#67e567,0,50,SO2,ug/m3,1,0,20
+FI,,Good,#67e567,0,50,NO2,ug/m3,1,0,40
+FI,,Good,#67e567,0,50,TRS,ug/m3,1,0,5
+FI,,Satisfactory,#fff055,51,75,PM2.5,ug/m3,1,11,25
+FI,,Satisfactory,#fff055,51,75,PM10,ug/m3,1,21,50
+FI,,Satisfactory,#fff055,51,75,O3,ug/m3,1,61,100
+FI,,Satisfactory,#fff055,51,75,SO2,ug/m3,1,21,80
+FI,,Satisfactory,#fff055,51,75,NO2,ug/m3,1,41,70
+FI,,Satisfactory,#fff055,51,75,TRS,ug/m3,1,6,10
+FI,,Fair,#ffbb58,76,100,PM2.5,ug/m3,1,26,50
+FI,,Fair,#ffbb58,76,100,PM10,ug/m3,1,51,100
+FI,,Fair,#ffbb58,76,100,O3,ug/m3,1,101,140
+FI,,Fair,#ffbb58,76,100,SO2,ug/m3,1,81,250
+FI,,Fair,#ffbb58,76,100,NO2,ug/m3,1,71,150
+FI,,Fair,#ffbb58,76,100,TRS,ug/m3,1,11,20
+FI,,Poor,#fe4543,101,150,PM2.5,ug/m3,1,51,75
+FI,,Poor,#fe4543,101,150,PM10,ug/m3,1,101,200
+FI,,Poor,#fe4543,101,150,O3,ug/m3,1,141,180
+FI,,Poor,#fe4543,101,150,SO2,ug/m3,1,251,350
+FI,,Poor,#fe4543,101,150,NO2,ug/m3,1,151,200
+FI,,Poor,#fe4543,101,150,TRS,ug/m3,1,21,50
+FI,,Very poor,#b5468b,151,,PM2.5,ug/m3,1,76,
+FI,,Very poor,#b5468b,151,,PM10,ug/m3,1,201,
+FI,,Very poor,#b5468b,151,,O3,ug/m3,1,181,
+FI,,Very poor,#b5468b,151,,SO2,ug/m3,1,351,
+FI,,Very poor,#b5468b,151,,NO2,ug/m3,1,201,
+FI,,Very poor,#b5468b,151,,TRS,ug/m3,1,51,
 IN,,Good,#00b050,0,50,PM2.5,ug/m3,24,0,30
 IN,,Good,#00b050,0,50,PM10,ug/m3,24,0,50
 IN,,Good,#00b050,0,50,SO2,ug/m3,24,0,40
@@ -451,6 +481,36 @@ SG,,Hazardous,#ec1a31,401,500,CO,mg/m3,8,46.1,57.5
 SG,,Hazardous,#ec1a31,401,500,O3,ug/m3,8,,
 SG,,Hazardous,#ec1a31,401,500,O3,ug/m3,1,981,1180
 SG,,Hazardous,#ec1a31,401,500,NO2,ug/m3,1,3001,3750
+TR,,Good,#11af66,0,50,SO2,ug/m3,1,0,100
+TR,,Good,#11af66,0,50,NO2,ug/m3,1,0,100
+TR,,Good,#11af66,0,50,CO,ug/m3,8,0,5500
+TR,,Good,#11af66,0,50,O3,ug/m3,8,0,120
+TR,,Good,#11af66,0,50,PM10,ug/m3,24,0,50
+TR,,Medium,#fff013,51,100,SO2,ug/m3,1,101,250
+TR,,Medium,#fff013,51,100,NO2,ug/m3,1,101,200
+TR,,Medium,#fff013,51,100,CO,ug/m3,8,5501,10000
+TR,,Medium,#fff013,51,100,O3,ug/m3,8,121,160
+TR,,Medium,#fff013,51,100,PM10,ug/m3,24,51,100
+TR,,Sensitive,#ff9523,101,150,SO2,ug/m3,1,251,500
+TR,,Sensitive,#ff9523,101,150,NO2,ug/m3,1,201,500
+TR,,Sensitive,#ff9523,101,150,CO,ug/m3,8,10001,16000
+TR,,Sensitive,#ff9523,101,150,O3,ug/m3,8,161,180
+TR,,Sensitive,#ff9523,101,150,PM10,ug/m3,24,101,260
+TR,,Unhealthy,#e20000,151,200,SO2,ug/m3,1,501,850
+TR,,Unhealthy,#e20000,151,200,NO2,ug/m3,1,501,1000
+TR,,Unhealthy,#e20000,151,200,CO,ug/m3,8,16001,24000
+TR,,Unhealthy,#e20000,151,200,O3,ug/m3,8,181,240
+TR,,Unhealthy,#e20000,151,200,PM10,ug/m3,24,261,400
+TR,,Bad,#d10d65,201,300,SO2,ug/m3,1,851,1100
+TR,,Bad,#d10d65,201,300,NO2,ug/m3,1,1001,2000
+TR,,Bad,#d10d65,201,300,CO,ug/m3,8,24001,32000
+TR,,Bad,#d10d65,201,300,O3,ug/m3,8,241,700
+TR,,Bad,#d10d65,201,300,PM10,ug/m3,24,401,520
+TR,,Dangerous,#b31340,301,500,SO2,ug/m3,1,1101,
+TR,,Dangerous,#b31340,301,500,NO2,ug/m3,1,2001,
+TR,,Dangerous,#b31340,301,500,CO,ug/m3,8,32001,
+TR,,Dangerous,#b31340,301,500,O3,ug/m3,8,701,
+TR,,Dangerous,#b31340,301,500,PM10,ug/m3,24,521,
 KR,,Good,#0000FF,0,50,PM2.5,ug/m3,24,0,15
 KR,,Good,#0000FF,0,50,PM10,ug/m3,24,0,30
 KR,,Good,#0000FF,0,50,NO2,ppm,1,0,0.03
@@ -675,3 +735,33 @@ VN,,Hazardous,#7E0023,301,500,O3,ppm,1,1001,1200
 VN,,Hazardous,#7E0023,301,500,O3,ppm,8,,
 VN,,Hazardous,#7E0023,301,500,CO,ppm,1,120001,150000
 VN,,Hazardous,#7E0023,301,500,SO2,ppm,1,2100,2630
+ZA,,Good/low,#00b050,1,3,PM2.5,ug/m3,1,0,103
+ZA,,Good/low,#00b050,1,3,PM10,ug/m3,1,0,190
+ZA,,Good/low,#00b050,1,3,O3,ppb,1,0,80
+ZA,,Good/low,#00b050,1,3,NO2,ppb,1,0,106
+ZA,,Good/low,#00b050,1,3,SO2,ppb,1,0,134
+ZA,,Good/low,#00b050,1,3,CO,ppm,1,0,30
+ZA,,Moderate,#ffff00,4,5,PM2.5,ug/m3,1,104,153
+ZA,,Moderate,#ffff00,4,5,PM10,ug/m3,1,191,240
+ZA,,Moderate,#ffff00,4,5,O3,ppb,1,81,134
+ZA,,Moderate,#ffff00,4,5,NO2,ppb,1,107,178
+ZA,,Moderate,#ffff00,4,5,SO2,ppb,1,135,172
+ZA,,Moderate,#ffff00,4,5,CO,ppm,1,30.1,40.0
+ZA,,High/Unhealthy,#ffc100,6,7,PM2.5,ug/m3,1,154,203
+ZA,,High/Unhealthy,#ffc100,6,7,PM10,ug/m3,1,241,290
+ZA,,High/Unhealthy,#ffc100,6,7,O3,ppb,1,135,187
+ZA,,High/Unhealthy,#ffc100,6,7,NO2,ppb,1,179,249
+ZA,,High/Unhealthy,#ffc100,6,7,SO2,ppb,1,173,210
+ZA,,High/Unhealthy,#ffc100,6,7,CO,ppm,1,40.1,50.0
+ZA,,Very high/Very unhealthy,#ff0000,8,9,PM2.5,ug/m3,1,204,253
+ZA,,Very high/Very unhealthy,#ff0000,8,9,PM10,ug/m3,1,291,340
+ZA,,Very high/Very unhealthy,#ff0000,8,9,O3,ppb,1,188,240
+ZA,,Very high/Very unhealthy,#ff0000,8,9,NO2,ppb,1,250,320
+ZA,,Very high/Very unhealthy,#ff0000,8,9,SO2,ppb,1,211,249
+ZA,,Very high/Very unhealthy,#ff0000,8,9,CO,ppm,1,50.1,60
+ZA,,Hazardous,#7030a0,10,,PM2.5,ug/m3,1,254,
+ZA,,Hazardous,#7030a0,10,,PM10,ug/m3,1,341,
+ZA,,Hazardous,#7030a0,10,,O3,ppb,1,241,
+ZA,,Hazardous,#7030a0,10,,NO2,ppb,1,321,
+ZA,,Hazardous,#7030a0,10,,SO2,ppb,1,250,
+ZA,,Hazardous,#7030a0,10,,CO,ppm,1,60,

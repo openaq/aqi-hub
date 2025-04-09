@@ -78,5 +78,9 @@ export function getStaticPaths() {
     { params: { country: "KW" } },
     { params: { country: "ID" } },
     { params: { country: "KR" } },
+    { params: { country: "ZA" } },
+    { params: { country: "FI" } },
+    { params: { country: "IL" } },
+    { params: { country: "TR" } },
   ];
 }
