@@ -19,7 +19,7 @@ const breakpoints = await FileAttachment(
 const data = parseBreakpointsCsv(breakpoints);
 ```
 
-Taiwan’s Air Quality Index (AQI) accounts for PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. Taiwan reports a daily AQI along with a real-time AQI.
+Taiwan's Air Quality Index (AQI) accounts for PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. Taiwan reports a daily AQI along with a real-time AQI.
 
 The Taiwan Ministry of Environment (MOENV) is responsible for air quality management and establishing and implementing AQIs. It also provides a map of AQI values across Taiwan.
 
@@ -27,7 +27,7 @@ The newest AQI documentation was implemented in December 2016[^1].
 
 ## Color scale
 
-Taiwan’s Air Quality Index is comprised of six categories:
+Taiwan's Air Quality Index is comprised of six categories:
 
 ```js
 colorScale(colorScaleReshape(data));
@@ -37,7 +37,7 @@ _Note_: Adapted from "Air Quality Index" (n.d.), [https://airtw.moenv.gov.tw/ENG
 
 <div class="note">
   The Taiwan Air Quality Monitoring Network includes two categories within
-  ‘Hazardous:’ 301-400 and 401-500. Each category has distinct breakpoints
+  'Hazardous': 301-400 and 401-500. Each category has distinct breakpoints
   provided.
 </div>
 ## Methods
