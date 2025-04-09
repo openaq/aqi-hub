@@ -12,19 +12,9 @@ The VN AQI guidelines were most recently updated in November 2019, replacing the
 
 ## Color scale
 
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-import { colorScale } from "../components/color-scale.js";
-const breakpoints = await FileAttachment(
-  "../data/vietnam/breakpoints.csv"
-).text();
-const data = parseBreakpointsCsv(breakpoints);
-```
+import ColorScaleImg from "../../components/ColorScaleImg.astro";
+
+<ColorScaleImg countryCode="VN" />
 
 The Vietnam Air Quality Index consists of six categories:
 

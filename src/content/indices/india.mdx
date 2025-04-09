@@ -10,27 +10,9 @@ The India Air Quality Index (AQI) covers eight major pollutants: PM<sub>2.5</sub
 
 The India AQI has a six-color scale with category names (good to severe) and numerical ranges, ranging from 0 to 500, for each category.
 
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-import { colorScale } from "../components/color-scale.js";
-```
+import ColorScaleImg from "../../components/ColorScaleImg.astro";
 
-```js
-const breakpoints = await FileAttachment(
-  "../data/india/breakpoints.csv"
-).text();
-
-const data = parseBreakpointsCsv(breakpoints);
-```
-
-```js
-colorScale(colorScaleReshape(data));
-```
+<ColorScaleImg countryCode="IN" />
 
 Note: Adapted from “National Air Quality Index” (2014), [http://app.cpcbccr.com/ccr*docs/FINAL-REPORT_AQI*.pdf](http://app.cpcbccr.com/ccr_docs/FINAL-REPORT_AQI_.pdf) [^1]. Accessed 16 Aug. 2024.
 

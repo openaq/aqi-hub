@@ -12,35 +12,11 @@ The US AQI methodology was most recently updated in May 2024 to implement strict
 
 ## Color scale
 
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-import { colorScale } from "../components/color-scale.js";
-const breakpoints = await FileAttachment("../data/us/breakpoints.csv").text();
-
-const data = parseBreakpointsCsv(breakpoints);
-```
-
 The US EPA uses a six color scale:
 
-<ColorScale
-  values={[
-    { "label": "Good", "color": "#00e400", "range": "0-50" },
-    { "label": "Moderate", "color": "#fffe00", "range": "51-100" },
-    {
-      "label": "Unhealthy for Sensitive Groups",
-      "color": "#ff8203",
-      "range": "101-150",
-    },
-    { "label": "Unhealthy", "color": "#f12100", "range": "151-200" },
-    { "label": "Very Unhealthy", "color": "#890997", "range": "201-300" },
-    { "label": "Hazardous", "color": "#640115", "range": "301+" },
-  ]}
-/>
+import ColorScaleImg from "../../components/ColorScaleImg.astro";
+
+<ColorScaleImg countryCode="US" />
 
 As of May 2024, the US EPA also offers a "ColorVision Assist" version of the color palette, designed to be more accessible for those with color vision deficiencies. The South Coast Air Quality Management District’s Air Quality Sensor Performance Evaluation Center and Air Quality Assessment Group led the development of this palette.
 

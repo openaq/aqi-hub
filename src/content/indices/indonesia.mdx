@@ -8,30 +8,9 @@ The Indeks Standar Pencemar Udara (ISPU), translated as Air Pollution Standard I
 
 ## Color scale
 
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-```
+import ColorScaleImg from "../../components/ColorScaleImg.astro";
 
-```js
-import { colorScale } from "../components/color-scale.js";
-```
-
-```js
-const breakpoints = await FileAttachment(
-  "../data/indonesia/breakpoints.csv"
-).text();
-
-const data = parseBreakpointsCsv(breakpoints);
-```
-
-```js
-colorScale(colorScaleReshape(data));
-```
+<ColorScaleImg countryCode="ID" />
 
 _Note_: Adapted from "INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUTU UDARA AMBIEN DI INDONESIA" (24 Sept. 2020), [https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)[^1]. Accessed 19 July 2024.
 

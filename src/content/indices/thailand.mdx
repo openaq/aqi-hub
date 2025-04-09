@@ -24,9 +24,9 @@ The Thailand air quality index (AQI) was developed by the Thailand Pollution Con
 
 The Thailand AQI scale is composed of 6 value bands ranging from 0 to 201, with a distinct color for each band.
 
-```js
-colorScale(colorScaleReshape(data));
-```
+import ColorScaleImg from "../../components/ColorScaleImg.astro";
+
+<ColorScaleImg countryCode="TH" />
 
 _Note_: Adapted from “ข้อมูลดัชนีคุณภาพอากาศ” (n.d.), [air4thai.pcd.go.th/webV3/\#/AQIInfo](http://air4thai.pcd.go.th/webV3/#/AQIInfo)[^1]. Accessed July 18, 2024.
 

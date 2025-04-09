@@ -18,26 +18,9 @@ For selection of “the rest of the concentration breakpoints,” the Macao AQI 
 
 ## Color scale
 
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-```
+import ColorScaleImg from "../../components/ColorScaleImg.astro";
 
-```js
-import { colorScale } from "../components/color-scale.js";
-```
-
-```js
-const breakpoints = await FileAttachment(
-  "../data/macao/breakpoints.csv"
-).text();
-
-const data = parseBreakpointsCsv(breakpoints);
-```
+<ColorScaleImg countryCode="MO" />
 
 Macao uses a color scale comprised of six levels:
 

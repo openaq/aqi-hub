@@ -10,31 +10,6 @@ The Malaysia Index Pencemar Udara (IPU), translated as Air Pollution Index (API)
 
 The Malaysia API scale ranges from 0-500 and uses five colors to represent different bands:
 
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-```
-
-```js
-import { colorScale } from "../components/color-scale.js";
-```
-
-```js
-const breakpoints = await FileAttachment(
-  "../data/malaysia/breakpoints.csv"
-).text();
-
-const data = parseBreakpointsCsv(breakpoints);
-```
-
-```js
-colorScale(colorScaleReshape(data));
-```
-
 _Note_: Adapted from "PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX (API) CALCULATION" (n.d.), [https://apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf) [^1]. Accessed 27 July 2024.
 
 ## Methods

@@ -10,20 +10,9 @@ The United Kingdom Department for Environment Food & Rural Affairs (Defra) devel
 
 ## Color scale
 
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-import { colorScale } from "../components/color-scale.js";
-```
+import ColorScaleImg from "../../components/ColorScaleImg.astro";
 
-```js
-const breakpoints = await FileAttachment("../data/uk/breakpoints.csv").text();
-const data = parseBreakpointsCsv(breakpoints);
-```
+<ColorScaleImg countryCode="GB" />
 
 The composite index uses a four color color scale:
 

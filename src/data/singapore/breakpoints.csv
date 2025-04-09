@@ -1,0 +1,43 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+SG,,Good,#79c466,0,50,PM2.5,ug/m3,24,0,12
+SG,,Good,#79c466,0,50,PM10,ug/m3,24,0,50
+SG,,Good,#79c466,0,50,SO2,ug/m3,24,0,80
+SG,,Good,#79c466,0,50,CO,mg/m3,8,0,5.0
+SG,,Good,#79c466,0,50,O3,ug/m3,8,0,118
+SG,,Good,#79c466,0,50,O3,ug/m3,1,,
+SG,,Good,#79c466,0,50,NO2,ug/m3,1,,
+SG,,Moderate,#63bae8,51,100,PM2.5,ug/m3,24,13,55
+SG,,Moderate,#63bae8,51,100,PM10,ug/m3,24,51,150
+SG,,Moderate,#63bae8,51,100,SO2,ug/m3,24,81,365
+SG,,Moderate,#63bae8,51,100,CO,mg/m3,8,5.1,10.0
+SG,,Moderate,#63bae8,51,100,O3,ug/m3,8,119,157
+SG,,Moderate,#63bae8,51,100,O3,ug/m3,1,,
+SG,,Moderate,#63bae8,51,100,NO2,ug/m3,1,,
+SG,,Unhealthy,#fed630,101,200,PM2.5,ug/m3,24,56,150
+SG,,Unhealthy,#fed630,101,200,PM10,ug/m3,24,351,420
+SG,,Unhealthy,#fed630,101,200,SO2,ug/m3,24,366,800
+SG,,Unhealthy,#fed630,101,200,CO,mg/m3,8,10.1,17.0
+SG,,Unhealthy,#fed630,101,200,O3,ug/m3,8,158,235
+SG,,Unhealthy,#fed630,101,200,O3,ug/m3,1,,
+SG,,Unhealthy,#fed630,101,200,NO2,ug/m3,1,,1130
+SG,,Very Unhealthy,#f4a331,201,300,PM2.5,ug/m3,24,151,250
+SG,,Very Unhealthy,#f4a331,201,300,PM10,ug/m3,24,351,420
+SG,,Very Unhealthy,#f4a331,201,300,SO2,ug/m3,24,801,1600
+SG,,Very Unhealthy,#f4a331,201,300,CO,mg/m3,8,17.1,34.0
+SG,,Very Unhealthy,#f4a331,201,300,O3,ug/m3,8,,
+SG,,Very Unhealthy,#f4a331,201,300,O3,ug/m3,1,236,786
+SG,,Very Unhealthy,#f4a331,201,300,NO2,ug/m3,1,1131,2260
+SG,,Hazardous,#ec1a31,301,400,PM2.5,ug/m3,24,251,350
+SG,,Hazardous,#ec1a31,301,400,PM10,ug/m3,24,421,500
+SG,,Hazardous,#ec1a31,301,400,SO2,ug/m3,24,1601,2100
+SG,,Hazardous,#ec1a31,301,400,CO,mg/m3,8,34.1,46.0
+SG,,Hazardous,#ec1a31,301,400,O3,ug/m3,8,,
+SG,,Hazardous,#ec1a31,301,400,O3,ug/m3,1,786,980
+SG,,Hazardous,#ec1a31,301,400,NO2,ug/m3,1,2261,3000
+SG,,Hazardous,#ec1a31,401,500,PM2.5,ug/m3,24,351,500
+SG,,Hazardous,#ec1a31,401,500,PM10,ug/m3,24,501,600
+SG,,Hazardous,#ec1a31,401,500,SO2,ug/m3,24,2101,2620
+SG,,Hazardous,#ec1a31,401,500,CO,mg/m3,8,46.1,57.5
+SG,,Hazardous,#ec1a31,401,500,O3,ug/m3,8,,
+SG,,Hazardous,#ec1a31,401,500,O3,ug/m3,1,981,1180
+SG,,Hazardous,#ec1a31,401,500,NO2,ug/m3,1,3001,3750
