@@ -1,6 +1,7 @@
 ---
 const { pageTitle } = Astro.props;
 import "@assets/styles/main.scss";
+import "katex/dist/katex.min.css"; 
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import SidebarNav from "@components/SidebarNav.astro";
@@ -10,13 +11,6 @@ import SidebarNav from "@components/SidebarNav.astro";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- Katex -->
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
-    integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
-    crossorigin="anonymous"
-    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap.xml" /> 
     <meta name="viewport" content="width=device-width" />
