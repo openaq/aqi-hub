@@ -5,7 +5,7 @@ import { parse } from "csv-parse/sync";
 export const GET: APIRoute = async ({ params }) => {
   const indice = params.indice;
 
-  const breakpointFile = await getEntry("breakpoints", indice);
+  const breakpointFile = await getEntry("breakpoints", indice!);
 
   const parsedContent = parse(breakpointFile, {
     columns: true,
@@ -18,7 +18,5 @@ export const GET: APIRoute = async ({ params }) => {
 };
 
 export function getStaticPaths() {
-  return [
-    { params: { indice: "eu" } },
-  ];
+  return [{ params: { indice: "eu" } }];
 }
