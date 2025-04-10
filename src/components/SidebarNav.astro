@@ -7,7 +7,16 @@ const pages = await getCollection("pages");
 
 <style lang="scss">
   .sidebar {
+    position: relative;
+    overflow-y: auto;
     width: 18.75rem;
+    height: 100vh;
+    z-index: 10;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
   }
 </style>
 

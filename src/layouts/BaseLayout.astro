@@ -36,11 +36,13 @@ import SidebarNav from "@components/SidebarNav.astro";
   </head>
   <body>
     <Header />
-    <SidebarNav />
-    <main class="main">
+    <div class="main-layout">
+      <SidebarNav />
+      <main class="main">
 
-      <slot />
-    </main>
-    <!-- <Footer /> -->
+        <slot />
+      </main>
+     </div>
+    <Footer />
   </body>
 </html>

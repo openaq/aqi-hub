@@ -4,29 +4,6 @@
 @use "openaq-design-system/scss/utilities/types.scss";
 @use "openaq-design-system/scss/variables";
 
-body {
-  display: flex;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th {
-  border-bottom: 2px solid #ddd;
-  text-align: left;
-}
-td {
-  padding: 8px;
-  text-align: left;
-}
-tr {
-  border-bottom: 1px solid #ddd;
-}
-tr:last-child {
-  border-bottom: none;
-}
-
 @font-face {
   font-family: "Space Grotesk";
   src: url("/fonts/SpaceGrotesk-Regular.woff2") format("woff2"),
@@ -57,6 +34,50 @@ tr:last-child {
     url("/fonts/SpaceGrotesk-SemiBold.woff") format("woff");
   font-weight: bold;
   font-style: italic;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  margin-left: 20px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+  overflow-wrap: break-word;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  border-bottom: 2px solid #ddd;
+  text-align: left;
+}
+
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tr:last-child {
+  border-bottom: none;
 }
 
 .gradient-title {
