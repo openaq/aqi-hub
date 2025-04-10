@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 import { file, glob } from "astro/loaders";
 import { parse } from "csv-parse/sync";
-import fs from "node:fs";
+import { globSync } from "tinyglobby";
 
 const indices = defineCollection({
   loader: glob({ pattern: ["*.{md,mdx}"], base: "src/content/indices" }),
@@ -22,8 +22,7 @@ const pages = defineCollection({
 });
 
 const filePaths = "src/data/breakpoints";
-
-const allFiles = fs.readdirSync(filePaths);
+const allFiles = globSync(`${filePaths}/*.csv`);
 
 const breakpoints = allFiles.map((o: string) => {
   return defineCollection({
