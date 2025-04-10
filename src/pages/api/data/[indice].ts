@@ -1,10 +1,11 @@
-export const prerender = false;
 import type { APIRoute } from "astro";
 import { getEntry } from "astro:content";
 import { parse } from "csv-parse/sync";
 
 export const GET: APIRoute = async ({ params }) => {
-  const breakpointFile = await getEntry("breakpoints", "test");
+  const indice = params.indice;
+
+  const breakpointFile = await getEntry("breakpoints", indice);
 
   const parsedContent = parse(breakpointFile, {
     columns: true,
@@ -15,3 +16,9 @@ export const GET: APIRoute = async ({ params }) => {
     headers: { "Content-Type": "application/json" },
   });
 };
+
+export function getStaticPaths() {
+  return [
+    { params: { indice: "eu" } },
+  ];
+}

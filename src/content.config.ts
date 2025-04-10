@@ -22,13 +22,10 @@ const pages = defineCollection({
 const breakpoints = defineCollection({
   loader: glob({
     pattern: "**/*.csv",
-    base: "./src/data/",
-    generateId: ({ entry }) => entry.split("/")[0],
+    base: "src/data",
   }),
   schema: () => z.any(),
 });
-
-console.log("HEJ BREAKPOINTS", breakpoints);
 
 export const collections = {
   breakpoints,
