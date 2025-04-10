@@ -1,5 +1,4 @@
 import { defineCollection, z } from "astro:content";
-
 import { glob } from "astro/loaders";
 
 const indices = defineCollection({
@@ -20,7 +19,19 @@ const pages = defineCollection({
     }),
 });
 
+const breakpoints = defineCollection({
+  loader: glob({
+    pattern: "**/*.csv",
+    base: "./src/data/",
+    generateId: ({ entry }) => entry.split("/")[0],
+  }),
+  schema: () => z.any(),
+});
+
+console.log("HEJ BREAKPOINTS", breakpoints);
+
 export const collections = {
+  breakpoints,
   indices,
   pages,
 };

@@ -9,9 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astro-content/types": "^0.0.0-alpha.13",
     "@astrojs/mdx": "^4.2.3",
     "astro": "^5.6.1",
     "buffer": "^6.0.3",
+    "csv-parse": "^5.6.0",
     "openaq-design-system": "github:openaq/openaq-design-system#v-4.0.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0"
