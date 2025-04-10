@@ -1,0 +1,13 @@
+---
+import PageLayout from "./PageLayout.astro";
+
+const { name, indexName, indexAcronym } = Astro.props;
+---
+
+<PageLayout>
+  <h1>{name}</h1>
+  <p>{indexName} ({indexAcronym})</p>
+  <article>
+    <slot />
+  </article>
+</PageLayout>
