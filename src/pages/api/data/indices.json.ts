@@ -1,10 +1,8 @@
 import type { APIRoute } from "astro";
 import { readFileSync } from "node:fs";
 import { parse } from "csv-parse/sync";
-import path from "node:path";
+import { globSync } from "tinyglobby";
 import type { IndexDefinition } from "src/types/types";
-
-const glob = import.meta.glob("@data/breakpoints/*.csv");
 
 const snakeToCamel = (str: string) =>
   str
@@ -13,18 +11,26 @@ const snakeToCamel = (str: string) =>
       group.toUpperCase().replace("-", "").replace("_", "")
     );
 
-export const GET: APIRoute = async ({ params }) => {
-  const index = params.index;
-  const data = readFileSync(`src/data/breakpoints/${index}.csv`);
+export const GET: APIRoute = async () => {
+  const data = globSync(["src/data/breakpoints/*.csv"]);
 
-  const parsedContent = parse(data, {
-    skip_empty_lines: true,
-    columns: (header) => header.map((column: string) => snakeToCamel(column)),
+  const parsedContent = data.map((o) => {
+    const csvContent = readFileSync(o);
+
+    const parsed = parse(csvContent, {
+      skip_empty_lines: true,
+      columns: (header) => header.map((column: string) => snakeToCamel(column)),
+    });
+
+    return parsed;
   });
 
-  let filteredContent = parsedContent.filter(
+  const combinedData = parsedContent.flat();
+
+  let filteredContent = combinedData.filter(
     (o: IndexDefinition) => o.pollutant == "PM2.5" && o.averagingPeriod == "24"
   );
+
   filteredContent = filteredContent.map((o: IndexDefinition) => {
     o.concentrationUpper ? o.concentrationUpper : (o.concentrationUpper = 500);
     return o;
@@ -34,11 +40,3 @@ export const GET: APIRoute = async ({ params }) => {
     headers: { "Content-Type": "application/json" },
   });
 };
-
-const staticPaths = Object.keys(glob).map((o) => ({
-  params: { index: path.parse(o).name },
-}));
-
-export function getStaticPaths() {
-  return staticPaths;
-}
