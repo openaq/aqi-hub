@@ -14,22 +14,11 @@ Note that the AQI map provided by the European Environment Agency depicts the ai
 
 ## Color scale
 
-
-
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-import { colorScale } from "../components/color-scale.js";
-
-const breakpoints = await FileAttachment("../data/eu/breakpoints.csv").text();
-const data = parseBreakpointsCsv(breakpoints);
-```
-
 The European Air Quality Index is comprised of six categories:
+
+import ColorScaleImg from "../../components/ColorScaleImg.astro";
+
+<ColorScaleImg index="eu" value={false} />
 
 _Note_: Adapted from “European Air Quality Index" (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024.
 

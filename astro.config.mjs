@@ -16,4 +16,5 @@ export default defineConfig({
   },
 
   integrations: [mdx()],
+  site: "http://localhost:4321",
 });

@@ -1,0 +1,51 @@
+---
+import { colorScaleReshape } from "src/utils/utils";
+import { getContrast } from "../utils/colors";
+
+interface ColorScaleItem {
+  color: string;
+  label: string;
+  range: string;
+}
+
+const { index, value } = Astro.props;
+
+const res = await fetch(new URL(`api/data/${index}.json`, Astro.site?.href));
+const parsedContent = await res.json();
+
+const colorScale = colorScaleReshape(parsedContent, value);
+---
+
+<style lang="scss">
+  .color-scale {
+    display: flex;
+  }
+
+  .color-scale__item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+</style>
+
+<div class="color-scale">
+  {
+    colorScale.map((o: ColorScaleItem) => (
+      <div
+        class="color-scale__item"
+        style={`background-color: ${o.color}; color: ${getContrast(o.color)}`}
+      >
+        <p>{o.label}</p>
+        <p>{o.range}</p>
+      </div>
+    ))
+  }
+</div>
