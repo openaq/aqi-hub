@@ -22,14 +22,12 @@ The Israel Air Quality Index (AQI) was developed by the Ministry of Environmenta
 
 ## Color scale
 
-
-
 The Israel AQI is represented with a diverging scale composed of 4 value bands ranging from -400 to 100, with a distinct color for each band.
 
 import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale
-  values={[
+  colorScaleValues={[
     { color: "#984806", label: "Very low", range: "−201–−400" },
     { color: "#ff0000", label: "Low", range: "−1–−200" },
     { color: "#ffff00", label: "Medium", range: "0–50" },

@@ -10,12 +10,10 @@ The Peru Índice de Calidad del Aire (INCA) covers 6 pollutants including PM<sub
 
 The INCA color scale consists of four colors each with a numerical range of the INCA score and a category name.
 
-
-
 import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale
-  values={[
+  colorScaleValues={[
     { label: "Good", color: "#04ff00", range: "0-50" },
     { label: "Moderate", color: "#ffff00", range: "51-100" },
     { label: "Bad", color: "#f79645", range: "101-VUEC" },

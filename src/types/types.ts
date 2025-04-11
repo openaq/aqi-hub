@@ -11,3 +11,9 @@ export interface IndexDefinition {
   concentrationLower: number;
   concentrationUpper: number;
 }
+
+export interface ColorScaleDefinition {
+  color: string;
+  label: string;
+  range: string;
+}
