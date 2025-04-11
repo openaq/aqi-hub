@@ -4,6 +4,9 @@ indexName: National Air Quality Indicator
 indexAcronym: NAQI
 ---
 
+import Admonition from '@components/Admonition.astro';
+
+
 ```js
 import { breakpointsTable } from "../components/table.js";
 import {
@@ -41,12 +44,12 @@ _Note_: Adapted from "Knowing the quality of the air you breathe and how it is r
 
 The NAQI uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the highest value from a single station determines the composite AQI for that site.
 
-<div class="note">
+<Admonition type="note">
   No guidance is provided on a minimum number of pollutants measured to produce
   a valid composite index value.
-</div>
+</Admonition>
 
-All pollutants use a 1 hour measurement period, meaning the NAQI provides an hourly assessment of air quality. Because the NAQI provides hourly evaluation of air quality, no forecasting methods are defined within the methodology. No guidance is provided on rounding or truncation standards, but it appears 1 hour averages are rounded to whole numbers for comparison to breakpoints. The pollutant thresholds between “good” (3) and “moderate” (4) are based on the National Ambient Air Quality Standard from the Air Quality Act of 2004.
+All pollutants use a 1 hour measurement period, meaning the NAQI provides an hourly assessment of air quality. Because the NAQI provides hourly evaluation of air quality, no forecasting methods are defined within the methodology. No guidance is provided on rounding or truncation standards, but it appears 1 hour averages are rounded to whole numbers for comparison to breakpoints. The pollutant thresholds between "good" (3) and "moderate" (4) are based on the National Ambient Air Quality Standard from the Air Quality Act of 2004.
 
 Pollutant values use the following break points to calculate the NAQI:
 

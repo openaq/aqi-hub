@@ -1,0 +1,40 @@
+---
+
+interface Props {
+    type: "note" | "warning";
+    title?: string;
+}
+
+const { type, title } = Astro.props;
+
+---
+<style lang='scss'>
+
+    .admonition {
+        box-sizing: border-box;
+        padding: 1rem 2rem;
+        margin: 1rem;
+        max-width: 800px;
+
+        &--note {
+            border-left: 2px solid #1d64ab;
+            background-color: #eef7ff;
+        }
+
+        &--warning {
+            border-left: 2px solid #ce9217;
+            background-color: #fbf8f3;
+        }   
+
+        &__title {
+
+        }
+
+    }
+
+</style>
+
+<aside class={`admonition admonition--${type}`}>
+    <h1 class="admonition__title">{title || type.charAt(0).toUpperCase() + type.slice(1)}</h1>
+    <slot />
+</aside>
