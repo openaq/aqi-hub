@@ -7,22 +7,46 @@ const pages = await getCollection("pages");
 
 <style lang="scss">
   .sidebar {
-    position: relative;
+    position: fixed;
+    top: 80px;
     overflow-y: auto;
     width: 18.75rem;
     height: 100vh;
     z-index: 10;
+    border-right: 1px solid #d4d8dc;
   }
-
-  ul {
+  nav {
+    ul {
     list-style: none;
     padding-left: 0;
+
+    li {
+      padding: 12px 16px 12px 24px;
+
+      &:hover {
+        cursor: pointer;
+        background-color: #b1e8e6;
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      a {
+        color: #30363c;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
+  }
+
 </style>
 
 <aside class="sidebar">
   <h1>OpenAQ AQI Hub</h1>
-  <nav class="pages-nav">
+  <nav class="nav pages-nav">
     <ul>
       {
         pages.map((o) => (
@@ -33,7 +57,9 @@ const pages = await getCollection("pages");
       }
     </ul>
   </nav>
-  <nav class="indices-nav">
+  <hr>
+  <nav class="nav indices-nav">
+    <h1>Indices</h1>
     <ul>
       {
         indices.map((o) => (
