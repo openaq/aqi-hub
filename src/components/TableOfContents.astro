@@ -1,0 +1,88 @@
+---
+
+const { contentSelector } = Astro.props
+
+
+---
+
+
+<style lang="scss" is:global>
+    .toc {
+
+    position: fixed;
+    top: 80px;
+    right: 0;
+    overflow-y: auto;
+    width: 18.75rem;
+    height: 100vh;
+    z-index: 10;
+    border-left: 1px solid #d4d8dc;
+  
+        &__list {
+            list-style: none;
+
+            .toc-anchor-item {
+                box-sizing: border-box;
+                padding: 8px 16px;
+
+
+                &--active {
+                    border-left: 2px solid #66b3ff;
+                }
+            }
+        }
+    }
+
+</style>
+
+
+<aside class="toc">
+    <ul class="toc__list"></ul>
+</aside>
+
+<script define:vars={{contentSelector}}>
+
+    const elementIsInViewport = (elem) => {
+      var rect = elem.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth) 
+      );
+    }
+
+    function checkAnchorInViewport(anchorLinks) {
+        anchorLinks.forEach(elem => {
+                if (elementIsInViewport(elem)) {
+                    const existingElems = document.querySelectorAll('.toc-anchor-item--active');
+                    for (const el of existingElems) {
+                        el.classList.remove('toc-anchor-item--active')
+                    }
+                    const li = document.querySelector(`[data-href-value="${elem.getAttribute('href')}"]`);
+                    li.classList.add('toc-anchor-item--active')
+                }
+            })
+    }
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const content = document.querySelector(contentSelector);
+        const anchorLinks = content.querySelectorAll('.anchor-link');
+        const tocList = document.querySelector('.toc > .toc__list');
+        for (const anchorLink of anchorLinks ) {
+            const li = document.createElement('li');
+            li.classList.add('toc-anchor-item');
+            li.setAttribute('data-href-value', anchorLink.getAttribute('href'))
+            li.innerText = anchorLink.innerText;
+            tocList.appendChild(li)
+        }
+        checkAnchorInViewport(anchorLinks);
+
+        document.addEventListener("scroll", () => {
+            checkAnchorInViewport(anchorLinks)
+
+        })
+    });
+
+</script>

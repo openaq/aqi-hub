@@ -16,7 +16,9 @@
     "buffer": "^6.0.3",
     "csv-parse": "^5.6.0",
     "openaq-design-system": "github:openaq/openaq-design-system#v-4.0.0",
+    "rehype-autolink-headings": "^7.1.0",
     "rehype-katex": "^7.0.1",
+    "rehype-slug": "^6.0.0",
     "remark-math": "^6.0.0",
     "tinyglobby": "^0.2.12"
   },

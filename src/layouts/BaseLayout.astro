@@ -5,6 +5,7 @@ import "katex/dist/katex.min.css";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import SidebarNav from "@components/SidebarNav.astro";
+import TableOfContents from "@components/TableOfContents.astro";
 ---
 
 <html lang="en">
@@ -42,6 +43,7 @@ import SidebarNav from "@components/SidebarNav.astro";
         <slot />
 
       </main>
+      <TableOfContents contentSelector="main"/> 
       <Footer />
 
      </div>
