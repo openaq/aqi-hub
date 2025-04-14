@@ -4,6 +4,9 @@ indexName: Emirati Air Quality Index
 indexAcronym: EAQI
 ---
 
+import Admonition from "@components/Admonition.astro";
+import ColorScale from "../../components/ColorScale.astro";
+
 The UAE has an Emirati Air Quality Index as established by the United Arab Emirates Ministry of Climate Change and Environment as of 2023 [^3]. The Emirati Air Quality Index incorporates the pollutants PM<sub>10</sub>, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> as controlled by the National Ambient Air Quality Standards (as established by the UAE Cabinet Decree 12 of 2006 Regarding Regulation Concerning Protection of Air from Pollution, Annex 8), as well as PM<sub>2.5</sub>.
 
 The Emirati Air Quality Index holds data validation procedures regarding the averaging period for sub-index calculations. For 8- and 24-hour rolling averaging periods, there must be a minimum 75% coverage rate, equal to at least 6 and 18 valid hourly averages respectively. If there is a lack of sufficient valid data for calculations and all available hourly values are "below the standards'', the sub-index for the respective pollutant is reported as null [^3]. If there is a lack of sufficient valid data and at least one of the values is "above the standards," the maximum hourly value is used to estimate the sub-index [^3].
@@ -53,21 +56,19 @@ Additionally, when the hourly concentration of pollutant exceeds the following v
   </tr>
 </table>
 
-<div class="note">
+<Admonition type="note">
   The Emirati Air Quality index uses conversion factors for ppb to µg/m
   <sup>3</sup> at standard pressure and temperature: 1 atmosphere of pressure and
   25 degrees Celsius. The unit notation of µg/Nm<sup>3</sup> is frequently used when
   referring to pollutant concentration, with the capital "N" indicating values assuming
   standard pressure and temperature.
-</div>
+</Admonition>
 
 The UAE has established a National Air Quality Platform to provide real-time information on air quality as received by 31 air pollution monitoring stations across the UAE[^1]. This platform uses an Air Quality Index platform that is able to forecast the air quality status for up to three days in advance. It is said to predict the concentration of dust and particulate matter within a diameter less than 2.5 microns[^1].
 
 ## Color scale
 
 UAE uses a color scale comprised of six levels:
-
-import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale
   colorScaleValues={[

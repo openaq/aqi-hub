@@ -4,6 +4,8 @@ indexName: Air Quality Health Index
 indexAcronym: AQHI
 ---
 
+import ColorScale from "../../components/ColorScale.astro";
+
 The Air Quality Health Index (AQHI) accounts for 4 criteria pollutants: PM, O<sub>3</sub>, NO<sub>2</sub> and SO<sub>2</sub>. For PM, both PM<sub>2.5</sub> and PM<sub>10</sub> are considered, however only the PM that poses the higher health risk is used in the AQHI calculation. Hong Kong reports hourly and forecast AQHIs.
 
 AQHIs are reported in two categories, 'General AQHI' and 'Roadside AQHI', based on where the monitoring station is located. The 'Roadside AQHI' is considered more relevant for those who conduct most of their daily activities along roadsides or in high-traffic areas, while the 'General AQHI' is considered suitable for all others [^1].
@@ -11,8 +13,6 @@ AQHIs are reported in two categories, 'General AQHI' and 'Roadside AQHI', based 
 Previous to establishing the AQHI in December 2013 [^2], Hong Kong used an Air Pollution Index (API) from 1995 to 2013 [^1]. The Environmental Protection Department is responsible for calculating and reporting both hourly and forecast AQHIs.
 
 ## Color scale
-
-import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale
   colorScaleValues={[

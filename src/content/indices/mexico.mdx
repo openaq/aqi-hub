@@ -4,6 +4,9 @@ indexName: Índice AIRE Y SALUD
 indexAcronym: ""
 ---
 
+import Admonition from "@components/Admonition.astro";
+import ColorScale from "../../components/ColorScale.astro";
+
 Mexico's Air Quality and Health Risk index, Índice de Calidad del Aire y Riesgos a la Salud or Índice AIRE Y SALUD, accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. It utilizes hourly average concentrations, 8-hour moving average concentrations, and 12-hour moving average concentrations.
 
 The Norma Oficial Mexicana (NOM), Official Mexican Standard, establishes the guidelines for obtaining Air Quality and Health Risk Index. NOM unifies the air quality index and standardizes documentation among all cities and territories with pre-existing air quality indices[^1]. A single method of calculation and dissemination guidelines are established and expected to be applied by the state or municipal governments responsible for air quality monitoring [^1].
@@ -13,8 +16,6 @@ The guidelines for calculating and communicating the Índice AIRE Y SALUD was ap
 ## Color scale
 
 The Índice AIRE Y SALUD uses a color scale comprised of five levels:
-
-import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale index="mexico" value={true} />
 
@@ -60,12 +61,12 @@ In order for the 12-hour moving concentration to be valid, at least ⅔ of the m
 
 For calculating the 24-hour moving average concentration, at least ¾ of the average hourly concentrations are required. Therefore for calculating SO<sub>2</sub>, a minimum of 18 hourly average concentration values are required. The 24-hour moving average is calculated by taking the average of the selected hour with the 23 concentrations recorded prior. "For example, to estimate the 24-hour moving average of 10:00 a.m., the average of the hourly concentrations recorded for a minimum of 18 hours between 10:00 a.m. and 9:00 a.m. of the previous day is calculated." [^1]
 
-<div class="note">
+<Admonition type="note">
   A specific equation to relate pollutant concentration values to sub-index
   values is not found in the documentation nor are specific values for each risk
   category. We assume that the final Índice AIRE Y SALUD simply takes the
   maximum sub-index value.
-</div>
+</Admonition>
 
 After the pollutant concentration values have been calculated using the appropriate averaging periods, the sub-index values are determined using the breakpoint concentration table established by the Índice AIRE Y SALUD:
 

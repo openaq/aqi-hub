@@ -4,6 +4,8 @@ indexName: Hava Kalitesi İndeksi
 indexAcronym: HKİ
 ---
 
+import ColorScale from "../../components/ColorScale.astro";
+
 ## Background
 
 The Hava Kalitesi İndeksi (HKİ) was developed by the Ministry of Environment, Urbanisation and Climate Change, Türkiye Cumhuriyeti Çevre, Şehircilik ve İklim Değişikliği Bakanlığı (CSB). Five criteria pollutants, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>, are covered in the methodology. The HKİ reports an hourly AQI value based on the reported pollutants.
@@ -11,8 +13,6 @@ The Hava Kalitesi İndeksi (HKİ) was developed by the Ministry of Environment, 
 ## Color scale
 
 The HKİ scale is composed of 6 value bands ranging from 0 to 500, with a distinct color for each band.
-
-import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale index="turkiye" value={true} />
 

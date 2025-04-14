@@ -4,6 +4,9 @@ indexName: Vietnam Air Quality Index
 indexAcronym: VN AQI
 ---
 
+import Admonition from "@components/Admonition.astro";
+import ColorScale from "../../components/ColorScale.astro";
+
 The Vietnam Air Quality Index (VN AQI) accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. It reports a daily and hourly AQI, as well as a NowCast value exclusive to particulate matter concentrations.
 
 The VVN AQI is calculated using data from continuous automatic air quality stations across the country. The Daily AQI is the AQI value representing one day, while the Hourly AQI is the AQI value representing one hour.
@@ -14,20 +17,18 @@ The VN AQI guidelines were most recently updated in November 2019, replacing the
 
 The Vietnam Air Quality Index consists of six categories:
 
-import ColorScale from "../../components/ColorScale.astro";
-
 <ColorScale index="vietnam" value={true} />
 
 ## Methods
 
 _Note_: Adapted from "Quyết định 1459/QĐ-TCMT 2019 kỹ thuật tính toán và công bố chỉ số chất lượng không khí Việt Nam" (12 Nov. 2019), [thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx](https://thuvienphapluat.vn/van-ban/Tai-nguyen-Moi-truong/Quyet-dinh-1459-QD-TCMT-2019-ky-thuat-tinh-toan-va-cong-bo-chi-so-chat-luong-khong-khi-Viet-Nam-428215.aspx)[^1]. Accessed 28 June 2024.
 
-<div class="note">
+<Admonition type="note">
   It is not specified in Vietnam’s documentation whether sub-index values are
   rounded or truncated, however the final AQI value is truncated. For the
   breakpoint concentrations and for AQI calculations, we assume that all data
   values are rounded to the nearest integer.
-</div>
+<Admonition />
 
 $$
 % above referenced [^1] after "final AQI value is truncated"

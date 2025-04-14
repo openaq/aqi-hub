@@ -4,6 +4,9 @@ indexName: Air Quality Health Index
 indexAcronym: AQHI
 ---
 
+import ColorScale from "../../components/ColorScale.astro";
+import Admonition from "@components/Admonition.astro";
+
 Canada's AQHI accounts for three criteria pollutants: PM<sub>2.5</sub>, O<sub>3</sub> and NO<sub>2</sub>. The AQHI is reported as a daily and forecast value for the next 48 hours.
 
 The AQHI was first developed and applied by the Healthy Environments and Consumer Safety Branch of Canada in 2008 [^1] and was established to report on the health risk caused by pollutant mixing.
@@ -13,8 +16,6 @@ Previous to the AQHI, Canada used the Air Quality Index (AQI). The AQI reported 
 ## Color scale
 
 The AQHI uses a color scale consisting of 11 colors for 4 risk categories:
-
-import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale
   colorScaleValues={[
@@ -38,13 +39,13 @@ _Note_: Adapted from "About the Air Quality Health Index" (Apr. 2021), [https://
 
 Canada's AQHI uses 3-hour averaging periods of PM<sub>2.5</sub>, O<sub>3</sub> and NO<sub>2</sub>. A 3-hour averaging period was chosen as it provides more stability than a 1-hour averaging period [^1].
 
-<div class="note">
+<Admonition type="note">
   It is not specified if this 3-hour average is rolling. Data from at least 2
   hours out of the 3-hour period is required for the AQHI calculation; if this
   requirement is not met, the 3-hour average is set to ‘missing’. If more than 6
   rolling 3-hour averages are missing, the daily 3-hour maximum is set to
   'missing'.
-</div>
+</Admonition>
 
 ```tex
 % above referenced source [^1] after both 'missing's

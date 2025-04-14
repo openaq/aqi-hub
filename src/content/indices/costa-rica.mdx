@@ -4,6 +4,8 @@ indexName: Índice Costarricense de Calidad del Aire
 indexAcronym: ICCA
 ---
 
+import ColorScale from "../../components/ColorScale.astro";
+
 The Índice Costarricense de Calidad del Aire (ICCA) accounts for pollutant
 concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>,
 SO<sub>2</sub> and NO<sub>2</sub>. The ICCA was established into Costa Rica law with the _Reglamento de Calidad del Aire para Contaminantes Criterio N° 39951-S_[^1] in 2016.
@@ -12,8 +14,6 @@ SO<sub>2</sub> and NO<sub>2</sub>. The ICCA was established into Costa Rica law 
 
 The ICCA uses a five-level color scale, and numerical ranges, ranging from 0 to
 100, for each category:
-
-import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale index="costa-rica" value={true} />
 

@@ -4,6 +4,9 @@ indexName: Air Quality Index
 indexAcronym: AQI
 ---
 
+import ColorScale from "../../components/ColorScale.astro";
+import Admonition from "@components/Admonition.astro";
+
 The United States of America (US) uses an Air Quality Index that accounts for PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, NO<sub>2</sub>, and SO<sub>2</sub>. The US reports a daily AQI as well as a NowCast and Forecast AQI.
 
 The US requires that Metropolitan Statistical Areas (MSAs) with a population of over 350,000 are required to report a daily AQI to the public, while forecasting and NowCast AQIs are voluntary [^1]. AQI values may be reported at the MSA's discretion if AQI values for all pollutants remain below 50 for a year. However the AQI must be reported if a pollutant level rises to be above 50 during subsequent years. If the AQI for a specific pollutant remains below 50 for an extended period of time, such as a season or a year, that pollutant may be excluded from the AQI calculation [^1].
@@ -13,8 +16,6 @@ The US AQI methodology was most recently updated in May 2024 to implement strict
 ## Color scale
 
 The US EPA uses a six color scale:
-
-import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale index="us" value={true} />
 
@@ -73,12 +74,12 @@ For AQI values within the Hazardous category greater than 500, the calculation i
 
 Given that the AQI represents a full day, which is a fairly long timeframe, the US EPA developed the NowCast algorithm to better represent short-term air quality changes. The NowCast calculation methods use longer averaging periods when there is stable air quality and shorter averaging periods when the air quality is rapidly changing, such as during a fire or extreme winds [^3].
 
-<div class="note">
+<Admonition type="note">
   NowCast values are only calculated for two pollutants, PM and O<sub>3</sub>,
   each with a distinct algorithm. Both calculations require that 2 of the past 3
   hourly data points must be valid. It utilizes raw hourly concentrations
   without rounding or truncating as input.
-</div>
+</Admonition>
 
 $$
 % above referenced [^4] after "must be valid"

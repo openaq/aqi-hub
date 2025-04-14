@@ -4,13 +4,14 @@ indexName: Air Quality Index
 indexAcronym: AQI
 ---
 
+import ColorScale from "../../components/ColorScale.astro";
+import Admonition from "@components/Admonition.astro";
+
 The India Air Quality Index (AQI) covers eight major pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub>, ammonia (NH<sub>3</sub>), and lead (Pb). Introduced in 2014 by the Central Pollution Control Board (CPCB) under the Ministry of Environment, Forest and Climate Change (MoEFCC), the system was developed to standardize air quality reporting across the country.
 
 ## Color scale
 
 The India AQI has a six-color scale with category names (good to severe) and numerical ranges, ranging from 0 to 500, for each category.
-
-import ColorScale from "../../components/ColorScale.astro";
 
 <ColorScale index="india" value={true} />
 
