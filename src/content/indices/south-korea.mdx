@@ -4,8 +4,7 @@ indexName: Comprehensive air-quality index
 indexAcronym: CAI
 ---
 
-import Admonition from '@components/Admonition.astro';
-
+import Admonition from "@components/Admonition.astro";
 
 South Korea uses a Comprehensive Air-quality Index (CAI) that accounts for six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, CO, SO<sub>2</sub> and NO<sub>2</sub>. Although not explicitly stated, the CAI is assumed to be reported as a daily index value from reported data in the AIRKOREA Current Air Quality map [^3].
 
@@ -13,33 +12,15 @@ AIRKOREA has provided air pollution information on their website since December 
 
 ## Color scale
 
+import ColorScale from "../../components/ColorScale.astro";
 
+<ColorScale index="south-korea" value={true} />
 
 _Note_: Adapted from "Introduction to the CAI" (n.d.), [https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166)[^1]. Accessed 26 July 2024.
 
 The system also provides a set of pictograms for representing each level in the scale [^1]:
 
-```js
-import { FileAttachment } from "npm:@observablehq/stdlib";
-```
-
 <div style="display:flex;gap: 20px;">
-
-```js
-FileAttachment("../imgs/211_character01.webp").image();
-```
-
-```js
-FileAttachment("../imgs/211_character02.webp").image();
-```
-
-```js
-FileAttachment("../imgs/211_character03.webp").image();
-```
-
-```js
-FileAttachment("../imgs/211_character04.webp").image();
-```
 
 </div>
 
@@ -47,21 +28,9 @@ FileAttachment("../imgs/211_character04.webp").image();
 
 CAI values are calculated for each of the six pollutants and the maximum is used as the CAI value for that station[^1]. The following breakpoint concentrations are provided for calculations:
 
-```js
-breakpointsTable(data);
-```
-
 _Note_: Adapted from "Introduction to the CAI" (n.d.), [https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166)[^1]. Accessed 26 July 2024.
 
 The following piecewise linear function is used to calculate each pollutant sub-index:
-
-```js
-import { piecewiseLatexDoc } from "../components/piecewise.js";
-```
-
-```js
-piecewiseLatexDoc("CAI");
-```
 
 PM<sub>2.5</sub> and PM<sub>10 </sub> use a 24-hour forecast moving average in CAI calculation. The 24-hour forecast is calculated using the following equation [^1] :
 

@@ -14,17 +14,15 @@ Previous to this AQI implementation, China used the Air Pollution Index (API) to
 
 The China Air Quality Index consists of six categories:
 
+import ColorScale from "../../components/ColorScale.astro";
 
+<ColorScale index="china" value={true} />
 
 _Note_: Adapted from "环境空气质量指数（AQI）技术规定（试行）. Technical Regulation on Ambient Air Quality Index (on trial)" (1 Jan. 2016), [https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf) [^1]. Accessed 8 Aug. 2024.
 
 ## Methods
 
 The pollutant breakpoint concentrations for the AQI are as follows:
-
-```js
-breakpointsTable(data);
-```
 
 _Note_: Adapted from "环境空气质量指数（AQI）技术规定（试行）. Technical Regulation on Ambient Air Quality Index (on trial)" (1 Jan. 2016), [https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf](https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/jcffbz/201203/W020120410332725219541.pdf) [^1]. Accessed 8 Aug. 2024.
 

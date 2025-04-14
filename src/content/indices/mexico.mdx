@@ -4,23 +4,6 @@ indexName: Índice AIRE Y SALUD
 indexAcronym: ""
 ---
 
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-import { colorScale } from "../components/color-scale.js";
-```
-
-```js
-const breakpoints = await FileAttachment(
-  "../data/mexico/breakpoints.csv"
-).text();
-const data = parseBreakpointsCsv(breakpoints);
-```
-
 Mexico's Air Quality and Health Risk index, Índice de Calidad del Aire y Riesgos a la Salud or Índice AIRE Y SALUD, accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. It utilizes hourly average concentrations, 8-hour moving average concentrations, and 12-hour moving average concentrations.
 
 The Norma Oficial Mexicana (NOM), Official Mexican Standard, establishes the guidelines for obtaining Air Quality and Health Risk Index. NOM unifies the air quality index and standardizes documentation among all cities and territories with pre-existing air quality indices[^1]. A single method of calculation and dissemination guidelines are established and expected to be applied by the state or municipal governments responsible for air quality monitoring [^1].
@@ -31,7 +14,9 @@ The guidelines for calculating and communicating the Índice AIRE Y SALUD was ap
 
 The Índice AIRE Y SALUD uses a color scale comprised of five levels:
 
+import ColorScale from "../../components/ColorScale.astro";
 
+<ColorScale index="mexico" value={true} />
 
 _Note_: Adapted from "SECRETARIA DE MEDIO AMBIENTE Y RECURSOS NATURALES" (20 Nov. 2019), [https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf](https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf)[^1]. Accessed 1 July 2024.
 

@@ -10,6 +10,10 @@ The Malaysia Index Pencemar Udara (IPU), translated as Air Pollution Index (API)
 
 The Malaysia API scale ranges from 0-500 and uses five colors to represent different bands:
 
+import ColorScale from "../../components/ColorScale.astro";
+
+<ColorScale index="malaysia" value={true} />
+
 _Note_: Adapted from "PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX (API) CALCULATION" (n.d.), [https://apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf) [^1]. Accessed 27 July 2024.
 
 ## Methods
@@ -18,23 +22,11 @@ The API uses a sub-index method, wherein an index value is calculated for each o
 
 API values are reported hourly from a rolling average of the pollutant defined period.
 
-```js
-breakpointsTable(data);
-```
-
 _Note_: Adapted from "PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX (API) CALCULATION" (n.d.), [https://apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf) [^1]. Accessed 27 July 2024.
 
 The Malaysia Department of Environment site does not provide specific requirements for temporal coverage, the minimum number of valid data points required within the averaging period, for 8-hour and 24-hour measurement periods.
 
 Based on the breakpoint values in the table above, a piecewise linear function is used to convert the concentration values to API values. The function is defined as:
-
-```js
-import { piecewiseLatexDoc } from "../components/piecewise.js";
-```
-
-```js
-piecewiseLatexDoc("API");
-```
 
 After all sub-indices for a station are computed, the maximum sub-index value is taken as the final API value for a given station.
 

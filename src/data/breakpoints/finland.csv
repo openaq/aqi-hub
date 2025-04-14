@@ -1,0 +1,31 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+FI,,Good,#67e567,0,50,PM2.5,ug/m3,1,0,10
+FI,,Good,#67e567,0,50,PM10,ug/m3,1,0,20
+FI,,Good,#67e567,0,50,O3,ug/m3,1,0,60
+FI,,Good,#67e567,0,50,SO2,ug/m3,1,0,20
+FI,,Good,#67e567,0,50,NO2,ug/m3,1,0,40
+FI,,Good,#67e567,0,50,TRS,ug/m3,1,0,5
+FI,,Satisfactory,#fff055,51,75,PM2.5,ug/m3,1,11,25
+FI,,Satisfactory,#fff055,51,75,PM10,ug/m3,1,21,50
+FI,,Satisfactory,#fff055,51,75,O3,ug/m3,1,61,100
+FI,,Satisfactory,#fff055,51,75,SO2,ug/m3,1,21,80
+FI,,Satisfactory,#fff055,51,75,NO2,ug/m3,1,41,70
+FI,,Satisfactory,#fff055,51,75,TRS,ug/m3,1,6,10
+FI,,Fair,#ffbb58,76,100,PM2.5,ug/m3,1,26,50
+FI,,Fair,#ffbb58,76,100,PM10,ug/m3,1,51,100
+FI,,Fair,#ffbb58,76,100,O3,ug/m3,1,101,140
+FI,,Fair,#ffbb58,76,100,SO2,ug/m3,1,81,250
+FI,,Fair,#ffbb58,76,100,NO2,ug/m3,1,71,150
+FI,,Fair,#ffbb58,76,100,TRS,ug/m3,1,11,20
+FI,,Poor,#fe4543,101,150,PM2.5,ug/m3,1,51,75
+FI,,Poor,#fe4543,101,150,PM10,ug/m3,1,101,200
+FI,,Poor,#fe4543,101,150,O3,ug/m3,1,141,180
+FI,,Poor,#fe4543,101,150,SO2,ug/m3,1,251,350
+FI,,Poor,#fe4543,101,150,NO2,ug/m3,1,151,200
+FI,,Poor,#fe4543,101,150,TRS,ug/m3,1,21,50
+FI,,Very poor,#b5468b,151,,PM2.5,ug/m3,1,76,
+FI,,Very poor,#b5468b,151,,PM10,ug/m3,1,201,
+FI,,Very poor,#b5468b,151,,O3,ug/m3,1,181,
+FI,,Very poor,#b5468b,151,,SO2,ug/m3,1,351,
+FI,,Very poor,#b5468b,151,,NO2,ug/m3,1,201,
+FI,,Very poor,#b5468b,151,,TRS,ug/m3,1,51,

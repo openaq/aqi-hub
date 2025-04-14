@@ -1,0 +1,29 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+PE,,Good,#04ff00,0,50,PM2.5,ug/m3,24,0,12.5
+PE,,Good,#04ff00,0,50,PM10,ug/m3,24,0,75
+PE,,Good,#04ff00,0,50,O3,ug/m3,8,0,60
+PE,,Good,#04ff00,0,50,NO2,ug/m3,1,0,100
+PE,,Good,#04ff00,0,50,SO2,ug/m3,24,0,10
+PE,,Good,#04ff00,0,50,CO,ug/m3,8,0,5049
+PE,,Good,#04ff00,0,50,H2S,ug/m3,24,0,75
+PE,,Moderate,#ffff00,51,100,PM2.5,ug/m3,24,12.6,25
+PE,,Moderate,#ffff00,51,100,PM10,ug/m3,24,76,150
+PE,,Moderate,#ffff00,51,100,O3,ug/m3,8,61,120
+PE,,Moderate,#ffff00,51,100,NO2,ug/m3,1,101,200
+PE,,Moderate,#ffff00,51,100,SO2,ug/m3,24,11,20
+PE,,Moderate,#ffff00,51,100,CO,ug/m3,8,505,10049
+PE,,Moderate,#ffff00,51,100,H2S,ug/m3,24,76,150
+PE,,Bad,#f79645,101,500,PM2.5,ug/m3,24,25.1,125
+PE,,Bad,#f79645,101,167,PM10,ug/m3,24,151,250
+PE,,Bad,#f79645,101,175,O3,ug/m3,8,121,210
+PE,,Bad,#f79645,101,150,NO2,ug/m3,1,201,300
+PE,,Bad,#f79645,101,625,SO2,ug/m3,24,21,500
+PE,,Bad,#f79645,101,150,CO,ug/m3,8,10050,15049
+PE,,Bad,#f79645,101,1000,H2S,ug/m3,24,151,1500
+PE,,Threshold of Concern,#ff0000,501,,PM2.5,ug/m3,24,125.1,
+PE,,Threshold of Concern,#ff0000,168,,PM10,ug/m3,24,251,
+PE,,Threshold of Concern,#ff0000,176,,O3,ug/m3,8,211,
+PE,,Threshold of Concern,#ff0000,151,,NO2,ug/m3,1,301,
+PE,,Threshold of Concern,#ff0000,626,,SO2,ug/m3,24,501,
+PE,,Threshold of Concern,#ff0000,151,,CO,ug/m3,8,15050,
+PE,,Threshold of Concern,#ff0000,1001,,H2S,ug/m3,24,1501,

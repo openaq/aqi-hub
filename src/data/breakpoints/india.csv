@@ -1,0 +1,55 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+IN,,Good,#00b050,0,50,PM2.5,ug/m3,24,0,30
+IN,,Good,#00b050,0,50,PM10,ug/m3,24,0,50
+IN,,Good,#00b050,0,50,SO2,ug/m3,24,0,40
+IN,,Good,#00b050,0,50,NO2,ug/m3,24,0,40
+IN,,Good,#00b050,0,50,CO,mg/m³,8,0,1
+IN,,Good,#00b050,0,50,O3,ug/m3,8,0,50
+IN,,Good,#00b050,0,50,O3,ug/m3,1,,
+IN,,Good,#00b050,0,50,NH3,ug/m3,24,0,200
+IN,,Good,#00b050,0,50,Pb,ug/m3,24,0,0.50
+IN,,Satisfactory,#92d051,51,100,PM2.5,ug/m3,24,31,60
+IN,,Satisfactory,#92d051,51,100,PM10,ug/m3,24,51,100
+IN,,Satisfactory,#92d051,51,100,SO2,ug/m3,24,41,80
+IN,,Satisfactory,#92d051,51,100,NO2,ug/m3,24,41,80
+IN,,Satisfactory,#92d051,51,100,CO,mg/m³,8,1.1,2
+IN,,Satisfactory,#92d051,51,100,O3,ug/m3,8,51,100
+IN,,Satisfactory,#92d051,51,100,O3,ug/m3,1,,
+IN,,Satisfactory,#92d051,51,100,NH3,ug/m3,24,201,400
+IN,,Satisfactory,#92d051,51,100,Pb,ug/m3,24,0.51,1.0
+IN,,Moderately Polluted,#ffff00,101,200,PM2.5,ug/m3,24,61,90
+IN,,Moderately Polluted,#ffff00,101,200,PM10,ug/m3,24,101,250
+IN,,Moderately Polluted,#ffff00,101,200,SO2,ug/m3,24,81,380
+IN,,Moderately Polluted,#ffff00,101,200,NO2,ug/m3,24,81,180
+IN,,Moderately Polluted,#ffff00,101,200,CO,mg/m³,8,2.1,10
+IN,,Moderately Polluted,#ffff00,101,200,O3,ug/m3,8,101,168
+IN,,Moderately Polluted,#ffff00,101,200,O3,ug/m3,1,,
+IN,,Moderately Polluted,#ffff00,101,200,NH3,ug/m3,24,401,800
+IN,,Moderately Polluted,#ffff00,101,200,Pb,ug/m3,24,1.1,2.0
+IN,,Poor,#ff6500,201,300,PM2.5,ug/m3,24,91,120
+IN,,Poor,#ff6500,201,300,PM10,ug/m3,24,251,350
+IN,,Poor,#ff6500,201,300,SO2,ug/m3,24,381,800
+IN,,Poor,#ff6500,201,300,NO2,ug/m3,24,181,280
+IN,,Poor,#ff6500,201,300,CO,mg/m³,8,10.1,17
+IN,,Poor,#ff6500,201,300,O3,ug/m3,8,169,208
+IN,,Poor,#ff6500,201,300,O3,ug/m3,1,,
+IN,,Poor,#ff6500,201,300,NH3,ug/m3,24,801,1200
+IN,,Poor,#ff6500,201,300,Pb,ug/m3,24,2.1,3.0
+IN,,Very Poor,#ff0000,301,400,PM2.5,ug/m3,24,121,250
+IN,,Very Poor,#ff0000,301,400,PM10,ug/m3,24,351,430
+IN,,Very Poor,#ff0000,301,400,SO2,ug/m3,24,801,1600
+IN,,Very Poor,#ff0000,301,400,NO2,ug/m3,24,281,400
+IN,,Very Poor,#ff0000,301,400,CO,mg/m³,8,17.1,34
+IN,,Very Poor,#ff0000,301,400,O3,ug/m3,8,,
+IN,,Very Poor,#ff0000,301,400,O3,ug/m3,1,209,748
+IN,,Very Poor,#ff0000,301,400,NH3,ug/m3,24,1201,1800
+IN,,Very Poor,#ff0000,301,400,Pb,ug/m3,24,3.1,3.5
+IN,,Severe,#c00000,401,500,PM2.5,ug/m3,24,250,
+IN,,Severe,#c00000,401,500,PM10,ug/m3,24,430,
+IN,,Severe,#c00000,401,500,SO2,ug/m3,24,1600,
+IN,,Severe,#c00000,401,500,NO2,ug/m3,24,400,
+IN,,Severe,#c00000,401,500,CO,mg/m³,8,34,
+IN,,Severe,#c00000,401,500,O3,ug/m3,8,,
+IN,,Severe,#c00000,401,500,O3,ug/m3,1,748,
+IN,,Severe,#c00000,401,500,NH3,ug/m3,24,1800,
+IN,,Severe,#c00000,401,500,Pb,ug/m3,24,3.5,

@@ -4,20 +4,6 @@ indexName: Hava Kalitesi İndeksi
 indexAcronym: HKİ
 ---
 
-```js
-import { breakpointsTable } from "../components/table.js";
-import {
-  parseBreakpointsCsv,
-  tableReshape,
-  colorScaleReshape,
-} from "../utils/utils.js";
-import { colorScale } from "../components/color-scale.js";
-const breakpoints = await FileAttachment(
-  "../data/turkiye/breakpoints.csv"
-).text();
-const data = parseBreakpointsCsv(breakpoints);
-```
-
 ## Background
 
 The Hava Kalitesi İndeksi (HKİ) was developed by the Ministry of Environment, Urbanisation and Climate Change, Türkiye Cumhuriyeti Çevre, Şehircilik ve İklim Değişikliği Bakanlığı (CSB). Five criteria pollutants, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>, are covered in the methodology. The HKİ reports an hourly AQI value based on the reported pollutants.
@@ -26,7 +12,9 @@ The Hava Kalitesi İndeksi (HKİ) was developed by the Ministry of Environment, 
 
 The HKİ scale is composed of 6 value bands ranging from 0 to 500, with a distinct color for each band.
 
+import ColorScale from "../../components/ColorScale.astro";
 
+<ColorScale index="turkiye" value={true} />
 
 _Note_: Adapted from "Hava Kalitesi İndeksi" (n.d.), [https://egethm.csb.gov.tr/hava-kalitesi-indeksi-i-87403](https://egethm.csb.gov.tr/hava-kalitesi-indeksi-i-87403). Accessed October 1, 2024.
 
@@ -36,21 +24,9 @@ The HKİ uses a sub-index method where each pollutant is calculated against poll
 
 Pollutant breakpoints are defined in the table below:
 
-```js
-breakpointsTable(data);
-```
-
 _Note_: Adapted from "Hava Kalitesi İndeksi" (n.d.), [https://egethm.csb.gov.tr/hava-kalitesi-indeksi-i-87403](https://egethm.csb.gov.tr/hava-kalitesi-indeksi-i-87403). Accessed October 1, 2024.
 
 Using the breakpoint values in the table above, a [piecewise linear function](/methods#piecewise-linear-function) is used to convert the concentration values to HKİ values. This method is not explicity listed in the source doucmented but is listed as following the same method as the US EPA. There is no specific guidance in the source material about rounding or truncating concentration values, but based on the table above, values are either whole numbers or up to one decimal place of precision. Given there are no upper bounds on the pollutant thresholds for the "Dangerous" category, it is unclear from the source material what upper breakpoint values is used for the piecewise function. The piecewise linear function is defined as:
-
-```js
-import { piecewiseLatexDoc } from "../components/piecewise.js";
-```
-
-```js
-piecewiseLatexDoc("HKİ");
-```
 
 ## References
 

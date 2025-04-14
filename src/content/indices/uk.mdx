@@ -27,9 +27,7 @@ _Note_: Adapted from "Daily Air Quality Index" (n.d.), [https://uk-air.defra.gov
 
 Sub-indexes have a separate, expanded color scale:
 
-```js
-colorScale(colorScaleReshape(data, false));
-```
+<ColorScale index="uk" value={false} />
 
 _Note_: Adapted from "Guide to UK Air Pollution Information  
 Resources" (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed 12 Aug. 2024.
@@ -39,10 +37,6 @@ Resources" (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/ca
 The sub-index DAQI values range from 1 to 10 and each correspond to a different category [^1]. The 'Low' category corresponds to index values 1 to 3, 'Moderate' from 4 to 6, 'High' from 7 to 9, and 'Very high' equal to 10. The DAQI is determined by the maximum concentration of the pollutants [^2].
 
 Recorded pollutant data is assigned a sub-index value 1 through 10 according to the respective pollutant concentration banding.
-
-```js
-breakpointsTable(data, false);
-```
 
 _Note_: Adapted from "Guide to UK Air Pollution Information  
 Resources" (June 2014), [https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf](https://uk-air.defra.gov.uk/assets/documents/reports/cat14/1406191156_060618_Guide_to_UK_Air_Pollution_Information_Resources-issue_2-FINAL.pdf) [^1]. Accessed 12 Aug. 2024.

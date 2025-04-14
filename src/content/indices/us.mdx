@@ -41,10 +41,6 @@ Previous to the most recent update of the AQI Technical Assistance Document for 
 
 ## Methods
 
-```js
-breakpointsTable(data);
-```
-
 _Note_: "Technical Assistance Document for the Reporting of Daily Air Quality the Air Quality Index (AQI)" (May 2004), [https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf](https://www.airnow.gov/sites/default/files/2020-05/aqi-technical-assistance-document-sept2018.pdf). Accessed 25 July 2024.
 
 ### Forecast AQI
@@ -58,14 +54,6 @@ The daily AQI accounts for PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>,
 First, the highest pollutant concentrations over their allotted averaging periods are identified and truncated. O<sub>3</sub> is truncated to 3 decimal places, while PM<sub>2.5</sub> and CO are truncated to 1 decimal place. PM<sub>10</sub>, NO<sub>2</sub>, and SO<sub>2</sub> are truncated to an integer value.
 
 The following piecewise linear function is used to calculate the sub-index AQI values using each pollutant's breakpoint concentration:
-
-```js
-import { piecewiseLatexDoc } from "../components/piecewise.js";
-```
-
-```js
-piecewiseLatexDoc("AQI");
-```
 
 The resulting value is rounded to the nearest integer. The maximum AQI for all the pollutants is reported as the daily AQI.
 

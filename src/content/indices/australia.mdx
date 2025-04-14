@@ -5,7 +5,7 @@ indexAcronym: AQC
 ---
 
 import ColorScale from "../../components/ColorScale.astro";
-import Admonition from '@components/Admonition.astro';
+import Admonition from "@components/Admonition.astro";
 
 Australia established national guidelines and standards for air quality in 1998.
 
@@ -16,7 +16,7 @@ In April 2021 the National Environment Protection Council Ambient Air Quality (A
 Most states in Australia use the same Air Quality Categories color scale comprised of five levels:
 
 <ColorScale
-  values={[
+  colorScaleValues={[
     { label: "Good", color: "#41a93b" },
     { label: "Fair", color: "#eec800" },
     { label: "Poor", color: "#e47301" },
@@ -39,19 +39,20 @@ The pollutant thresholds by state as reported by their relevant government websi
 
 <Admonition type="note">
 
-  In the recorded breakpoint concentrations for all regions except Queensland
-  and Tasmania, there was overlap between the lower and upper limits of
-  subsequent risk categories. To mitigate this, all pollutants were assumed to
-  be rounded according to the apparent convention as reported by their
-  respective government organizations. Reported pollutant concentration data,
-  either in tables or in map format, was analyzed to determine how many
-  significant figures each pollutant was reported with. The number of
-  significant figures reported for each pollutant was assumed to be the same
-  number of significant figures values were rounded to when establishing the
-  upper limits of the breakpoint concentration table. We have assumed that the
-  upper limit values are not inclusive. This is inferred as the first column in
-  the provided breakpoint concentration tables include the non inclusive less
-  than symbol.
+In the recorded breakpoint concentrations for all regions except Queensland
+and Tasmania, there was overlap between the lower and upper limits of
+subsequent risk categories. To mitigate this, all pollutants were assumed to
+be rounded according to the apparent convention as reported by their
+respective government organizations. Reported pollutant concentration data,
+either in tables or in map format, was analyzed to determine how many
+significant figures each pollutant was reported with. The number of
+significant figures reported for each pollutant was assumed to be the same
+number of significant figures values were rounded to when establishing the
+upper limits of the breakpoint concentration table. We have assumed that the
+upper limit values are not inclusive. This is inferred as the first column in
+the provided breakpoint concentration tables include the non inclusive less
+than symbol.
+
 </Admonition>
 
 ### New South Wales
@@ -71,8 +72,9 @@ The pollutant thresholds by state as reported by their relevant government websi
 
 <Admonition type="note">
 
-  The upper breakpoint limits for all pollutants are assumed to be rounded to 1
-  significant figure according to reported pollutant data.
+The upper breakpoint limits for all pollutants are assumed to be rounded to 1
+significant figure according to reported pollutant data.
+
 </Admonition>
 
 _Note_: Adapted from "About the air quality categories" (5 July 2024), https://www.environment.nsw.gov.au/topics/air/understanding-air-quality-data/air-quality-categories [^1]. Accessed 16 Aug. 2024.
@@ -90,9 +92,10 @@ _Note_: Adapted from "About the air quality categories" (5 July 2024), https://w
 
 <Admonition type="note">
 
-  The upper breakpoint limits for all pollutants except CO are assumed to be
-  rounded to 2 significant figures according to reported pollutant data. CO is
-  assumed to be rounded to 3 significant figures according to reported data.
+The upper breakpoint limits for all pollutants except CO are assumed to be
+rounded to 2 significant figures according to reported pollutant data. CO is
+assumed to be rounded to 3 significant figures according to reported data.
+
 </Admonition>
 
 _Note_: Adapted from "AQC Summary Dynamic Table" (n.d.), [http://ntepa.webhop.net/NTEPA/Default.ltr.aspx](http://ntepa.webhop.net/NTEPA/Default.ltr.aspx)[^2]. Accessed 16 Aug. 2024.
@@ -111,8 +114,9 @@ _Note_: Adapted from "AQC Summary Dynamic Table" (n.d.), [http://ntepa.webhop.ne
 
 <Admonition type="note">
 
-  There is no reported overlap between upper and lower limits of the breakpoint
-  table, thus no values are assumed.
+There is no reported overlap between upper and lower limits of the breakpoint
+table, thus no values are assumed.
+
 </Admonition>
 
 _Note_: Adapted from "Air quality categories" (21 Sept. 2023), [www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories](https://www.qld.gov.au/environment/management/monitoring/air/air-monitoring/air-quality-categories)[^3]. Accessed 16 Aug. 2024.
@@ -133,11 +137,12 @@ _Note_: Adapted from "Air quality categories" (21 Sept. 2023), [www.qld.gov.au/e
 
 <Admonition type="note">
 
-  The upper breakpoint limits for PM<sub>2.5</sub>, PM<sub>10</sub>, and CO are
-  assumed to be rounded to 1 significant figure according to reported pollutant
-  data. O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> have been converted
-  from ppm to ppb are assumed to be rounded to the nearest integer, as data in
-  ppm is originally reported with 3 significant figures.
+The upper breakpoint limits for PM<sub>2.5</sub>, PM<sub>10</sub>, and CO are
+assumed to be rounded to 1 significant figure according to reported pollutant
+data. O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> have been converted
+from ppm to ppb are assumed to be rounded to the nearest integer, as data in
+ppm is originally reported with 3 significant figures.
+
 </Admonition>
 
 _Note_: Adapted from "Air quality monitoring" (14 June 2024), [www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring](https://www.epa.sa.gov.au/environmental_info/air_quality/new-air-quality-monitoring)[^4]. Accessed 16 Aug. 2024.
@@ -169,8 +174,6 @@ _Note_: Adapted from "Air Quality" (9 July 2024), [https://www.health.tas.gov.au
 </Admonition>
 
 _Note_: Adapted from "Real-time Air Quality Data for Tasmania" (n.d.), [epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards](https://epa.tas.gov.au/environment/air/monitoring-air-pollution/monitoring-data/real-time-air-quality-data-for-tasmania#%E2%80%8BAirQ%E2%80%8BualityStandards)[^5]. Accessed 16 Aug. 2024.
-
-
 
 ### Victoria
 

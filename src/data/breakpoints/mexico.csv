@@ -1,0 +1,36 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+MX,,Good,#00E400,0,50,PM2.5,ug/m3,24,0,25
+MX,,Good,#00E400,0,50,PM10,ug/m3,12,0,50
+MX,,Good,#00E400,0,50,CO,ppm,8,0,8.75
+MX,,Good,#00E400,0,50,O3,ppm,1,0,0.051
+MX,,Good,#00E400,0,50,O3,ppm,8,0,0.051
+MX,,Good,#00E400,0,50,SO2,ppm,24,0,0.008
+MX,,Good,#00E400,0,50,NO2,ppm,1,0,0.107
+MX,,Acceptable,#FFFF00,51,100,PM2.5,ug/m3,24,26,45
+MX,,Acceptable,#FFFF00,51,100,PM10,ug/m3,12,51,75
+MX,,Acceptable,#FFFF00,51,100,CO,ppm,8,8.76,11
+MX,,Acceptable,#FFFF00,51,100,O3,ppm,1,0.052,0.095
+MX,,Acceptable,#FFFF00,51,100,O3,ppm,8,0.052,0.07
+MX,,Acceptable,#FFFF00,51,100,SO2,ppm,24,0.009,0.11
+MX,,Acceptable,#FFFF00,51,100,NO2,ppm,1,0.108,0.21
+MX,,Bad,#FF7E00,101,150,PM2.5,ug/m3,24,46,79
+MX,,Bad,#FF7E00,101,150,PM10,ug/m3,12,76,155
+MX,,Bad,#FF7E00,101,150,CO,ppm,8,11.01,13.3
+MX,,Bad,#FF7E00,101,150,O3,ppm,1,0.096,0.135
+MX,,Bad,#FF7E00,101,150,O3,ppm,8,0.071,0.092
+MX,,Bad,#FF7E00,101,150,SO2,ppm,24,0.111,0.165
+MX,,Bad,#FF7E00,101,150,NO2,ppm,1,0.211,0.23
+MX,,Very bad,#FF0000,151,200,PM2.5,ug/m3,24,80,147
+MX,,Very bad,#FF0000,151,200,PM10,ug/m3,12,156,235
+MX,,Very bad,#FF0000,151,200,CO,ppm,8,13.31,15.5
+MX,,Very bad,#FF0000,151,200,O3,ppm,1,0.136,0.175
+MX,,Very bad,#FF0000,151,200,O3,ppm,8,0.093,0.114
+MX,,Very bad,#FF0000,151,200,SO2,ppm,24,0.166,0.22
+MX,,Very bad,#FF0000,151,200,NO2,ppm,1,0.231,0.25
+MX,,Extremely bad,#8F3F97,201,300,PM2.5,ug/m3,24,148,
+MX,,Extremely bad,#8F3F97,201,300,PM10,ug/m3,12,236,
+MX,,Extremely bad,#8F3F97,201,300,CO,ppm,8,15.51,
+MX,,Extremely bad,#8F3F97,201,300,O3,ppm,1,0.176,
+MX,,Extremely bad,#8F3F97,201,300,O3,ppm,8,0.115,
+MX,,Extremely bad,#8F3F97,201,300,SO2,ppm,24,0.221,
+MX,,Extremely bad,#8F3F97,201,300,NO2,ppm,1,0.251,
