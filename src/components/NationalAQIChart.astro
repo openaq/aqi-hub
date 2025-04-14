@@ -1,33 +1,11 @@
 ---
 import * as d3 from "d3";
 import type { IndexDefinition } from "src/types/types";
+import countriesMap from "../data/countries.json";
 
-const baseURL = "http://localhost:4321";
-const data = await fetch(new URL(`api/data/breakpoints.json`, baseURL));
-const parsed = await data.json();
-
-let pm2524hr = parsed
-  .filter((o: IndexDefinition) => o.concentrationLower !== undefined)
-  .map((o: IndexDefinition) => {
-    o.concentrationUpper = o.concentrationUpper || 500;
-    return o;
-  });
-pm2524hr = pm2524hr.filter((o: IndexDefinition) => o.iso !== "IL");
-
-const width = 600,
-  margin = { top: 20, right: 20, bottom: 50, left: 150 };
-const height = 3 * pm2524hr.length + margin.top + margin.bottom;
-
-const xScale = d3
-  .scaleLinear()
-  .domain([0, 500])
-  .range([margin.left, width - margin.right]);
-
-const yScale = d3
-  .scaleBand()
-  .domain(pm2524hr.map((d: IndexDefinition) => d.iso))
-  .range([margin.top, height - margin.bottom])
-  .padding(0.02);
+interface CountryMap {
+  [iso: string]: string;
+}
 
 interface Bar {
   x: number;
@@ -37,10 +15,42 @@ interface Bar {
   fill: string;
 }
 
+const baseURL = "http://localhost:4321";
+const data = await fetch(new URL(`api/data/indices.json`, baseURL));
+const parsed = await data.json();
+const map = countriesMap as CountryMap;
+
+let pm2524hr = parsed
+  .filter((o: IndexDefinition) => o.concentrationLower !== undefined)
+  .map((o: IndexDefinition) => {
+    o.concentrationUpper = o.concentrationUpper || 500;
+    return o;
+  });
+pm2524hr = pm2524hr.map((o: IndexDefinition) => {
+  o.country = map[o.iso];
+  return o;
+});
+pm2524hr = pm2524hr.filter((o: IndexDefinition) => o.iso !== "IL");
+
+const width = 800,
+  margin = { top: 20, right: 20, bottom: 50, left: 150 };
+const height = 4 * pm2524hr.length + margin.top + margin.bottom;
+
+const xScale = d3
+  .scaleLinear()
+  .domain([0, 500])
+  .range([margin.left, width - margin.right]);
+
+const yScale = d3
+  .scaleBand()
+  .domain(pm2524hr.map((d: IndexDefinition) => d.country))
+  .range([margin.top, height - margin.bottom])
+  .padding(0.02);
+
 const bars = pm2524hr.map((d: IndexDefinition) => {
   return {
     x: xScale(d.concentrationLower),
-    y: yScale(d.iso),
+    y: yScale(d.country || d.iso),
     width: xScale(+d.concentrationUpper) - xScale(d.concentrationLower),
     height: yScale.bandwidth(),
     fill: d.hex,
@@ -50,7 +60,6 @@ const bars = pm2524hr.map((d: IndexDefinition) => {
 
 <style lang="scss">
   text {
-    color: aquamarine;
     font-size: 10px;
   }
 </style>
@@ -88,6 +97,17 @@ const bars = pm2524hr.map((d: IndexDefinition) => {
       >
         <line x1="-6" stroke="gray" />
         <text class="y-axis">{label}</text>
+      </g>
+    ))
+  }
+
+  {
+    xScale.ticks(8).map((label) => (
+      <g transform={`translate(${xScale(label)}, ${height - margin.bottom})`}>
+        <line y2="6" stroke="gray" />
+        <text y="20" class="x-axis">
+          {label}
+        </text>
       </g>
     ))
   }

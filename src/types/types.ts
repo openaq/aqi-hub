@@ -10,6 +10,7 @@ export interface IndexDefinition {
   averagingPeriod: string;
   concentrationLower: number;
   concentrationUpper: number;
+  country?: string;
 }
 
 export interface ColorScaleDefinition {
