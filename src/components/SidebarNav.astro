@@ -6,46 +6,56 @@ const pages = await getCollection("pages");
 ---
 
 <style lang="scss">
+  @use "openaq-design-system/scss/variables" as variables;
   .sidebar {
     position: fixed;
-    top: 80px;
+    top: 0;
     overflow-y: auto;
     width: 18.75rem;
     height: 100vh;
     z-index: 10;
     border-right: 1px solid #d4d8dc;
+    h1 {
+      padding-left: 20px;
+    }
+    .sidebar-heading {
+      padding: 14px 20px;
+      border-bottom: 1px solid #d4d8dc;
+    }
+  }
+  .pages-nav {
+    border-bottom: 1px solid #d4d8dc;
   }
   nav {
     ul {
-    list-style: none;
-    padding-left: 0;
+      list-style: none;
+      padding-left: 0;
 
-    li {
-      padding: 12px 16px 12px 24px;
+      li {
+        padding: 12px 16px 12px 24px;
 
-      &:hover {
-        cursor: pointer;
-        background-color: #b1e8e6;
-        a {
-          text-decoration: underline;
+        &:hover {
+          cursor: pointer;
+          background-color: variables.$sky10;
+          a {
+            text-decoration: underline;
+          }
         }
-      }
 
-      a {
-        color: #30363c;
-        text-decoration: none;
-        display: block;
-        width: 100%;
-        height: 100%;
+        a {
+          color: #30363c;
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
-  }
-
 </style>
 
 <aside class="sidebar">
-  <h1>OpenAQ AQI Hub</h1>
+  <h1 class="sidebar-heading">OpenAQ AQI Hub</h1>
   <nav class="nav pages-nav">
     <ul>
       {
@@ -57,7 +67,7 @@ const pages = await getCollection("pages");
       }
     </ul>
   </nav>
-  <hr>
+
   <nav class="nav indices-nav">
     <h1>Indices</h1>
     <ul>
