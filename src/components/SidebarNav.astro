@@ -1,8 +1,18 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 const indices = await getCollection("indices");
 const pages = await getCollection("pages");
+
+const sortPagesByTitle = (
+  a: CollectionEntry<"pages">,
+  b: CollectionEntry<"pages">
+) => a.data.title.localeCompare(b.data.title);
+
+const sortIndicesByName = (
+  a: CollectionEntry<"indices">,
+  b: CollectionEntry<"indices">
+) => a.data.name.localeCompare(b.data.name);
 ---
 
 <style lang="scss">
@@ -59,7 +69,7 @@ const pages = await getCollection("pages");
   <nav class="nav pages-nav">
     <ul>
       {
-        pages.map((o) => (
+        pages.sort(sortPagesByTitle).map((o) => (
           <li>
             <a href={o.id === "index" ? "/" : `/${o.id}`}>{o.data.title}</a>
           </li>
@@ -72,7 +82,7 @@ const pages = await getCollection("pages");
     <h1>Indices</h1>
     <ul>
       {
-        indices.map((o) => (
+        indices.sort(sortIndicesByName).map((o) => (
           <li>
             <a href={`/indices/${o.id}`}>{o.data.name}</a>
           </li>
