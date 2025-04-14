@@ -1,5 +1,5 @@
 export interface IndexDefinition {
-  ISO: string;
+  iso: string;
   variant: string;
   category: string;
   hex: string;

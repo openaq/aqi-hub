@@ -1,0 +1,94 @@
+---
+import * as d3 from "d3";
+import type { IndexDefinition } from "src/types/types";
+
+const baseURL = "http://localhost:4321";
+const data = await fetch(new URL(`api/data/breakpoints.json`, baseURL));
+const parsed = await data.json();
+
+let pm2524hr = parsed
+  .filter((o: IndexDefinition) => o.concentrationLower !== undefined)
+  .map((o: IndexDefinition) => {
+    o.concentrationUpper = o.concentrationUpper || 500;
+    return o;
+  });
+pm2524hr = pm2524hr.filter((o: IndexDefinition) => o.iso !== "IL");
+
+const width = 600,
+  margin = { top: 20, right: 20, bottom: 50, left: 150 };
+const height = 3 * pm2524hr.length + margin.top + margin.bottom;
+
+const xScale = d3
+  .scaleLinear()
+  .domain([0, 500])
+  .range([margin.left, width - margin.right]);
+
+const yScale = d3
+  .scaleBand()
+  .domain(pm2524hr.map((d: IndexDefinition) => d.iso))
+  .range([margin.top, height - margin.bottom])
+  .padding(0.02);
+
+interface Bar {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fill: string;
+}
+
+const bars = pm2524hr.map((d: IndexDefinition) => {
+  return {
+    x: xScale(d.concentrationLower),
+    y: yScale(d.iso),
+    width: xScale(+d.concentrationUpper) - xScale(d.concentrationLower),
+    height: yScale.bandwidth(),
+    fill: d.hex,
+  };
+});
+---
+
+<style lang="scss">
+  text {
+    color: aquamarine;
+    font-size: 10px;
+  }
+</style>
+
+<svg width={width} height={height}>
+  {
+    bars.map((bar: Bar) => (
+      <rect
+        x={bar.x}
+        y={bar.y}
+        width={bar.width}
+        height={bar.height}
+        fill={bar.fill}
+      />
+    ))
+  }
+  <line
+    x1={margin.left}
+    y1={height - margin.bottom}
+    x2={width - margin.right}
+    y2={height - margin.bottom}
+    stroke="gray"></line>
+
+  <line
+    x1={margin.left}
+    y1={margin.top}
+    x2={margin.left}
+    y2={height - margin.bottom}
+    stroke="gray"></line>
+
+  {
+    yScale.domain().map((label) => (
+      <g
+        transform={`translate(${margin.left}, ${yScale(label)! + yScale.bandwidth() / 2})`}
+      >
+        <line x1="-6" stroke="gray" />
+        <text class="y-axis">{label}</text>
+      </g>
+    ))
+  }
+</svg>

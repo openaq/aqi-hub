@@ -15,6 +15,7 @@
     "astro": "^5.6.2",
     "buffer": "^6.0.3",
     "csv-parse": "^5.6.0",
+    "d3": "^7.9.0",
     "openaq-design-system": "github:openaq/openaq-design-system#v-4.0.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-katex": "^7.0.1",
@@ -23,6 +24,7 @@
     "tinyglobby": "^0.2.12"
   },
   "devDependencies": {
+    "@types/d3": "^7.4.3",
     "sass-embedded": "^1.86.3"
   }
 }
