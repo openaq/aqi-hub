@@ -61,7 +61,7 @@ const pages = await getCollection("pages");
       {
         pages.map((o) => (
           <li>
-            <a href={`/${o.id}`}>{o.data.title}</a>
+            <a href={o.id === "index" ? "/" : `/${o.id}`}>{o.data.title}</a>
           </li>
         ))
       }
