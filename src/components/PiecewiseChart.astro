@@ -1,0 +1,127 @@
+---
+import * as d3 from "d3";
+
+const piecewise = (x: number, iU: number, iL: number, cU: number, cL: number) =>
+  Math.round(((iU - iL) / (cU - cL)) * (x - cL) + iL);
+
+function Aqi(pm25: number) {
+  const c = Math.floor(10 * pm25) / 10;
+  const a =
+    c < 0
+      ? 0
+      : c < 9.1
+        ? piecewise(c, 50, 0, 9.0, 0.0)
+        : c < 35.5
+          ? piecewise(c, 100, 51, 35.4, 9.1)
+          : c < 55.5
+            ? piecewise(c, 150, 101, 55.4, 35.5)
+            : c < 150.5
+              ? piecewise(c, 200, 151, 150.4, 55.5)
+              : c < 250.5
+                ? piecewise(c, 300, 201, 250.4, 150.5)
+                : c < 350.5
+                  ? piecewise(c, 400, 301, 350.4, 250.5)
+                  : c < 500.5
+                    ? piecewise(c, 500, 401, 500.4, 350.5)
+                    : 500;
+  return Math.round(a);
+}
+
+const breakpoints = [
+  {
+    "x": 9.0,
+    "y": 50,
+  },
+  {
+    "x": 35.4,
+    "y": 100,
+  },
+  {
+    "x": 55.4,
+    "y": 150,
+  },
+  {
+    "x": 150.4,
+    "y": 200,
+  },
+  {
+    "x": 250.4,
+    "y": 300,
+  },
+  {
+    "x": 350.4,
+    "y": 400,
+  },
+];
+
+const width = 750,
+  margin = { top: 40, right: 20, bottom: 50, left: 80 };
+const height = 450;
+
+const xScale = d3
+  .scaleLinear()
+  .domain([0, 500])
+  .range([margin.left, width - margin.right]);
+
+const yScale = d3
+  .scaleLinear()
+  .domain([0, 500])
+  .range([height - margin.bottom, margin.top]);
+---
+
+<svg width={width} height={height}>
+  <path
+    d={d3
+      .line<number>()
+      .x((d) => xScale(d))
+      .y((d) => yScale(Aqi(d)))(d3.range(0, 501)) ?? ""}
+    fill="none"
+    stroke="black"
+    stroke-width={1}></path>
+
+  {
+    breakpoints.map((point, i) => (
+      <g transform={`translate(${xScale(point.x)}, ${yScale(point.y)})`}>
+        <circle r="4" fill="black" />
+        <text dx={6} dy={6} text-anchor="start" font-size="10px">
+          {`${point.x}, ${point.y}`}
+        </text>
+      </g>
+    ))
+  }
+
+  {
+    yScale.ticks(10).map((label) => (
+      <g transform={`translate(${margin.left}, ${yScale(label)!})`}>
+        <line x1="-6" stroke="gray" />
+        <text x="-15" y="5" text-anchor="end" class="y-axis">
+          {label}
+        </text>
+      </g>
+    ))
+  }
+
+  {
+    xScale.ticks(8).map((label) => (
+      <g transform={`translate(${xScale(label)}, ${height - margin.bottom})`}>
+        <line y2="6" stroke="gray" />
+        <text y="20" text-anchor="middle" class="x-axis">
+          {label}
+        </text>
+      </g>
+    ))
+  }
+
+  <text
+    x={margin.left - 45}
+    y={height - 430}
+    text-anchor="start"
+    font-size="12"
+  >
+    ↑ AQI
+  </text>
+
+  <text x={width - 0} y={height - 10} text-anchor="end" font-size="12">
+    PM2.5 concentration →
+  </text>
+</svg>

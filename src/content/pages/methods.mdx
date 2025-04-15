@@ -14,13 +14,9 @@ Unlike fixed average methods, the NowCast algorithm dynamically adjusts the weig
 
 A piecewise linear function is a type of function that is defined by multiple linear segments, each applying to a specific interval of the input variable. Essentially, it means the function is made up of straight-line sections that connect to form a continuous graph. An example of how a piecewise linear function appears when graphed based on the US EPA PM<sub>2.5</sub> concentration breakpoints:
 
-```js
-import { piecewiseChart } from "./components/piecewise-chart.js";
-```
+import PiecewiseChart from "../../components/PiecewiseChart.astro";
 
-```js
-piecewiseChart();
-```
+<PiecewiseChart />
 
 _Note:_ Adapted from https://observablehq.com/@mbostock/pm25-to-aqi
 
