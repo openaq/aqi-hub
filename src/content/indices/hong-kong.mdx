@@ -6,6 +6,8 @@ indexAcronym: AQHI
 
 import ColorScale from "../../components/ColorScale.astro";
 
+## Background
+
 The Air Quality Health Index (AQHI) accounts for 4 criteria pollutants: PM, O<sub>3</sub>, NO<sub>2</sub> and SO<sub>2</sub>. For PM, both PM<sub>2.5</sub> and PM<sub>10</sub> are considered, however only the PM that poses the higher health risk is used in the AQHI calculation. Hong Kong reports hourly and forecast AQHIs.
 
 AQHIs are reported in two categories, 'General AQHI' and 'Roadside AQHI', based on where the monitoring station is located. The 'Roadside AQHI' is considered more relevant for those who conduct most of their daily activities along roadsides or in high-traffic areas, while the 'General AQHI' is considered suitable for all others [^1].
@@ -28,6 +30,11 @@ The system also provides a set of pictograms for representing each level in the 
 
 <div style="display: flex;">
 
+<img src="/src/assets/imgs/hk_icon_low.svg" class="hk-icon" />
+<img src="/src/assets/imgs/hk_icon_moderate.svg" class="hk-icon" />
+<img src="/src/assets/imgs/hk_icon_high.svg" class="hk-icon" />
+<img src="/src/assets/imgs/hk_icon_very_high.svg" class="hk-icon" />
+<img src="/src/assets/imgs/hk_icon_serious.svg" class="hk-icon" />
 </div>
 
 Note: Adapted from "What is the Air Quality Health Index?" (Jan. 2016), [https://www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html](https://www.aqhi.gov.hk/en/what-is-aqhi/about-aqhi.html) [^1]. Accessed 8 Aug. 2024.

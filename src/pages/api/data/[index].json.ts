@@ -23,7 +23,7 @@ export const GET: APIRoute = async ({ params }) => {
   });
 
   let filteredContent = parsedContent.filter(
-    (o: IndexDefinition) => o.pollutant == "PM2.5" && o.averagingPeriod == "24"
+    (o: IndexDefinition) => o.pollutant == "PM2.5"
   );
   filteredContent = filteredContent.map((o: IndexDefinition) => {
     o.concentrationUpper ? o.concentrationUpper : (o.concentrationUpper = 500);

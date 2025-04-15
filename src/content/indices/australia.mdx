@@ -7,6 +7,8 @@ indexAcronym: AQC
 import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 
+## Background
+
 Australia established national guidelines and standards for air quality in 1998.
 
 In April 2021 the National Environment Protection Council Ambient Air Quality (AAQ) National Environment Protection Measures (NEPM) adopted changes to reporting and NO<sub>2</sub> SO<sub>2</sub> and O<sub>3</sub>[^9].
@@ -186,13 +188,13 @@ _Note_: Adapted from "Real-time Air Quality Data for Tasmania" (n.d.), [epa.tas.
 | SO<sub>2</sub> ppb                | 1 hr.       | 0-100 | 100-200 | 200-300 | 300-600   | 600+           |
 | NO<sub>2</sub> ppb                | 1 hr.       | 0-60  | 60-120  | 120-180 | 180-360   | 360+           |
 
-<div class="note">
+<Admonition type="note">
   The upper breakpoint limits for PM<sub>2.5</sub>, SO<sub>2</sub>, and CO are
   assumed to be rounded to 2 significant figures according to reported pollutant
   data. PM<sub>10</sub> is assumed to be rounded to 1 significant figure while
   NO<sub>2</sub> and O<sub>3</sub> are assumed to be rounded to the nearest
   integer.
-</div>
+</Admonition>
 
 _Note_: Adapted from "How we calculate air quality categories" (13 Jan 2021),
 [www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories](https://www.epa.vic.gov.au/for-community/monitoring-your-environment/about-epa-airwatch/calculate-air-quality-categories)[^6]. Accessed 16 Aug. 2024.

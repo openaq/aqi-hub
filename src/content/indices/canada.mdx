@@ -7,6 +7,8 @@ indexAcronym: AQHI
 import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 
+## Background
+
 Canada's AQHI accounts for three criteria pollutants: PM<sub>2.5</sub>, O<sub>3</sub> and NO<sub>2</sub>. The AQHI is reported as a daily and forecast value for the next 48 hours.
 
 The AQHI was first developed and applied by the Healthy Environments and Consumer Safety Branch of Canada in 2008 [^1] and was established to report on the health risk caused by pollutant mixing.
@@ -46,10 +48,6 @@ Canada's AQHI uses 3-hour averaging periods of PM<sub>2.5</sub>, O<sub>3</sub> a
   rolling 3-hour averages are missing, the daily 3-hour maximum is set to
   'missing'.
 </Admonition>
-
-```tex
-% above referenced source [^1] after both 'missing's
-```
 
 The calculation procedure is described in a report outlining a recommendation for an improved AQHI [^1] and is confirmed by the Alberta government website to be the same procedure for calculating the national AQHI [^5].
 The 3-hour averaging periods are plugged into the AQHI formula, a simple linear combination [^1]:
