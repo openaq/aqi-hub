@@ -151,16 +151,16 @@ _Note_: Adapted from "Air quality monitoring" (14 June 2024), [www.epa.sa.gov.au
 
 Tasmania references a separate 6 point scale and only provides break points for PM<sub>2.5</sub>.
 
-```js
-colorScale([
-  { label: "Good", color: "#65b249" },
-  { label: "Fairly good", color: "#ffff00" },
-  { label: "Fairly poor", color: "#fdbd77" },
-  { label: "Poor", color: "#f78507" },
-  { label: "Very poor", color: "#ff0000" },
-  { label: "Extremely poor", color: "#9a7660" },
-]);
-```
+<ColorScale
+  colorScaleValues={[
+    { label: "Good", color: "#65b249" },
+    { label: "Fairly good", color: "#ffff00" },
+    { label: "Fairly poor", color: "#fdbd77" },
+    { label: "Poor", color: "#f78507" },
+    { label: "Very poor", color: "#ff0000" },
+    { label: "Extremely poor", color: "#9a7660" },
+  ]}
+/>
 
 _Note_: Adapted from "Air Quality" (9 July 2024), [https://www.health.tas.gov.au/health-topics/environmental-health/air-quality](https://www.health.tas.gov.au/health-topics/environmental-health/air-quality)[^8]. Accessed 16 Aug. 2024.
 

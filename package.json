@@ -11,6 +11,7 @@
   "dependencies": {
     "@astro-content/types": "^0.0.0-alpha.13",
     "@astrojs/mdx": "^4.2.4",
+    "@observablehq/plot": "^0.6.17",
     "@types/node": "^22.14.0",
     "astro": "^5.6.2",
     "buffer": "^6.0.3",
@@ -18,6 +19,7 @@
     "d3": "^7.9.0",
     "openaq-design-system": "github:openaq/openaq-design-system#v-4.0.0",
     "rehype-autolink-headings": "^7.1.0",
+    "rehype-external-links": "^3.0.0",
     "rehype-katex": "^7.0.1",
     "rehype-slug": "^6.0.0",
     "remark-math": "^6.0.0",
