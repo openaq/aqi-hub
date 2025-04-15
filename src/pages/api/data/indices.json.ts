@@ -2,7 +2,6 @@ import type { APIRoute } from "astro";
 import { readFileSync } from "node:fs";
 import { parse } from "csv-parse/sync";
 import { globSync } from "tinyglobby";
-import type { IndexDefinition } from "src/types/types";
 
 const snakeToCamel = (str: string) =>
   str
@@ -27,16 +26,7 @@ export const GET: APIRoute = async () => {
 
   const combinedData = parsedContent.flat();
 
-  let filteredContent = combinedData.filter(
-    (o: IndexDefinition) => o.pollutant == "PM2.5" && o.averagingPeriod == "24"
-  );
-
-  filteredContent = filteredContent.map((o: IndexDefinition) => {
-    o.concentrationUpper ? o.concentrationUpper : (o.concentrationUpper = 500);
-    return o;
-  });
-
-  return new Response(JSON.stringify(filteredContent), {
+  return new Response(JSON.stringify(combinedData), {
     headers: { "Content-Type": "application/json" },
   });
 };

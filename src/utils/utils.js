@@ -1,3 +1,5 @@
+import countriesMap from "../data/countries.json";
+
 function snakeToCamel(item) {
   if (Array.isArray(item)) {
     return item.map((el) => snakeToCamel(el));
@@ -146,4 +148,33 @@ export function normalizeUnitsLabel(value) {
       return value;
   }
   μ;
+}
+
+export function reshapeData(data) {
+  const countryMap = {};
+  const allPollutants = new Set();
+  data.forEach((entry) => {
+    const country = countriesMap[entry.iso];
+    const pollutant = entry.pollutant;
+    if (!country || !pollutant) return;
+    allPollutants.add(pollutant);
+    if (!countryMap[country]) {
+      countryMap[country] = {};
+    }
+    countryMap[country][pollutant] = true;
+  });
+
+  const allPollutantsArray = Array.from(allPollutants);
+
+  const result = Object.keys(countryMap).map((country) => {
+    const orderedObject = { country: country };
+
+    allPollutantsArray.forEach((pollutant) => {
+      orderedObject[pollutant] = countryMap[country][pollutant] || false;
+    });
+
+    return orderedObject;
+  });
+
+  return result;
 }

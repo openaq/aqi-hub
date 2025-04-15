@@ -20,7 +20,16 @@ const data = await fetch(new URL(`api/data/indices.json`, baseURL));
 const parsed = await data.json();
 const map = countriesMap as CountryMap;
 
-let pm2524hr = parsed
+let filteredContent = parsed.filter(
+  (o: IndexDefinition) => o.pollutant == "PM2.5" && o.averagingPeriod == "24"
+);
+
+filteredContent = filteredContent.map((o: IndexDefinition) => {
+  o.concentrationUpper ? o.concentrationUpper : (o.concentrationUpper = 500);
+  return o;
+});
+
+let pm2524hr = filteredContent
   .filter((o: IndexDefinition) => o.concentrationLower !== undefined)
   .map((o: IndexDefinition) => {
     o.concentrationUpper = o.concentrationUpper || 500;
