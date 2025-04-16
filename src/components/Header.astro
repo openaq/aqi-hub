@@ -1,17 +1,30 @@
+---
+import Logo from "@assets/svg/logo.svg";
+---
+
 <style lang="scss">
   header {
+    display: flex;
+    align-items: center;
     background-color: white;
     width: 100%;
     position: fixed;
     top: 0;
-    left: 305px;
     height: 80px;
     padding: 1rem;
-    z-index: 100; // katex appears to render on top so this help header cover katex
+    z-index: 100;
     border-bottom: 1px solid #d4d8dc;
+
+    h1 {
+      margin-left: 230px;
+      top: 0;
+    }
   }
 </style>
 
 <header>
+  <a href="https://openaq.org" class="header-logo" aria-label="openaq logo">
+    <Logo width="72" height="40" aria-label="OpenAQ logo" />
+  </a>
   <h1 class="gradient-title homepage-title">Air Quality Index Hub</h1>
 </header>
