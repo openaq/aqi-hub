@@ -33,9 +33,6 @@ export default defineConfig({
       ],
     ],
   },
-  experimental: {
-    svg: true,
-  },
 
   integrations: [mdx()],
   site: "http://localhost:4321",
