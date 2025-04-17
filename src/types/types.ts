@@ -18,3 +18,17 @@ export interface ColorScaleDefinition {
   label: string;
   range: string;
 }
+
+export interface CountryMapDefinition {
+  [iso: string]: string;
+}
+
+export interface CategoryDefinition {
+  categoryText: string;
+  categoryLower: number;
+  rangeText: string;
+}
+
+export interface TableRowsDefinition {
+  [key: string]: IndexDefinition[];
+}
