@@ -22,15 +22,7 @@ export const GET: APIRoute = async ({ params }) => {
     columns: (header) => header.map((column: string) => snakeToCamel(column)),
   });
 
-  let filteredContent = parsedContent.filter(
-    (o: IndexDefinition) => o.pollutant == "PM2.5"
-  );
-  filteredContent = filteredContent.map((o: IndexDefinition) => {
-    o.concentrationUpper ? o.concentrationUpper : (o.concentrationUpper = 500);
-    return o;
-  });
-
-  return new Response(JSON.stringify(filteredContent), {
+  return new Response(JSON.stringify(parsedContent), {
     headers: { "Content-Type": "application/json" },
   });
 };

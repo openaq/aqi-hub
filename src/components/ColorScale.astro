@@ -1,7 +1,7 @@
 ---
 import ColorScaleChart from "./ColorScaleChart.astro";
 import { colorScaleReshape } from "../utils/utils";
-import type { ColorScaleDefinition } from "src/types/types";
+import type { ColorScaleDefinition, IndexDefinition } from "src/types/types";
 
 const { colorScaleValues, index, value } = Astro.props;
 
@@ -12,7 +12,14 @@ if (colorScaleValues) {
 } else if (index) {
   const res = await fetch(new URL(`api/data/${index}.json`, Astro.site?.href));
   const parsed = await res.json();
-  colorScale = colorScaleReshape(parsed, value);
+  let filteredContent = parsed.filter(
+    (o: IndexDefinition) => o.pollutant == "PM2.5"
+  );
+  filteredContent = filteredContent.map((o: IndexDefinition) => {
+    o.concentrationUpper ? o.concentrationUpper : (o.concentrationUpper = 500);
+    return o;
+  });
+  colorScale = colorScaleReshape(filteredContent, value);
 }
 ---
 
