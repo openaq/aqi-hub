@@ -70,6 +70,9 @@ const { contentSelector } = Astro.props;
     const anchorLinks = content.querySelectorAll(".anchor-link");
     const tocList = document.querySelector(".toc > .toc__list");
     for (const anchorLink of anchorLinks) {
+      const tag = anchorLink.parentElement?.tagName;
+      if (tag !== "H1" && tag !== "H2") continue;
+
       const li = document.createElement("li");
       li.classList.add("toc-anchor-item");
       li.setAttribute("data-href-value", anchorLink.getAttribute("href"));
