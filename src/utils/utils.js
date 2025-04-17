@@ -110,16 +110,27 @@ export const tableReshape = (data) =>
     {}
   );
 
-export const colorScaleReshape = (data, range = true) =>
-  data.map((o) => {
-    return {
-      label: o.category,
-      color: o.hex,
-      range: `${o.categoryLower}${
-        o.categoryUpper ? `-${o.categoryUpper}` : range ? "+" : ""
-      }`,
-    };
+export const colorScaleReshape = (data, range = true) => {
+  const seenLabels = new Set();
+  const filteredData = data.filter((o) => {
+    if (o.iso === "SG") {
+      if (seenLabels.has(o.category)) {
+        return false;
+      }
+      seenLabels.add(o.category);
+
+      return true;
+    }
+    return true;
   });
+  return filteredData.map((o) => ({
+    label: o.category,
+    color: o.hex,
+    range: `${o.categoryLower}${
+      o.categoryUpper ? `-${o.categoryUpper}` : range ? "+" : ""
+    }`,
+  }));
+};
 
 export function normalizePollutantLabel(value) {
   switch (value) {
