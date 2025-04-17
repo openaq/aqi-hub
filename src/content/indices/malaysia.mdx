@@ -5,6 +5,7 @@ indexAcronym: API
 ---
 
 import ColorScale from "../../components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -23,6 +24,8 @@ _Note_: Adapted from "PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX 
 The API uses a sub-index method, wherein an index value is calculated for each of the measured pollutants, then the final API value is chosen from the highest sub-index value of all pollutants evaluated. There is no guidance on the minimum number of pollutants to be included in the calculation. Specific guidance on rounding/truncation is also not included in the source material.
 
 API values are reported hourly from a rolling average of the pollutant defined period.
+
+<BreakpointsTable index="malaysia" />
 
 _Note_: Adapted from "PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX (API) CALCULATION" (n.d.), [https://apims.doe.gov.my/pdf/API_Calculation.pdf](https://apims.doe.gov.my/pdf/API_Calculation.pdf) [^1]. Accessed 27 July 2024.
 

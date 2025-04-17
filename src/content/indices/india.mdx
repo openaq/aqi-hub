@@ -6,6 +6,7 @@ indexAcronym: AQI
 
 import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -22,6 +23,8 @@ Note: Adapted from "National Air Quality Index" (2014), [http://app.cpcbccr.com/
 ## Methods
 
 India uses a sub-index method where the index value for each pollutant is calculated according to the following breakpoints:
+
+<BreakpointsTable index="india" />
 
 Note: Adapted from "About National Air Quality Index" (n.d.), [https://cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==](https://cpcb.nic.in/displaypdf.php?id=bmF0aW9uYWwtYWlyLXF1YWxpdHktaW5kZXgvQWJvdXRfQVFJLnBkZg==) [^4]. Accessed 16 Aug. 2024.
 

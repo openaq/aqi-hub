@@ -6,6 +6,7 @@ indexAcronym: AQI
 
 import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -31,6 +32,8 @@ _Note_: Adapted from "חישוב מדד איכות האוויר" [https://air.sv
 The Israel AQI uses a sub-index method where each pollutant is calculated against pollutant-specific breakpoints into a pollutant sub-index value. All pollutants are then compared and the largest sub-index value determines the full composite AQI value. The Ministry of Environmental Protection provides no specific guidance provided on the minimum number of pollutants required to compute a full composite index.
 
 Pollutant breakpoints are defined in the table below:
+
+<BreakpointsTable index="israel" rangeValue={true} labelValue={false} />
 
 _Note_: Adapted from "חישוב מדד איכות האוויר" [https://air.sviva.gov.il/Pagesfiles/החישוב שלמדדזיהוםהאוויר AQIלאתרהחדש.pdf](https://air.sviva.gov.il/Pagesfiles/%D7%94%D7%97%D7%99%D7%A9%D7%95%D7%91%20%D7%A9%D7%9C%20%D7%9E%D7%93%D7%93%20%D7%96%D7%99%D7%94%D7%95%D7%9D%20%D7%94%D7%90%D7%95%D7%95%D7%99%D7%A8%20AQI%20%D7%9C%D7%90%D7%AA%D7%A8%20%D7%94%D7%97%D7%93%D7%A9.pdf). Accessed November 12, 2024.
 

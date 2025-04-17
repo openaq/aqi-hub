@@ -5,6 +5,7 @@ indexAcronym: HKİ
 ---
 
 import ColorScale from "../../components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -23,6 +24,8 @@ _Note_: Adapted from "Hava Kalitesi İndeksi" (n.d.), [https://egethm.csb.gov.tr
 The HKİ uses a sub-index method where each pollutant is calculated against pollutant-specific breakpoints into a pollutant sub-index value. All pollutants are then compared and the largest sub-index value determines the full composite AQI value. The CSB provides no specific guidance provided on the minimum number of pollutants required to compute a full composite index.
 
 Pollutant breakpoints are defined in the table below:
+
+<BreakpointsTable index="turkiye" />
 
 _Note_: Adapted from "Hava Kalitesi İndeksi" (n.d.), [https://egethm.csb.gov.tr/hava-kalitesi-indeksi-i-87403](https://egethm.csb.gov.tr/hava-kalitesi-indeksi-i-87403). Accessed October 1, 2024.
 

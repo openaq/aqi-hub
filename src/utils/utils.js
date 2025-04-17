@@ -82,7 +82,7 @@ export function parseBreakpointsCsv(data) {
 
 export const tableReshape = (data) =>
   data.reduce(
-    (acc, { ISO, category, categoryLower, categoryUpper, pollutants }) => {
+    (acc, { iso, category, categoryLower, categoryUpper, pollutants }) => {
       pollutants.forEach(
         ({
           pollutant,
@@ -96,7 +96,7 @@ export const tableReshape = (data) =>
             acc[key] = [];
           }
           acc[key].push({
-            ISO,
+            iso,
             category,
             categoryLower,
             categoryUpper,
@@ -135,17 +135,17 @@ export const colorScaleReshape = (data, range = true) => {
 export function normalizePollutantLabel(value) {
   switch (value) {
     case "PM2.5":
-      return html`PM<sub>2.5</sub>`;
+      return "PM₂.₅";
     case "PM10":
-      return html`PM<sub>10</sub>`;
+      return "PM₁₀";
     case "O3":
-      return html`O<sub>3</sub>`;
+      return "O₃";
     case "NO2":
-      return html`NO<sub>2</sub>`;
+      return "NO₂";
     case "NOX":
-      return html`NO<sub>x</sub>`;
+      return "NOx";
     case "SO2":
-      return html`SO<sub>2</sub>`;
+      return "SO₂";
     default:
       return value;
   }
@@ -154,14 +154,15 @@ export function normalizePollutantLabel(value) {
 export function normalizeUnitsLabel(value) {
   switch (value) {
     case "ug/m3":
-      return html`μg/m<sup>3</sup>`;
+      return "μg/m³";
+    case "mg/m3":
+      return "mg/m³";
     default:
       return value;
   }
-  μ;
 }
 
-export function reshapeData(data) {
+export const reshapeData = (data) => {
   const countryMap = {};
   const allPollutants = new Set();
   data.forEach((entry) => {
@@ -188,4 +189,48 @@ export function reshapeData(data) {
   });
 
   return result;
-}
+};
+
+export const reshapeTableData = (data) => {
+  const grouped = new Map();
+
+  data.forEach((item) => {
+    const {
+      iso,
+      category,
+      categoryLower,
+      categoryUpper,
+      hex,
+      variant,
+      pollutant,
+      units,
+      averagingPeriod,
+      concentrationLower,
+      concentrationUpper,
+    } = item;
+
+    const key = `${iso}-${category}-${categoryLower}-${categoryUpper}`;
+
+    if (!grouped.has(key)) {
+      grouped.set(key, {
+        iso,
+        category,
+        categoryLower,
+        categoryUpper,
+        hex,
+        variant,
+        pollutants: [],
+      });
+    }
+
+    grouped.get(key).pollutants.push({
+      pollutant,
+      units,
+      averagingPeriod,
+      concentrationLower,
+      concentrationUpper,
+    });
+  });
+
+  return Array.from(grouped.values());
+};

@@ -5,6 +5,7 @@ indexAcronym: ICCA
 ---
 
 import ColorScale from "../../components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -23,7 +24,7 @@ _Note_: Adapted from https://elmundo.cr/costa-rica/ministerio-de-salud-anuncia-c
 
 ## Methods
 
-breakpointsTable(data)
+<BreakpointsTable index="costa-rica" />
 
 Based on the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to ICCA values. The function is defined as:
 

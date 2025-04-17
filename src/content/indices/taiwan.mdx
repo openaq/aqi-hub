@@ -6,6 +6,7 @@ indexAcronym: AQI
 
 import Admonition from "@components/Admonition.astro";
 import ColorScale from "../../components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -32,6 +33,8 @@ _Note_: Adapted from "Air Quality Index" (n.d.), [https://airtw.moenv.gov.tw/ENG
 ## Methods
 
 The following is the pollutant breakpoint concentration values provided by MOENV:
+
+<BreakpointsTable index="taiwan" />
 
 _Note_: Adapted from "Air Quality Index" (n.d.), [https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx) [^1]. Accessed 24 July 2024.
 

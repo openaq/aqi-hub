@@ -6,6 +6,7 @@ indexAcronym: CAI
 
 import Admonition from "@components/Admonition.astro";
 import ColorScale from "../../components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -28,6 +29,8 @@ The system also provides a set of pictograms for representing each level in the 
 ## Methods
 
 CAI values are calculated for each of the six pollutants and the maximum is used as the CAI value for that station[^1]. The following breakpoint concentrations are provided for calculations:
+
+<BreakpointsTable index="south-korea" />
 
 _Note_: Adapted from "Introduction to the CAI" (n.d.), [https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166)[^1]. Accessed 26 July 2024.
 

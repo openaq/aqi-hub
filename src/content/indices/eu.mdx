@@ -5,6 +5,7 @@ indexAcronym: AQI
 ---
 
 import ColorScale from "../../components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -29,6 +30,8 @@ _Note_: Adapted from "European Air Quality Index" (n.d.), [airindex.eea.europa.e
 NO<sub>2</sub>, O<sub>3</sub>, and SO<sub>2</sub> use hourly concentrations, while PM<sub>2.5</sub> and PM<sub>10</sub> use 24-hour running means for the previous 24 hours when calculating the European Air Quality Index. A 24-hour running mean is calculated if there is corresponding data for at least 18 hours out of the previous 24. There are no rounding conventions stated for concentration or sub-index values.
 
 Using the breakpoint concentration table below, a sub-index is determined for each pollutant with provided data. The overall European Air Quality Index for a station corresponds to the poorest sub-index of that station.
+
+<BreakpointsTable index="eu" />
 
 _Note_: Adapted from European Air Quality Index" (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024.
 

@@ -6,6 +6,7 @@ indexAcronym: AQI
 
 import Admonition from "@components/Admonition.astro";
 import ColorScale from "../../components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -24,6 +25,8 @@ _Note_: Adapted from "ข้อมูลดัชนีคุณภาพอา�
 The Thailand AQI uses a sub-index method where each pollutant is calculated against pollutant-specific breakpoints into a pollutant sub-index value. All pollutants are then compared and the largest sub-index value determines the full composite AQI value. The PCB provides no specific guidance provided on the minimum number of pollutants required to compute a full composite index.
 
 Pollutant breakpoints are defined in the table below:
+
+<BreakpointsTable index="thailand" />
 
 _Note_: Adapted from "ข้อมูลดัชนีคุณภาพอากาศ" (n.d.), [air4thai.pcd.go.th/webV3/\#/AQIInfo](http://air4thai.pcd.go.th/webV3/#/AQIInfo)[^1]. Accessed July 18, 2024.
 

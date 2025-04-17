@@ -6,6 +6,7 @@ indexAcronym: ISPU
 
 import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
@@ -22,6 +23,8 @@ _Note_: Adapted from "INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUT
 All pollutant breakpoints are reported in µg/m3 and determined off 24-hour averaging periods. Each measured pollutant is converted to a ISPU value and then shared. Values appear to be rounded to one decimal place depending on the pollutant and units; the source material does not provide specific guidance on whether this is rounding or truncation. Source documentation does not provide specific guidance on a sub-index to composite index method, but it appears from the reporting systems that when multiple pollutants are measured the ISPU value for each is reported and the maximum ISPU value is shown as the site ISPU value.
 
 Pollutants use the following breakpoints for calculating ISPU:
+
+<BreakpointsTable index="indonesia" />
 
 _Note_: Adapted from "INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUTU UDARA AMBIEN DI INDONESIA" (24 Sept. 2020), [https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)[^1]. Accessed 19 July 2024.
 

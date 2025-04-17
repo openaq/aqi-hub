@@ -1,0 +1,108 @@
+---
+import type {
+  IndexDefinition,
+  TableRowsDefinition,
+  CategoryDefinition,
+} from "src/types/types";
+import {
+  tableReshape,
+  normalizePollutantLabel,
+  normalizeUnitsLabel,
+  reshapeTableData,
+} from "../utils/utils";
+
+const { index, rangeValue, labelValue } = Astro.props;
+
+const fetchedData = await fetch(new URL(`api/data/${index}.json`, Astro.site));
+const breakpoints = await fetchedData.json();
+
+let label = true;
+let range = true;
+
+if (typeof labelValue !== "undefined") {
+  label = labelValue;
+}
+if (typeof rangeValue !== "undefined") {
+  range = rangeValue;
+}
+
+const seen = new Set();
+const headerColumns = breakpoints
+  .map((i: IndexDefinition) => {
+    const categoryText = label ? i.category : "";
+    const rangeText = i.categoryUpper
+      ? `-${i.categoryUpper}`
+      : range
+        ? "+"
+        : "";
+    return {
+      categoryText,
+      categoryLower: i.categoryLower,
+      rangeText,
+    };
+  })
+  .filter((item: object) => {
+    const key = JSON.stringify(item);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+const reshapedData = reshapeTableData(breakpoints);
+
+const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
+---
+
+<table>
+  <thead>
+    <tr>
+      <th>Pollutant</th>
+      <th>Averaging period</th>
+      {
+        headerColumns.map((col: CategoryDefinition) => (
+          <th>
+            {col.categoryText}
+            <br />
+            {col.categoryLower}
+            {col.rangeText}
+          </th>
+        ))
+      }
+    </tr>
+  </thead>
+  <tbody>
+    {
+      Object.entries(finalTableRows).map(([key, values]) => {
+        const [pollutant, avgPeriod] = key.split("-");
+        const [measurand, units] = pollutant.split(" ");
+        const pollutantLabel = normalizePollutantLabel(measurand);
+        const unitsLabel = normalizeUnitsLabel(units);
+
+        return (
+          <tr>
+            <td>
+              {pollutantLabel} {unitsLabel}
+            </td>
+            <td>{avgPeriod} hr.</td>
+            {headerColumns.map((header: CategoryDefinition) => {
+              const match = values.find(
+                (v: IndexDefinition) => v.categoryLower === header.categoryLower
+              );
+
+              return (
+                <td>
+                  {match?.concentrationLower ?? "-"}
+                  {match?.concentrationLower
+                    ? match.concentrationUpper
+                      ? `-${match.concentrationUpper}`
+                      : "+"
+                    : "-"}
+                </td>
+              );
+            })}
+          </tr>
+        );
+      })
+    }
+  </tbody>
+</table>
