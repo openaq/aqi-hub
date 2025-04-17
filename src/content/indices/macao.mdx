@@ -7,6 +7,8 @@ indexAcronym: AQI
 import Admonition from "@components/Admonition.astro";
 import ColorScale from "../../components/ColorScale.astro";
 
+## Background
+
 Macao's Air Quality Index (AQI) accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. It uses hourly, 8-hour, and 24-hour averaging periods and reports a real-time and daily AQI.
 
 Macao adopted its current AQI guidelines in January 2021. It seems to have updated concentration values to reflect the guidelines established in the World Health Organization (WHO) Air Quality Guidelines (AQG) Global Update 2005, following the annual mean PM<sub>2.5</sub> concentrations set by the WHO AQG interim target-2 [^1] and matching the guidelines for a "good" level [^2].The original values for Macao’s AQI are not yet able to be referenced. Calculations are based on data obtained from an automatic monitoring network using real-time pollutant concentrations.
@@ -21,9 +23,9 @@ For selection of "the rest of the concentration breakpoints," the Macao AQI refe
 
 ## Color scale
 
-<ColorScale index="macao" value={true} />
-
 Macao uses a color scale comprised of six levels:
+
+<ColorScale index="macao" value={true} />
 
 _Note_: Adapted from "Definition of Air Quality Index (Effective from January 2021)" (n.d.), [https://cms.smg.gov.mo/uploads/tinymce//sitecontent/CCAA/IQA/New_Definition_of_Air_Quality_Index.pdf](https://cms.smg.gov.mo/uploads/tinymce//sitecontent/CCAA/IQA/New_Definition_of_Air_Quality_Index.pdf)[^4]. Accessed 17 June 2024.
 
