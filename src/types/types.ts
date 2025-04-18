@@ -7,7 +7,7 @@ export interface IndexDefinition {
   categoryUpper: number;
   pollutant: string;
   units: string;
-  averagingPeriod: string;
+  averagingPeriod: number;
   concentrationLower: number;
   concentrationUpper: number;
   country?: string;

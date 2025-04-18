@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { readFileSync } from "node:fs";
 import { parse } from "csv-parse/sync";
 import { globSync } from "tinyglobby";
+import type { IndexDefinition } from "src/types/types";
 
 const snakeToCamel = (str: string) =>
   str
@@ -26,7 +27,18 @@ export const GET: APIRoute = async () => {
 
   const combinedData = parsedContent.flat();
 
-  return new Response(JSON.stringify(combinedData), {
+  const stringToNumber: IndexDefinition[] = combinedData.map(
+    (o: IndexDefinition) => ({
+      ...o,
+      categoryLower: Number(o.categoryLower),
+      categoryUpper: Number(o.categoryUpper),
+      averagingPeriod: Number(o.averagingPeriod),
+      concentrationLower: Number(o.concentrationLower),
+      concentrationUpper: Number(o.concentrationUpper),
+    })
+  );
+
+  return new Response(JSON.stringify(stringToNumber), {
     headers: { "Content-Type": "application/json" },
   });
 };

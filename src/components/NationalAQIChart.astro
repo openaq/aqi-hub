@@ -17,7 +17,7 @@ const parsed = await data.json();
 const map = countriesMap as CountryMapDefinition;
 
 let filteredContent = parsed.filter(
-  (o: IndexDefinition) => o.pollutant == "PM2.5" && o.averagingPeriod == "24"
+  (o: IndexDefinition) => o.pollutant == "PM2.5" && o.averagingPeriod == 24
 );
 
 filteredContent = filteredContent.map((o: IndexDefinition) => {

@@ -22,7 +22,18 @@ export const GET: APIRoute = async ({ params }) => {
     columns: (header) => header.map((column: string) => snakeToCamel(column)),
   });
 
-  return new Response(JSON.stringify(parsedContent), {
+  const stringToNumber: IndexDefinition[] = parsedContent.map(
+    (o: IndexDefinition) => ({
+      ...o,
+      categoryLower: Number(o.categoryLower),
+      categoryUpper: Number(o.categoryUpper),
+      averagingPeriod: Number(o.averagingPeriod),
+      concentrationLower: Number(o.concentrationLower),
+      concentrationUpper: Number(o.concentrationUpper),
+    })
+  );
+
+  return new Response(JSON.stringify(stringToNumber), {
     headers: { "Content-Type": "application/json" },
   });
 };
