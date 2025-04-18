@@ -60,6 +60,19 @@ main {
   margin: 0 20px;
   flex: 1;
   overflow-wrap: break-word;
+  transition: padding 0.4s ease;
+
+  @media (max-width: 900px) {
+    padding: 80px 50px 0 300px;
+  }
+}
+
+body.sidebar-collapsed main {
+  padding-left: 80px;
+
+  @media (max-width: 900px) {
+    padding-left: 50px;
+  }
 }
 
 table {

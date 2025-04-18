@@ -16,6 +16,10 @@ const { contentSelector } = Astro.props;
     z-index: 10;
     border-left: 1px solid #d4d8dc;
 
+    @media (max-width: 900px) {
+      display: none;
+    }
+
     &__list {
       list-style: none;
       padding-left: 10px;
