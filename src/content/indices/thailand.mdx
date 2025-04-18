@@ -7,6 +7,7 @@ indexAcronym: AQI
 import Admonition from "@components/Admonition.astro";
 import ColorScale from "../../components/ColorScale.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 
 ## Background
 
@@ -40,6 +41,8 @@ _Note_: Adapted from "ข้อมูลดัชนีคุณภาพอา�
 </Admonition>
 
 Using the breakpoint values in the table above, a [piecewise linear function](/methods#piecewise-linear-function) is used to convert the concentration values to AQI values. There is no specific guidance in the source material about rounding or truncating concentration values, but based on the table above, values are either whole numbers or up to one decimal place of precision. The piecewise linear function is defined as:
+
+<PiecewiseLatexDoc label="AQI" />
 
 ## References
 

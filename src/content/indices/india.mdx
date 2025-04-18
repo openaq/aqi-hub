@@ -7,6 +7,7 @@ indexAcronym: AQI
 import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 
 ## Background
 
@@ -32,14 +33,7 @@ Particulate matter, SO<sub>2</sub>, NO<sub>2</sub>, Ammonia and lead are all cal
 
 The India AQI uses a piecewise linear function to convert concentration values to sub-index values based on the breakpoints defined above. The piecewise linear function is defined as:
 
-$AQI_P = \frac{I_{HI} - I_{LO}}{BP_{HI} - BP_{LO}} \times (C_P - BP_{LO}) + I_{LO}$
-
-- $I_P$ – AQI for pollutant P
-- $I_{HI}$ – AQI value corresponding to $BP_{HI}$
-- $I_{LO}$ – AQI value corresponding to $BP_{LO}$
-- $BP_{HI}$ – Concentration breakpoint that is greater than or equal to $C_P$
-- $BP_{LO}$ – Concentration breakpoint that is less than or equal to $C_P$
-- $C_P$ – Concentration of pollutant P
+<PiecewiseLatexDoc label="AQI" />
 
 After calculating the sub-index for each measured pollutant all measured pollutants are compared and the maximum sub-index value is chosen to indicate the composite AQI value. The composite AQI value must be calculated against at minimum 3 pollutants, one of which must be particulate matter (PM<sub>2.5</sub> or PM<sub>10</sub>)[^3].
 

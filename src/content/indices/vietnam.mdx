@@ -7,6 +7,7 @@ indexAcronym: VN AQI
 import Admonition from "@components/Admonition.astro";
 import ColorScale from "../../components/ColorScale.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 
 ## Background
 
@@ -133,6 +134,8 @@ For O<sub>3</sub>, only the one 1-hour averaging period breakpoints are used dur
 The daily AQI value for PM<sub>10</sub> and PM<sub>2.5</sub> uses a 24-hour averaging period, while for SO<sub>2</sub>, NO<sub>2</sub>, and CO the maximum 1-hour average value of the day is used. Although not specifically stated, it is assumed that this 24-hour averaging period is daily, recorded from hour 1 to 24, as opposed to an ongoing rolling period. For the daily AQI value for O<sub>3</sub>, both the maximum 1-hour average value of the day and maximum 8-hour average value of the day are used. The 8-hour average value is calculated by taking the average of the 1-hour average values over 8 consecutive hours.
 
 The daily AQI for each parameter is calculated by the formula:
+
+<PiecewiseLatexDoc label="VNAQI" />
 
 When the 8-hour average value of the day exceeds 400 µg/m<sup>3</sup> for O<sub>3</sub>, the 8-hour averaging period AQI is not used; instead the AQI is calculated using the maximum 1-hour average of the day.
 

@@ -6,6 +6,7 @@ indexAcronym: API
 
 import ColorScale from "../../components/ColorScale.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 
 ## Background
 
@@ -32,6 +33,8 @@ _Note_: Adapted from "PENGIRAAN INDEKS PENCEMAR UDARA(IPU). AIR POLLUTANT INDEX 
 The Malaysia Department of Environment site does not provide specific requirements for temporal coverage, the minimum number of valid data points required within the averaging period, for 8-hour and 24-hour measurement periods.
 
 Based on the breakpoint values in the table above, a piecewise linear function is used to convert the concentration values to API values. The function is defined as:
+
+<PiecewiseLatexDoc label="AQI" />
 
 After all sub-indices for a station are computed, the maximum sub-index value is taken as the final API value for a given station.
 

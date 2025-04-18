@@ -4,6 +4,7 @@ title: Methods
 
 import PiecewiseChart from "../../components/PiecewiseChart.astro";
 import InteractivePiecewiseChart from "../../components/InteractivePiecewiseChart.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 
 ## Averaging methods
 
@@ -37,14 +38,7 @@ $$
 
 Many AQIs use a piecewise linear function to translate from pollutant concentration averages into the final indicator value based on a pollutant-specific breakpoint. A continuous piecewise linear function adjusts the AQI smoothly as concentration values change, ensuring that each segment's linear slope reflects different rates of change in air quality based on specific concentration ranges. The most commonly used formula for AQIs across different countries is defined as:
 
-$AQI_P = \frac{I_{HI} - I_{LO}}{BP_{HI} - BP_{LO}} \times (C_P - BP_{LO}) + I_{LO}$
-
-- $I_P$ – AQI for pollutant P
-- $I_{HI}$ – AQI value corresponding to $BP_{HI}$
-- $I_{LO}$ – AQI value corresponding to $BP_{LO}$
-- $BP_{HI}$ – Concentration breakpoint that is greater than or equal to $C_P$
-- $BP_{LO}$ – Concentration breakpoint that is less than or equal to $C_P$
-- $C_P$ – Concentration of pollutant P
+<PiecewiseLatexDoc label="AQI" />
 
 The variable slope of a piecewise linear function can be demonstrated with different country AQI sub-index values for PM<sub>2.5</sub> and their varying breakpoints. For the same PM<sub>2.5</sub> concentration value, different AQIs change and interpolate across their respective range at different rates due to the different slopes in the piecewise linear function. The chart below shows how the different slopes within a piecewise function change the rate of increase across different AQIs given the same input concentration. Drag the concentration slider to see the output sub-index values change. This dynamic chart shows large differences in how countries assess danger levels.
 

@@ -7,6 +7,7 @@ indexAcronym: ISPU
 import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 
 ## Background
 
@@ -37,14 +38,7 @@ _Note_: Adapted from "INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUT
 
 Based on the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to ISPU values. The function is defined as:
 
-$ISPU_P = \frac{I_{HI} - I_{LO}}{BP_{HI} - BP_{LO}} \times (C_P - BP_{LO}) + I_{LO}$
-
-- $I_P$ – ISPU for pollutant P
-- $I_{HI}$ – ISPU value corresponding to $BP_{HI}$
-- $I_{LO}$ – ISPU value corresponding to $BP_{LO}$
-- $BP_{HI}$ – Concentration breakpoint that is greater than or equal to $C_P$
-- $BP_{LO}$ – Concentration breakpoint that is less than or equal to $C_P$
-- $C_P$ – Concentration of pollutant P
+<PiecewiseLatexDoc label="ISPU" />
 
 ## References
 

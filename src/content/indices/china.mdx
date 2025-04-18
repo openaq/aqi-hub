@@ -7,6 +7,7 @@ indexAcronym: AQI
 import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 
 ## Background
 
@@ -48,14 +49,7 @@ If the 8-hour average concentration of O<sub>3</sub> is greater than 800 μm/m<s
 
 The sub-index for individual pollutants is calculated using the following piecewise linear function:
 
-$AQI_P = \frac{I_{HI} - I_{LO}}{BP_{HI} - BP_{LO}} \times (C_P - BP_{LO}) + I_{LO}$
-
-- $I_P$ – AQI for pollutant P
-- $I_{HI}$ – AQI value corresponding to $BP_{HI}$
-- $I_{LO}$ – AQI value corresponding to $BP_{LO}$
-- $BP_{HI}$ – Concentration breakpoint that is greater than or equal to $C_P$
-- $BP_{LO}$ – Concentration breakpoint that is less than or equal to $C_P$
-- $C_P$ – Concentration of pollutant P
+<PiecewiseLatexDoc label="AQI" />
 
 The reported AQI is the maximum sub-index value. When the AQI is greater than 50, the pollutant with the largest sub-index value is the primary pollutant [^1]. If there are two or more pollutants with sub-indices greater than 50, both are listed as the primary pollutants [^1]. Pollutants with a sub-index greater than 100 are considered excessive pollutants [^1].
 

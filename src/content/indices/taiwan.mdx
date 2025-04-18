@@ -7,6 +7,7 @@ indexAcronym: AQI
 import Admonition from "@components/Admonition.astro";
 import ColorScale from "../../components/ColorScale.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 
 ## Background
 
@@ -39,6 +40,8 @@ The following is the pollutant breakpoint concentration values provided by MOENV
 _Note_: Adapted from "Air Quality Index" (n.d.), [https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx](https://airtw.moenv.gov.tw/ENG/Information/Standard/AirQualityIndicator.aspx) [^1]. Accessed 24 July 2024.
 
 The source material does not document specific sub-index calculation equations. However, through back-calculation of provided pollutant values on the MOENV Taiwan Air Quality Monitoring Network, it appears to follow the standard sub-index piecewise linear function:
+
+<PiecewiseLatexDoc label="AQI" />
 
 ### Daily AQI
 

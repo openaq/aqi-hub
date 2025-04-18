@@ -6,6 +6,7 @@ indexAcronym: ICCA
 
 import ColorScale from "../../components/ColorScale.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 
 ## Background
 
@@ -28,14 +29,7 @@ _Note_: Adapted from https://elmundo.cr/costa-rica/ministerio-de-salud-anuncia-c
 
 Based on the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to ICCA values. The function is defined as:
 
-$ICCA_P = \frac{ - I_{LO}}{BP_{HI} - BP_{LO}} \times (C_P - BP_{LO}) + I_{LO}$
-
-- $I_P$ – AQI for pollutant P
-- $I_{HI}$ – AQI value corresponding to $BP_{HI}$
-- $I_{LO}$ – AQI value corresponding to $BP_{LO}$
-- $BP_{HI}$ – Concentration breakpoint that is greater than or equal to $C_P$
-- $BP_{LO}$ – Concentration breakpoint that is less than or equal to $C_P$
-- $C_P$ – Concentration of pollutant P
+<PiecewiseLatexDoc label="ICCA" />
 
 The ICCA does not provide specific requirements for temporal coverage, the minimum number of valid data points required within the averaging period, for 8-hour and 24-hour measurement periods.
 
