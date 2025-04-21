@@ -69,7 +69,7 @@ const yScale = d3
   .range([height - margin.bottom, margin.top]);
 ---
 
-<svg width={width} height={height}>
+<svg viewBox={`0 0 ${width} ${height}`} width="100%" height="auto">
   <path
     d={d3
       .line<number>()
@@ -83,7 +83,7 @@ const yScale = d3
     breakpoints.map((point, i) => (
       <g transform={`translate(${xScale(point.x)}, ${yScale(point.y)})`}>
         <circle r="4" fill="black" />
-        <text dx={6} dy={6} text-anchor="start" font-size="10px">
+        <text dx={6} dy={6} text-anchor="start" font-size="0.8rem">
           {`${point.x}, ${point.y}`}
         </text>
       </g>
@@ -116,12 +116,12 @@ const yScale = d3
     x={margin.left - 45}
     y={height - 430}
     text-anchor="start"
-    font-size="12"
+    font-size="1rem"
   >
     ↑ AQI
   </text>
 
-  <text x={width - 0} y={height - 10} text-anchor="end" font-size="12">
+  <text x={width - 0} y={height - 4} text-anchor="end" font-size="1rem">
     PM2.5 concentration →
   </text>
 </svg>
