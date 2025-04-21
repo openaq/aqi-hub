@@ -42,6 +42,7 @@ for (const [label, { ranges, color }] of labelMap) {
     text-align: center;
     padding: 10px;
     width: 50px;
+    min-height: 40px;
 
     p {
       margin: 0;
@@ -92,9 +93,7 @@ for (const [label, { ranges, color }] of labelMap) {
       uniqueColorScaleLabels.map((o) => (
         <li class="list-wrapper">
           <div class="label-color-box" style={`background-color: ${o.color}`} />
-          <span>
-            {o.label} {o.range}
-          </span>
+          <span>{`${o.label}${o.range ? `: ${o.range}` : ""}`}</span>
         </li>
       ))
     }

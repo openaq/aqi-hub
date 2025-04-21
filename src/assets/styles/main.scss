@@ -66,11 +66,11 @@ main {
   }
 
   @media (min-width: 800px) {
-    padding: 80px 40px 0 300px;
+    padding: 80px 40px 0 280px;
   }
 
   @media (min-width: 900px) {
-    padding: 80px 200px 0 300px;
+    padding: 80px 200px 0 280px;
   }
 }
 
@@ -85,7 +85,8 @@ th {
 }
 
 td {
-  padding: 8px;
+  padding-block-start: 8px;
+  padding-block-end: 12px;
   text-align: left;
 }
 
