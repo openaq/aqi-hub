@@ -3,6 +3,29 @@ import type { ColorScaleDefinition } from "src/types/types";
 import { getContrast } from "../utils/colors";
 
 const { colorScale } = Astro.props;
+
+const labelMap = new Map();
+
+for (const item of colorScale) {
+  if (labelMap.has(item.label)) {
+    labelMap.get(item.label).ranges.push(item.range);
+  } else {
+    labelMap.set(item.label, {
+      ranges: [item.range],
+      color: item.color,
+    });
+  }
+}
+
+const uniqueColorScaleLabels = [];
+
+for (const [label, { ranges, color }] of labelMap) {
+  uniqueColorScaleLabels.push({
+    label,
+    color,
+    range: ranges.join(", "),
+  });
+}
 ---
 
 <style lang="scss">
@@ -19,10 +42,34 @@ const { colorScale } = Astro.props;
     text-align: center;
     padding: 10px;
     width: 50px;
+
+    p {
+      margin: 0;
+    }
   }
 
-  p {
-    margin: 0;
+  .color-scale__labels {
+    display: flex;
+    width: 100%;
+
+    ul {
+      padding-left: 0;
+    }
+
+    .label-color-box {
+      width: 10px;
+      height: 10px;
+    }
+
+    .list-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    li {
+      list-style: none;
+    }
   }
 </style>
 
@@ -33,9 +80,23 @@ const { colorScale } = Astro.props;
         class="color-scale__item"
         style={`background-color: ${o.color}; color: ${getContrast(o.color)}`}
       >
-        <p>{o.label}</p>
         <p>{o.range}</p>
       </div>
     ))
   }
+</div>
+
+<div class="color-scale__labels">
+  <ul>
+    {
+      uniqueColorScaleLabels.map((o) => (
+        <li class="list-wrapper">
+          <div class="label-color-box" style={`background-color: ${o.color}`} />
+          <span>
+            {o.label} {o.range}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
 </div>
