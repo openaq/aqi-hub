@@ -19,33 +19,6 @@ const sortIndicesByName = (
 
 <style lang="scss">
   @use "openaq-design-system/scss/variables" as variables;
-  .sidebar-icon__wrapper {
-    position: fixed;
-    left: 260px;
-    top: 80px;
-    z-index: 100;
-    transition: transform 0.4s ease-in-out;
-    transform: translateX(0);
-
-    .sidebar-icon {
-      cursor: pointer;
-    }
-
-    .chevron-right {
-      display: none;
-    }
-
-    &.collapsed {
-      transform: translateX(-240px);
-      .chevron-left {
-        display: none;
-      }
-
-      .chevron-right {
-        display: block;
-      }
-    }
-  }
 
   .sidebar {
     position: fixed;
@@ -59,9 +32,10 @@ const sortIndicesByName = (
     transition: transform 0.4s ease-in-out;
     transform: translateX(0);
 
-    &.collapsed {
-      transform: translateX(-100%);
+    @media (max-width: 800px) {
+      display: none;
     }
+
     h1 {
       padding-left: 20px;
     }
@@ -119,22 +93,6 @@ const sortIndicesByName = (
   }
 </style>
 
-<div class="sidebar-icon__wrapper">
-  <ChevronLeft
-    width="30"
-    height="30"
-    class="sidebar-icon chevron-left"
-    fill="#5a6672"
-    aria-label="Chevron Left"
-  />
-  <ChevronRight
-    width="30"
-    height="30"
-    class="sidebar-icon chevron-right"
-    fill="#5a6672"
-    aria-label="Chevron Left"
-  />
-</div>
 <aside class="sidebar">
   <nav class="nav pages-nav">
     <ul>
@@ -164,23 +122,6 @@ const sortIndicesByName = (
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const sidebar = document.querySelector(".sidebar");
-    const iconWrapper = document.querySelector(".sidebar-icon__wrapper");
-    const chevronLeft = document.querySelector(".chevron-left");
-    const chevronRight = document.querySelector(".chevron-right");
-
-    chevronLeft?.addEventListener("click", () => {
-      sidebar?.classList.add("collapsed");
-      iconWrapper?.classList.add("collapsed");
-      document.body.classList.add("sidebar-collapsed");
-    });
-
-    chevronRight?.addEventListener("click", () => {
-      sidebar?.classList.remove("collapsed");
-      iconWrapper?.classList.remove("collapsed");
-      document.body.classList.remove("sidebar-collapsed");
-    });
-
     const sidebarLinks = document.querySelectorAll(".sidebar .nav li");
     const currentPath = window.location.pathname;
 
