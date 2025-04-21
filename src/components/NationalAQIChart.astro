@@ -65,11 +65,15 @@ const bars = pm2524hr.map((d: IndexDefinition) => {
 
 <style lang="scss">
   text {
-    font-size: 11px;
+    font-size: 1rem;
+  }
+
+  .labels {
+    font-weight: 600;
   }
 </style>
 
-<svg width={width} height={height}>
+<svg viewBox={`0 0 ${width} ${height}`} width="100%" height="auto">
   {
     bars.map((bar: Bar) => (
       <rect
@@ -101,7 +105,7 @@ const bars = pm2524hr.map((d: IndexDefinition) => {
         transform={`translate(${margin.left}, ${yScale(label)! + yScale.bandwidth() / 2})`}
       >
         <line x1="-6" stroke="gray" />
-        <text x="-10" y="2.5" text-anchor="end" class="y-axis">
+        <text x="-10" y="5" text-anchor="end" class="y-axis">
           {label}
         </text>
       </g>
@@ -120,20 +124,20 @@ const bars = pm2524hr.map((d: IndexDefinition) => {
   }
 
   <text
+    class="labels"
     x={margin.left - 100}
-    y={(height - margin.top - margin.bottom) / 2 + margin.top}
+    y={(height - margin.top - margin.bottom) / 2.5 + margin.top}
     transform={`rotate(-90, ${margin.left - 100}, ${(height - margin.top - margin.bottom) / 2 + margin.top})`}
     text-anchor="middle"
-    font-size="12"
   >
     National AQI
   </text>
 
   <text
+    class="labels"
     x={width - margin.right}
-    y={height - 10}
+    y={height - 5}
     text-anchor="end"
-    font-size="12"
   >
     PM2.5 24 hr. avg. µg/m³ →
   </text>
