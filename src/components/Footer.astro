@@ -1,8 +1,23 @@
 <style lang="scss">
-  footer {
-    padding: 1rem;
-    text-align: left;
+  .footer {
+    position: relative;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
     font-size: 0.75rem;
+
+    @media (min-width: 800px) {
+      width: 80%;
+      padding-left: 240px;
+      padding-right: 0;
+    }
+
+    @media (min-width: 900px) {
+      width: 80%;
+      padding-left: 240px;
+      padding-right: 100px;
+    }
   }
 </style>
 
