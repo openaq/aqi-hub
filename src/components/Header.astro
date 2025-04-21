@@ -30,15 +30,10 @@ import MenuIcon from "@assets/svg/menu.svg";
     }
 
     h1 {
-      font-size: calc(1.2rem + 2vw);
+      font-size: clamp(1.65rem, 1rem + 3vw, 3.2rem);
       margin-left: 20px;
 
-      @media (min-width: 500px) {
-        font-size: 2.4rem;
-      }
-
       @media (min-width: 800px) {
-        font-size: calc(1.5rem + 2vw);
         margin-left: 230px;
       }
     }
