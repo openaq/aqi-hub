@@ -61,11 +61,15 @@ $$
 
 where
 
-- ${c_{min}} - Minimum value among the 12 hourly average values$
-- ${c_{max}} - Maximum value among the 12 hourly average values$
+<div class="latex-container">
 
-The weighting factor, ${w}$, is then determined in terms of ${w^*}$:
+    - ${c_{min}} - Minimum value among the 12 hourly average values$
+    - ${c_{max}} - Maximum value among the 12 hourly average values$
 
+</div>
+  The weighting factor, ${w}$, is then determined in terms of ${w^*}$:
+
+<div class="latex-container">
 $$
 % step 2: define w in terms of weighting factor
 w = \begin{cases}
@@ -73,20 +77,27 @@ w = \begin{cases}
   0.5, \text{if } w \leq \frac{1}{2} .
 \end{cases}
 $$
+</div>
 
 The NowCast value is determined using the following equation, dependent on the value of ${w}$:
 
 When ${w>\frac{1}{2}}$:
 
+<div class="latex-container">
 $$
 NowCast = \frac{\sum_{n=1}^{12} w^{i-1} c_i}{\sum_{n=1}^{12} w^{i-1}}
 $$
+</div>
 
 When ${w=\frac{1}{2}}$:
 
-$$
-NowCast = \frac{1}{2} c_1 + (\frac{1}{2})^2 c_2 + \dots + (\frac{1}{2})^{12} c_{12}
-$$
+<div class="latex-container">
+  $$ NowCast = \frac{1}
+  {2} c_1 + (\frac{1}
+  {2})^2 c_2 + \dots + (\frac{1}
+  {2})^{12} c_{12}
+  $$
+</div>
 
 <div class="note">
   At least 2 of the 3 values ${c_1}$, ${c_2}$, and ${c_3}$ must have
@@ -97,34 +108,42 @@ $$
 
 The hourly AQI for PM<sub>10</sub> and PM<sub>2.5</sub> is calculated using the following formula:
 
+<div class="latex-container">
 $$
 {AQI}_x = \frac{I_{i+1}-I_{i}}{BP_{i+1}-BP_{i}}(NowCast_x - BP_i) + I_i
 $$
+</div>
 
 where
 
-- ${AQI_{x}}$ - AQI value of the respective pollutant, x
-- ${BP_{i}}$ - Lower limit concentration of the respective pollutant corresponding to level i
-- ${BP_{i+1}}$ - Upper limit concentration of the respective pollutant corresponding to level i+1
-- ${I_{i}}$ - AQI value at level i (as listed in the breakpoint concentration table)
-- ${I_{i+1}}$ - AQI value at level i+1 (as listed in the breakpoint concentration table)
-- ${NowCast_{x}}$ - NowCast value previously calculated above for the respective pollutant, x
-
+<div class="latex-container">
+    - ${AQI_{x}}$ - AQI value of the respective pollutant, x
+    - ${BP_{i}}$ - Lower limit concentration of the respective pollutant corresponding to level i
+    - ${BP_{i+1}}$ - Upper limit concentration of the respective pollutant corresponding to level i+1
+    - ${I_{i}}$ - AQI value at level i (as listed in the breakpoint concentration table)
+    - ${I_{i+1}}$ - AQI value at level i+1 (as listed in the breakpoint concentration table)
+    - ${NowCast_{x}}$ - NowCast value previously calculated above for the respective pollutant, x
+</div>
 The hourly AQI for CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub> is calculated using the following formula:
 
+<div class="latex-container">
 $$
 {AQI}_x = \frac{I_{i+1}-I_{i}}{BP_{i+1}-BP_{i}}(C_x - BP_i) + I_i
 $$
+</div>
 
 where
 
-- ${AQI_{x}}$ - AQI value of the respective pollutant, x
-- ${BP_{i}}$ - Lower limit concentration of the respective pollutant corresponding to level i
-- ${BP_{i+1}}$ - Upper limit concentration of the respective pollutant corresponding to level i+1
-- ${I_{i}}$ - AQI value at level i (as listed in the breakpoint concentration table)
-- ${I_{i+1}}$ - AQI value at level i+1 (as listed in the breakpoint concentration table)
-- ${C_{x}}$ - Average hourly observed value of the respective pollutant, x
+<div class="latex-container">
 
+    - ${AQI_{x}}$ - AQI value of the respective pollutant, x
+    - ${BP_{i}}$ - Lower limit concentration of the respective pollutant corresponding to level i
+    - ${BP_{i+1}}$ - Upper limit concentration of the respective pollutant corresponding to level i+1
+    - ${I_{i}}$ - AQI value at level i (as listed in the breakpoint concentration table)
+    - ${I_{i+1}}$ - AQI value at level i+1 (as listed in the breakpoint concentration table)
+    - ${C_{x}}$ - Average hourly observed value of the respective pollutant, x
+
+  </div>
 The maximum hourly AQI value is reported as the aggregate hourly AQI value, with the values being rounded to integers.
 
 For O<sub>3</sub>, only the one 1-hour averaging period breakpoints are used during calculations. The maximum value of all the parameters is selected as the aggregate hourly AQI value, reported as an integer.
@@ -135,9 +154,12 @@ The daily AQI value for PM<sub>10</sub> and PM<sub>2.5</sub> uses a 24-hour aver
 
 The daily AQI for each parameter is calculated by the formula:
 
-<PiecewiseLatexDoc label="VNAQI" />
-
-When the 8-hour average value of the day exceeds 400 µg/m<sup>3</sup> for O<sub>3</sub>, the 8-hour averaging period AQI is not used; instead the AQI is calculated using the maximum 1-hour average of the day.
+<div class="latex-container">
+  <PiecewiseLatexDoc label="VNAQI" />
+</div>
+When the 8-hour average value of the day exceeds 400 µg/m<sup>3</sup> for O
+<sub>3</sub>, the 8-hour averaging period AQI is not used; instead the AQI is
+calculated using the maximum 1-hour average of the day.
 
 ## References
 

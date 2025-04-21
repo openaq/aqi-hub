@@ -207,10 +207,10 @@ The Emirati Air Quality Index is a composite index value calculated using the EP
 
 The following piecewise linear function is used to perform all sub-index calculations:
 
+<div class="latex-container">
 $$
 
-SI_p = \frac{I_{Hi} - I_{LO}}{BP_{Ho} - BP_{Lo}} \times (C_- BP_{Lo}) + I_{Lo}
-
+SI*p = \frac{I*{Hi} - I*{LO}}{BP*{Ho} - BP*{Lo}} \times (C*- BP*{Lo}) + I*{Lo}
 
 $$
 
@@ -227,6 +227,7 @@ $$
 - ${BP_{LO}}$ - Concentration breakpoint that is less than or equal to ${C_P}$
 
 - ${C_P}$ - Truncated concentration of pollutant P
+</div>
 
 The Emirati Air Quality Index only reports a composite AQI corresponding to the highest sub-index value calculated for PM<sub>10</sub>, PM<sub>2.5</sub>, O<sub>3</sub>, NO<sub>2</sub>, and SO<sub>2</sub>. The average concentration of each pollutant is calculated using the corresponding averaging period. If the averaging period exceeds 1 hour, the moving average is used with the last hour range corresponding to the hour for reporting the index.
 
@@ -265,3 +266,4 @@ For PM<sub>2.5</sub>, the upper breakpoint in the 'Moderate' category correspond
 "National Air Quality Platform." National Center of Meteorology, [airquality.ncm.gov.ae/?lang=en](https://airquality.ncm.gov.ae/?lang=en).
 
 "UAE AIR QUALITY INDEX MANUAL." United Arab Emirates Ministry of Climate Change and Environment, [www.moccae.gov.ae/assets/91c95f18/uae-air-quality-index-manual.aspx](https://www.moccae.gov.ae/assets/91c95f18/uae-air-quality-index-manual.aspx).
+$$

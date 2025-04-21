@@ -37,27 +37,28 @@ For calculating the 8-hour moving average concentration, at least ¾ of the aver
 
 For calculating the 12-hour weighted moving average of PM<sub>2.5</sub> and PM<sub>10</sub> concentrations, the following equation is used:
 
+<div class="latex-container">
 $$
 
-\overline{C}=\frac{\sum_{i=1}^{N}C_iW^{i-1}}{\sum_{i=1}^{N}W^{i-1}}
-
+\overline{C}=\frac{\sum*{i=1}^{N}C_iW^{i-1}}{\sum*{i=1}^{N}W^{i-1}}
 
 $$
+
 
 $$
 
 W = \begin{cases}
 
-  w,  \text{if } w > 0.5, \\
+w, \text{if } w > 0.5, \\
 
-  0.5, \text{if } w \leq 0.5 .
+0.5, \text{if } w \leq 0.5 .
 
 \end{cases}
 
-w = 1 - \frac{C_{max}-C_{min}}{C_{max}}
-
+w = 1 - \frac{C*{max}-C*{min}}{C\_{max}}
 
 $$
+</div>
 
 In order for the 12-hour moving concentration to be valid, at least ⅔ of the most recent 12 prior hours of measurements are required for the calculation. If this condition is not met, then the calculation is not carried out. Additionally, the value of i, representing the consecutive hour of measurement, is required to be maintained even when there are hours that lack measured concentrations. For example, if within the most recent 3 hours of measurements there is only data for hours 1 and 3, the weighting of the concentration of hour 1 remains as C<sub>1</sub>W<sup>0</sup> and the weighing of hour 3 remains C<sub>2</sub>W<sup>3</sup>, as opposed to C<sub>2</sub>W<sup>1</sup>. The consecutive hour of measurements term remains i=3 as opposed to i=2 [^1].
 
@@ -224,3 +225,4 @@ Duarte, Filiberto Perez. "Normas Oficiales Mexicanas (NOM) - Salud Ambiental." 1
 "ÍNDICE AIRE Y SALUD: CARACTERÍSTICAS Y APLICACIÓN. DOCUMENTO INFORMATIVO." May 2020, [www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf](https://www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf).
 
 Segura, Julio César Jesús Trujillo. "SECRETARIA DE MEDIO AMBIENTE Y RECURSOS NATURALES." 20 Nov. 2019, [sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf](https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf).
+$$

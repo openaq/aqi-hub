@@ -180,3 +180,11 @@ h3 {
     margin-block-start: 0 !important;
   }
 }
+
+.latex-container {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  align-items: center;
+  overflow-x: auto;
+}

@@ -41,13 +41,17 @@ KAQI values are reported hourly from a rolling average of the pollutant defined 
 
 Based on the breakpoint values in the table above, a piecewise linear function is used to convert the concentration values to KAQI values. The function is defined as:
 
-<PiecewiseLatexDoc label="KAQI" />
+<div class="latex-container">
+  <PiecewiseLatexDoc label="KAQI" />
+</div>
 
 After all sub-indices for a station are computed, the maximum sub-index value is taken as the final KAQI value for a given station.
 
+<div class="latex-container">
 $$
 KAQI = {Max}(SI_{PM_{2.5}}, SI_{PM_{10}}, SI_{NO_{2}}, SI_{SO{2}}, SI_{O_{3}}, SI_{CO})
 $$
+</div>
 
 ## References
 

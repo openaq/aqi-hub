@@ -37,10 +37,13 @@ _Note_: Adapted from "Introduction to the CAI" (n.d.), [https://www.airkorea.or.
 
 The following piecewise linear function is used to calculate each pollutant sub-index:
 
-<PiecewiseLatexDoc label="CAI" />
+<div class="latex-container">
+  <PiecewiseLatexDoc label="CAI" />
+</div>
 
 PM<sub>2.5</sub> and PM<sub>10 </sub> use a 24-hour forecast moving average in CAI calculation. The 24-hour forecast is calculated using the following equation [^1] :
 
+<div class="latex-container">
 $$
 C_{24E} = \frac{(C_{12} \times 12 + C_{4} \times 12 )}{24}
 $$
@@ -57,8 +60,11 @@ $$
 C_{4} = \frac{( C_{ai} + C_{a(i-1)} + C_{a(i-2)} + C_{a(i-3)})}{4}
 $$
 
+</div>
+
 If the concentration for the interval is less than the defined threshold M then the concentration interval remains unadjusted; if not an adjusted value is used.
 
+<div class="latex-container">
 $$
 M =
 \begin{cases}
@@ -71,19 +77,25 @@ $$
 C_i ＜ M \Rightarrow C_{ai} = C_i
 $$
 
+</div>
+
 If the concentration at interval i is greater than or equal to the defined threshold value
 M, and the ratio of the concentration at interval i to the concentration at interval 12 is either less than 0.9 or greater than 1.7, then the adjusted concentration at interval i is equal to the concentration at interval i.
 
+<div class="latex-container">
 $$
 Ci \geq M, \frac{C_i}{C_{12}} ＜ 0.9~or~\frac{C_i}{C_{12}} ＞ 1.7 \Rightarrow C_{ai} = C_{i}
 $$
+</div>
 
 If the concentration at interval i is greater than or equal to the defined threshold value
 M, and the ratio of the concentration at interval i to the concentration at interval 12 is between 0.9 and 1.7 (inclusive), then the adjusted concentration at interval i is 75% of the concentration at interval i.
 
+<div class="latex-container">
 $$
 Ci \geq M, \frac{0.9 \leq C_{i}}{C_{12} \leq 1.7} \Rightarrow C_{ai} =0.75 \times C_{i}
 $$
+</div>
 
 <Admonition type="note">
   There are no restrictions included for the minimum number of pollutants needed

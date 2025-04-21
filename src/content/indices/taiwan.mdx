@@ -41,7 +41,9 @@ _Note_: Adapted from "Air Quality Index" (n.d.), [https://airtw.moenv.gov.tw/ENG
 
 The source material does not document specific sub-index calculation equations. However, through back-calculation of provided pollutant values on the MOENV Taiwan Air Quality Monitoring Network, it appears to follow the standard sub-index piecewise linear function:
 
-<PiecewiseLatexDoc label="AQI" />
+<div class="latex-container">
+  <PiecewiseLatexDoc label="AQI" />
+</div>
 
 ### Daily AQI
 
@@ -63,6 +65,7 @@ For PM<sub>2.5</sub> and PM<sub>10</sub>, the real-time concentrations are calcu
 
 0.5 _average of the first 12 hours + 0.5_ average of the first 4 hours.
 
+<div class="latex-container">
 $$
 C_{12} = \frac{\sum_{n=1}^{12} C_{n}}{12}
 $$
@@ -74,6 +77,8 @@ $$
 $$
 SI = 0.5 \times C_{12} + 0.5 \times C_{4}
 $$
+
+</div>
 
 6 out of the first 12-hour data entries and 2 out of the first 4-hour data entries are required for this equation to be valid. The moving average of PM<sub>2.5</sub> is rounded to one decimal place, while the moving average of PM<sub>10</sub> is rounded to the nearest integer. The rounding convention for the real-time concentration is not specified for either pollutant.
 

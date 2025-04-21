@@ -40,19 +40,25 @@ _Note_: Adapted from "חישוב מדד איכות האוויר" [https://air.sv
 
 Using the breakpoint values in the table above, a [piecewise linear function](/methods#piecewise-linear-function) is used to convert the concentration values to AQI values. The piecewise linear function is defined as:
 
-<PiecewiseLatexDoc label="AQI" />
+<div class="latex-container">
+  <PiecewiseLatexDoc label="AQI" />
+</div>
 
 After computing the AQI value for each measuremed pollutant, the maximum pollutant value it taken as the prevailing value.
 
+<div class="latex-container">
 $$
 {AQI{^\prime}} = {Max}({I}_{PM_{2.5}},{I}_{PM_{10}},{I}_{CO},{I}_{O_{3}},{I}_{SO_{2}},{I}_{NO_{2}},{I}_{NO_{x}})
 $$
+</div>
 
 The final Israel AQI value is then derived by substracting the previous AQI value from 100.
 
+<div class="latex-container">
 $$
 AQI = 100 - AQI{^\prime}
 $$
+</div>
 
 ## References
 

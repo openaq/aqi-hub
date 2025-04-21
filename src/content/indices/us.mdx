@@ -62,7 +62,9 @@ First, the highest pollutant concentrations over their allotted averaging period
 
 The following piecewise linear function is used to calculate the sub-index AQI values using each pollutant's breakpoint concentration:
 
-<PiecewiseLatexDoc label="AQI" />
+<div class="latex-container">
+  <PiecewiseLatexDoc label="AQI" />
+</div>
 
 The resulting value is rounded to the nearest integer. The maximum AQI for all the pollutants is reported as the daily AQI.
 
@@ -127,12 +129,17 @@ If the criterion is met and there is at least 1 hour of valid O<sub>3</sub> data
 
 If the criterion is not met and there is at least 1 hour of valid O<sub>3</sub> data within the past 3 hours, the Surrogate method is used as a secondary method to produce an O<sub>3</sub> NowCast value [^5]. This method uses the following simple linear equation:
 
+<div class="latex-container">
 $$
 y = 0.85x + 4.5 ppb
 $$
 
-- ${x} = Hourly O<sub>3</sub> Value$
-- ${y} = Resulting O<sub>3</sub> NowCast Value$
+$$
+-{x} = Hourly O_3 Value
+-{y} = Resulting O_3 NowCast Value
+$$
+
+</div>
 
 The Surrogate method is used as a secondary method used to produce an O<sub>3</sub> NowCast value. It has been derived from linear regression between concurrent 8-hour average and 1-hour O<sub>3</sub> concentrations using historical data from approximately 40 monitoring sites across major continental US cities[^5].
 
