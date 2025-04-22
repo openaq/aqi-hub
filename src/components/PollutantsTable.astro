@@ -14,49 +14,42 @@ const reshapedData = reshapeData(parsed);
 
     th,
     td {
-      padding: 0.3rem;
-      font-size: 12px;
+      padding: 0.2rem;
+      font-size: 0.7rem;
       text-align: center;
-      word-break: break-word;
     }
   }
 
   @media (max-width: 600px) {
     .pollutants-table {
-      .table-headings {
-        font-size: 10px;
-      }
-
       th,
       td {
         padding: 0.1rem;
-        font-size: 10px;
+        font-size: 0.6rem;
       }
     }
   }
 </style>
 
-<div class="pollutants-table__wrapper">
-  <table class="pollutants-table">
-    <thead>
-      <tr>
-        {
-          Object.keys(reshapedData[0]).map((key) => (
-            <th class="table-headings">{key === "country" ? "" : key}</th>
-          ))
-        }
-      </tr>
-    </thead>
-    <tbody>
+<table class="pollutants-table">
+  <thead>
+    <tr>
       {
-        reshapedData.map((row) => (
-          <tr>
-            {Object.entries(row).map(([key, value]) => (
-              <td>{key === "country" ? value : value ? "✅" : "❌"}</td>
-            ))}
-          </tr>
+        Object.keys(reshapedData[0]).map((key) => (
+          <th class="table-headings">{key === "country" ? "" : key}</th>
         ))
       }
-    </tbody>
-  </table>
-</div>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      reshapedData.map((row) => (
+        <tr>
+          {Object.entries(row).map(([key, value]) => (
+            <td>{key === "country" ? value : value ? "✅" : "❌"}</td>
+          ))}
+        </tr>
+      ))
+    }
+  </tbody>
+</table>

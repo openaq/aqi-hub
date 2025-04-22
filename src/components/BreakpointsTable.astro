@@ -53,7 +53,30 @@ const reshapedData = reshapeTableData(breakpoints);
 const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
 ---
 
-<table>
+<style lang="scss">
+  .breakpoints-table {
+    width: 100%;
+
+    th,
+    td {
+      padding: 0.2rem;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .breakpoints-table {
+      th,
+      td {
+        padding: 0.1rem;
+        font-size: 0.6rem;
+      }
+    }
+  }
+</style>
+
+<table class="breakpoints-table">
   <thead>
     <tr>
       <th>Pollutant</th>
