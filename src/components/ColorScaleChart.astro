@@ -3,9 +3,48 @@ import type { ColorScaleDefinition } from "src/types/types";
 import { getContrast } from "../utils/colors";
 
 const { colorScale } = Astro.props;
+
+const labelMap = new Map();
+
+for (const item of colorScale) {
+  if (labelMap.has(item.label)) {
+    labelMap.get(item.label).ranges.push(item.range);
+  } else {
+    labelMap.set(item.label, {
+      ranges: [item.range],
+
+      color: item.color,
+    });
+  }
+}
+
+const uniqueColorScaleLabels = [];
+
+for (const [label, { ranges, color }] of labelMap) {
+  uniqueColorScaleLabels.push({
+    label,
+
+    color,
+
+    range: ranges.join(", "),
+  });
+}
 ---
 
 <style lang="scss">
+  .color-scale__wrapper {
+    @media (min-width: 1200px) {
+      .color-scale__mobile {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1199px) {
+      .color-scale__desktop {
+        display: none;
+      }
+    }
+  }
   .color-scale {
     display: flex;
   }
@@ -23,20 +62,82 @@ const { colorScale } = Astro.props;
 
     p {
       margin: 0;
+      font-size: 0.85rem;
+    }
+  }
+
+  .color-scale__labels {
+    display: flex;
+
+    width: 100%;
+
+    ul {
+      padding-left: 0;
+    }
+
+    .label-color-box {
+      width: 10px;
+      height: 10px;
+    }
+
+    .list-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    li {
+      list-style: none;
     }
   }
 </style>
 
-<div class="color-scale">
-  {
-    colorScale.map((o: ColorScaleDefinition) => (
-      <div
-        class="color-scale__item"
-        style={`background-color: ${o.color}; color: ${getContrast(o.color)}`}
-      >
-        <p>{o.label}</p>
-        <p>{o.range}</p>
-      </div>
-    ))
-  }
+<div class="color-scale__wrapper">
+  <div class="color-scale__mobile">
+    <div class="color-scale">
+      {
+        colorScale.map((o: ColorScaleDefinition) => (
+          <div
+            class="color-scale__item"
+            style={`background-color: ${o.color}; color: ${getContrast(o.color)}`}
+          >
+            <p>{o.range}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="color-scale__labels">
+      <ul>
+        {
+          uniqueColorScaleLabels.map((o) => (
+            <li class="list-wrapper">
+              <div
+                class="label-color-box"
+                style={`background-color: ${o.color}`}
+              />
+
+              <span>{`${o.label}${o.range ? `: ${o.range}` : ""}`}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="color-scale__desktop">
+    <div class="color-scale">
+      {
+        colorScale.map((o: ColorScaleDefinition) => (
+          <div
+            class="color-scale__item"
+            style={`background-color: ${o.color}; color: ${getContrast(o.color)}`}
+          >
+            <p>{o.label}</p>
+            <p>{o.range}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </div>
