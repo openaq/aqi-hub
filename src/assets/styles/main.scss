@@ -62,10 +62,10 @@ main {
   overflow-wrap: break-word;
 
   @media (min-width: 500px) {
-    padding: 80px 40px 0 20px;
+    padding: 80px 0 0 30px;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 801px) {
     padding: 80px 40px 0 280px;
   }
 
