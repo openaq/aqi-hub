@@ -59,18 +59,29 @@ const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
 
     th,
     td {
-      padding: 0.2rem;
-      font-size: 0.8rem;
-      text-align: center;
+      padding: 0.1rem;
+      font-size: 0.6rem;
     }
   }
 
-  @media (max-width: 600px) {
+  @media (min-width: 600px) {
     .breakpoints-table {
       th,
       td {
-        padding: 0.1rem;
-        font-size: 0.6rem;
+        padding: 0.2rem;
+        font-size: 0.7rem;
+        text-align: center;
+      }
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .breakpoints-table {
+      th,
+      td {
+        padding: 0.4rem;
+        font-size: 0.9rem;
+        text-align: center;
       }
     }
   }
