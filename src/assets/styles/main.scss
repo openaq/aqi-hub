@@ -148,8 +148,26 @@ h3 {
   }
 }
 
-.hk-icon {
-  width: 90px;
+.hk-icon__wrapper {
+  display: flex;
+
+  .hk-icon {
+    width: 4.3rem;
+  }
+
+  @media (min-width: 500px) {
+    margin: 0 auto;
+
+    .hk-icon {
+      width: 4.8rem;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .hk-icon {
+      width: 6.2rem;
+    }
+  }
 }
 
 @media (max-width: 800px) {

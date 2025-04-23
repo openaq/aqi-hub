@@ -18,6 +18,7 @@ The PSI was originally established by the National Environment Agency (NEA) in 2
 The Singapore PSI scale ranges from 0-500 and uses five colors to represent different bands:
 
 {" "}
+
 <ColorScale index="singapore" value={false} />
 
 _Note_: Adapted from "Air Pollution - FAQs" (n.d.), [http://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs](https://www.nea.gov.sg/our-services/pollution-control/air-pollution/faqs)[^2]. Accessed 20 July 2024.
@@ -38,7 +39,9 @@ _Note_: Adapted from "Computation of the Pollutant Standards Index (PSI)" (Mar. 
 
 Based on the breakpoint values in the table above, a [piecewise linear function](/methods#piecewise-linear-function) is used to convert the concentration values to PSI values. No specific guidance on rounding or truncating values before applying the concentrations to the linear function are in the source material. The function is defined as:
 
-<PiecewiseLatexDoc label="PSI" />
+<div class="latex-container">
+  <PiecewiseLatexDoc label="PSI" />
+</div>
 
 After computing all pollutant sub-index values, the maximum sub-index is chosen and determines the final PSI value. There is no guidance on the minimum number of pollutants required to compute a composite PSI value.
 
