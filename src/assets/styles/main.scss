@@ -204,3 +204,14 @@ h3 {
   font-size: clamp(0.8rem, 2vw, 1rem);
   align-items: center;
 }
+
+#footnote-label {
+  visibility: hidden;
+  font-size: 0;
+}
+
+.footnotes {
+  ol {
+    padding-left: 20px;
+  }
+}
