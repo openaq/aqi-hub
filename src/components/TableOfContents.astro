@@ -26,7 +26,7 @@ const { contentSelector } = Astro.props;
 
     &__list {
       list-style: none;
-      padding-left: 10px;
+      padding-left: 8px;
 
       .toc-anchor-item {
         box-sizing: border-box;
@@ -87,9 +87,7 @@ const { contentSelector } = Astro.props;
       if (!heading) {
         continue;
       }
-      if (heading.id === "footnote-label") {
-        continue;
-      }
+
       const li = document.createElement("li");
 
       if (heading.tagName === "H3") {
