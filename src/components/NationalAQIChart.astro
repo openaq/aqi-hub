@@ -64,16 +64,22 @@ const bars = pm2524hr.map((d: IndexDefinition) => {
 ---
 
 <style lang="scss">
-  text {
-    font-size: 1rem;
-  }
+  .national-aqi-chart {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
 
-  .labels {
-    font-weight: 600;
+    text {
+      font-size: 1rem;
+    }
+
+    .labels {
+      font-weight: 600;
+    }
   }
 </style>
 
-<svg viewBox={`0 0 ${width} ${height}`} width="100%" height="auto">
+<svg viewBox={`0 0 ${width} ${height}`} class="national-aqi-chart">
   {
     bars.map((bar: Bar) => (
       <rect

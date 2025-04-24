@@ -69,7 +69,27 @@ const yScale = d3
   .range([height - margin.bottom, margin.top]);
 ---
 
-<svg viewBox={`0 0 ${width} ${height}`} width="100%" height="auto">
+<style lang="scss">
+  .piecewise-chart {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+
+    text {
+      font-size: 1rem;
+
+      @media (min-width: 1000px) {
+        font-size: 0.8rem;
+      }
+    }
+
+    .labels {
+      font-weight: 600;
+    }
+  }
+</style>
+
+<svg class="piecewise-chart" viewBox={`0 0 ${width} ${height}`}>
   <path
     d={d3
       .line<number>()
@@ -83,7 +103,7 @@ const yScale = d3
     breakpoints.map((point, i) => (
       <g transform={`translate(${xScale(point.x)}, ${yScale(point.y)})`}>
         <circle r="4" fill="black" />
-        <text dx={6} dy={6} text-anchor="start" font-size="0.8rem">
+        <text dx={6} dy={6} text-anchor="start">
           {`${point.x}, ${point.y}`}
         </text>
       </g>
@@ -113,15 +133,15 @@ const yScale = d3
   }
 
   <text
+    class="labels"
     x={margin.left - 45}
     y={height - 430}
     text-anchor="start"
-    font-size="1rem"
   >
     ↑ AQI
   </text>
 
-  <text x={width - 0} y={height - 4} text-anchor="end" font-size="1rem">
+  <text class="labels" x={width - 0} y={height - 4} text-anchor="end">
     PM2.5 concentration →
   </text>
 </svg>
