@@ -16,6 +16,10 @@ const { contentSelector } = Astro.props;
     z-index: 10;
     border-left: 1px solid #d4d8dc;
 
+    .h3-indented {
+      margin-left: 8px;
+    }
+
     @media (max-width: 900px) {
       display: none;
     }
@@ -46,7 +50,7 @@ const { contentSelector } = Astro.props;
 </aside>
 
 <script define:vars={{ contentSelector }}>
-  const headings = document.querySelectorAll("h1[id], h2[id]");
+  const headings = document.querySelectorAll("h1[id], h2[id], h3[id]");
 
   const checkAnchorInViewport = () => {
     let currentHeading = null;
@@ -74,40 +78,24 @@ const { contentSelector } = Astro.props;
     });
   };
 
-  // const elementIsInViewport = (elem) => {
-  //   var rect = elem.getBoundingClientRect();
-  //   return (
-  //     rect.top >= 0 && rect.top <= window.innerHeight * 0.3 && rect.bottom >= 0
-  //   );
-  // };
-
-  // function checkAnchorInViewport(anchorLinks) {
-  //   anchorLinks.forEach((elem) => {
-  //     if (elementIsInViewport(elem)) {
-  //       const existingElems = document.querySelectorAll(
-  //         ".toc-anchor-item--active"
-  //       );
-  //       for (const el of existingElems) {
-  //         el.classList.remove("toc-anchor-item--active");
-  //       }
-  //       const li = document.querySelector(
-  //         `[data-href-value="${elem.getAttribute("href")}"]`
-  //       );
-  //       li.classList.add("toc-anchor-item--active");
-  //     }
-  //   });
-  // }
-
   document.addEventListener("DOMContentLoaded", () => {
     const content = document.querySelector(contentSelector);
     const anchorLinks = content.querySelectorAll(".anchor-link");
     const tocList = document.querySelector(".toc > .toc__list");
     for (const anchorLink of anchorLinks) {
-      const heading = anchorLink.closest("h1, h2");
-      if (!heading) continue;
-      if (heading.id === "footnote-label") continue;
-
+      const heading = anchorLink.closest("h1, h2, h3");
+      if (!heading) {
+        continue;
+      }
+      if (heading.id === "footnote-label") {
+        continue;
+      }
       const li = document.createElement("li");
+
+      if (heading.tagName === "H3") {
+        li.classList.add("h3-indented");
+      }
+
       li.classList.add("toc-anchor-item");
       li.setAttribute("data-href-value", anchorLink.getAttribute("href"));
       li.innerText = anchorLink.innerText;
