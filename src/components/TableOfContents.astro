@@ -46,29 +46,57 @@ const { contentSelector } = Astro.props;
 </aside>
 
 <script define:vars={{ contentSelector }}>
-  const elementIsInViewport = (elem) => {
-    var rect = elem.getBoundingClientRect();
-    return (
-      rect.top >= 0 && rect.top <= window.innerHeight * 0.3 && rect.bottom >= 0
-    );
-  };
+  const headings = document.querySelectorAll("h1[id], h2[id]");
 
-  function checkAnchorInViewport(anchorLinks) {
-    anchorLinks.forEach((elem) => {
-      if (elementIsInViewport(elem)) {
-        const existingElems = document.querySelectorAll(
-          ".toc-anchor-item--active"
-        );
-        for (const el of existingElems) {
+  const checkAnchorInViewport = () => {
+    let currentHeading = null;
+
+    headings.forEach((heading) => {
+      const top = heading.offsetTop;
+      if (window.scrollY >= top - 200) {
+        currentHeading = heading;
+      }
+
+      if (currentHeading) {
+        const id = currentHeading.getAttribute("id");
+        document.querySelectorAll(".toc-anchor-item").forEach((el) => {
           el.classList.remove("toc-anchor-item--active");
-        }
-        const li = document.querySelector(
-          `[data-href-value="${elem.getAttribute("href")}"]`
+        });
+
+        const activeLink = document.querySelector(
+          `.toc__list li[data-href-value="#${id}"]`
         );
-        li.classList.add("toc-anchor-item--active");
+
+        if (activeLink) {
+          activeLink.classList.add("toc-anchor-item--active");
+        }
       }
     });
-  }
+  };
+
+  // const elementIsInViewport = (elem) => {
+  //   var rect = elem.getBoundingClientRect();
+  //   return (
+  //     rect.top >= 0 && rect.top <= window.innerHeight * 0.3 && rect.bottom >= 0
+  //   );
+  // };
+
+  // function checkAnchorInViewport(anchorLinks) {
+  //   anchorLinks.forEach((elem) => {
+  //     if (elementIsInViewport(elem)) {
+  //       const existingElems = document.querySelectorAll(
+  //         ".toc-anchor-item--active"
+  //       );
+  //       for (const el of existingElems) {
+  //         el.classList.remove("toc-anchor-item--active");
+  //       }
+  //       const li = document.querySelector(
+  //         `[data-href-value="${elem.getAttribute("href")}"]`
+  //       );
+  //       li.classList.add("toc-anchor-item--active");
+  //     }
+  //   });
+  // }
 
   document.addEventListener("DOMContentLoaded", () => {
     const content = document.querySelector(contentSelector);
@@ -85,6 +113,7 @@ const { contentSelector } = Astro.props;
       li.innerText = anchorLink.innerText;
       li.addEventListener("click", () => {
         anchorLink.scrollIntoView({ behavior: "smooth" });
+
         setTimeout(() => {
           document
             .querySelectorAll(".toc-anchor-item--active")
@@ -96,10 +125,7 @@ const { contentSelector } = Astro.props;
       });
       tocList.appendChild(li);
     }
-    checkAnchorInViewport(anchorLinks);
 
-    document.addEventListener("scroll", () => {
-      checkAnchorInViewport(anchorLinks);
-    });
+    window.addEventListener("scroll", checkAnchorInViewport);
   });
 </script>
