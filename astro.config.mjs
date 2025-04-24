@@ -6,6 +6,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import mdx from "@astrojs/mdx";
 import rehypeExternalLinks from "rehype-external-links";
+import { remarkModifiedTime } from "./remark-modified-time.mjs";
 
 import solidJs from "@astrojs/solid-js";
 
@@ -13,7 +14,7 @@ import solidJs from "@astrojs/solid-js";
 export default defineConfig({
   markdown: {
     syntaxHighlight: "prism",
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkMath, remarkModifiedTime],
     rehypePlugins: [
       rehypeKatex,
       [
