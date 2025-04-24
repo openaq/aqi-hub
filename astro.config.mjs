@@ -7,6 +7,8 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import mdx from "@astrojs/mdx";
 import rehypeExternalLinks from "rehype-external-links";
 
+import solidJs from "@astrojs/solid-js";
+
 // https://astro.build/config
 export default defineConfig({
   markdown: {
@@ -34,6 +36,6 @@ export default defineConfig({
     ],
   },
 
-  integrations: [mdx()],
+  integrations: [mdx(), solidJs()],
   site: "http://localhost:4321",
 });
