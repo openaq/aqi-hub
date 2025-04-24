@@ -8,24 +8,23 @@ const labelMap = new Map();
 
 for (const item of colorScale) {
   if (labelMap.has(item.label)) {
-    labelMap.get(item.label).ranges.push(item.range);
+    const labelEntry = labelMap.get(item.label);
+    labelEntry.ranges.push(item.range);
+    labelEntry.colors.push(item.color);
   } else {
     labelMap.set(item.label, {
       ranges: [item.range],
-
-      color: item.color,
+      colors: [item.color],
     });
   }
 }
 
 const uniqueColorScaleLabels = [];
 
-for (const [label, { ranges, color }] of labelMap) {
+for (const [label, { ranges, colors }] of labelMap) {
   uniqueColorScaleLabels.push({
     label,
-
-    color,
-
+    colors,
     range: ranges.join(", "),
   });
 }
@@ -116,11 +115,12 @@ for (const [label, { ranges, color }] of labelMap) {
         {
           uniqueColorScaleLabels.map((o) => (
             <li class="list-wrapper">
-              <div
-                class="label-color-box"
-                style={`background-color: ${o.color}`}
-              />
-
+              {o.colors.map((color: ColorScaleDefinition) => (
+                <div
+                  class="label-color-box"
+                  style={`background-color: ${color}`}
+                />
+              ))}
               <span>{`${o.label}${o.range ? `: ${o.range}` : ""}`}</span>
             </li>
           ))
