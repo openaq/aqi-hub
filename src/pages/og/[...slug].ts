@@ -1,11 +1,10 @@
 import { OGImageRoute } from "astro-og-canvas";
 import { getCollection } from "astro:content";
-// import AQIHubIcon from "@assets/imgs/svgs/AQIHub.svg";
 
-const test = await getCollection("pages");
-const indices = await getCollection("indices");
+const pagesCollection = await getCollection("pages");
+const indicesCollection = await getCollection("indices");
 
-const pagesContent = test.map((o) => {
+const pagesContent = pagesCollection.map((o) => {
   return {
     id: o.id,
     title: o.data.title,
@@ -13,7 +12,7 @@ const pagesContent = test.map((o) => {
   };
 });
 
-const indicesContent = indices.map((index) => {
+const indicesContent = indicesCollection.map((index) => {
   return {
     id: index.id,
     title: index.data.name,
@@ -32,8 +31,6 @@ export const { getStaticPaths, GET } = OGImageRoute({
   param: "slug",
 
   getImageOptions: (_path, page: (typeof pages)[number]) => {
-    console.log("page:", page);
-
     return {
       title: page.title,
       description: page.description,
