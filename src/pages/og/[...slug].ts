@@ -16,7 +16,7 @@ const indicesContent = indicesCollection.map((index) => {
   return {
     id: index.id,
     title: index.data.name,
-    description: "",
+    description: index.data.indexName,
   };
 });
 
@@ -27,23 +27,41 @@ const pages = Object.fromEntries(
 );
 
 export const { getStaticPaths, GET } = OGImageRoute({
-  pages,
   param: "slug",
+  pages,
 
-  getImageOptions: (_path, page: (typeof pages)[number]) => {
+  getImageOptions: (_path, page) => {
     return {
       title: page.title,
       description: page.description,
       bgGradient: [
-        [51, 163, 161],
-        [203, 232, 202],
+        [250, 250, 250],
+        [250, 250, 250],
       ],
-      //   logo: {
-      //     path: "./src/assets/imgs/aqi-hub.png",
-      //     size: [100],
-      //   },
-      border: { color: [51, 163, 161], width: 40 },
-      padding: 40,
+      layout: "horizontal",
+      bgImage: {
+        path: "src/assets/imgs/aqi-hub.png",
+        position: "start",
+        fit: "contain",
+        size: [450],
+      },
+
+      fonts: ["src/assets/fonts/SpaceGrotesk-Medium.ttf"],
+      font: {
+        title: {
+          color: [0, 0, 0],
+          size: 44,
+          families: ["Space Grotesk"],
+          position: "start",
+          offsetX: 40,
+        },
+        description: {
+          color: [0, 0, 0],
+          size: 26,
+          families: ["Space Grotesk"],
+          position: "start",
+        },
+      },
     };
   },
 });
