@@ -16,7 +16,7 @@ const indicesContent = indicesCollection.map((index) => {
   return {
     id: index.id,
     title: index.data.name,
-    description: index.data.indexName,
+    description: `${index.data.indexName}`,
   };
 });
 
@@ -38,13 +38,16 @@ export const { getStaticPaths, GET } = OGImageRoute({
         [250, 250, 250],
         [250, 250, 250],
       ],
-      layout: "horizontal",
+      layout: "none",
       bgImage: {
         path: "src/assets/imgs/aqi-hub.png",
-        position: "start",
+        position: "end",
         fit: "contain",
         size: [450],
+        maxWidth: 100,
       },
+
+      padding: 100,
 
       fonts: ["src/assets/fonts/SpaceGrotesk-Medium.ttf"],
       font: {
@@ -52,14 +55,13 @@ export const { getStaticPaths, GET } = OGImageRoute({
           color: [0, 0, 0],
           size: 44,
           families: ["Space Grotesk"],
-          position: "start",
-          offsetX: 40,
+          lineHeight: 1.3,
         },
         description: {
           color: [0, 0, 0],
           size: 26,
           families: ["Space Grotesk"],
-          position: "start",
+          lineHeight: 1.3,
         },
       },
     };
