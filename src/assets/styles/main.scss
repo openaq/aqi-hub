@@ -265,7 +265,6 @@ h3 {
   }
 
   .color-box {
-    margin-left: 10px;
     width: 15px;
     height: 15px;
   }
@@ -273,4 +272,10 @@ h3 {
 
 .calculation-wrapper {
   display: flex;
+  align-items: center;
+  gap: 10px;
+
+  input {
+    max-height: 20px;
+  }
 }
