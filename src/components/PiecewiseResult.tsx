@@ -16,7 +16,7 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
 
   return (
     <>
-      <PiecewiseCalculator pollutant="PM2.5" data={filteredData} />
+      <PiecewiseCalculator pollutant={props.pollutant} data={filteredData} />
     </>
   );
 };

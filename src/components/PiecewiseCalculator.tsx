@@ -61,10 +61,12 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   return (
     <>
       <Show when={props.pollutant === "PM2.5"}>
+        <label>{props.pollutant}</label>
         <input type="number" value={valuePm25()} onInput={handlePm25Input} />
         <p>Result: {pm25Result()}</p>
       </Show>
       <Show when={props.pollutant === "PM10"}>
+        <label>{props.pollutant}</label>
         <input type="number" value={valuePm10()} onInput={handlePm10Input} />
         <p>Result: {pm10Result()}</p>
       </Show>
