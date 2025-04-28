@@ -254,3 +254,18 @@ h3 {
     }
   }
 }
+
+.result-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  p {
+    margin: 0;
+  }
+
+  .color-box {
+    width: 15px;
+    height: 15px;
+  }
+}
