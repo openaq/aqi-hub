@@ -1,6 +1,7 @@
 import { createSignal, Show } from "solid-js";
 import type { IndexDefinition } from "src/types/types";
 import { piecewiseFunction } from "src/utils/piecewiseFunction";
+import { piecewiseFunctionWithNumbers } from "src/utils/piecewiseNumberFunction";
 
 interface PiecewiseCalculatorDefinition {
   pollutant: string;
@@ -15,12 +16,13 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [pm25Result, setPm25Result] = createSignal(0);
   const [pm10Result, setPm10Result] = createSignal(0);
   const [hexCode, setHexCode] = createSignal("");
+  const [numberCalculation, setNumberCalculation] = createSignal("");
 
   const calculate = (pollutant: "PM2.5" | "PM10", value: number) => {
-    const indexValue = props.data.find(
-      (o: IndexDefinition) =>
-        value >= o.concentrationLower && value <= o.concentrationUpper
-    );
+    const indexValue = props.data.find((o: IndexDefinition) => {
+      const concentrationUpper = o.concentrationUpper ?? 500;
+      return value >= o.concentrationLower && value <= concentrationUpper;
+    });
     if (!indexValue) {
       return;
     }
@@ -36,6 +38,16 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       ((indexHigh - indexLow) / (breakpointHigh - breakpointLow)) *
         (value - breakpointLow) +
       indexLow;
+
+    const parameters = {
+      IHI: indexHigh,
+      ILO: indexLow,
+      BPHI: breakpointHigh,
+      BPLO: breakpointLow,
+      CP: value,
+    };
+
+    setNumberCalculation(piecewiseFunctionWithNumbers("AQI", parameters));
 
     setHexCode(indexValue.hex);
 
@@ -63,17 +75,37 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       <Show when={props.pollutant === "PM2.5"}>
         <label>{props.pollutant}</label>
         <input type="number" value={valuePm25()} onInput={handlePm25Input} />
-        <p>Result: {pm25Result()}</p>
+        <div class="calculation-wrapper">
+          <div innerHTML={numberCalculation()}></div>
+          <Show when={!numberCalculation()}>
+            <div innerHTML={latexForumula}></div>
+          </Show>
+          <p>= {pm25Result()}</p>
+          <div class="result-wrapper">
+            <div
+              class="color-box"
+              style={{ "background-color": hexCode() }}
+            ></div>
+          </div>
+        </div>
       </Show>
       <Show when={props.pollutant === "PM10"}>
         <label>{props.pollutant}</label>
         <input type="number" value={valuePm10()} onInput={handlePm10Input} />
-        <p>Result: {pm10Result()}</p>
+        <div class="calculation-wrapper">
+          <div innerHTML={numberCalculation()}></div>
+          <Show when={!numberCalculation()}>
+            <div innerHTML={latexForumula}></div>
+          </Show>
+          <p>= {pm10Result()}</p>
+          <div class="result-wrapper">
+            <div
+              class="color-box"
+              style={{ "background-color": hexCode() }}
+            ></div>
+          </div>
+        </div>
       </Show>
-      <div class="result-wrapper">
-        <div class="color-box" style={{ "background-color": hexCode() }}></div>
-      </div>
-      <div innerHTML={latexForumula}></div>
     </>
   );
 };

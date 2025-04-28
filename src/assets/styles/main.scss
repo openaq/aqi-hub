@@ -265,7 +265,12 @@ h3 {
   }
 
   .color-box {
+    margin-left: 10px;
     width: 15px;
     height: 15px;
   }
+}
+
+.calculation-wrapper {
+  display: flex;
 }
