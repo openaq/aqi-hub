@@ -1,10 +1,14 @@
 import type { IndexDefinition } from "src/types/types";
 import PiecewiseCalculator from "./PiecewiseCalculator";
-import { createSignal } from "solid-js";
+import { createSignal, For } from "solid-js";
 
 interface PiecewiseResultDefinition {
-  pollutant: string;
   index: string;
+}
+
+interface PollutantData {
+  pollutant: string;
+  data: IndexDefinition[];
 }
 
 const filterPollutantData = async (index: string) => {
@@ -15,16 +19,29 @@ const filterPollutantData = async (index: string) => {
 };
 
 const PiecewiseResult = (props: PiecewiseResultDefinition) => {
-  const [filteredData, setFilteredData] = createSignal<IndexDefinition[]>([]);
+  const [pollutants, setPollutants] = createSignal<PollutantData[]>([]);
 
   filterPollutantData(props.index).then((data) => {
-    const filtered = data.filter((o) => o.pollutant === props.pollutant);
-    setFilteredData(filtered);
+    const uniquePollutants = [...new Set(data.map((o) => o.pollutant))];
+
+    const groupedPollutants = uniquePollutants.map((pollutant) => ({
+      pollutant,
+      data: data.filter((o) => o.pollutant === pollutant),
+    }));
+
+    setPollutants(groupedPollutants);
   });
 
   return (
     <>
-      <PiecewiseCalculator pollutant={props.pollutant} data={filteredData()} />
+      <For each={pollutants()}>
+        {(pollutantCategory) => (
+          <PiecewiseCalculator
+            pollutant={pollutantCategory.pollutant}
+            data={pollutantCategory.data}
+          />
+        )}
+      </For>
     </>
   );
 };
