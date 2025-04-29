@@ -255,29 +255,95 @@ h3 {
   }
 }
 
-.result-wrapper {
-  display: flex;
+.calculation-wrapper {
   align-items: center;
-  gap: 5px;
+  border-bottom: 1px solid variables.$smoke180;
 
-  p {
-    margin: 0;
+  .input-wrapper {
+    margin-top: 10px;
+
+    input {
+      margin-left: 10px;
+      max-height: 20px;
+      max-width: 70px;
+    }
   }
 
-  .color-box {
-    width: 15px;
-    height: 15px;
+  .formula-wrapper,
+  .input-wrapper {
+    display: flex;
+  }
+
+  .result-text {
+    padding-left: 10px;
+  }
+
+  .out-of-range-text {
+    padding-left: 20px;
+  }
+
+  .color-box-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    p {
+      margin: 0;
+    }
+
+    .color-box {
+      margin-left: 10px;
+      width: 15px;
+      height: 15px;
+    }
   }
 }
 
-.calculation-wrapper {
-  display: grid;
-  grid-template-columns: 100px 50px 360px 60px 140px;
-  align-items: center;
-  gap: 15px;
-  border-bottom: 1px solid variables.$smoke180;
+@media (max-width: 650px) {
+  .calculation-wrapper {
+    padding-bottom: 20px;
+  }
+  .formula-wrapper {
+    display: flex;
+    flex-direction: column;
 
-  input {
-    max-height: 20px;
+    .result-wrapper {
+      display: flex;
+      flex-direction: row;
+
+      .result-text {
+        padding-left: 0;
+      }
+
+      .result-text,
+      .out-of-range-text,
+      .color-box-wrapper {
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+      .color-box {
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+  .calculation-wrapper {
+    display: grid;
+    grid-template-columns: 250px 600px;
+    gap: 15px;
+
+    .formula-wrapper,
+    .input-wrapper {
+      align-items: center;
+    }
+
+    label {
+      width: 130px;
+    }
   }
 }

@@ -73,29 +73,37 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   return (
     <>
       <section class="calculation-wrapper">
-        <label>
-          {props.pollutant}, {timePeriod()} hrs
-        </label>
-        <input type="number" min="0" value={value()} onInput={handleInput} />
-        <Show
-          when={!numberCalculation() || value() <= 0 || result() === 0}
-          fallback={<div innerHTML={numberCalculation()}></div>}
-        >
-          <div innerHTML={latexFormula()}></div>
-        </Show>
-        <p>= {result()}</p>
-        <Show when={!outOfRange || result() > 0}>
-          <div class="result-wrapper">
-            <div
-              class="color-box"
-              style={{ "background-color": hexCode() }}
-            ></div>
+        <div class="input-wrapper">
+          <label>
+            {props.pollutant}, {timePeriod()} hrs
+          </label>
+          <input type="number" min="0" value={value()} onInput={handleInput} />
+        </div>
+        <div class="formula-wrapper">
+          <div class="formula-container">
+            <Show
+              when={!numberCalculation() || value() <= 0 || result() === 0}
+              fallback={<div innerHTML={numberCalculation()}></div>}
+            >
+              <div innerHTML={latexFormula()}></div>
+            </Show>
           </div>
-        </Show>
+          <div class="result-wrapper">
+            <p class="result-text">= {result()}</p>
+            <Show when={!outOfRange || result() > 0}>
+              <div class="color-box-wrapper">
+                <div
+                  class="color-box"
+                  style={{ "background-color": hexCode() }}
+                ></div>
+              </div>
+            </Show>
 
-        <Show when={outOfRange()}>
-          <p>Value too high</p>
-        </Show>
+            <Show when={outOfRange()}>
+              <p class="out-of-range-text">Value too high</p>
+            </Show>
+          </div>
+        </div>
       </section>
     </>
   );
