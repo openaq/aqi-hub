@@ -6,9 +6,8 @@ import { piecewiseFunctionWithNumbers } from "src/utils/piecewiseNumberFunction"
 interface PiecewiseCalculatorDefinition {
   pollutant: string;
   data: IndexDefinition[];
+  acronym: string;
 }
-
-const latexForumula = piecewiseFunction("AQI");
 
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [value, setValue] = createSignal(0);
@@ -16,12 +15,13 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
 
   const [hexCode, setHexCode] = createSignal("");
   const [numberCalculation, setNumberCalculation] = createSignal("");
+  const [latexFormula, setLatexFormula] = createSignal("");
 
   const calculate = (value: number) => {
     const indexValue = props.data.find((o: IndexDefinition) => {
-      const concentrationUpper = o.concentrationUpper ?? 500;
-      return value >= o.concentrationLower && value <= concentrationUpper;
+      return value >= o.concentrationLower && value <= o.concentrationUpper;
     });
+
     if (!indexValue) {
       return;
     }
@@ -46,8 +46,10 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       CP: value,
     };
 
-    setNumberCalculation(piecewiseFunctionWithNumbers("AQI", parameters));
-
+    setNumberCalculation(
+      piecewiseFunctionWithNumbers(props.acronym, parameters)
+    );
+    setLatexFormula(piecewiseFunction(props.acronym));
     setHexCode(indexValue.hex);
     setResult(Math.round(result));
   };
@@ -58,16 +60,18 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     calculate(newValue);
   };
 
+  calculate(value());
+
   return (
     <>
-      <div class="calculation-wrapper">
+      <section class="calculation-wrapper">
         <label>{props.pollutant}</label>
         <input type="number" value={value()} onInput={handleInput} />
         <Show
           when={!numberCalculation() || value() <= 0}
           fallback={<div innerHTML={numberCalculation()}></div>}
         >
-          <div innerHTML={latexForumula}></div>
+          <div innerHTML={latexFormula()}></div>
         </Show>
         <p>= {result()}</p>
         <div class="result-wrapper">
@@ -76,7 +80,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             style={{ "background-color": hexCode() }}
           ></div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

@@ -4,6 +4,7 @@ import { createSignal, For } from "solid-js";
 
 interface PiecewiseResultDefinition {
   index: string;
+  acronym: string;
 }
 
 interface PollutantData {
@@ -39,6 +40,7 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
           <PiecewiseCalculator
             pollutant={pollutantCategory.pollutant}
             data={pollutantCategory.data}
+            acronym={props.acronym}
           />
         )}
       </For>
