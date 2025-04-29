@@ -16,6 +16,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [hexCode, setHexCode] = createSignal("");
   const [numberCalculation, setNumberCalculation] = createSignal("");
   const [latexFormula, setLatexFormula] = createSignal("");
+  const [timePeriod, setTimePeriod] = createSignal(0);
+  const [outOfRange, setOutOfRange] = createSignal(false);
 
   const calculate = (value: number) => {
     const indexValue = props.data.find((o: IndexDefinition) => {
@@ -23,8 +25,12 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     });
 
     if (!indexValue) {
+      setOutOfRange(true);
+      setResult(0);
       return;
     }
+
+    setOutOfRange(false);
 
     const {
       categoryUpper: indexHigh,
@@ -32,6 +38,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       concentrationLower: breakpointLow,
       concentrationUpper: breakpointHigh,
     } = indexValue;
+
+    setTimePeriod(indexValue.averagingPeriod);
 
     const result =
       ((indexHigh - indexLow) / (breakpointHigh - breakpointLow)) *
@@ -65,21 +73,29 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   return (
     <>
       <section class="calculation-wrapper">
-        <label>{props.pollutant}</label>
-        <input type="number" value={value()} onInput={handleInput} />
+        <label>
+          {props.pollutant}, {timePeriod()} hrs
+        </label>
+        <input type="number" min="0" value={value()} onInput={handleInput} />
         <Show
-          when={!numberCalculation() || value() <= 0}
+          when={!numberCalculation() || value() <= 0 || result() === 0}
           fallback={<div innerHTML={numberCalculation()}></div>}
         >
           <div innerHTML={latexFormula()}></div>
         </Show>
         <p>= {result()}</p>
-        <div class="result-wrapper">
-          <div
-            class="color-box"
-            style={{ "background-color": hexCode() }}
-          ></div>
-        </div>
+        <Show when={!outOfRange || result() > 0}>
+          <div class="result-wrapper">
+            <div
+              class="color-box"
+              style={{ "background-color": hexCode() }}
+            ></div>
+          </div>
+        </Show>
+
+        <Show when={outOfRange()}>
+          <p>Value too high</p>
+        </Show>
       </section>
     </>
   );
