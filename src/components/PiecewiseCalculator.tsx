@@ -21,7 +21,10 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
 
   const calculate = (value: number) => {
     const indexValue = props.data.find((o: IndexDefinition) => {
-      return value >= o.concentrationLower && value <= o.concentrationUpper;
+      const concentrationUpper = o.concentrationUpper
+        ? Number(o.concentrationUpper)
+        : 500;
+      return value >= o.concentrationLower && value <= concentrationUpper;
     });
 
     if (!indexValue) {
