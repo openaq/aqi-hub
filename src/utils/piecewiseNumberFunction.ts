@@ -1,15 +1,12 @@
 import katex from "katex";
 
-export const piecewiseFunctionWithNumbers = (
-  label: string,
-  numbers: {
-    IHI: number;
-    ILO: number;
-    BPHI: number;
-    BPLO: number;
-    CP: number;
-  }
-) => {
+export const piecewiseFunctionWithNumbers = (numbers: {
+  IHI: number;
+  ILO: number;
+  BPHI: number;
+  BPLO: number;
+  CP: number;
+}) => {
   const render = (mathExpr: string) =>
     katex.renderToString(mathExpr, { throwOnError: false });
 

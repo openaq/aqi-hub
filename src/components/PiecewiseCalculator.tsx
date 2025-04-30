@@ -57,10 +57,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       CP: value,
     };
 
-    setNumberCalculation(
-      piecewiseFunctionWithNumbers(props.acronym, parameters)
-    );
-    setLatexFormula(piecewiseFunction(props.acronym));
+    setNumberCalculation(piecewiseFunctionWithNumbers(parameters));
+    setLatexFormula(piecewiseFunction());
     setHexCode(indexValue.hex);
     setResult(Math.round(result));
   };
@@ -76,6 +74,11 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   return (
     <>
       <section class="calculation-wrapper">
+        <div class="input-headers">
+          <p>Value</p>
+          <p>Pollutant</p>
+          <p>Averaging time period</p>
+        </div>
         <div class="input-wrapper">
           <input type="number" min="0" value={value()} onInput={handleInput} />
         </div>
