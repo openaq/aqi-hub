@@ -255,30 +255,15 @@ h3 {
   }
 }
 
-// .calculation-wrapper {
-//   display: grid;
-//   grid-template-columns: 50px 50px 50px 160px 40px;
-//   gap: 10px;
-//   border-bottom: 1px solid variables.$smoke180;
-//   padding-bottom: 20px;
-//   align-items: center;
-
-//   .formula-wrapper {
-//     display: flex;
-//     flex-direction: column;
-//   }
-
-//   .
-
-//     .result-text {
-//       padding-left: 0;
-//     }
-
 .calculation-wrapper {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid variables.$smoke180;
+  border-top: 1px solid variables.$smoke180;
   gap: 10px;
+}
+
+.input-headers {
+  display: none;
 }
 
 .result-wrapper {
@@ -310,8 +295,8 @@ h3 {
 
   .color-box {
     margin-left: 10px;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -320,21 +305,58 @@ h3 {
   margin: 0;
 }
 
-@media (min-width: 900px) {
+@media (max-width: 560px) {
   .calculation-wrapper {
     display: grid;
-    grid-template-columns: 50px 50px 50px 160px 40px;
-    gap: 10px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-inline: 20px;
 
-    p {
-      font-size: 10px;
+    .input-wrapper,
+    .pollutant-wrapper,
+    .time-period-wrapper {
+      grid-row: 1;
     }
 
     .input-wrapper {
+      max-width: 60px;
+      grid-column: 1;
       input {
-        max-height: 20px;
         max-width: 50px;
-        font-size: 10px;
+      }
+    }
+
+    .pollutant-wrapper {
+      grid-column: 2;
+    }
+
+    .time-period-wrapper {
+      grid-column: 3;
+    }
+
+    .formula-wrapper {
+      grid-row: 2;
+      grid-column: span 3;
+      i .result-wrapper {
+        grid-row: 3;
+      }
+
+      .result-text {
+        padding-left: 0;
+      }
+
+      .result-text,
+      .out-of-range-text,
+      .color-box-wrapper {
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+
+      .color-box {
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
       }
     }
   }
@@ -356,6 +378,26 @@ h3 {
         max-height: 20px;
         max-width: 50px;
         font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .calculation-wrapper {
+    display: grid;
+    grid-template-columns: 50px 50px 50px 160px 40px;
+    gap: 10px;
+
+    p {
+      font-size: 10px;
+    }
+
+    .input-wrapper {
+      input {
+        max-height: 20px;
+        max-width: 50px;
+        font-size: 10px;
       }
     }
   }
@@ -412,6 +454,7 @@ h3 {
   display: grid;
   grid-template-columns: 50px 50px 50px 160px 40px;
   gap: 10px;
+  margin-bottom: 10px;
 
   .header {
     font-size: 10px;
@@ -459,62 +502,6 @@ h3 {
 
     .header {
       font-size: 1rem;
-    }
-  }
-}
-
-@media (max-width: 560px) {
-  .calculation-wrapper {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    .input-wrapper,
-    .pollutant-wrapper,
-    .time-period-wrapper {
-      grid-row: 1;
-    }
-
-    .input-wrapper {
-      max-width: 60px;
-      grid-column: 1;
-      input {
-        max-width: 50px;
-      }
-    }
-
-    .pollutant-wrapper {
-      grid-column: 2;
-    }
-
-    .time-period-wrapper {
-      grid-column: 3;
-    }
-
-    .formula-wrapper {
-      grid-row: 2;
-      grid-column: span 3;
-      i .result-wrapper {
-        grid-row: 3;
-      }
-
-      .result-text {
-        padding-left: 0;
-      }
-
-      .result-text,
-      .out-of-range-text,
-      .color-box-wrapper {
-        margin-top: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
-      }
-
-      .color-box {
-        margin-top: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
-      }
     }
   }
 }
