@@ -77,36 +77,38 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     <>
       <section class="calculation-wrapper">
         <div class="input-wrapper">
-          <label>
-            {props.pollutant}, {timePeriod()} hrs
-          </label>
           <input type="number" min="0" value={value()} onInput={handleInput} />
         </div>
-        <div class="formula-wrapper">
-          <div class="formula-container">
-            <Show
-              when={!numberCalculation() || value() <= 0 || result() === 0}
-              fallback={<div innerHTML={numberCalculation()}></div>}
-            >
-              <div innerHTML={latexFormula()}></div>
-            </Show>
-          </div>
-          <div class="result-wrapper">
-            <p class="result-text">= {result()}</p>
-            <Show when={!outOfRange || result() > 0}>
-              <div class="color-box-wrapper">
-                <div
-                  class="color-box"
-                  style={{ "background-color": hexCode() }}
-                ></div>
-              </div>
-            </Show>
-
-            <Show when={outOfRange()}>
-              <p class="out-of-range-text">Value too high</p>
-            </Show>
-          </div>
+        <div class="pollutant-wrapper">
+          <p> {props.pollutant}</p>
         </div>
+        <div class="time-period-wrapper">
+          <p>{timePeriod()} hr.</p>
+        </div>
+        <div class="formula-wrapper">
+          <Show
+            when={!numberCalculation() || value() <= 0 || result() === 0}
+            fallback={<div innerHTML={numberCalculation()}></div>}
+          >
+            <div innerHTML={latexFormula()}></div>
+          </Show>
+        </div>
+        <div class="result-wrapper">
+          <Show when={!outOfRange || result() > 0}>
+            <p class="result-text">= {result()}</p>
+            <div class="color-box-wrapper">
+              <div
+                class="color-box"
+                style={{ "background-color": hexCode() }}
+              ></div>
+            </div>
+          </Show>
+        </div>
+        <Show when={outOfRange()}>
+          <p class="out-of-range-text">
+            Value exceeds maximum breakpoint definition
+          </p>
+        </Show>
       </section>
     </>
   );

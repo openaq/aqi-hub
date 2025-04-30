@@ -15,7 +15,7 @@ export const piecewiseFunctionWithNumbers = (
 
   return `
     <p>${render(
-      `${label}_P = \\frac{${numbers.IHI} - ${numbers.ILO}}{${numbers.BPHI} - ${numbers.BPLO}} \\times (${numbers.CP} - ${numbers.BPLO}) + ${numbers.ILO}`
+      `\\frac{${numbers.IHI} - ${numbers.ILO}}{${numbers.BPHI} - ${numbers.BPLO}} \\times (${numbers.CP} - ${numbers.BPLO}) + ${numbers.ILO}`
     )}</p>
   `;
 };

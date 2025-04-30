@@ -35,6 +35,13 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
 
   return (
     <>
+      <div class="headers">
+        <h3 class="header">Value</h3>
+        <h3 class="header">Pollutant</h3>
+        <h3 class="header">Averaging Period</h3>
+        <h3 class="header">Formula</h3>
+        <h3 class="header">Result</h3>
+      </div>
       <For each={pollutants()}>
         {(pollutantCategory) => (
           <PiecewiseCalculator

@@ -260,7 +260,7 @@ h3 {
   padding-bottom: 20px;
 
   .input-wrapper {
-    margin-top: 10px;
+    // margin-top: 10px;
 
     input {
       margin-left: 10px;
@@ -272,47 +272,45 @@ h3 {
   .formula-wrapper {
     display: flex;
     flex-direction: column;
+  }
 
-    .result-wrapper {
-      display: flex;
-      flex-direction: row;
+  .result-wrapper {
+    display: flex;
+    flex-direction: row;
 
-      .result-text {
-        padding-left: 0;
-      }
-
-      .result-text,
-      .out-of-range-text,
-      .color-box-wrapper {
-        margin-top: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
-      }
-
-      .out-of-range-text {
-        padding-left: 10px;
-      }
-      .color-box {
-        margin-top: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
-      }
+    .result-text {
+      padding-left: 0;
     }
 
     .color-box-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      margin-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
 
-      p {
-        margin: 0;
-      }
+    .out-of-range-text {
+      padding-left: 10px;
+    }
+    .color-box {
+      margin-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
 
-      .color-box {
-        margin-left: 10px;
-        width: 15px;
-        height: 15px;
-      }
+  .color-box-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    p {
+      margin: 0;
+    }
+
+    .color-box {
+      margin-left: 10px;
+      width: 15px;
+      height: 15px;
     }
   }
 }
@@ -320,33 +318,47 @@ h3 {
 @media (min-width: 1300px) {
   .calculation-wrapper {
     display: grid;
-    grid-template-columns: 250px 600px;
-    gap: 15px;
-
-    .formula-wrapper {
-      .result-wrapper {
-        .result-text {
-          padding-left: 10px;
-        }
-      }
-    }
+    grid-template-columns: 100px 100px 100px 380px 140px;
+    gap: 10px;
+    align-items: center;
 
     .formula-wrapper,
-    .input-wrapper {
-      align-items: center;
-      flex-direction: row;
+    .input-wrapper .time-period-wrapper,
+    .result-wrapper {
+      align-self: start;
     }
 
     label {
       width: 130px;
     }
 
-    .result-wrapper {
-      display: flex;
-
-      .result-text {
-        padding-left: 20px;
+    .input-wrapper {
+      input {
+        padding-left: 0;
+        margin-left: 0;
       }
     }
+
+    .result-wrapper {
+      display: flex;
+    }
+
+    .out-of-range-text {
+      grid-column: span 5;
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+}
+
+.headers {
+  display: grid;
+  grid-template-columns: 100px 90px 90px 380px 130px;
+  gap: 10px;
+
+  .header {
+    font-size: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }
