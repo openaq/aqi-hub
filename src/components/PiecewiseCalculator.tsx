@@ -80,7 +80,13 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
           <p>Averaging time period</p>
         </div>
         <div class="input-wrapper">
-          <input type="number" min="0" value={value()} onInput={handleInput} />
+          <input
+            class="number-input"
+            type="number"
+            min="0"
+            value={value()}
+            onInput={handleInput}
+          />
         </div>
         <div class="pollutant-wrapper">
           <p> {props.pollutant}</p>

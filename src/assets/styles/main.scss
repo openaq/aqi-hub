@@ -3,6 +3,7 @@
 @use "openaq-design-system/scss/mixins/typography" as *;
 @use "openaq-design-system/scss/utilities/types.scss";
 @use "openaq-design-system/scss/variables";
+@use "openaq-design-system/scss/inputs/index.scss" as *;
 
 @font-face {
   font-family: "Space Grotesk";
@@ -303,6 +304,7 @@ h3 {
 .out-of-range-text {
   grid-column: span 5;
   margin: 0;
+  padding-bottom: 10px;
 }
 
 @media (max-width: 560px) {
@@ -319,9 +321,9 @@ h3 {
     }
 
     .input-wrapper {
-      max-width: 60px;
       grid-column: 1;
       input {
+        max-height: 25px;
         max-width: 50px;
       }
     }
@@ -366,7 +368,7 @@ h3 {
   (min-width: 1050px) and (max-width: 1299px) {
   .calculation-wrapper {
     display: grid;
-    grid-template-columns: 50px 60px 60px 190px 60px;
+    grid-template-columns: 50px 60px 60px 190px 60px !important;
     gap: 10px;
 
     p {
@@ -375,7 +377,7 @@ h3 {
 
     .input-wrapper {
       input {
-        max-height: 20px;
+        max-height: 25px;
         max-width: 50px;
         font-size: 13px;
       }
@@ -395,7 +397,7 @@ h3 {
 
     .input-wrapper {
       input {
-        max-height: 20px;
+        max-height: 25px;
         max-width: 50px;
         font-size: 10px;
       }
@@ -406,7 +408,7 @@ h3 {
 @media (min-width: 1300px) {
   .calculation-wrapper {
     display: grid;
-    grid-template-columns: 100px 100px 100px 380px 140px;
+    grid-template-columns: 110px 100px 100px 380px 140px;
     gap: 10px;
     align-items: center;
 
@@ -420,13 +422,10 @@ h3 {
       align-self: start;
     }
 
-    label {
-      width: 130px;
-    }
-
     .input-wrapper {
       input {
-        padding-left: 0;
+        max-height: 35px;
+        max-width: 100px;
         margin-left: 0;
         font-size: 14px;
       }
@@ -498,10 +497,74 @@ h3 {
 
 @media (min-width: 1300px) {
   .headers {
-    grid-template-columns: 100px 90px 90px 380px 130px;
+    grid-template-columns: 110px 100px 100px 380px 140px;
 
     .header {
       font-size: 1rem;
     }
+  }
+}
+
+.number-input {
+  @include body2;
+  padding: 8px 10px;
+  border: 1px solid variables.$smoke30;
+  border-radius: 14px;
+  line-height: 1.5;
+  vertical-align: middle;
+
+  ::placeholder {
+    @include body2;
+    opacity: 1;
+  }
+
+  &:hover {
+    border: 1px solid variables.$sky30;
+  }
+
+  &:active {
+    outline: none !important;
+    border: 1px solid variables.$sky30;
+  }
+
+  &:focus {
+    outline: none !important;
+    border: 1px solid variables.$sky60;
+  }
+
+  &:invalid {
+    border: 1px solid variables.$fire60;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path fill='white' d='M0 0h24v24H0z'/><path d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5 13.6L15.6 17 12 13.4 8.4 17 7 15.6l3.6-3.6L7 8.4 8.4 7l3.6 3.6L15.6 7 17 8.4 13.4 12l3.6 3.6z' fill='%23dd443c'/></svg>");
+    background-size: 20px;
+    padding-right: 36px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+
+  &:placeholder-shown {
+    outline: none !important;
+    border: 1px solid variables.$smoke30;
+    background-image: none;
+  }
+
+  &--valid {
+    border: 1px solid variables.$mantis100;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path fill='none' d='M0 0h24v24H0z'/><path fill='%2389c053' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/></svg>");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 22px) center;
+  }
+}
+
+@media (max-width: 1299px) {
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }
