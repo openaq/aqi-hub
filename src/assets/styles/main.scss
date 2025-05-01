@@ -64,6 +64,10 @@ main {
   }
 
   @media (min-width: 900px) {
+    padding: 80px 20px 0 280px;
+  }
+
+  @media (min-width: 1200px) {
     padding: 80px 200px 0 280px;
   }
 }
@@ -239,7 +243,7 @@ h3 {
     }
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 500px) {
     th,
     td {
       padding: 0.3rem;
@@ -247,7 +251,7 @@ h3 {
     }
   }
 
-  @media (min-width: 1300px) {
+  @media (min-width: 1100px) {
     th,
     td {
       padding: 0.6rem;
@@ -307,7 +311,7 @@ h3 {
   padding-bottom: 10px;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 370px) {
   .calculation-wrapper {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -364,11 +368,30 @@ h3 {
   }
 }
 
-@media (min-width: 561px) and (max-width: 899px),
-  (min-width: 1050px) and (max-width: 1299px) {
+@media (max-width: 560px) {
   .calculation-wrapper {
     display: grid;
-    grid-template-columns: 50px 60px 60px 190px 60px !important;
+    grid-template-columns: 50px 30px 40px 120px 60px;
+    gap: 10px;
+
+    p {
+      font-size: 10px;
+    }
+
+    .input-wrapper {
+      input {
+        max-height: 25px;
+        max-width: 50px;
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+@media (min-width: 561px) {
+  .calculation-wrapper {
+    display: grid;
+    grid-template-columns: 50px 60px 80px 170px 60px;
     gap: 10px;
 
     p {
@@ -385,30 +408,10 @@ h3 {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .calculation-wrapper {
     display: grid;
-    grid-template-columns: 50px 50px 50px 160px 40px;
-    gap: 10px;
-
-    p {
-      font-size: 10px;
-    }
-
-    .input-wrapper {
-      input {
-        max-height: 25px;
-        max-width: 50px;
-        font-size: 10px;
-      }
-    }
-  }
-}
-
-@media (min-width: 1300px) {
-  .calculation-wrapper {
-    display: grid;
-    grid-template-columns: 110px 100px 100px 380px 140px;
+    grid-template-columns: 105px 90px 95px 280px 140px;
     gap: 10px;
     align-items: center;
 
@@ -451,8 +454,6 @@ h3 {
 
 .headers {
   display: grid;
-  grid-template-columns: 50px 50px 50px 160px 40px;
-  gap: 10px;
   margin-bottom: 10px;
 
   .header {
@@ -464,27 +465,14 @@ h3 {
 
 @media (max-width: 560px) {
   .headers {
-    display: none;
-  }
-}
-
-@media (min-width: 900px) {
-  .headers {
-    grid-template-columns: 50px 50px 50px 160px 40px;
+    grid-template-columns: 50px 30px 40px 120px 60px;
     gap: 10px;
-
-    .header {
-      font-size: 10px;
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
   }
 }
 
-@media (min-width: 561px) and (max-width: 899px),
-  (min-width: 1050px) and (max-width: 1299px) {
+@media (min-width: 561px) {
   .headers {
-    grid-template-columns: 50px 60px 60px 190px 60px;
+    grid-template-columns: 50px 60px 80px 170px 60px;
     gap: 10px;
 
     .header {
@@ -495,9 +483,9 @@ h3 {
   }
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1000px) {
   .headers {
-    grid-template-columns: 110px 100px 100px 380px 140px;
+    grid-template-columns: 105px 90px 95px 280px 140px;
 
     .header {
       font-size: 1rem;
@@ -556,7 +544,7 @@ h3 {
   }
 }
 
-@media (max-width: 1299px) {
+@media (max-width: 1000px) {
   input[type="number"] {
     -moz-appearance: textfield;
     appearance: textfield;

@@ -32,17 +32,29 @@ for (const [label, { ranges, colors }] of labelMap) {
 
 <style lang="scss">
   .color-scale__wrapper {
-    @media (min-width: 1200px) {
+    @media (min-width: 600px) {
       .color-scale__mobile {
         display: none;
       }
     }
 
-    @media (max-width: 1199px) {
+    @media (max-width: 599px) {
       .color-scale__desktop {
         display: none;
       }
     }
+
+    // @media (min-width: 1200px) {
+    //   .color-scale__mobile {
+    //     display: none;
+    //   }
+    // }
+
+    // @media (max-width: 1199px) {
+    //   .color-scale__desktop {
+    //     display: none;
+    //   }
+    // }
   }
   .color-scale {
     display: flex;
