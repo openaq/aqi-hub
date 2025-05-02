@@ -28,27 +28,21 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
   };
 
   filterPollutantData(props.index).then((data) => {
-    const groupedByPollutantAndPeriod = data.map((item) => ({
-      pollutant: item.pollutant,
-      averagingPeriod: item.averagingPeriod,
-      data: data.filter(
-        (o) =>
-          o.pollutant === item.pollutant &&
-          o.averagingPeriod === item.averagingPeriod
-      ),
-    }));
+    const groupedPollutants = new Map<string, PollutantData>();
 
-    const seen = new Set();
-    const uniqueGroups = groupedByPollutantAndPeriod.filter((group) => {
-      const key = `${group.pollutant}-${group.averagingPeriod}`;
-      if (seen.has(key)) {
-        return false;
+    for (const item of data) {
+      const key = `${item.pollutant}-${item.averagingPeriod}`;
+      if (!groupedPollutants.has(key)) {
+        groupedPollutants.set(key, {
+          pollutant: item.pollutant,
+          averagingPeriod: item.averagingPeriod,
+          data: [],
+        });
       }
-      seen.add(key);
-      return true;
-    });
+      groupedPollutants.get(key)!.data.push(item);
+    }
 
-    setPollutants(uniqueGroups);
+    setPollutants(Array.from(groupedPollutants.values()));
   });
 
   const updateFinalResult = (
