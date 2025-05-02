@@ -2,6 +2,7 @@ import { createSignal, Show } from "solid-js";
 import type { IndexDefinition } from "src/types/types";
 import { piecewiseFunction } from "src/utils/piecewiseFunction";
 import { piecewiseFunctionWithNumbers } from "src/utils/piecewiseNumberFunction";
+import { normalizePollutantLabel } from "src/utils/utils";
 
 interface PiecewiseCalculatorDefinition {
   pollutant: string;
@@ -18,6 +19,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [latexFormula, setLatexFormula] = createSignal("");
   const [timePeriod, setTimePeriod] = createSignal(0);
   const [outOfRange, setOutOfRange] = createSignal(false);
+  const [highestValue, setHighestValue] = createSignal(0);
+  const [finalResult, setFinalResult] = createSignal(0);
 
   const calculate = (value: number) => {
     const indexValue = props.data.find((o: IndexDefinition) => {
@@ -43,6 +46,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     } = indexValue;
 
     setTimePeriod(indexValue.averagingPeriod);
+    setHighestValue(indexHigh);
 
     const result =
       ((indexHigh - indexLow) / (breakpointHigh - breakpointLow)) *
@@ -74,22 +78,18 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   return (
     <>
       <section class="calculation-wrapper">
-        <div class="input-headers">
-          <p>Value</p>
-          <p>Pollutant</p>
-          <p>Averaging time period</p>
-        </div>
         <div class="input-wrapper">
           <input
             class="number-input"
             type="number"
             min="0"
+            max={highestValue()}
             value={value()}
             onInput={handleInput}
           />
         </div>
         <div class="pollutant-wrapper">
-          <p> {props.pollutant}</p>
+          <p> {normalizePollutantLabel(props.pollutant)}</p>
         </div>
         <div class="time-period-wrapper">
           <p>{timePeriod()} hr.</p>
@@ -104,7 +104,9 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
         </div>
         <div class="result-wrapper">
           <Show when={!outOfRange || result() > 0}>
-            <p class="result-text">= {result()}</p>
+            <p class="result-text">
+              {props.acronym} {result()}
+            </p>
             <div class="color-box-wrapper">
               <div
                 class="color-box"
@@ -113,6 +115,9 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             </div>
           </Show>
         </div>
+        <Show when={value() === highestValue()}>
+          <p class="out-of-range-text">You've reached the maximum breakpoint</p>
+        </Show>
         <Show when={outOfRange()}>
           <p class="out-of-range-text">
             Value exceeds maximum breakpoint definition
