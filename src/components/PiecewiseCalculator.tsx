@@ -22,6 +22,11 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [outOfRange, setOutOfRange] = createSignal(false);
   const [highestValue, setHighestValue] = createSignal(0);
 
+  const highestCategoryUpper = Math.max(
+    ...props.data.map((d) => d.categoryUpper)
+  );
+  setHighestValue(highestCategoryUpper);
+
   const calculate = (value: number) => {
     const indexValue = props.data.find((o: IndexDefinition) => {
       const concentrationUpper = o.concentrationUpper
@@ -46,7 +51,6 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     } = indexValue;
 
     setTimePeriod(indexValue.averagingPeriod);
-    setHighestValue(indexHigh);
 
     const result =
       ((indexHigh - indexLow) / (breakpointHigh - breakpointLow)) *
