@@ -8,6 +8,7 @@ interface PiecewiseCalculatorDefinition {
   pollutant: string;
   data: IndexDefinition[];
   acronym: string;
+  calculatedResult: (result: number) => void;
 }
 
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
@@ -20,7 +21,6 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [timePeriod, setTimePeriod] = createSignal(0);
   const [outOfRange, setOutOfRange] = createSignal(false);
   const [highestValue, setHighestValue] = createSignal(0);
-  const [finalResult, setFinalResult] = createSignal(0);
 
   const calculate = (value: number) => {
     const indexValue = props.data.find((o: IndexDefinition) => {
@@ -65,6 +65,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     setLatexFormula(piecewiseFunction());
     setHexCode(indexValue.hex);
     setResult(Math.round(result));
+    props.calculatedResult(result);
   };
 
   const handleInput = (e: Event) => {
