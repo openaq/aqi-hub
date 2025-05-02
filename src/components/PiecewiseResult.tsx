@@ -1,6 +1,6 @@
 import type { IndexDefinition } from "src/types/types";
 import PiecewiseCalculator from "./PiecewiseCalculator";
-import { createSignal, For } from "solid-js";
+import { createSignal, For, Show } from "solid-js";
 
 interface PiecewiseResultDefinition {
   index: string;
@@ -19,6 +19,7 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
   const [pollutantsResults, setPollutantsResult] = createSignal<
     Map<string, number>
   >(new Map());
+  const [finalHexCode, setFinalHexCode] = createSignal("");
 
   const filterPollutantData = async (index: string) => {
     const baseURL = "http://localhost:4321";
@@ -48,6 +49,7 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
   const updateFinalResult = (
     pollutant: string,
     averagingPeriod: number,
+    hexCode: string,
     result: number
   ) => {
     const key = `${pollutant}-${averagingPeriod}`;
@@ -57,6 +59,10 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
     const maxResult = Math.max(...Array.from(newResults.values()));
     setPollutantsResult(newResults);
     setFinalResult(maxResult);
+
+    if (result === maxResult) {
+      setFinalHexCode(hexCode);
+    }
   };
 
   return (
@@ -66,7 +72,7 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
         <h3 class="header">Pollutant</h3>
         <h3 class="header">Averaging Period</h3>
         <h3 class="header">Formula</h3>
-        <h3 class="header">Result</h3>
+        <h3 class="header">{props.acronym}</h3>
       </div>
       <For each={pollutants()}>
         {(pollutantCategory) => (
@@ -74,21 +80,30 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
             pollutant={pollutantCategory.pollutant}
             data={pollutantCategory.data}
             acronym={props.acronym}
-            calculatedResult={(result) =>
+            calculatedResult={(result, hexCode) =>
               updateFinalResult(
                 pollutantCategory.pollutant,
                 pollutantCategory.averagingPeriod,
+                hexCode,
                 result
               )
             }
           />
         )}
       </For>
-      <div>
+      <div class="final-result-wrapper">
         <h4 class="final-result-text">
-          Final result (Maximum of sub-index values): {props.acronym}{" "}
+          Final result (Maximum of sub-index values):{" "}
           {Math.round(finalResult())}
         </h4>
+        <Show when={finalResult()}>
+          <div class="color-box-wrapper">
+            <div
+              class="color-box"
+              style={{ "background-color": finalHexCode() }}
+            ></div>
+          </div>
+        </Show>
       </div>
     </>
   );

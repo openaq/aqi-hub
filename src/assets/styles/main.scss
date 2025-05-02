@@ -557,11 +557,17 @@ h3 {
   }
 }
 
+.final-result-wrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px variables.$smoke120;
+}
+
 .final-result-text {
   font-size: 12px;
   padding-block: 10px;
-  margin-top: 0;
-  border-bottom: solid 1px variables.$smoke120;
+  margin: 0;
+
   @media (min-width: 560px) {
     font-size: 1rem;
   }

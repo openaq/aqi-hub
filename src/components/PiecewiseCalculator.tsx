@@ -8,7 +8,7 @@ interface PiecewiseCalculatorDefinition {
   pollutant: string;
   data: IndexDefinition[];
   acronym: string;
-  calculatedResult: (result: number) => void;
+  calculatedResult: (result: number, hexCode: string) => void;
 }
 
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
@@ -69,7 +69,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     setLatexFormula(piecewiseFunction());
     setHexCode(indexValue.hex);
     setResult(Math.round(result));
-    props.calculatedResult(result);
+    props.calculatedResult(result, indexValue.hex);
   };
 
   const handleInput = (e: Event) => {
@@ -109,9 +109,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
         </div>
         <div class="result-wrapper">
           <Show when={!outOfRange || result() > 0}>
-            <p class="result-text">
-              {props.acronym} {result()}
-            </p>
+            <p class="result-text">{result()}</p>
             <div class="color-box-wrapper">
               <div
                 class="color-box"
