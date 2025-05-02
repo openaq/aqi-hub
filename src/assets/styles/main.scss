@@ -559,6 +559,8 @@ h3 {
 
 .final-result-text {
   font-size: 12px;
+  padding-block: 10px;
+  border-bottom: solid 1px variables.$smoke120;
   @media (min-width: 560px) {
     font-size: 1rem;
   }
