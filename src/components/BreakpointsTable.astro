@@ -78,22 +78,6 @@ const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
         font-size: 1rem;
       }
     }
-
-    // @media (min-width: 1000px) {
-    //   th,
-    //   td {
-    //     padding: 0.2rem;
-    //     font-size: 0.75rem;
-    //   }
-    // }
-
-    // @media (min-width: 1250px) {
-    //   th,
-    //   td {
-    //     padding: 0.6rem;
-    //     font-size: 1rem;
-    //   }
-    // }
   }
 </style>
 
@@ -135,8 +119,10 @@ const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
 
               return (
                 <td>
-                  {match?.concentrationLower ?? "-"}
-                  {match?.concentrationLower
+                  {typeof match?.concentrationLower !== "undefined"
+                    ? match.concentrationLower
+                    : "-"}
+                  {typeof match?.concentrationLower !== "undefined"
                     ? match.concentrationUpper
                       ? `-${match.concentrationUpper}`
                       : "+"
