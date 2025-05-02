@@ -9,6 +9,7 @@ interface PiecewiseResultDefinition {
 
 interface PollutantData {
   pollutant: string;
+  averagingPeriod: number;
   data: IndexDefinition[];
 }
 
@@ -27,19 +28,37 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
   };
 
   filterPollutantData(props.index).then((data) => {
-    const uniquePollutants = [...new Set(data.map((o) => o.pollutant))];
-
-    const groupedPollutants = uniquePollutants.map((pollutant) => ({
-      pollutant,
-      data: data.filter((o) => o.pollutant === pollutant),
+    const groupedByPollutantAndPeriod = data.map((item) => ({
+      pollutant: item.pollutant,
+      averagingPeriod: item.averagingPeriod,
+      data: data.filter(
+        (o) =>
+          o.pollutant === item.pollutant &&
+          o.averagingPeriod === item.averagingPeriod
+      ),
     }));
 
-    setPollutants(groupedPollutants);
+    const seen = new Set();
+    const uniqueGroups = groupedByPollutantAndPeriod.filter((group) => {
+      const key = `${group.pollutant}-${group.averagingPeriod}`;
+      if (seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+
+    setPollutants(uniqueGroups);
   });
 
-  const updateFinalResult = (pollutant: string, result: number) => {
+  const updateFinalResult = (
+    pollutant: string,
+    averagingPeriod: number,
+    result: number
+  ) => {
+    const key = `${pollutant}-${averagingPeriod}`;
     const newResults = new Map(pollutantsResults());
-    newResults.set(pollutant, result);
+    newResults.set(key, result);
 
     const maxResult = Math.max(...Array.from(newResults.values()));
     setPollutantsResult(newResults);
@@ -62,7 +81,11 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
             data={pollutantCategory.data}
             acronym={props.acronym}
             calculatedResult={(result) =>
-              updateFinalResult(pollutantCategory.pollutant, result)
+              updateFinalResult(
+                pollutantCategory.pollutant,
+                pollutantCategory.averagingPeriod,
+                result
+              )
             }
           />
         )}
