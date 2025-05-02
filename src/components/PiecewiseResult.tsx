@@ -41,12 +41,9 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
     const newResults = new Map(pollutantsResults());
     newResults.set(pollutant, result);
 
-    const totalResult = Array.from(newResults.values()).reduce(
-      (acc, val) => acc + val,
-      0
-    );
+    const maxResult = Math.max(...Array.from(newResults.values()));
     setPollutantsResult(newResults);
-    setFinalResult(totalResult);
+    setFinalResult(maxResult);
   };
 
   return (
@@ -71,9 +68,10 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
         )}
       </For>
       <div>
-        <p class="final-result-text">
-          Final result: {Math.round(finalResult())}
-        </p>
+        <h4 class="final-result-text">
+          Final result (Maximum of sub-index values): {props.acronym}{" "}
+          {Math.round(finalResult())}
+        </h4>
       </div>
     </>
   );
