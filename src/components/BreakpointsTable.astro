@@ -120,7 +120,10 @@ const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
               return (
                 <td>
                   {typeof match?.concentrationLower !== "undefined"
-                    ? `${match.concentrationLower}${match.concentrationUpper ? `-${match.concentrationUpper}` : "+"}`
+                    ? match.concentrationLower === 0 &&
+                      match.concentrationUpper === 0
+                      ? "-"
+                      : `${match.concentrationLower}${match.concentrationUpper ? `-${match.concentrationUpper}` : "+"}`
                     : "-"}
                 </td>
               );
