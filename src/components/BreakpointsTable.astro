@@ -38,6 +38,7 @@ const headerColumns = breakpoints
     return {
       categoryText,
       categoryLower: i.categoryLower,
+
       rangeText,
     };
   })
@@ -91,8 +92,7 @@ const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
           <th>
             {col.categoryText}
             <br />
-            {col.categoryLower}
-            {col.rangeText}
+            {`${col.categoryLower}${col.rangeText}`}
           </th>
         ))
       }
@@ -120,13 +120,8 @@ const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
               return (
                 <td>
                   {typeof match?.concentrationLower !== "undefined"
-                    ? match.concentrationLower
+                    ? `${match.concentrationLower}${match.concentrationUpper ? `-${match.concentrationUpper}` : "+"}`
                     : "-"}
-                  {typeof match?.concentrationLower !== "undefined"
-                    ? match.concentrationUpper
-                      ? `-${match.concentrationUpper}`
-                      : "+"
-                    : ""}
                 </td>
               );
             })}
