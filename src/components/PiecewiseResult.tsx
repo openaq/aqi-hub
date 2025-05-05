@@ -1,6 +1,7 @@
 import type { IndexDefinition } from "src/types/types";
 import PiecewiseCalculator from "./PiecewiseCalculator";
 import { createSignal, For, Show } from "solid-js";
+import { StoreProvider } from "@store/index";
 
 interface PiecewiseResultDefinition {
   index: string;
@@ -66,7 +67,7 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
   };
 
   return (
-    <>
+    <StoreProvider>
       <div class="headers">
         <h3 class="header">Value</h3>
         <h3 class="header">Pollutant</h3>
@@ -105,7 +106,7 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
           </div>
         </Show>
       </div>
-    </>
+    </StoreProvider>
   );
 };
 
