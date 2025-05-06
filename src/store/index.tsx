@@ -1,5 +1,5 @@
 import { createContext, useContext, type Component } from "solid-js";
-import { createStore } from "solid-js/store/types/server.js";
+import { createStore } from "solid-js/store";
 
 interface StoreParameters {
   pollutant: Map<string, number>;

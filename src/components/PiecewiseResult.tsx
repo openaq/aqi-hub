@@ -1,7 +1,7 @@
 import type { IndexDefinition } from "src/types/types";
 import PiecewiseCalculator from "./PiecewiseCalculator";
 import { createSignal, For, Show } from "solid-js";
-import { StoreProvider } from "@store/index";
+import { StoreProvider, useStore } from "@store/index";
 
 interface PiecewiseResultDefinition {
   index: string;
@@ -15,12 +15,8 @@ interface PollutantData {
 }
 
 const PiecewiseResult = (props: PiecewiseResultDefinition) => {
-  const [finalResult, setFinalResult] = createSignal(0);
+  const [state] = useStore();
   const [pollutants, setPollutants] = createSignal<PollutantData[]>([]);
-  const [pollutantsResults, setPollutantsResult] = createSignal<
-    Map<string, number>
-  >(new Map());
-  const [finalHexCode, setFinalHexCode] = createSignal("");
 
   const filterPollutantData = async (index: string) => {
     const baseURL = "http://localhost:4321";
@@ -47,25 +43,6 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
     setPollutants(Array.from(groupedPollutants.values()));
   });
 
-  const updateFinalResult = (
-    pollutant: string,
-    averagingPeriod: number,
-    hexCode: string,
-    result: number
-  ) => {
-    const key = `${pollutant}-${averagingPeriod}`;
-    const newResults = new Map(pollutantsResults());
-    newResults.set(key, result);
-
-    const maxResult = Math.max(...Array.from(newResults.values()));
-    setPollutantsResult(newResults);
-    setFinalResult(maxResult);
-
-    if (result === maxResult) {
-      setFinalHexCode(hexCode);
-    }
-  };
-
   return (
     <StoreProvider>
       <div class="headers">
@@ -81,27 +58,18 @@ const PiecewiseResult = (props: PiecewiseResultDefinition) => {
             pollutant={pollutantCategory.pollutant}
             data={pollutantCategory.data}
             acronym={props.acronym}
-            calculatedResult={(result, hexCode) =>
-              updateFinalResult(
-                pollutantCategory.pollutant,
-                pollutantCategory.averagingPeriod,
-                hexCode,
-                result
-              )
-            }
           />
         )}
       </For>
       <div class="final-result-wrapper">
         <h4 class="final-result-text">
-          Final result (Maximum of sub-index values):{" "}
-          {Math.round(finalResult())}
+          Final result (Maximum of sub-index values): {Math.round(state.result)}
         </h4>
-        <Show when={finalResult()}>
+        <Show when={state.result}>
           <div class="color-box-wrapper">
             <div
               class="color-box"
-              style={{ "background-color": finalHexCode() }}
+              style={{ "background-color": state.hexCode }}
             ></div>
           </div>
         </Show>

@@ -1,3 +1,4 @@
+import { useStore } from "@store/index";
 import { createSignal, Show } from "solid-js";
 import type { IndexDefinition } from "src/types/types";
 import { piecewiseFunction } from "src/utils/piecewiseFunction";
@@ -8,36 +9,36 @@ interface PiecewiseCalculatorDefinition {
   pollutant: string;
   data: IndexDefinition[];
   acronym: string;
-  calculatedResult: (result: number, hexCode: string) => void;
 }
 
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [value, setValue] = createSignal(0);
-  const [result, setResult] = createSignal(0);
-
   const [hexCode, setHexCode] = createSignal("");
   const [numberCalculation, setNumberCalculation] = createSignal("");
   const [latexFormula, setLatexFormula] = createSignal("");
   const [timePeriod, setTimePeriod] = createSignal(0);
   const [outOfRange, setOutOfRange] = createSignal(false);
   const [highestValue, setHighestValue] = createSignal(0);
+  const [state, { setFinalResult }] = useStore();
 
   const highestCategoryUpper = Math.max(
     ...props.data.map((d) => d.categoryUpper)
   );
   setHighestValue(highestCategoryUpper);
 
-  const calculate = (value: number) => {
+  const calculateResult = () => {
+    const userInput = value();
     const indexValue = props.data.find((o: IndexDefinition) => {
       const concentrationUpper = o.concentrationUpper
         ? Number(o.concentrationUpper)
         : 500;
-      return value >= o.concentrationLower && value <= concentrationUpper;
+      return (
+        userInput >= o.concentrationLower && userInput <= concentrationUpper
+      );
     });
 
     if (!indexValue) {
       setOutOfRange(true);
-      setResult(0);
       return;
     }
 
@@ -50,11 +51,9 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       concentrationUpper: breakpointHigh,
     } = indexValue;
 
-    setTimePeriod(indexValue.averagingPeriod);
-
     const result =
       ((indexHigh - indexLow) / (breakpointHigh - breakpointLow)) *
-        (value - breakpointLow) +
+        (userInput - breakpointLow) +
       indexLow;
 
     const parameters = {
@@ -62,23 +61,22 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       ILO: indexLow,
       BPHI: breakpointHigh,
       BPLO: breakpointLow,
-      CP: value,
+      CP: userInput,
     };
-
+    setTimePeriod(indexValue.averagingPeriod);
     setNumberCalculation(piecewiseFunctionWithNumbers(parameters));
     setLatexFormula(piecewiseFunction());
     setHexCode(indexValue.hex);
-    setResult(Math.round(result));
-    props.calculatedResult(result, indexValue.hex);
-  };
 
-  const handleInput = (e: Event) => {
-    const newValue = Number((e.currentTarget as HTMLInputElement).value);
-    setValue(newValue);
-    calculate(newValue);
-  };
+    setFinalResult(
+      props.pollutant,
+      indexValue.averagingPeriod,
+      indexValue.hex,
+      result
+    );
 
-  calculate(value());
+    return Math.round(result);
+  };
 
   return (
     <>
@@ -90,7 +88,9 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             min="0"
             max={highestValue()}
             value={value()}
-            onInput={handleInput}
+            onInput={(e) => {
+              setValue(Number(e.target.value));
+            }}
           />
         </div>
         <div class="pollutant-wrapper">
@@ -101,15 +101,17 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
         </div>
         <div class="formula-wrapper">
           <Show
-            when={!numberCalculation() || value() <= 0 || result() === 0}
+            when={
+              !numberCalculation() || value() <= 0 || calculateResult() === 0
+            }
             fallback={<div innerHTML={numberCalculation()}></div>}
           >
             <div innerHTML={latexFormula()}></div>
           </Show>
         </div>
         <div class="result-wrapper">
-          <Show when={!outOfRange || result() > 0}>
-            <p class="result-text">{result()}</p>
+          <Show when={!outOfRange || calculateResult()! > 0}>
+            <p class="result-text">{calculateResult()}</p>
             <div class="color-box-wrapper">
               <div
                 class="color-box"

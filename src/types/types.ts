@@ -32,3 +32,14 @@ export interface CategoryDefinition {
 export interface TableRowsDefinition {
   [key: string]: IndexDefinition[];
 }
+
+export interface PiecewiseResultDefinition {
+  index: string;
+  acronym: string;
+}
+
+export interface PollutantData {
+  pollutant: string;
+  averagingPeriod: number;
+  data: IndexDefinition[];
+}
