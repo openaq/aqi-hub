@@ -1,10 +1,10 @@
-import type { IndexDefinition } from 'src/types/types';
-import PiecewiseCalculator from './PiecewiseCalculator';
-import { For, createResource } from 'solid-js';
+import type { IndexDefinition } from "src/types/types";
+import PiecewiseCalculator from "./PiecewiseCalculator";
+import { For, createResource } from "solid-js";
 import {
   CalculatorProvider,
   useCalculator,
-} from 'src/stores/AqiCalculatorStore';
+} from "src/stores/AqiCalculatorStore";
 
 interface PollutantData {
   pollutant: string;
@@ -18,9 +18,11 @@ const MaxSubIndexCalculator = () => {
   return (
     <div class="final-result-wrapper">
       <h4 class="final-result-text">
-        Final result (Maximum of sub-index values): {Math.round(max()?.value)}{' '}
-        {max()?.hex}
+        Final result (Maximum of sub-index values): {Math.round(max()?.value)}{" "}
       </h4>
+      <div class="color-box-wrapper">
+        <div class="color-box" style={{ "background-color": max()?.hex }}></div>
+      </div>
     </div>
   );
 };
