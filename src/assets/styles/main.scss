@@ -458,10 +458,7 @@ h3 {
 
     .input-wrapper {
       input {
-        max-height: 35px;
         width: 140px;
-        margin-left: 0;
-        font-size: 14px;
       }
     }
   }
@@ -469,14 +466,11 @@ h3 {
 
 @media (min-width: 1400px) {
   .calculation-wrapper {
-    grid-template-columns: 150px 110px 110px 350px 160px;
+    grid-template-columns: 150px 110px 130px 350px 160px;
 
     .input-wrapper {
       input {
-        max-height: 35px;
         width: 150px;
-        margin-left: 0;
-        font-size: 14px;
       }
     }
   }
@@ -535,7 +529,7 @@ h3 {
 
 @media (min-width: 1400px) {
   .headers {
-    grid-template-columns: 150px 110px 110px 350px 160px;
+    grid-template-columns: 150px 110px 130px 350px 160px;
 
     .header {
       font-size: 1rem;
@@ -620,5 +614,34 @@ h3 {
 
   @media (min-width: 560px) {
     font-size: 1rem;
+  }
+}
+
+.period-select {
+  @include body2;
+  width: 100px;
+  padding: 8px 10px;
+  border: 1px solid variables.$smoke30;
+  border-radius: 14px;
+  line-height: 1.5;
+  background-color: white;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+
+  &:hover {
+    border: 1px solid variables.$sky30;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid variables.$sky60;
+  }
+
+  &:disabled {
+    background-color: variables.$smoke10;
+    cursor: not-allowed;
   }
 }

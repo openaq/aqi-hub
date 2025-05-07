@@ -8,7 +8,6 @@ import {
 
 interface PollutantData {
   pollutant: string;
-  averagingPeriod: number;
   data: IndexDefinition[];
 }
 
@@ -46,11 +45,10 @@ export const AqiCalculator = (props: AqiCalculatorDefinition) => {
     if (data()) {
       data()!.map((o) => {});
       for (const item of data()!) {
-        const key = `${item.pollutant}-${item.averagingPeriod}`;
+        const key = item.pollutant;
         if (!groupedPollutants.has(key)) {
           groupedPollutants.set(key, {
             pollutant: item.pollutant,
-            averagingPeriod: item.averagingPeriod,
             data: [],
           });
         }

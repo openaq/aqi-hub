@@ -1,11 +1,11 @@
-import { createEffect, createSignal, Show } from 'solid-js';
-import type { IndexDefinition } from 'src/types/types';
+import { createEffect, createSignal, For, Show } from "solid-js";
+import type { IndexDefinition } from "src/types/types";
 import {
   piecewiseFunctionLatex,
   piecewiseFunctionWithNumbers,
-} from '../utils/piecewiseFunction';
-import { normalizePollutantLabel } from 'src/utils/utils';
-import { useCalculator } from 'src/stores/AqiCalculatorStore';
+} from "../utils/piecewiseFunction";
+import { normalizePollutantLabel } from "src/utils/utils";
+import { useCalculator } from "src/stores/AqiCalculatorStore";
 
 interface PiecewiseCalculatorDefinition {
   pollutant: string;
@@ -20,6 +20,17 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [outOfRange, setOutOfRange] = createSignal(false);
   const [highestValue, setHighestValue] = createSignal(0);
 
+  const uniquePeriods = [...new Set(props.data.map((d) => d.averagingPeriod))];
+  const hasMultiplePeriods = uniquePeriods.length > 1;
+
+  const [selectedPeriod, setSelectedPeriod] = createSignal(uniquePeriods[0]);
+
+  const activePeriod = () =>
+    hasMultiplePeriods ? selectedPeriod() : uniquePeriods[0];
+
+  const filteredData = () =>
+    props.data.filter((d) => d.averagingPeriod === activePeriod());
+
   addIndex({ parameter: props.pollutant, index: 0 });
 
   const highestCategoryUpper = Math.max(
@@ -28,7 +39,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   setHighestValue(highestCategoryUpper);
 
   const indexValue = () =>
-    props.data.find((o: IndexDefinition) => {
+    filteredData().find((o: IndexDefinition) => {
       const concentrationUpper = o.concentrationUpper
         ? Number(o.concentrationUpper)
         : 500;
@@ -40,10 +51,6 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
 
   const hexCode = () => {
     return indexValue()?.hex;
-  };
-
-  const timePeriod = () => {
-    return indexValue()?.averagingPeriod;
   };
 
   createEffect(() => {
@@ -111,8 +118,21 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
           <p> {normalizePollutantLabel(props.pollutant)}</p>
         </div>
         <div class="time-period-wrapper">
-          <p>{timePeriod()} hr.</p>
+          <Show when={hasMultiplePeriods}>
+            <select
+              class="period-select"
+              onInput={(e) => setSelectedPeriod(Number(e.currentTarget.value))}
+            >
+              <For each={uniquePeriods}>
+                {(period) => <option value={period}>{period} hr</option>}
+              </For>
+            </select>
+          </Show>
+          <Show when={!hasMultiplePeriods}>
+            <p>{uniquePeriods[0]} hr.</p>
+          </Show>
         </div>
+
         <div class="formula-wrapper">
           <div innerHTML={latexFunction()}></div>
         </div>
@@ -122,7 +142,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             <div class="color-box-wrapper">
               <div
                 class="color-box"
-                style={{ 'background-color': hexCode() }}
+                style={{ "background-color": hexCode() }}
               ></div>
             </div>
           </Show>
