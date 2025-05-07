@@ -1,9 +1,11 @@
-import { useStore } from "@store/index";
-import { createSignal, Show } from "solid-js";
-import type { IndexDefinition } from "src/types/types";
-import { piecewiseFunction } from "src/utils/piecewiseFunction";
-import { piecewiseFunctionWithNumbers } from "src/utils/piecewiseNumberFunction";
-import { normalizePollutantLabel } from "src/utils/utils";
+import { createEffect, createSignal, Show } from 'solid-js';
+import type { IndexDefinition } from 'src/types/types';
+import {
+  piecewiseFunctionLatex,
+  piecewiseFunctionWithNumbers,
+} from '../utils/piecewiseFunction';
+import { normalizePollutantLabel } from 'src/utils/utils';
+import { useCalculator } from 'src/stores/AqiCalculatorStore';
 
 interface PiecewiseCalculatorDefinition {
   pollutant: string;
@@ -12,70 +14,84 @@ interface PiecewiseCalculatorDefinition {
 }
 
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
-  const [value, setValue] = createSignal(0);
-  const [hexCode, setHexCode] = createSignal("");
-  const [numberCalculation, setNumberCalculation] = createSignal("");
-  const [latexFormula, setLatexFormula] = createSignal("");
-  const [timePeriod, setTimePeriod] = createSignal(0);
+  const [_, { addIndex, updateIndex }] = useCalculator();
+
+  const [concentration, setConcentration] = createSignal(0);
   const [outOfRange, setOutOfRange] = createSignal(false);
   const [highestValue, setHighestValue] = createSignal(0);
-  const [state, { setFinalResult }] = useStore();
+
+  addIndex({ parameter: props.pollutant, index: 0 });
 
   const highestCategoryUpper = Math.max(
     ...props.data.map((d) => d.categoryUpper)
   );
   setHighestValue(highestCategoryUpper);
 
-  const calculateResult = () => {
-    const userInput = value();
-    const indexValue = props.data.find((o: IndexDefinition) => {
+  const indexValue = () =>
+    props.data.find((o: IndexDefinition) => {
       const concentrationUpper = o.concentrationUpper
         ? Number(o.concentrationUpper)
         : 500;
       return (
-        userInput >= o.concentrationLower && userInput <= concentrationUpper
+        concentration() >= o.concentrationLower &&
+        concentration() <= concentrationUpper
       );
     });
 
-    if (!indexValue) {
-      setOutOfRange(true);
-      return;
+  const hexCode = () => {
+    return indexValue()?.hex;
+  };
+
+  const timePeriod = () => {
+    return indexValue()?.averagingPeriod;
+  };
+
+  createEffect(() => {
+    updateIndex({
+      parameter: props.pollutant,
+      value: result(),
+      hex: hexCode(),
+    });
+  });
+
+  const latexFunction = () => {
+    const indexValues = indexValue();
+    if (concentration() === 0 || !indexValues) {
+      return piecewiseFunctionLatex();
     }
-
-    setOutOfRange(false);
-
     const {
-      categoryUpper: indexHigh,
-      categoryLower: indexLow,
-      concentrationLower: breakpointLow,
-      concentrationUpper: breakpointHigh,
-    } = indexValue;
-
-    const result =
-      ((indexHigh - indexLow) / (breakpointHigh - breakpointLow)) *
-        (userInput - breakpointLow) +
-      indexLow;
-
-    const parameters = {
-      IHI: indexHigh,
-      ILO: indexLow,
-      BPHI: breakpointHigh,
-      BPLO: breakpointLow,
-      CP: userInput,
-    };
-    setTimePeriod(indexValue.averagingPeriod);
-    setNumberCalculation(piecewiseFunctionWithNumbers(parameters));
-    setLatexFormula(piecewiseFunction());
-    setHexCode(indexValue.hex);
-
-    setFinalResult(
-      props.pollutant,
-      indexValue.averagingPeriod,
-      indexValue.hex,
-      result
+      categoryUpper,
+      categoryLower,
+      concentrationUpper,
+      concentrationLower,
+    } = indexValues;
+    return piecewiseFunctionWithNumbers(
+      categoryUpper,
+      categoryLower,
+      concentrationUpper,
+      concentrationLower,
+      concentration()
     );
+  };
 
-    return Math.round(result);
+  const result = () => {
+    const indexValues = indexValue();
+    if (indexValues === undefined) {
+      setOutOfRange(true);
+      return 0;
+    }
+    const {
+      categoryUpper,
+      categoryLower,
+      concentrationUpper,
+      concentrationLower,
+    } = indexValues;
+    return (
+      ((categoryUpper - categoryLower) /
+        (concentrationUpper - concentrationLower)) *
+        (concentration() - concentrationLower) +
+      categoryLower
+    );
   };
 
   return (
@@ -87,10 +103,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             type="number"
             min="0"
             max={highestValue()}
-            value={value()}
-            onInput={(e) => {
-              setValue(Number(e.target.value));
-            }}
+            value={concentration()}
+            onInput={(e) => setConcentration(Number(e.target.value))}
           />
         </div>
         <div class="pollutant-wrapper">
@@ -100,27 +114,20 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
           <p>{timePeriod()} hr.</p>
         </div>
         <div class="formula-wrapper">
-          <Show
-            when={
-              !numberCalculation() || value() <= 0 || calculateResult() === 0
-            }
-            fallback={<div innerHTML={numberCalculation()}></div>}
-          >
-            <div innerHTML={latexFormula()}></div>
-          </Show>
+          <div innerHTML={latexFunction()}></div>
         </div>
         <div class="result-wrapper">
-          <Show when={!outOfRange || calculateResult()! > 0}>
-            <p class="result-text">{calculateResult()}</p>
+          <Show when={!outOfRange() || result() > 0}>
+            <p class="result-text">{Math.round(result())}</p>
             <div class="color-box-wrapper">
               <div
                 class="color-box"
-                style={{ "background-color": hexCode() }}
+                style={{ 'background-color': hexCode() }}
               ></div>
             </div>
           </Show>
         </div>
-        <Show when={value() === highestValue()}>
+        <Show when={concentration() === highestValue()}>
           <p class="out-of-range-text">You've reached the maximum breakpoint</p>
         </Show>
         <Show when={outOfRange()}>

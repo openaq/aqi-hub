@@ -8,7 +8,7 @@ import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
 import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
-import PiecewiseResult from "@components/PiecewiseResult.tsx";
+import {AqiCalculator} from "@components/AqiCalculator.tsx";
 
 ## Background
 
@@ -54,7 +54,7 @@ The sub-index for individual pollutants is calculated using the following piecew
   <PiecewiseLatexDoc label="AQI" />
 </div>
 
-<PiecewiseResult client:only="solid" index="china" acronym="AQI" />
+<AqiCalculator client:only="solid" index="china" acronym="AQI" />
 
 The reported AQI is the maximum sub-index value. When the AQI is greater than 50, the pollutant with the largest sub-index value is the primary pollutant [^1]. If there are two or more pollutants with sub-indices greater than 50, both are listed as the primary pollutants [^1]. Pollutants with a sub-index greater than 100 are considered excessive pollutants [^1].
 
