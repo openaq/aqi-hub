@@ -619,17 +619,27 @@ h3 {
 
 .period-select {
   @include body2;
-  width: 100px;
+  width: 80px;
   padding: 8px 10px;
   border: 1px solid variables.$smoke30;
   border-radius: 14px;
   line-height: 1.5;
   background-color: white;
   appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 16px;
+  background-image: none;
+  height: 30px;
+  width: 50px;
+  font-size: 10px;
+
+  @media (min-width: 1000px) {
+    font-size: 14px;
+    height: 35px;
+    width: 80px;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
 
   &:hover {
     border: 1px solid variables.$sky30;
@@ -637,7 +647,7 @@ h3 {
 
   &:focus {
     outline: none;
-    border: 1px solid variables.$sky60;
+    border: 1px solid variables.$sky30;
   }
 
   &:disabled {
