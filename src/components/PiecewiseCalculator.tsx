@@ -4,7 +4,7 @@ import {
   piecewiseFunctionLatex,
   piecewiseFunctionWithNumbers,
 } from "../utils/piecewiseFunction";
-import { normalizePollutantLabel } from "src/utils/utils";
+import { normalizePollutantLabel } from "src/utils/utils.jsx";
 import { useCalculator } from "src/stores/AqiCalculatorStore";
 
 interface PiecewiseCalculatorDefinition {

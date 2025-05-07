@@ -1,14 +1,14 @@
-import countriesMap from "../data/countries.json";
+import countriesMap from '../data/countries.json';
 
 function snakeToCamel(item) {
   if (Array.isArray(item)) {
     return item.map((el) => snakeToCamel(el));
-  } else if (typeof item === "function" || item !== Object(item)) {
+  } else if (typeof item === 'function' || item !== Object(item)) {
     return item;
   }
   return Object.fromEntries(
     Object.entries(item).map(([key, value]) => [
-      key.replace(/([-_][a-z])/gi, (c) => c.toUpperCase().replace(/[-_]/g, "")),
+      key.replace(/([-_][a-z])/gi, (c) => c.toUpperCase().replace(/[-_]/g, '')),
       snakeToCamel(value),
     ])
   );
@@ -16,15 +16,15 @@ function snakeToCamel(item) {
 
 export function parseBreakpointsCsv(data) {
   try {
-    const lines = data.split("\n");
+    const lines = data.split('\n');
 
-    const headers = lines[0].split(",");
+    const headers = lines[0].split(',');
 
     const jsonArray = lines
       .slice(1)
       .filter((line) => line.trim())
       .map((line) => {
-        const values = line.split(",");
+        const values = line.split(',');
         const jsonObject = {};
 
         headers.forEach((header, index) => {
@@ -76,7 +76,7 @@ export function parseBreakpointsCsv(data) {
     });
     return snakeToCamel(groupedData);
   } catch (e) {
-    console.error("Error reading the CSV file:", e);
+    console.error('Error reading the CSV file:', e);
   }
 }
 
@@ -91,7 +91,7 @@ export const tableReshape = (data) =>
           concentrationLower,
           concentrationUpper,
         }) => {
-          const key = [`${pollutant} ${units}`, averagingPeriod].join("-");
+          const key = [`${pollutant} ${units}`, averagingPeriod].join('-');
           if (!acc[key]) {
             acc[key] = [];
           }
@@ -113,7 +113,7 @@ export const tableReshape = (data) =>
 export const colorScaleReshape = (data, range = true) => {
   const seenLabels = new Set();
   const filteredData = data.filter((o) => {
-    if (o.iso === "SG") {
+    if (o.iso === 'SG') {
       if (seenLabels.has(o.category)) {
         return false;
       }
@@ -127,25 +127,49 @@ export const colorScaleReshape = (data, range = true) => {
     label: o.category,
     color: o.hex,
     range: `${o.categoryLower}${
-      o.categoryUpper ? `-${o.categoryUpper}` : range ? "+" : ""
+      o.categoryUpper ? `-${o.categoryUpper}` : range ? '+' : ''
     }`,
   }));
 };
 
 export function normalizePollutantLabel(value) {
   switch (value) {
-    case "PM2.5":
-      return "PM₂.₅";
-    case "PM10":
-      return "PM₁₀";
-    case "O3":
-      return "O₃";
-    case "NO2":
-      return "NO₂";
-    case "NOX":
-      return "NOx";
-    case "SO2":
-      return "SO₂";
+    case 'PM2.5':
+      return (
+        <span>
+          PM<sub>2.5</sub>
+        </span>
+      );
+    case 'PM10':
+      return (
+        <span>
+          PM<sub>10</sub>
+        </span>
+      );
+    case 'O3':
+      return (
+        <span>
+          O<sub>3</sub>
+        </span>
+      );
+    case 'NO2':
+      return (
+        <span>
+          NO<sub>2</sub>
+        </span>
+      );
+    case 'NOX':
+      return (
+        <span>
+          NO<sub>x</sub>
+        </span>
+      );
+    case 'SO2':
+      return (
+        <span>
+          SO<sub>2</sub>
+        </span>
+      );
     default:
       return value;
   }
@@ -153,10 +177,10 @@ export function normalizePollutantLabel(value) {
 
 export function normalizeUnitsLabel(value) {
   switch (value) {
-    case "ug/m3":
-      return "μg/m³";
-    case "mg/m3":
-      return "mg/m³";
+    case 'ug/m3':
+      return 'μg/m³';
+    case 'mg/m3':
+      return 'mg/m³';
     default:
       return value;
   }
