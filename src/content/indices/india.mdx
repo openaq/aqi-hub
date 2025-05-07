@@ -8,6 +8,7 @@ import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
 import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
 
 ## Background
 
@@ -36,6 +37,12 @@ The India AQI uses a piecewise linear function to convert concentration values t
 <div class="latex-container">
   <PiecewiseLatexDoc label="AQI" />
 </div>
+
+<AqiCalculator
+  client:only="solid"
+  index="india"
+  acronym={frontmatter.indexAcronym}
+/>
 
 After calculating the sub-index for each measured pollutant all measured pollutants are compared and the maximum sub-index value is chosen to indicate the composite AQI value. The composite AQI value must be calculated against at minimum 3 pollutants, one of which must be particulate matter (PM<sub>2.5</sub> or PM<sub>10</sub>)[^3].
 

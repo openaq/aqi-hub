@@ -8,6 +8,7 @@ import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
 import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
 
 ## Background
 
@@ -44,6 +45,12 @@ Based on the breakpoint values in the table above, a piecewise linear function i
 <div class="latex-container">
   <PiecewiseLatexDoc label="KAQI" />
 </div>
+
+<AqiCalculator
+  client:only="solid"
+  index="kuwait"
+  acronym={frontmatter.indexAcronym}
+/>
 
 After all sub-indices for a station are computed, the maximum sub-index value is taken as the final KAQI value for a given station.
 

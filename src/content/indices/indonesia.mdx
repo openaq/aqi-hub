@@ -8,6 +8,7 @@ import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
 import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
 
 ## Background
 
@@ -41,6 +42,12 @@ Based on the breakpoint values in the table above a piecewise linear function is
 <div class="latex-container">
   <PiecewiseLatexDoc label="ISPU" />
 </div>
+
+<AqiCalculator
+  client:only="solid"
+  index="indonesia"
+  acronym={frontmatter.indexAcronym}
+/>
 
 ## References
 

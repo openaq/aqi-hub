@@ -8,6 +8,7 @@ import Admonition from "@components/Admonition.astro";
 import ColorScale from "../../components/ColorScale.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
 import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
 
 ## Background
 
@@ -157,7 +158,15 @@ The daily AQI for each parameter is calculated by the formula:
 <div class="latex-container">
   <PiecewiseLatexDoc label="VNAQI" />
 </div>
+
+<AqiCalculator
+  client:only="solid"
+  index="vietnam"
+  acronym={frontmatter.indexAcronym}
+/>
+
 When the 8-hour average value of the day exceeds 400 µg/m<sup>3</sup> for O
+
 <sub>3</sub>, the 8-hour averaging period AQI is not used; instead the AQI is
 calculated using the maximum 1-hour average of the day.
 

@@ -8,6 +8,7 @@ import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
 import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
 
 ## Background
 
@@ -65,6 +66,12 @@ The following piecewise linear function is used to calculate the sub-index AQI v
 <div class="latex-container">
   <PiecewiseLatexDoc label="AQI" />
 </div>
+
+<AqiCalculator
+  client:only="solid"
+  index="us"
+  acronym={frontmatter.indexAcronym}
+/>
 
 The resulting value is rounded to the nearest integer. The maximum AQI for all the pollutants is reported as the daily AQI.
 

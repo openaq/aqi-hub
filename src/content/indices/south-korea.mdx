@@ -8,6 +8,7 @@ import Admonition from "@components/Admonition.astro";
 import ColorScale from "../../components/ColorScale.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
 import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
 
 ## Background
 
@@ -40,6 +41,12 @@ The following piecewise linear function is used to calculate each pollutant sub-
 <div class="latex-container">
   <PiecewiseLatexDoc label="CAI" />
 </div>
+
+<AqiCalculator
+  client:only="solid"
+  index="south-korea"
+  acronym={frontmatter.indexAcronym}
+/>
 
 PM<sub>2.5</sub> and PM<sub>10 </sub> use a 24-hour forecast moving average in CAI calculation. The 24-hour forecast is calculated using the following equation [^1] :
 
