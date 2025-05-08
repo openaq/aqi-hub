@@ -10,7 +10,7 @@ let colorScale: ColorScaleDefinition[] = [];
 if (colorScaleValues) {
   colorScale = colorScaleValues;
 } else if (index) {
-  const res = await fetch(new URL(`api/data/${index}.json`, Astro.site?.href));
+  const res = await fetch(new URL(`/api/data/${index}.json`, Astro.url));
   const parsed = await res.json();
   let filteredContent = parsed.filter(
     (o: IndexDefinition) => o.pollutant == "PM2.5"

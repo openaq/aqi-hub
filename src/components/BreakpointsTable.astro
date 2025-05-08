@@ -12,9 +12,8 @@ import {
 } from "../utils/utils";
 
 const { index, rangeValue, labelValue } = Astro.props;
-
-const fetchedData = await fetch(new URL(`api/data/${index}.json`, Astro.site));
-const breakpoints = await fetchedData.json();
+const res = await fetch(new URL(`/api/data/${index}.json`, Astro.url));
+const breakpoints = await res.json();
 
 let label = true;
 let range = true;

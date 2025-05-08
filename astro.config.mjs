@@ -38,5 +38,4 @@ export default defineConfig({
   },
 
   integrations: [mdx(), solidJs()],
-  site: "http://localhost:4321",
 });

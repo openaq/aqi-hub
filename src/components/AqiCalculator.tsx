@@ -32,7 +32,7 @@ interface AqiCalculatorDefinition {
 }
 
 async function fetchIndex(country: string) {
-  const res = await fetch(`/api/data/${country}.json`);
+  const res = await fetch(`../../api/data/${country}.json`);
   const data: IndexDefinition[] = await res.json();
   return data;
 }

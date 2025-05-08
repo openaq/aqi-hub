@@ -3,8 +3,10 @@ import { readFileSync } from "node:fs";
 import { parse } from "csv-parse/sync";
 import path from "node:path";
 import type { IndexDefinition } from "src/types/types";
+import { globSync } from "tinyglobby";
 
-const glob = import.meta.glob("@data/breakpoints/*.csv");
+const glob = globSync("src/data/breakpoints/*.csv");
+
 
 const snakeToCamel = (str: string) =>
   str
@@ -38,7 +40,7 @@ export const GET: APIRoute = async ({ params }) => {
   });
 };
 
-const staticPaths = Object.keys(glob).map((o) => ({
+const staticPaths = glob.map((o) => ({
   params: { index: path.parse(o).name },
 }));
 

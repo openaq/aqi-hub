@@ -2,7 +2,6 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import { getEntry } from "astro:content";
 import { render } from "astro:content";
-import PiecewiseResult from "@components/PiecewiseResult";
 
 const homepage = await getEntry("pages", "index");
 if (!homepage) {
