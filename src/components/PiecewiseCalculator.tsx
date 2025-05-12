@@ -136,7 +136,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       <section class="calculation-wrapper">
         <div class="input-wrapper">
           <input
-            class="number-input"
+            class="number-input input"
             type="number"
             step={stepValue()}
             min={minValue()}
@@ -144,6 +144,9 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             value={concentration()}
             onInput={(e) => setConcentration(Number(e.target.value))}
           />
+          <span class="input-label">
+            {normalizePollutantLabel(indexValue()?.units)}
+          </span>
         </div>
         <div class="pollutant-wrapper">
           <p> {normalizePollutantLabel(props.pollutant)}</p>
