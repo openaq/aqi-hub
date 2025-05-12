@@ -61,6 +61,19 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     });
   });
 
+  const stepValue = () => {
+    const values = filteredData()
+      .map((d) => d.concentrationUpper - d.concentrationLower)
+      .filter((diff) => diff > 0);
+
+    const minDiff = Math.min(...values);
+
+    if (minDiff < 0.01) return 0.001;
+    if (minDiff < 0.1) return 0.01;
+    if (minDiff < 1) return 0.1;
+    return 1;
+  };
+
   const latexFunction = () => {
     const indexValues = indexValue();
     if (concentration() === 0 || !indexValues) {
@@ -108,6 +121,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
           <input
             class="number-input"
             type="number"
+            step={stepValue()}
             min="0"
             max={highestValue()}
             value={concentration()}
