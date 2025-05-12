@@ -16,9 +16,8 @@ interface PiecewiseCalculatorDefinition {
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [_, { addIndex, updateIndex }] = useCalculator();
 
-  const [concentration, setConcentration] = createSignal(0);
   const [outOfRange, setOutOfRange] = createSignal(false);
-  const [highestValue, setHighestValue] = createSignal(0);
+  const [maxValue, setMaxValue] = createSignal(0);
 
   const uniquePeriods = [...new Set(props.data.map((d) => d.averagingPeriod))];
   const hasMultiplePeriods = uniquePeriods.length > 1;
@@ -30,6 +29,24 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
 
   const filteredData = () =>
     props.data.filter((d) => d.averagingPeriod === activePeriod());
+
+  const minValue = () => {
+    const values = filteredData()
+      .filter((d) => {
+        const lower = d.concentrationLower;
+        const upper = d.concentrationUpper;
+        return (
+          lower !== undefined &&
+          upper !== undefined &&
+          !(lower === 0 && upper === 0)
+        );
+      })
+      .map((d) => d.concentrationLower);
+
+    return values.length > 0 ? Math.min(...values) : 0;
+  };
+
+  const [concentration, setConcentration] = createSignal(minValue());
 
   addIndex({ parameter: props.pollutant, index: 0 });
 
@@ -52,7 +69,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     const highestConcentrationUpper = Math.max(
       ...filteredData().map((d) => d.concentrationUpper)
     );
-    setHighestValue(highestConcentrationUpper);
+    setMaxValue(highestConcentrationUpper);
 
     updateIndex({
       parameter: props.pollutant,
@@ -122,8 +139,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             class="number-input"
             type="number"
             step={stepValue()}
-            min="0"
-            max={highestValue()}
+            min={minValue()}
+            max={maxValue()}
             value={concentration()}
             onInput={(e) => setConcentration(Number(e.target.value))}
           />
@@ -161,7 +178,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             </div>
           </Show>
         </div>
-        <Show when={concentration() === highestValue()}>
+        <Show when={concentration() === maxValue()}>
           <p class="out-of-range-text">You've reached the maximum breakpoint</p>
         </Show>
         <Show when={outOfRange()}>
