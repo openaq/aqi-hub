@@ -33,11 +33,6 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
 
   addIndex({ parameter: props.pollutant, index: 0 });
 
-  const highestCategoryUpper = Math.max(
-    ...props.data.map((d) => d.categoryUpper)
-  );
-  setHighestValue(highestCategoryUpper);
-
   const indexValue = () =>
     filteredData().find((o: IndexDefinition) => {
       const concentrationUpper = o.concentrationUpper
@@ -54,6 +49,11 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   };
 
   createEffect(() => {
+    const highestConcentrationUpper = Math.max(
+      ...filteredData().map((d) => d.concentrationUpper)
+    );
+    setHighestValue(highestConcentrationUpper);
+
     updateIndex({
       parameter: props.pollutant,
       value: result(),
