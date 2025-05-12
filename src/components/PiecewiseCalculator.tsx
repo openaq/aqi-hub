@@ -152,7 +152,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
         </Show>
         <Show when={outOfRange()}>
           <p class="out-of-range-text">
-            Value exceeds maximum breakpoint definition
+            Concentration exceeds maximum breakpoint definition
           </p>
         </Show>
       </section>
