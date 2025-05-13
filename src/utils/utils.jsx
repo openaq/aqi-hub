@@ -135,41 +135,29 @@ export const colorScaleReshape = (data, range = true) => {
 export function normalizePollutantLabel(value) {
   switch (value) {
     case 'PM2.5':
-      return (
-        <span>
+      return `<span>
           PM<sub>2.5</sub>
-        </span>
-      );
+        </span>`;
     case 'PM10':
-      return (
-        <span>
+      return `<span>
           PM<sub>10</sub>
-        </span>
-      );
+        </span>`;
     case 'O3':
-      return (
-        <span>
+      return `<span>
           O<sub>3</sub>
-        </span>
-      );
+        </span>`;
     case 'NO2':
-      return (
-        <span>
+      return `<span>
           NO<sub>2</sub>
-        </span>
-      );
+        </span>`;
     case 'NOX':
-      return (
-        <span>
+      return `<span>
           NO<sub>x</sub>
-        </span>
-      );
+        </span>`;
     case 'SO2':
-      return (
-        <span>
+      return `<span>
           SO<sub>2</sub>
-        </span>
-      );
+        </span>`;
     default:
       return value;
   }
