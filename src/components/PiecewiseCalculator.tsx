@@ -80,16 +80,9 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
 
   const stepValue = () => {
     const values = filteredData()
-      .map((d) => d.concentrationUpper - d.concentrationLower)
-      .filter((diff) => diff > 0);
-
-    const diffs = values.slice(1).map((current, i) => current - values[i]);
-    const minDiff = Math.min(...diffs);
-
-    if (minDiff < 0.01) return 0.001;
-    if (minDiff < 0.1) return 0.01;
-    if (minDiff < 1) return 0.1;
-    return 1;
+      .map((d) => ((d.concentrationLower % 1) != 0) ? d.concentrationLower.toString().split(".")[1].length : 0)
+    const min = Math.max(...values);
+    return min === 0 ? 1 : 10 ** (-1 * min)
   };
 
   const latexFunction = () => {
