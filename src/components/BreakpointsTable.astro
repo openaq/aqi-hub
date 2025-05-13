@@ -112,11 +112,10 @@ const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
         const [measurand, units] = pollutant.split(" ");
         const pollutantLabel = normalizePollutantLabel(measurand);
         const unitsLabel = normalizeUnitsLabel(units);
-
         return (
           <tr>
             <td>
-              {pollutantLabel} {unitsLabel}
+              <Fragment set:html={normalizePollutantLabel(measurand)}/> {unitsLabel}
             </td>
             <td>{avgPeriod} hr.</td>
             {headerColumns.map((header: CategoryDefinition) => {
