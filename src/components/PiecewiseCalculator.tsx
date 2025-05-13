@@ -83,7 +83,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       .map((d) => d.concentrationUpper - d.concentrationLower)
       .filter((diff) => diff > 0);
 
-    const minDiff = Math.min(...values);
+    const diffs = values.slice(1).map((current, i) => current - values[i]);
+    const minDiff = Math.min(...diffs);
 
     if (minDiff < 0.01) return 0.001;
     if (minDiff < 0.1) return 0.01;
