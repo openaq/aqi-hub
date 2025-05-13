@@ -4,7 +4,7 @@ import {
   piecewiseFunctionLatex,
   piecewiseFunctionWithNumbers,
 } from "../utils/piecewiseFunction";
-import { normalizePollutantLabel } from "src/utils/utils.jsx";
+import { normalizePollutantLabel, normalizePollutantLabelJSX, normalizeUnitsLabel } from "src/utils/utils.jsx";
 import { useCalculator } from "src/stores/AqiCalculatorStore";
 
 interface PiecewiseCalculatorDefinition {
@@ -81,8 +81,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const stepValue = () => {
     const values = filteredData()
       .map((d) => ((d.concentrationLower % 1) != 0) ? d.concentrationLower.toString().split(".")[1].length : 0)
-    const min = Math.max(...values);
-    return min === 0 ? 1 : 10 ** (-1 * min)
+    const max = Math.max(...values);
+    return max === 0 ? 1 : 10 ** (-1 * max)
   };
 
   const latexFunction = () => {
@@ -139,11 +139,11 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             onInput={(e) => setConcentration(Number(e.target.value))}
           />
           <span class="input-label">
-            {normalizePollutantLabel(indexValue()?.units)}
+            {normalizeUnitsLabel(indexValue()?.units)}
           </span>
         </div>
         <div class="pollutant-wrapper">
-          <p> {normalizePollutantLabel(props.pollutant)}</p>
+          <p>{normalizePollutantLabelJSX(props.pollutant)}</p>
         </div>
         <div class="time-period-wrapper">
           <Show when={hasMultiplePeriods}>
