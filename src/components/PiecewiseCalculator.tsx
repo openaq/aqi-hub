@@ -4,7 +4,10 @@ import {
   piecewiseFunctionLatex,
   piecewiseFunctionWithNumbers,
 } from "../utils/piecewiseFunction";
-import { normalizePollutantLabel } from "src/utils/utils.jsx";
+import {
+  normalizePollutantLabelJSX,
+  normalizeUnitsLabel,
+} from "src/utils/utils.jsx";
 import { useCalculator } from "src/stores/AqiCalculatorStore";
 
 interface PiecewiseCalculatorDefinition {
@@ -16,9 +19,7 @@ interface PiecewiseCalculatorDefinition {
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [_, { addIndex, updateIndex }] = useCalculator();
 
-  const [concentration, setConcentration] = createSignal(0);
-  const [outOfRange, setOutOfRange] = createSignal(false);
-  const [highestValue, setHighestValue] = createSignal(0);
+  const [maxValue, setMaxValue] = createSignal(0);
 
   const uniquePeriods = [...new Set(props.data.map((d) => d.averagingPeriod))];
   const hasMultiplePeriods = uniquePeriods.length > 1;
@@ -31,18 +32,53 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const filteredData = () =>
     props.data.filter((d) => d.averagingPeriod === activePeriod());
 
-  addIndex({ parameter: props.pollutant, index: 0 });
+  const getUpperConcentration = (
+    o: IndexDefinition,
+    indices: IndexDefinition[]
+  ) => {
+    const sorted = [...indices].sort(
+      (a, b) => a.concentrationLower - b.concentrationLower
+    );
 
-  const highestCategoryUpper = Math.max(
-    ...props.data.map((d) => d.categoryUpper)
-  );
-  setHighestValue(highestCategoryUpper);
+    const isLast = sorted[sorted.length - 1] === o;
+
+    if (isLast) {
+      return o.concentrationLower * 2;
+    }
+
+    if (o.concentrationUpper != null) {
+      return o.concentrationUpper;
+    }
+
+    const index = sorted.findIndex((entry) => entry === o);
+    const next = sorted[index + 1];
+    return next?.concentrationLower ?? o.concentrationLower * 2;
+  };
+
+  const minValue = () => {
+    const values = filteredData()
+      .filter((d) => {
+        const lower = d.concentrationLower;
+        const upper = d.concentrationUpper;
+        return (
+          lower !== undefined &&
+          upper !== undefined &&
+          !(lower === 0 && upper === 0)
+        );
+      })
+      .map((d) => d.concentrationLower);
+
+    return values.length > 0 ? Math.min(...values) : 0;
+  };
+
+  const [concentration, setConcentration] = createSignal(minValue());
+
+  addIndex({ parameter: props.pollutant, index: 0 });
 
   const indexValue = () =>
     filteredData().find((o: IndexDefinition) => {
-      const concentrationUpper = o.concentrationUpper
-        ? Number(o.concentrationUpper)
-        : 500;
+      const concentrationUpper = getUpperConcentration(o, filteredData());
+
       return (
         concentration() >= o.concentrationLower &&
         concentration() <= concentrationUpper
@@ -54,6 +90,12 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   };
 
   createEffect(() => {
+    const data = filteredData();
+    const highestConcentrationUpper = Math.max(
+      ...data.map((d) => getUpperConcentration(d, data))
+    );
+    setMaxValue(highestConcentrationUpper);
+
     updateIndex({
       parameter: props.pollutant,
       value: result(),
@@ -61,17 +103,38 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     });
   });
 
+  const stepValue = () => {
+    const values = filteredData().map((d) =>
+      d.concentrationLower % 1 != 0
+        ? d.concentrationLower.toString().split(".")[1].length
+        : 0
+    );
+    const max = Math.max(...values);
+    return max === 0 ? 1 : 10 ** (-1 * max);
+  };
+
   const latexFunction = () => {
     const indexValues = indexValue();
     if (concentration() === 0 || !indexValues) {
       return piecewiseFunctionLatex();
     }
-    const {
-      categoryUpper,
-      categoryLower,
-      concentrationUpper,
-      concentrationLower,
-    } = indexValues;
+
+    const sorted = [...filteredData()].sort(
+      (a, b) => a.concentrationLower - b.concentrationLower
+    );
+    const isLast = sorted[sorted.length - 1] === indexValues;
+
+    const categoryUpper =
+      isLast && (!indexValues.categoryUpper || indexValues.categoryUpper === 0)
+        ? 500
+        : indexValues.categoryUpper ?? 500;
+
+    const concentrationUpper = getUpperConcentration(
+      indexValues,
+      filteredData()
+    );
+
+    const { categoryLower, concentrationLower } = indexValues;
     return piecewiseFunctionWithNumbers(
       categoryUpper,
       categoryLower,
@@ -83,16 +146,28 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
 
   const result = () => {
     const indexValues = indexValue();
-    if (indexValues === undefined) {
-      setOutOfRange(true);
+    if (!indexValues) {
       return 0;
     }
-    const {
-      categoryUpper,
-      categoryLower,
-      concentrationUpper,
-      concentrationLower,
-    } = indexValues;
+
+    const concentrationLower = indexValues.concentrationLower;
+    const concentrationUpper = getUpperConcentration(
+      indexValues,
+      filteredData()
+    );
+
+    const sorted = [...filteredData()].sort(
+      (a, b) => a.concentrationLower - b.concentrationLower
+    );
+    const isLast = sorted[sorted.length - 1] === indexValues;
+
+    const categoryUpper =
+      isLast && (!indexValues.categoryUpper || indexValues.categoryUpper === 0)
+        ? 500
+        : indexValues.categoryUpper ?? 500;
+
+    const categoryLower = indexValues.categoryLower;
+
     return (
       ((categoryUpper - categoryLower) /
         (concentrationUpper - concentrationLower)) *
@@ -106,16 +181,20 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
       <section class="calculation-wrapper">
         <div class="input-wrapper">
           <input
-            class="number-input"
+            class="number-input input"
             type="number"
-            min="0"
-            max={highestValue()}
+            step={stepValue()}
+            min={minValue()}
+            max={maxValue()}
             value={concentration()}
             onInput={(e) => setConcentration(Number(e.target.value))}
           />
+          <span class="input-label">
+            {normalizeUnitsLabel(indexValue()?.units)}
+          </span>
         </div>
         <div class="pollutant-wrapper">
-          <p> {normalizePollutantLabel(props.pollutant)}</p>
+          <p>{normalizePollutantLabelJSX(props.pollutant)}</p>
         </div>
         <div class="time-period-wrapper">
           <Show when={hasMultiplePeriods}>
@@ -137,7 +216,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
           <div innerHTML={latexFunction()}></div>
         </div>
         <div class="result-wrapper">
-          <Show when={!outOfRange() || result() > 0}>
+          <Show when={result() > 0}>
             <p class="result-text">{Math.round(result())}</p>
             <div class="color-box-wrapper">
               <div
@@ -147,12 +226,12 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
             </div>
           </Show>
         </div>
-        <Show when={concentration() === highestValue()}>
+        <Show when={concentration() === maxValue()}>
           <p class="out-of-range-text">You've reached the maximum breakpoint</p>
         </Show>
-        <Show when={outOfRange()}>
+        <Show when={concentration() > maxValue()}>
           <p class="out-of-range-text">
-            Value exceeds maximum breakpoint definition
+            Concentration exceeds maximum breakpoint definition
           </p>
         </Show>
       </section>

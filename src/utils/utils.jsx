@@ -132,6 +132,37 @@ export const colorScaleReshape = (data, range = true) => {
   }));
 };
 
+export function normalizePollutantLabelJSX(value) {
+  switch (value) {
+    case 'PM2.5':
+      return `<span>
+          PM<sub>2.5</sub>
+        </span>`;
+    case 'PM10':
+      return `<span>
+          PM<sub>10</sub>
+        </span>`;
+    case 'O3':
+      return `<span>
+          O<sub>3</sub>
+        </span>`;
+    case 'NO2':
+      return `<span>
+          NO<sub>2</sub>
+        </span>`;
+    case 'NOX':
+      return `<span>
+          NO<sub>x</sub>
+        </span>`;
+    case 'SO2':
+      return `<span>
+          SO<sub>2</sub>
+        </span>`;
+    default:
+      return value;
+  }
+}
+
 export function normalizePollutantLabel(value) {
   switch (value) {
     case 'PM2.5':

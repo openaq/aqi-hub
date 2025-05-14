@@ -8,7 +8,6 @@ import ColorScale from "../../components/ColorScale.astro";
 import Admonition from "@components/Admonition.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
 import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
-import { AqiCalculator } from "@components/AqiCalculator.tsx";
 
 ## Background
 
@@ -44,12 +43,6 @@ Using the breakpoint values in the table above, a [piecewise linear function](/m
 <div class="latex-container">
   <PiecewiseLatexDoc label="AQI" />
 </div>
-
-<AqiCalculator
-  client:only="solid"
-  index="israel"
-  acronym={frontmatter.indexAcronym}
-/>
 
 After computing the AQI value for each measuremed pollutant, the maximum pollutant value it taken as the prevailing value.
 

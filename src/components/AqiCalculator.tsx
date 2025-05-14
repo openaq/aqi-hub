@@ -15,14 +15,29 @@ const MaxSubIndexCalculator = () => {
   const [_, { max }] = useCalculator();
 
   return (
-    <div class="final-result-wrapper">
-      <h4 class="final-result-text">
-        Final result (Maximum of sub-index values): {Math.round(max()?.value)}{" "}
-      </h4>
-      <div class="color-box-wrapper">
-        <div class="color-box" style={{ "background-color": max()?.hex }}></div>
+    <>
+      <div class="final-result-wrapper">
+        <h4 class="final-result-text">
+          Final result (Maximum of sub-index values): {Math.round(max()?.value)}{" "}
+        </h4>
+
+        <div class="color-box-wrapper">
+          <div
+            class="color-box"
+            style={{ "background-color": max()?.hex }}
+          ></div>
+        </div>
       </div>
-    </div>
+      <div class="information-wrapper">
+        <p>
+          Breakpoint information: When the source material does not define a
+          maximum breakpoint, we have created one by doubling the lower
+          breakpoint for the same category. This approximation is based on the
+          pattern observed in other categories where both lower and upper
+          breakpoints are provided.
+        </p>
+      </div>
+    </>
   );
 };
 
@@ -62,7 +77,7 @@ export const AqiCalculator = (props: AqiCalculatorDefinition) => {
   return (
     <>
       <div class="headers">
-        <h3 class="header">Value</h3>
+        <h3 class="header">Concentration</h3>
         <h3 class="header">Pollutant</h3>
         <h3 class="header">Averaging Period</h3>
         <h3 class="header">Formula</h3>
