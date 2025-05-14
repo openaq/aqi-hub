@@ -130,8 +130,12 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
         ? 500
         : indexValues.categoryUpper ?? 500;
 
-    const { categoryLower, concentrationUpper, concentrationLower } =
-      indexValues;
+    const concentrationUpper = getUpperConcentration(
+      indexValues,
+      filteredData()
+    );
+
+    const { categoryLower, concentrationLower } = indexValues;
     return piecewiseFunctionWithNumbers(
       categoryUpper,
       categoryLower,
