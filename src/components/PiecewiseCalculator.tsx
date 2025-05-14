@@ -4,7 +4,10 @@ import {
   piecewiseFunctionLatex,
   piecewiseFunctionWithNumbers,
 } from "../utils/piecewiseFunction";
-import { normalizePollutantLabel, normalizePollutantLabelJSX, normalizeUnitsLabel } from "src/utils/utils.jsx";
+import {
+  normalizePollutantLabelJSX,
+  normalizeUnitsLabel,
+} from "src/utils/utils.jsx";
 import { useCalculator } from "src/stores/AqiCalculatorStore";
 
 interface PiecewiseCalculatorDefinition {
@@ -30,6 +33,29 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const filteredData = () =>
     props.data.filter((d) => d.averagingPeriod === activePeriod());
 
+  const getUpperConcentration = (
+    o: IndexDefinition,
+    indices: IndexDefinition[]
+  ) => {
+    const sorted = [...indices].sort(
+      (a, b) => a.concentrationLower - b.concentrationLower
+    );
+
+    const isLast = sorted[sorted.length - 1] === o;
+
+    if (isLast) {
+      return o.concentrationLower * 2;
+    }
+
+    if (o.concentrationUpper != null) {
+      return o.concentrationUpper;
+    }
+
+    const index = sorted.findIndex((entry) => entry === o);
+    const next = sorted[index + 1];
+    return next?.concentrationLower ?? o.concentrationLower * 2;
+  };
+
   const minValue = () => {
     const values = filteredData()
       .filter((d) => {
@@ -52,9 +78,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
 
   const indexValue = () =>
     filteredData().find((o: IndexDefinition) => {
-      const concentrationUpper = o.concentrationUpper
-        ? Number(o.concentrationUpper)
-        : 500;
+      const concentrationUpper = getUpperConcentration(o, filteredData());
+
       return (
         concentration() >= o.concentrationLower &&
         concentration() <= concentrationUpper
@@ -66,8 +91,9 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   };
 
   createEffect(() => {
+    const data = filteredData();
     const highestConcentrationUpper = Math.max(
-      ...filteredData().map((d) => d.concentrationUpper)
+      ...data.map((d) => getUpperConcentration(d, data))
     );
     setMaxValue(highestConcentrationUpper);
 
@@ -79,10 +105,13 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   });
 
   const stepValue = () => {
-    const values = filteredData()
-      .map((d) => ((d.concentrationLower % 1) != 0) ? d.concentrationLower.toString().split(".")[1].length : 0)
+    const values = filteredData().map((d) =>
+      d.concentrationLower % 1 != 0
+        ? d.concentrationLower.toString().split(".")[1].length
+        : 0
+    );
     const max = Math.max(...values);
-    return max === 0 ? 1 : 10 ** (-1 * max)
+    return max === 0 ? 1 : 10 ** (-1 * max);
   };
 
   const latexFunction = () => {
@@ -90,12 +119,19 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     if (concentration() === 0 || !indexValues) {
       return piecewiseFunctionLatex();
     }
-    const {
-      categoryUpper,
-      categoryLower,
-      concentrationUpper,
-      concentrationLower,
-    } = indexValues;
+
+    const sorted = [...filteredData()].sort(
+      (a, b) => a.concentrationLower - b.concentrationLower
+    );
+    const isLast = sorted[sorted.length - 1] === indexValues;
+
+    const categoryUpper =
+      isLast && (!indexValues.categoryUpper || indexValues.categoryUpper === 0)
+        ? 500
+        : indexValues.categoryUpper ?? 500;
+
+    const { categoryLower, concentrationUpper, concentrationLower } =
+      indexValues;
     return piecewiseFunctionWithNumbers(
       categoryUpper,
       categoryLower,
@@ -107,16 +143,29 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
 
   const result = () => {
     const indexValues = indexValue();
-    if (indexValues === undefined) {
+    if (!indexValues) {
       setOutOfRange(true);
       return 0;
     }
-    const {
-      categoryUpper,
-      categoryLower,
-      concentrationUpper,
-      concentrationLower,
-    } = indexValues;
+
+    const concentrationLower = indexValues.concentrationLower;
+    const concentrationUpper = getUpperConcentration(
+      indexValues,
+      filteredData()
+    );
+
+    const sorted = [...filteredData()].sort(
+      (a, b) => a.concentrationLower - b.concentrationLower
+    );
+    const isLast = sorted[sorted.length - 1] === indexValues;
+
+    const categoryUpper =
+      isLast && (!indexValues.categoryUpper || indexValues.categoryUpper === 0)
+        ? 500
+        : indexValues.categoryUpper ?? 500;
+
+    const categoryLower = indexValues.categoryLower;
+
     return (
       ((categoryUpper - categoryLower) /
         (concentrationUpper - concentrationLower)) *
