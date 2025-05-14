@@ -30,8 +30,11 @@ const MaxSubIndexCalculator = () => {
       </div>
       <div class="information-wrapper">
         <p>
-          Breakpoint information: When in the source material there is no
-          maximum breakpoint defined we have created one.
+          Breakpoint information: When the source material does not define a
+          maximum breakpoint, we have created one by doubling the lower
+          breakpoint for the same category. This approximation is based on the
+          pattern observed in other categories where both lower and upper
+          breakpoints are provided.
         </p>
       </div>
     </>
