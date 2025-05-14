@@ -15,14 +15,26 @@ const MaxSubIndexCalculator = () => {
   const [_, { max }] = useCalculator();
 
   return (
-    <div class="final-result-wrapper">
-      <h4 class="final-result-text">
-        Final result (Maximum of sub-index values): {Math.round(max()?.value)}{" "}
-      </h4>
-      <div class="color-box-wrapper">
-        <div class="color-box" style={{ "background-color": max()?.hex }}></div>
+    <>
+      <div class="final-result-wrapper">
+        <h4 class="final-result-text">
+          Final result (Maximum of sub-index values): {Math.round(max()?.value)}{" "}
+        </h4>
+
+        <div class="color-box-wrapper">
+          <div
+            class="color-box"
+            style={{ "background-color": max()?.hex }}
+          ></div>
+        </div>
       </div>
-    </div>
+      <div class="information-wrapper">
+        <p>
+          Breakpoint information: When in the source material there is no
+          maximum breakpoint defined we have created one.
+        </p>
+      </div>
+    </>
   );
 };
 

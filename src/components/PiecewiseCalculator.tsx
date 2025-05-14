@@ -19,7 +19,6 @@ interface PiecewiseCalculatorDefinition {
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [_, { addIndex, updateIndex }] = useCalculator();
 
-  const [outOfRange, setOutOfRange] = createSignal(false);
   const [maxValue, setMaxValue] = createSignal(0);
 
   const uniquePeriods = [...new Set(props.data.map((d) => d.averagingPeriod))];
@@ -148,7 +147,6 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const result = () => {
     const indexValues = indexValue();
     if (!indexValues) {
-      setOutOfRange(true);
       return 0;
     }
 
@@ -218,7 +216,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
           <div innerHTML={latexFunction()}></div>
         </div>
         <div class="result-wrapper">
-          <Show when={!outOfRange() || result() > 0}>
+          <Show when={result() > 0}>
             <p class="result-text">{Math.round(result())}</p>
             <div class="color-box-wrapper">
               <div
@@ -231,7 +229,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
         <Show when={concentration() === maxValue()}>
           <p class="out-of-range-text">You've reached the maximum breakpoint</p>
         </Show>
-        <Show when={outOfRange()}>
+        <Show when={concentration() > maxValue()}>
           <p class="out-of-range-text">
             Concentration exceeds maximum breakpoint definition
           </p>
