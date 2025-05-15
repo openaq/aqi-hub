@@ -19,7 +19,25 @@ interface PiecewiseCalculatorDefinition {
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [_, { addIndex, updateIndex }] = useCalculator();
   const [maxValue, setMaxValue] = createSignal(0);
-  const uniquePeriods = [...new Set(props.data.map((d) => d.averagingPeriod))];
+  const validData = props.data.filter((d) => {
+    const lower = d.concentrationLower;
+    const upper = d.concentrationUpper;
+
+    return (
+      lower !== undefined &&
+      upper !== undefined &&
+      !(lower === 0 && upper === 0)
+    );
+  });
+
+  const uniquePeriods = Array.from(
+    new Set(
+      validData
+        .sort((a, b) => a.concentrationLower - b.concentrationLower)
+        .map((d) => d.averagingPeriod)
+    )
+  );
+
   const hasMultiplePeriods = uniquePeriods.length > 1;
   const [selectedPeriod, setSelectedPeriod] = createSignal(uniquePeriods[0]);
   const [prevPeriod, setPrevPeriod] = createSignal(selectedPeriod());
@@ -28,7 +46,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     hasMultiplePeriods ? selectedPeriod() : uniquePeriods[0];
 
   const filteredData = () =>
-    props.data.filter((d) => d.averagingPeriod === activePeriod());
+    validData.filter((d) => d.averagingPeriod === activePeriod());
 
   const getUpperConcentration = (
     o: IndexDefinition,
@@ -54,17 +72,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   };
 
   const minValue = () => {
-    const values = filteredData()
-      .filter((d) => {
-        const lower = d.concentrationLower;
-        const upper = d.concentrationUpper;
-        return (
-          lower !== undefined &&
-          upper !== undefined &&
-          !(lower === 0 && upper === 0)
-        );
-      })
-      .map((d) => d.concentrationLower);
+    const values = filteredData().map((d) => d.concentrationLower);
 
     return values.length > 0 ? Math.min(...values) : 0;
   };
