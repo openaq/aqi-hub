@@ -235,7 +235,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
         </Show>
         <Show when={concentration() > maxValue()}>
           <p class="out-of-range-text">
-            Concentration exceeds maximum breakpoint definition
+            Concentration exceeds maximum breakpoint definition:{" "}
+            <span>{maxValue()}</span>{" "}
           </p>
         </Show>
       </section>
