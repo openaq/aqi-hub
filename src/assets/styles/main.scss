@@ -306,6 +306,10 @@ h3 {
   grid-column: span 5;
   margin: 0;
   padding-bottom: 10px;
+
+  span {
+    font-weight: 600;
+  }
 }
 
 @media (max-width: 560px) {
