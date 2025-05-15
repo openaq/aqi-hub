@@ -196,7 +196,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
           </span>
         </div>
         <div class="pollutant-wrapper">
-          <p>{normalizePollutantLabelJSX(props.pollutant)}</p>
+          <p innerHTML={normalizePollutantLabelJSX(props.pollutant)}></p>
         </div>
         <div class="time-period-wrapper">
           <Show when={hasMultiplePeriods}>
