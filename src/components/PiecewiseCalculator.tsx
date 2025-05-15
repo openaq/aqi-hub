@@ -18,13 +18,11 @@ interface PiecewiseCalculatorDefinition {
 
 const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const [_, { addIndex, updateIndex }] = useCalculator();
-
   const [maxValue, setMaxValue] = createSignal(0);
-
   const uniquePeriods = [...new Set(props.data.map((d) => d.averagingPeriod))];
   const hasMultiplePeriods = uniquePeriods.length > 1;
-
   const [selectedPeriod, setSelectedPeriod] = createSignal(uniquePeriods[0]);
+  const [prevPeriod, setPrevPeriod] = createSignal(selectedPeriod());
 
   const activePeriod = () =>
     hasMultiplePeriods ? selectedPeriod() : uniquePeriods[0];
@@ -90,8 +88,12 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   };
 
   createEffect(() => {
-    const minConcentration = minValue();
-    setConcentration(minConcentration);
+    const currentPeriod = selectedPeriod();
+
+    if (prevPeriod() !== currentPeriod) {
+      setConcentration(minValue());
+      setPrevPeriod(currentPeriod);
+    }
     const data = filteredData();
     const highestConcentrationUpper = Math.max(
       ...data.map((d) => getUpperConcentration(d, data))
