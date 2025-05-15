@@ -90,6 +90,8 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   };
 
   createEffect(() => {
+    const minConcentration = minValue();
+    setConcentration(minConcentration);
     const data = filteredData();
     const highestConcentrationUpper = Math.max(
       ...data.map((d) => getUpperConcentration(d, data))
