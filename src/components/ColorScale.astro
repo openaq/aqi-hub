@@ -12,9 +12,18 @@ if (colorScaleValues) {
 } else if (index) {
   const res = await fetch(new URL(`/api/data/${index}.json`, Astro.url));
   const parsed = await res.json();
-  let filteredContent = parsed.filter(
-    (o: IndexDefinition) => o.pollutant == "PM2.5"
-  );
+  let filteredContent = parsed.filter((o: IndexDefinition) => o.category);
+
+  const seen = new Set();
+  filteredContent = filteredContent.filter((item: IndexDefinition) => {
+    if (seen.has(item.category)) {
+      return false;
+    } else {
+      seen.add(item.category);
+      return true;
+    }
+  });
+
   filteredContent = filteredContent.map((o: IndexDefinition) => {
     o.concentrationUpper ? o.concentrationUpper : (o.concentrationUpper = 500);
     return o;
