@@ -91,15 +91,15 @@ const data: IndexDefinition[] = [
 describe("getResult", () => {
   test("beräkning right index inom fööörst span", () => {
     const result = getResult(data, 5);
-    expect(Math.round(result)).toBeCloseTo(28);
+    expect(Math.round(result)).toBe(28);
   });
 
   test("beräkning right index inom second span", () => {
     const result = getResult(data, 15);
-    expect(Math.round(result)).toBeCloseTo(62);
+    expect(Math.round(result)).toBe(62);
   });
 
-  test("returnering 0 om no mathande indexdefinitiones is hittade", () => {
+  test("returnering 0 om no matchande indexdefinitiones is hittade", () => {
     const result = getResult(data, 600);
     expect(result).toBe(0);
   });
