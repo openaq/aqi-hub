@@ -1,14 +1,19 @@
-import { createEffect, createSignal, For, Show } from "solid-js";
+import { createEffect, createSignal, Show } from "solid-js";
 import type { IndexDefinition } from "src/types/types";
-import {
-  piecewiseFunctionLatex,
-  piecewiseFunctionWithNumbers,
-} from "../utils/piecewiseFunction";
 import {
   normalizePollutantLabelJSX,
   normalizeUnitsLabel,
 } from "src/utils/utils.jsx";
 import { useCalculator } from "src/stores/AqiCalculatorStore";
+import {
+  generateLatexFunction,
+  getResult,
+  getUpperConcentration,
+  indexValue,
+  minValue,
+  stepValue,
+} from "src/utils/piecewiseCalculatorHelpers";
+import TimePeriodSelector from "./TimePeriodSelector";
 
 interface PiecewiseCalculatorDefinition {
   pollutant: string;
@@ -48,58 +53,21 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
   const filteredData = () =>
     validData.filter((d) => d.averagingPeriod === activePeriod());
 
-  const getUpperConcentration = (
-    o: IndexDefinition,
-    indices: IndexDefinition[]
-  ) => {
-    const sorted = [...indices].sort(
-      (a, b) => a.concentrationLower - b.concentrationLower
-    );
-
-    const isLast = sorted[sorted.length - 1] === o;
-
-    if (isLast) {
-      return o.concentrationLower * 2;
-    }
-
-    if (o.concentrationUpper != null) {
-      return o.concentrationUpper;
-    }
-
-    const index = sorted.findIndex((entry) => entry === o);
-    const next = sorted[index + 1];
-    return next?.concentrationLower ?? o.concentrationLower * 2;
-  };
-
-  const minValue = () => {
-    const values = filteredData().map((d) => d.concentrationLower);
-
-    return values.length > 0 ? Math.min(...values) : 0;
-  };
-
-  const [concentration, setConcentration] = createSignal(minValue());
+  const [concentration, setConcentration] = createSignal(
+    minValue(filteredData())
+  );
 
   addIndex({ parameter: props.pollutant, index: 0 });
 
-  const indexValue = () =>
-    filteredData().find((o: IndexDefinition) => {
-      const concentrationUpper = getUpperConcentration(o, filteredData());
-
-      return (
-        concentration() >= o.concentrationLower &&
-        concentration() <= concentrationUpper
-      );
-    });
-
   const hexCode = () => {
-    return indexValue()?.hex;
+    return indexValue(filteredData(), concentration())?.hex;
   };
 
   createEffect(() => {
     const currentPeriod = selectedPeriod();
 
     if (prevPeriod() !== currentPeriod) {
-      setConcentration(minValue());
+      setConcentration(minValue(filteredData()));
       setPrevPeriod(currentPeriod);
     }
     const data = filteredData();
@@ -115,78 +83,10 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
     });
   });
 
-  const stepValue = () => {
-    const values = filteredData().map((d) =>
-      d.concentrationLower % 1 != 0
-        ? d.concentrationLower.toString().split(".")[1].length
-        : 0
-    );
-    const max = Math.max(...values);
-    return max === 0 ? 1 : 10 ** (-1 * max);
-  };
+  const latexFunction = () =>
+    generateLatexFunction(filteredData(), concentration());
 
-  const latexFunction = () => {
-    const indexValues = indexValue();
-    if (concentration() === 0 || !indexValues) {
-      return piecewiseFunctionLatex();
-    }
-
-    const sorted = [...filteredData()].sort(
-      (a, b) => a.concentrationLower - b.concentrationLower
-    );
-    const isLast = sorted[sorted.length - 1] === indexValues;
-
-    const categoryUpper =
-      isLast && (!indexValues.categoryUpper || indexValues.categoryUpper === 0)
-        ? 500
-        : indexValues.categoryUpper ?? 500;
-
-    const concentrationUpper = getUpperConcentration(
-      indexValues,
-      filteredData()
-    );
-
-    const { categoryLower, concentrationLower } = indexValues;
-    return piecewiseFunctionWithNumbers(
-      categoryUpper,
-      categoryLower,
-      concentrationUpper,
-      concentrationLower,
-      concentration()
-    );
-  };
-
-  const result = () => {
-    const indexValues = indexValue();
-    if (!indexValues) {
-      return 0;
-    }
-
-    const concentrationLower = indexValues.concentrationLower;
-    const concentrationUpper = getUpperConcentration(
-      indexValues,
-      filteredData()
-    );
-
-    const sorted = [...filteredData()].sort(
-      (a, b) => a.concentrationLower - b.concentrationLower
-    );
-    const isLast = sorted[sorted.length - 1] === indexValues;
-
-    const categoryUpper =
-      isLast && (!indexValues.categoryUpper || indexValues.categoryUpper === 0)
-        ? 500
-        : indexValues.categoryUpper ?? 500;
-
-    const categoryLower = indexValues.categoryLower;
-
-    return (
-      ((categoryUpper - categoryLower) /
-        (concentrationUpper - concentrationLower)) *
-        (concentration() - concentrationLower) +
-      categoryLower
-    );
-  };
+  const result = () => getResult(filteredData(), concentration());
 
   return (
     <>
@@ -195,35 +95,27 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
           <input
             class="number-input input"
             type="number"
-            step={stepValue()}
-            min={minValue()}
+            step={stepValue(filteredData())}
+            min={minValue(filteredData())}
             max={maxValue()}
             value={concentration()}
             onInput={(e) => setConcentration(Number(e.target.value))}
           />
           <span class="input-label">
-            {normalizeUnitsLabel(indexValue()?.units)}
+            {normalizeUnitsLabel(
+              indexValue(filteredData(), concentration())?.units
+            )}
           </span>
         </div>
         <div class="pollutant-wrapper">
           <p innerHTML={normalizePollutantLabelJSX(props.pollutant)}></p>
         </div>
-        <div class="time-period-wrapper">
-          <Show when={hasMultiplePeriods}>
-            <select
-              class="period-select"
-              onInput={(e) => setSelectedPeriod(Number(e.currentTarget.value))}
-            >
-              <For each={uniquePeriods}>
-                {(period) => <option value={period}>{period} hr</option>}
-              </For>
-            </select>
-          </Show>
-          <Show when={!hasMultiplePeriods}>
-            <p>{uniquePeriods[0]} hr.</p>
-          </Show>
-        </div>
-
+        <TimePeriodSelector
+          hasMultiplePeriods={hasMultiplePeriods}
+          uniquePeriods={uniquePeriods}
+          selectedPeriod={selectedPeriod()}
+          setSelectedPeriod={setSelectedPeriod}
+        />
         <div class="formula-wrapper">
           <div innerHTML={latexFunction()}></div>
         </div>
