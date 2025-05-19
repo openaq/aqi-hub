@@ -16,10 +16,11 @@ if (colorScaleValues) {
 
   const seen = new Set();
   filteredContent = filteredContent.filter((item: IndexDefinition) => {
-    if (seen.has(item.category)) {
+    const key = `${item.category}_${item.hex}`;
+    if (seen.has(key)) {
       return false;
     } else {
-      seen.add(item.category);
+      seen.add(key);
       return true;
     }
   });
