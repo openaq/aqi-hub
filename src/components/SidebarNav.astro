@@ -4,10 +4,17 @@ import { getCollection, type CollectionEntry } from "astro:content";
 const indices = await getCollection("indices");
 const pages = await getCollection("pages");
 
-const sortPagesByTitle = (
-  a: CollectionEntry<"pages">,
-  b: CollectionEntry<"pages">
-) => a.data.title.localeCompare(b.data.title);
+const desiredOrder = [
+  "Introduction",
+  "Pollutants",
+  "Reporting periods",
+  "Methods",
+];
+
+const orderedTitles = pages.sort(
+  (a, b) =>
+    desiredOrder.indexOf(a.data.title) - desiredOrder.indexOf(b.data.title)
+);
 
 const sortIndicesByName = (
   a: CollectionEntry<"indices">,
@@ -95,7 +102,7 @@ const sortIndicesByName = (
   <nav class="nav pages-nav">
     <ul>
       {
-        pages.sort(sortPagesByTitle).map((o) => (
+        orderedTitles.map((o) => (
           <li>
             <a href={o.id === "index" ? "/" : `/${o.id}`}>{o.data.title}</a>
           </li>

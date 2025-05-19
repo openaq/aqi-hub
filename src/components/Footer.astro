@@ -1,4 +1,6 @@
 <style lang="scss">
+  @use "openaq-design-system/scss/variables";
+
   .footer {
     position: relative;
     width: 90%;
@@ -6,6 +8,12 @@
     justify-content: center;
     margin: 0 auto;
     font-size: 0.75rem;
+    padding-bottom: 20px;
+    color: variables.$smoke120;
+
+    a {
+      color: variables.$sky100;
+    }
 
     @media (min-width: 800px) {
       width: 80%;
