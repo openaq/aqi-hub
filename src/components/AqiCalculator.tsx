@@ -58,7 +58,6 @@ export const AqiCalculator = (props: AqiCalculatorDefinition) => {
   const pollutants = () => {
     const groupedPollutants = new Map<string, PollutantData>();
     if (data()) {
-      data()!.map((o) => {});
       for (const item of data()!) {
         const key = item.pollutant;
         if (!groupedPollutants.has(key)) {
@@ -76,6 +75,8 @@ export const AqiCalculator = (props: AqiCalculatorDefinition) => {
 
   return (
     <>
+     <div class="aqi-calculator">
+      <h3>Change the different pollutant concentration values to see how piecewise linear function works for the {props.acronym} definition</h3>
       <div class="headers">
         <h3 class="header">Concentration</h3>
         <h3 class="header">Pollutant</h3>
@@ -95,6 +96,7 @@ export const AqiCalculator = (props: AqiCalculatorDefinition) => {
         </For>
         <MaxSubIndexCalculator />
       </CalculatorProvider>
+      </div>
     </>
   );
 };
