@@ -42,6 +42,12 @@ export function SlopeChart() {
 
   return (
     <>
+      <p>
+        <i>
+          Move the slider to change the 24 hour PM<sub>2.5</sub> concentration
+          value and see how the AQI varies across countries.
+        </i>
+      </p>
       <Show when={breakpoints.state === 'ready'}>
         <LollipopChart
           data={breakpoints()}
@@ -149,85 +155,92 @@ export function LollipopChart(props: LollipopChartDefinition) {
 
   return (
     <>
-      <input
-        type="range"
-        id="concentration"
-        name="concentration"
-        value={concentration()}
-        min="0"
-        max="500"
-        ref={sliderRef}
-        onInput={(e) => setConcentration(Number(e.target.value))}
-      />
-      <input
-        type="number"
-        name="concentration-input input"
-        id="concentration-input"
-        value={concentration()}
-        min="0"
-        max="500"
-        onInput={(e) => setConcentration(Number(e.target.value))}
-      />
+      <div class="lollipop-contentration">
+        <input
+          type="range"
+          id="concentration"
+          name="concentration"
+          value={concentration()}
+          min="0"
+          max="500"
+          ref={sliderRef}
+          onInput={(e) => setConcentration(Number(e.target.value))}
+        />
+        <input
+          type="number"
+          name="concentration-input input"
+          id="concentration-input"
+          value={concentration()}
+          min="0"
+          max="500"
+          onInput={(e) => setConcentration(Number(e.target.value))}
+        />
+      </div>
       <div>
-      <svg
-        width={`${props.width + props.margin}px`}
-        height={`${props.height + props.margin}px`}
-      >
-        {' '}
-        <g
-          class="y-axis"
-          transform={`translate(${props.margin / 2} 0)`}
-          ref={yAxisRef}
-        />
-        <g
-          class="x-axis"
-          transform={`translate(${props.margin / 2} ${props.height})`}
-          ref={xAxisRef}
-        />
-        <g transform={`translate(${props.margin / 2} ${+12})`}>
-          <For each={Object.entries(data)}>
-            {([iso, breakpoints]) => {
-              const value = () => aqi(concentration(), breakpoints!).aqi;
-              const hex = () => aqi(concentration(), breakpoints!).hex;
-              return (
-                <>
-                  <line
-                    x1={0}
-                    x2={x(value())}
-                    y1={y(iso)}
-                    y2={y(iso)}
-                    stroke="black"
-                    stroke-width={6}
-                  ></line>
-                  <circle
-                    cx={x(value())}
-                    cy={y(iso)}
-                    r={12}
-                    fill="black"
-                  ></circle>
+        <svg
+          width={`${props.width + props.margin}px`}
+          height={`${props.height + props.margin}px`}
+        >
+          {' '}
+          <g
+            class="y-axis"
+            transform={`translate(${props.margin / 2} 0)`}
+            ref={yAxisRef}
+          />
+          <g
+            class="x-axis"
+            transform={`translate(${props.margin / 2} ${props.height})`}
+            ref={xAxisRef}
+          />
+          <g transform={`translate(${props.margin / 2} ${+12})`}>
+            <For each={Object.entries(data)}>
+              {([iso, breakpoints]) => {
+                const value = () => aqi(concentration(), breakpoints!).aqi;
+                const hex = () => aqi(concentration(), breakpoints!).hex;
+                return (
+                  <>
+                    <line
+                      x1={0}
+                      x2={x(value())}
+                      y1={y(iso)}
+                      y2={y(iso)}
+                      stroke="black"
+                      stroke-width={6}
+                    ></line>
+                    <circle
+                      cx={x(value())}
+                      cy={y(iso)}
+                      r={12}
+                      fill="black"
+                    ></circle>
 
-                  <line
-                    x1={0}
-                    x2={x(value())}
-                    y1={y(iso)}
-                    y2={y(iso)}
-                    stroke={hex()}
-                    stroke-width={4}
-                  ></line>
-                  <circle cx={x(value())} cy={y(iso)} r={11} fill={hex()}></circle>
-                  <text
-                    style="font-size:12px;"
-                    fill={getContrast(hex())}
-                    transform={`translate(${value() - 8},${y(iso) + 4})`}
-                  >
-                    {aqi(concentration(), breakpoints!).aqi}
-                  </text>
-                </>
-              );
-            }}
-          </For>
-        </g>
-      </svg>
+                    <line
+                      x1={0}
+                      x2={x(value())}
+                      y1={y(iso)}
+                      y2={y(iso)}
+                      stroke={hex()}
+                      stroke-width={4}
+                    ></line>
+                    <circle
+                      cx={x(value())}
+                      cy={y(iso)}
+                      r={11}
+                      fill={hex()}
+                    ></circle>
+                    <text
+                      style="font-size:12px;"
+                      fill={getContrast(hex())}
+                      transform={`translate(${value() - 8},${y(iso) + 4})`}
+                    >
+                      {aqi(concentration(), breakpoints!).aqi}
+                    </text>
+                  </>
+                );
+              }}
+            </For>
+          </g>
+        </svg>
       </div>
     </>
   );
