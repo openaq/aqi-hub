@@ -1,7 +1,7 @@
 ---
 import { reshapeData } from "src/utils/utils.jsx";
 
-const data = await fetch(new URL(`api/data/indices.json`, Astro.url));
+const data = await fetch(new URL(`/api/data/indices.json`, Astro.url));
 const parsed = await data.json();
 
 const reshapedData = reshapeData(parsed);

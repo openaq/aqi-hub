@@ -11,7 +11,7 @@ interface Bar {
   fill: string;
 }
 
-const data = await fetch(new URL(`api/data/indices.json`, Astro.url));
+const data = await fetch(new URL(`/api/data/indices.json`, Astro.url));
 const parsed = await data.json();
 const map = countriesMap as CountryMapDefinition;
 
