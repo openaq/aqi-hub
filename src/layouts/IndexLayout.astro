@@ -13,7 +13,7 @@ const { name, indexName, indexAcronym } = Astro.props;
   }
 </style>
 
-<PageLayout>
+<PageLayout pageTitle={`AQI Hub ${name} (${indexAcronym})`}>
   <h1>{name}</h1>
   <h2>{indexName} ({indexAcronym})</h2>
   <article>
