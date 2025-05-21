@@ -1,0 +1,338 @@
+@use "openaq-design-system/scss/mixins/index.scss" as mixins;
+@use "openaq-design-system/scss/mixins/typography" as *;
+@use "openaq-design-system/scss/utilities/types";
+@use "openaq-design-system/scss/variables";
+@use "openaq-design-system/scss/inputs/index.scss" as *;
+
+.headers {
+  display: grid;
+  margin-bottom: 10px;
+
+  .header {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.calculation-wrapper {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid variables.$smoke180;
+  gap: 10px;
+}
+
+.input-headers {
+  display: none;
+}
+
+.result-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.color-box {
+  margin-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.color-box-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+
+  p {
+    margin: 0;
+  }
+
+  .color-box {
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.out-of-range-text {
+  grid-column: span 5;
+  margin: 0;
+  padding-bottom: 10px;
+
+  span {
+    font-weight: 600;
+  }
+}
+
+@media (width <= 560px) {
+  .headers {
+    grid-template-columns: 85px 30px 35px 90px 20px;
+    gap: 10px;
+
+    .header {
+      font-size: 10px;
+    }
+  }
+
+  .calculation-wrapper {
+    display: grid;
+    grid-template-columns: 85px 30px 35px 90px 10px;
+    gap: 10px;
+
+    p {
+      font-size: 10px;
+    }
+
+    .input-wrapper {
+      input {
+        max-height: 25px;
+        width: 50px;
+        font-size: 11px;
+      }
+
+      .input-label {
+        font-size: 10px;
+      }
+    }
+
+    .color-box {
+      margin-left: 5px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+@media (width >= 561px) {
+  .headers {
+    grid-template-columns: 95px 60px 40px 160px 60px;
+    gap: 10px;
+
+    .header {
+      font-size: 12px;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .calculation-wrapper {
+    display: grid;
+    grid-template-columns: 95px 60px 40px 160px 60px;
+    gap: 10px;
+
+    p {
+      font-size: 13px;
+    }
+
+    .input-wrapper {
+      input {
+        max-height: 25px;
+        width: 50px;
+        font-size: 13px;
+      }
+    }
+    .color-box {
+      margin-left: 10px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+@media (width >= 800px) {
+  .headers {
+    grid-template-columns: 95px 60px 40px 140px 60px;
+    gap: 10px;
+  }
+
+  .calculation-wrapper {
+    display: grid;
+    grid-template-columns: 95px 60px 40px 140px 60px;
+    gap: 10px;
+
+    p {
+      font-size: 13px;
+    }
+
+    .input-wrapper {
+      input {
+        max-height: 25px;
+        width: 50px;
+        font-size: 13px;
+      }
+    }
+    .color-box {
+      margin-left: 10px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+@media (width >= 1000px) {
+  .headers {
+    grid-template-columns: 145px 80px 75px 240px 130px;
+
+    .header {
+      font-size: 1rem;
+    }
+  }
+
+  .calculation-wrapper {
+    display: grid;
+    grid-template-columns: 145px 80px 75px 240px 130px;
+    gap: 10px;
+    align-items: center;
+
+    p {
+      font-size: 1rem;
+    }
+
+    .formula-wrapper,
+    .input-wrapper .time-period-wrapper,
+    .result-wrapper {
+      align-self: start;
+    }
+
+    .input-wrapper {
+      input {
+        max-height: 35px;
+        width: 100px;
+        margin-left: 0;
+        font-size: 14px;
+      }
+    }
+
+    .result-wrapper {
+      display: flex;
+
+      .color-box-wrapper {
+        .color-box {
+          margin-left: 10px;
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+
+    .out-of-range-text {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (width >= 1200px) {
+  .headers {
+    grid-template-columns: 145px 80px 75px 250px 130px;
+  }
+
+  .calculation-wrapper {
+    grid-template-columns: 145px 80px 75px 250px 130px;
+  }
+}
+
+@media (width >= 1300px) {
+  .headers {
+    grid-template-columns: 150px 90px 110px 300px 140px;
+
+    .header {
+      font-size: 1rem;
+    }
+  }
+
+  .calculation-wrapper {
+    grid-template-columns: 150px 90px 110px 300px 140px;
+  }
+}
+
+@media (width >= 1400px) {
+  .headers {
+    grid-template-columns: 150px 110px 130px 350px 160px;
+
+    .header {
+      font-size: 1rem;
+    }
+  }
+
+  .calculation-wrapper {
+    grid-template-columns: 150px 110px 130px 350px 160px;
+  }
+}
+
+@media (width <= 1000px) {
+  input[type="number"] {
+    appearance: textfield;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+}
+
+.final-result-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.final-result-text {
+  font-size: 12px;
+  padding-block: 10px;
+  margin: 0;
+
+  @media (width >= 560px) {
+    font-size: 1rem;
+  }
+}
+
+.period-select {
+  @include body2;
+
+  padding: 8px 10px;
+  border: 1px solid variables.$smoke30;
+  border-radius: 14px;
+  line-height: 1.5;
+  background-color: white;
+  appearance: none;
+  background-image: none;
+  height: 30px;
+  width: 50px;
+  font-size: 10px;
+
+  @media (width >= 1000px) {
+    font-size: 14px;
+    height: 35px;
+    width: 80px;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+  }
+
+  &:hover {
+    border: 1px solid variables.$sky30;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid variables.$sky30;
+  }
+
+  &:disabled {
+    background-color: variables.$smoke10;
+    cursor: not-allowed;
+  }
+}
+
+.input-label {
+  margin-left: 5px;
+  top: 50%;
+  left: 1.5rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: variables.$smoke180;
+  font-size: 0.8rem;
+}
