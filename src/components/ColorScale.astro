@@ -2,6 +2,7 @@
 import ColorScaleChart from "./ColorScaleChart.astro";
 import { colorScaleReshape } from "../utils/utils.jsx";
 import type { ColorScaleDefinition, IndexDefinition } from "src/types/types";
+import { loadIndex } from "@data/loaders";
 
 const { colorScaleValues, index, value } = Astro.props;
 
@@ -10,9 +11,9 @@ let colorScale: ColorScaleDefinition[] = [];
 if (colorScaleValues) {
   colorScale = colorScaleValues;
 } else if (index) {
-  const res = await fetch(new URL(`/api/data/${index}.json`, Astro.url));
-  const parsed = await res.json();
-  let filteredContent = parsed.filter((o: IndexDefinition) => o.category);
+
+  const breakpoints = loadIndex(index);
+  let filteredContent = breakpoints.filter((o: IndexDefinition) => o.category);
 
   const seen = new Set();
   filteredContent = filteredContent.filter((item: IndexDefinition) => {

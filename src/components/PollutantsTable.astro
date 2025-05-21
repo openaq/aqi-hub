@@ -1,10 +1,11 @@
 ---
 import { reshapeData } from "src/utils/utils.jsx";
+import { loadIndices } from "@data/loaders";
 
-const data = await fetch(new URL(`/api/data/indices.json`, Astro.url));
-const parsed = await data.json();
 
-const reshapedData = reshapeData(parsed);
+const data = loadIndices()
+
+const reshapedData = reshapeData(data);
 ---
 
 <style lang="scss">
