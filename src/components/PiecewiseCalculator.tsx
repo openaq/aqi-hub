@@ -9,6 +9,7 @@ import {
   normalizeUnitsLabel,
 } from "src/utils/utils.jsx";
 import { useCalculator } from "src/stores/AqiCalculatorStore";
+import "@assets/styles/piecewisecalculator.scss";
 
 interface PiecewiseCalculatorDefinition {
   pollutant: string;
