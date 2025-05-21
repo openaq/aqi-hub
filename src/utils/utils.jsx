@@ -1,6 +1,6 @@
 import countriesMap from '../data/countries.json';
 
-function snakeToCamel(item) {
+export function snakeToCamel(item) {
   if (Array.isArray(item)) {
     return item.map((el) => snakeToCamel(el));
   } else if (typeof item === 'function' || item !== Object(item)) {

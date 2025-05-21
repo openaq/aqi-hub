@@ -2,6 +2,7 @@
 import * as d3 from "d3";
 import type { CountryMapDefinition, IndexDefinition } from "src/types/types";
 import countriesMap from "../data/countries.json";
+import { loadIndices } from "@data/loaders";
 
 interface Bar {
   x: number;
@@ -11,11 +12,10 @@ interface Bar {
   fill: string;
 }
 
-const data = await fetch(new URL(`/api/data/indices.json`, Astro.url));
-const parsed = await data.json();
+const data = loadIndices();
 const map = countriesMap as CountryMapDefinition;
 
-let filteredContent = parsed.filter(
+let filteredContent = data.filter(
   (o: IndexDefinition) => o.pollutant == "PM2.5" && o.averagingPeriod == 24
 );
 

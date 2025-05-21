@@ -7,6 +7,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import mdx from '@astrojs/mdx';
 import rehypeExternalLinks from 'rehype-external-links';
 import { remarkModifiedTime } from './remark-modified-time.mjs';
+import dsv from '@rollup/plugin-dsv'
 
 import solidJs from '@astrojs/solid-js';
 
@@ -37,6 +38,8 @@ export default defineConfig({
       ],
     ],
   },
-
   integrations: [mdx(), solidJs()],
+  vite: {
+    plugins: [dsv()]
+  }
 });
