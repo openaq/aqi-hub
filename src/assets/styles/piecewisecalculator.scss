@@ -59,7 +59,7 @@
 @media (width <= 560px) {
   .calculation-wrapper {
     display: grid;
-    grid-template-columns: 90px 30px 35px 110px 10px;
+    grid-template-columns: 85px 30px 35px 90px 10px;
     gap: 10px;
 
     p {
@@ -77,13 +77,19 @@
         font-size: 10px;
       }
     }
+
+    .color-box {
+      margin-left: 5px;
+      width: 10px;
+      height: 10px;
+    }
   }
 }
 
 @media (width >= 561px) {
   .calculation-wrapper {
     display: grid;
-    grid-template-columns: 100px 60px 40px 170px 60px;
+    grid-template-columns: 95px 60px 40px 160px 60px;
     gap: 10px;
 
     p {
@@ -97,13 +103,43 @@
         font-size: 13px;
       }
     }
+    .color-box {
+      margin-left: 10px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+@media (width >= 800px) {
+  .calculation-wrapper {
+    display: grid;
+    grid-template-columns: 95px 60px 40px 140px 60px;
+    gap: 10px;
+
+    p {
+      font-size: 13px;
+    }
+
+    .input-wrapper {
+      input {
+        max-height: 25px;
+        width: 50px;
+        font-size: 13px;
+      }
+    }
+    .color-box {
+      margin-left: 10px;
+      width: 10px;
+      height: 10px;
+    }
   }
 }
 
 @media (width >= 1000px) {
   .calculation-wrapper {
     display: grid;
-    grid-template-columns: 145px 90px 75px 270px 130px;
+    grid-template-columns: 145px 80px 75px 240px 130px;
     gap: 10px;
     align-items: center;
 
@@ -144,9 +180,15 @@
   }
 }
 
+@media (width >= 1200px) {
+  .calculation-wrapper {
+    grid-template-columns: 145px 80px 75px 250px 130px;
+  }
+}
+
 @media (width >= 1300px) {
   .calculation-wrapper {
-    grid-template-columns: 150px 90px 110px 330px 140px;
+    grid-template-columns: 150px 90px 110px 300px 140px;
   }
 }
 
@@ -169,14 +211,14 @@
 
 @media (width <= 560px) {
   .headers {
-    grid-template-columns: 90px 30px 35px 110px 20px;
+    grid-template-columns: 85px 30px 35px 90px 20px;
     gap: 10px;
   }
 }
 
 @media (width >= 561px) {
   .headers {
-    grid-template-columns: 100px 60px 40px 170px 60px;
+    grid-template-columns: 95px 60px 40px 160px 60px;
     gap: 10px;
 
     .header {
@@ -187,9 +229,16 @@
   }
 }
 
+@media (width >= 800px) {
+  .headers {
+    grid-template-columns: 95px 60px 40px 140px 60px;
+    gap: 10px;
+  }
+}
+
 @media (width >= 1000px) {
   .headers {
-    grid-template-columns: 145px 90px 75px 270px 130px;
+    grid-template-columns: 145px 80px 75px 240px 130px;
 
     .header {
       font-size: 1rem;
@@ -197,9 +246,15 @@
   }
 }
 
+@media (width >= 1200px) {
+  .headers {
+    grid-template-columns: 145px 80px 75px 250px 130px;
+  }
+}
+
 @media (width >= 1300px) {
   .headers {
-    grid-template-columns: 150px 90px 110px 330px 140px;
+    grid-template-columns: 150px 90px 110px 300px 140px;
 
     .header {
       font-size: 1rem;
@@ -214,59 +269,6 @@
     .header {
       font-size: 1rem;
     }
-  }
-}
-
-.number-input {
-  @include body2;
-
-  padding: 8px 10px;
-  border: 1px solid variables.$smoke30;
-  border-radius: 14px;
-  line-height: 1.5;
-  vertical-align: middle;
-
-  ::placeholder {
-    @include body2;
-
-    opacity: 1;
-  }
-
-  &:hover {
-    border: 1px solid variables.$sky30;
-  }
-
-  &:active {
-    outline: none !important;
-    border: 1px solid variables.$sky30;
-  }
-
-  &:focus {
-    outline: none !important;
-    border: 1px solid variables.$sky60;
-  }
-
-  &:invalid {
-    border: 1px solid variables.$fire60;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path fill='white' d='M0 0h24v24H0z'/><path d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm5 13.6L15.6 17 12 13.4 8.4 17 7 15.6l3.6-3.6L7 8.4 8.4 7l3.6 3.6L15.6 7 17 8.4 13.4 12l3.6 3.6z' fill='%23dd443c'/></svg>");
-    background-size: 20px;
-    padding-right: 36px;
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-  }
-
-  &:placeholder-shown {
-    outline: none !important;
-    border: 1px solid variables.$smoke30;
-    background-image: none;
-  }
-
-  &--valid {
-    border: 1px solid variables.$mantis100;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path fill='none' d='M0 0h24v24H0z'/><path fill='%2389c053' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/></svg>");
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: calc(100% - 22px) center;
   }
 }
 
