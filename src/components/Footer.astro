@@ -1,0 +1,41 @@
+<style lang="scss">
+  @use "openaq-design-system/scss/variables";
+
+  .footer {
+    position: relative;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 0.75rem;
+    padding-bottom: 20px;
+    color: variables.$smoke120;
+
+    a {
+      color: variables.$sky100;
+    }
+
+    @media (min-width: 800px) {
+      width: 80%;
+      padding-left: 240px;
+      padding-right: 0;
+    }
+
+    @media (min-width: 900px) {
+      width: 80%;
+      padding-left: 240px;
+      padding-right: 100px;
+    }
+  }
+</style>
+
+<footer class="footer">
+  <p>
+    Developed by <a href="https://openaq.org/">OpenAQ</a> . Are we missing an AQI?
+    Did you spot a bug? <a href="https://github.com/openaq/aqi-hub"
+      >Contribute on github</a
+    >. Content licensed <a
+      href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a
+    >
+  </p>
+</footer>

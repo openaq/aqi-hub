@@ -43,11 +43,9 @@ Example 1: Specific author is listed on a digital PDF.
 
 Duarte, Filiberto Perez. “Normas Oficiales Mexicanas (NOM) - Salud Ambiental.” 18 Aug. 1994, Mexico City, [sinaica.inecc.gob.mx/pags/noms.php](http://sinaica.inecc.gob.mx/pags/noms.php).
 
-
 Example 2: Government website where no author or date modified is listed.
 
 “Air Quality Index.” Finnish Meteorological Institute, [en.ilmatieteenlaitos.fi/air-quality-index](http://en.ilmatieteenlaitos.fi/air-quality-index).
-
 
 ### Citations for Notes
 

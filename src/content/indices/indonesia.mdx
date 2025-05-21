@@ -1,0 +1,60 @@
+---
+name: Indonesia
+indexName: Indeks Standar Pencemar Udar
+indexAcronym: ISPU
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import Admonition from "@components/Admonition.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+
+## Background
+
+The Indeks Standar Pencemar Udara (ISPU), translated as Air Pollution Standard Index, is an air quality index developed and standardized by the Indonesia Ministry of Environment and Forestry. The ISPU covers 7 criteria pollutants, PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, O<sub>3</sub> and Hydrocarbon. Its current form was codified in the Regulation of the Minister of Environment and Forestry Number 14 in 2020 as a replacement for a previous version from 1997. This change added Hydrocarbon and PM<sub>2.5</sub> as new criteria pollutants.
+
+## Color scale
+
+<ColorScale index="indonesia" value={true} />
+
+_Note_: Adapted from "INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUTU UDARA AMBIEN DI INDONESIA" (24 Sept. 2020), [https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)[^1]. Accessed 19 July 2024.
+
+## Methods
+
+All pollutant breakpoints are reported in µg/m3 and determined off 24-hour averaging periods. Each measured pollutant is converted to a ISPU value and then shared. Values appear to be rounded to one decimal place depending on the pollutant and units; the source material does not provide specific guidance on whether this is rounding or truncation. Source documentation does not provide specific guidance on a sub-index to composite index method, but it appears from the reporting systems that when multiple pollutants are measured the ISPU value for each is reported and the maximum ISPU value is shown as the site ISPU value.
+
+Pollutants use the following breakpoints for calculating ISPU:
+
+<BreakpointsTable index="indonesia" />
+
+_Note_: Adapted from "INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUTU UDARA AMBIEN DI INDONESIA" (24 Sept. 2020), [https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)[^1]. Accessed 19 July 2024.
+
+<Admonition type="note">
+  Lower bounds of breakpoints have been inferred from source material. Explicit
+  lower bound values are not listed; we assume in the case where whole numbers
+  are used the lower bound is +1 from the previous bound and when a decimal
+  point is used the next bound is +0.1.
+</Admonition>
+
+Based on the breakpoint values in the table above a piecewise linear function is used to convert the concentration values to ISPU values. The function is defined as:
+
+<div class="latex-container">
+  <PiecewiseLatexDoc label="ISPU" />
+</div>
+
+<AqiCalculator
+  client:only="solid"
+  index="indonesia"
+  acronym={frontmatter.indexAcronym}
+/>
+
+## References
+
+[^1]: [https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia)
+
+"INDEKS STANDAR PENCEMAR UDARA (ISPU) SEBAGAI INFORMASI MUTU UDARA AMBIEN DI INDONESIA." Kementerian Lingkungan Hidup dan Kehutanan, 24 Sept. 2020, [ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia](https://ditppu.menlhk.go.id/portal/read/indeks-standar-pencemar-udara-ispu-sebagai-informasi-mutu-udara-ambien-di-indonesia).
+
+"Keputusan Menteri Negara Lingkungan Hidup No. 45 Tahun 1997. Tentang : Indeks Standar Pencemar Udara." 1997, [ppkl.menlhk.go.id/website/filebox/770/190930181350KEPMENH-45%20TAHUN%201997.pdf](https://ppkl.menlhk.go.id/website/filebox/770/190930181350KEPMENH-45%20TAHUN%201997.pdf).
+
+"Peraturan Menteri Lingkungan Hidup Dan Kehutanan Nomor 14 Tahun 2020 tentang Indeks Standar Pencemar Udara." 2020, [peraturan.bpk.go.id/Details/163466/permen-lhk-no-14-tahun-2020](https://peraturan.bpk.go.id/Details/163466/permen-lhk-no-14-tahun-2020).

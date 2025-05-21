@@ -1,0 +1,128 @@
+---
+name: South Korea
+indexName: Comprehensive air-quality index
+indexAcronym: CAI
+---
+
+import Admonition from "@components/Admonition.astro";
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+
+## Background
+
+South Korea uses a Comprehensive Air-quality Index (CAI) that accounts for six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, CO, SO<sub>2</sub> and NO<sub>2</sub>. Although not explicitly stated, the CAI is assumed to be reported as a daily index value from reported data in the AIRKOREA Current Air Quality map [^3].
+
+AIRKOREA has provided air pollution information on their website since December 2005 [^4]. And prior to that, the Korean Ministry of Environment began releasing air quality information from 16 stations near the World Cup Stadium on a real-time basis since April 2002 [^4].
+
+## Color scale
+
+<ColorScale index="south-korea" value={true} />
+
+_Note_: Adapted from "Introduction to the CAI" (n.d.), [https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166)[^1]. Accessed 26 July 2024.
+
+The system also provides a set of pictograms for representing each level in the scale [^1]:
+
+<div style="display:flex;gap: 20px;">
+
+</div>
+
+## Methods
+
+CAI values are calculated for each of the six pollutants and the maximum is used as the CAI value for that station[^1]. The following breakpoint concentrations are provided for calculations:
+
+<BreakpointsTable index="south-korea" />
+
+_Note_: Adapted from "Introduction to the CAI" (n.d.), [https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166)[^1]. Accessed 26 July 2024.
+
+The following piecewise linear function is used to calculate each pollutant sub-index:
+
+<div class="latex-container">
+  <PiecewiseLatexDoc label="CAI" />
+</div>
+
+<AqiCalculator
+  client:only="solid"
+  index="south-korea"
+  acronym={frontmatter.indexAcronym}
+/>
+
+PM<sub>2.5</sub> and PM<sub>10 </sub> use a 24-hour forecast moving average in CAI calculation. The 24-hour forecast is calculated using the following equation [^1] :
+
+<div class="latex-container">
+$$
+C_{24E} = \frac{(C_{12} \times 12 + C_{4} \times 12 )}{24}
+$$
+
+Where ${C_{12}}$ is the 12 hour mean defined as:
+
+$$
+C_{12} = \frac{(C_i + C_{i-1} + C_{i-2} + C_{i-3}...+ C_{i-11})}{12}
+$$
+
+and where ${C_{4}}$ is the 4 hour mean defined as:
+
+$$
+C_{4} = \frac{( C_{ai} + C_{a(i-1)} + C_{a(i-2)} + C_{a(i-3)})}{4}
+$$
+
+</div>
+
+If the concentration for the interval is less than the defined threshold M then the concentration interval remains unadjusted; if not an adjusted value is used.
+
+<div class="latex-container">
+$$
+M =
+\begin{cases}
+70 \, \mu \text{g/m}^3 & \text{for PM}_{10} \\
+30 \, \mu \text{g/m}^3 & \text{for PM}_{2.5}
+\end{cases}
+$$
+
+$$
+C_i ＜ M \Rightarrow C_{ai} = C_i
+$$
+
+</div>
+
+If the concentration at interval i is greater than or equal to the defined threshold value
+M, and the ratio of the concentration at interval i to the concentration at interval 12 is either less than 0.9 or greater than 1.7, then the adjusted concentration at interval i is equal to the concentration at interval i.
+
+<div class="latex-container">
+$$
+Ci \geq M, \frac{C_i}{C_{12}} ＜ 0.9~or~\frac{C_i}{C_{12}} ＞ 1.7 \Rightarrow C_{ai} = C_{i}
+$$
+</div>
+
+If the concentration at interval i is greater than or equal to the defined threshold value
+M, and the ratio of the concentration at interval i to the concentration at interval 12 is between 0.9 and 1.7 (inclusive), then the adjusted concentration at interval i is 75% of the concentration at interval i.
+
+<div class="latex-container">
+$$
+Ci \geq M, \frac{0.9 \leq C_{i}}{C_{12} \leq 1.7} \Rightarrow C_{ai} =0.75 \times C_{i}
+$$
+</div>
+
+<Admonition type="note">
+  There are no restrictions included for the minimum number of pollutants needed
+  for a valid calculation. There is also no provided information on rounding or
+  truncating conventions.
+</Admonition>
+
+AIRKOREA provides information on how the CAI is adjusted if more than two pollutants exceed the 'bad' category [^2]. If one pollutant exceeds, its value becomes the CAI. If two or more pollutants are exceeding, the pollutant with the maximum value is described as the responsible pollutant and 50 is added to the maximum value to become the CAI [^1]. If three pollutants are exceeding, the pollutant with the maximum value is described as the responsible pollutant, and 75 is added to the maximum value to become the CAI [^1].
+
+## References
+
+[^1]: [https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166)
+[^2]: [https://airkorea.or.kr/web/khaiInfo?pMENU_NO=129](https://airkorea.or.kr/web/khaiInfo?pMENU_NO=129)
+[^3]: [https://www.airkorea.or.kr/eng/currentAirQuality?pMENU_NO=68](https://www.airkorea.or.kr/eng/currentAirQuality?pMENU_NO=68)
+[^4]: [https://www.airkorea.or.kr/eng/contents/contentView/?pMENU_NO=169&cntnts_no=21](https://www.airkorea.or.kr/eng/contents/contentView/?pMENU_NO=169&cntnts_no=21)
+
+"About AIRKOREA." Ministry of Environment, [www.airkorea.or.kr/eng/contents/contentView/?pMENU_NO=169&cntnts_no=21](https://www.airkorea.or.kr/eng/contents/contentView/?pMENU_NO=169&cntnts_no=21).
+
+"Current Air Quality." Ministry of Environment, [www.airkorea.or.kr/eng/currentAirQuality?pMENU_NO=68](https://www.airkorea.or.kr/eng/currentAirQuality?pMENU_NO=68).
+
+"Introduction to the CAI." Ministry of Environment, [www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166](https://www.airkorea.or.kr/eng/khaiInfo?pMENU_NO=166).
+
+"통합대기환경지수." 한국환경공단, [airkorea.or.kr/web/khaiInfo?pMENU_NO=129](https://airkorea.or.kr/web/khaiInfo?pMENU_NO=129).

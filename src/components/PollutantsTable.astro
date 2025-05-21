@@ -1,0 +1,60 @@
+---
+import { reshapeData } from "src/utils/utils.jsx";
+import { loadIndices } from "@data/loaders";
+
+
+const data = loadIndices()
+
+const reshapedData = reshapeData(data);
+---
+
+<style lang="scss">
+  .pollutants-table {
+    width: 100%;
+
+    th,
+    td {
+      padding: 0.1rem;
+      font-size: 0.6rem;
+    }
+
+    @media (min-width: 600px) {
+      th,
+      td {
+        padding: 0.2rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (min-width: 1000px) {
+      th,
+      td {
+        padding: 0.6rem;
+        font-size: 1rem;
+      }
+    }
+  }
+</style>
+
+<table class="pollutants-table">
+  <thead>
+    <tr>
+      {
+        Object.keys(reshapedData[0]).map((key) => (
+          <th class="table-headings">{key === "country" ? "" : key}</th>
+        ))
+      }
+    </tr>
+  </thead>
+  <tbody>
+    {
+      reshapedData.map((row) => (
+        <tr>
+          {Object.entries(row).map(([key, value]) => (
+            <td>{key === "country" ? value : value ? "✅" : "❌"}</td>
+          ))}
+        </tr>
+      ))
+    }
+  </tbody>
+</table>

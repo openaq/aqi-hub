@@ -1,0 +1,151 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const indices = await getCollection("indices");
+const pages = await getCollection("pages");
+
+const desiredOrder = [
+  "Introduction",
+  "Pollutants",
+  "Reporting periods",
+  "Methods",
+];
+
+const orderedTitles = pages.sort(
+  (a, b) =>
+    desiredOrder.indexOf(a.data.title) - desiredOrder.indexOf(b.data.title)
+);
+
+const sortIndicesByName = (
+  a: CollectionEntry<"indices">,
+  b: CollectionEntry<"indices">
+) => a.data.name.localeCompare(b.data.name);
+---
+
+<style lang="scss">
+  @use "openaq-design-system/scss/variables" as variables;
+
+  .sidebar {
+    position: fixed;
+    top: 80px;
+    overflow-y: auto;
+    width: 16.75rem;
+    height: 100vh;
+    z-index: 10;
+    border-right: 1px solid #d4d8dc;
+    padding-bottom: 110px;
+    transition: transform 0.4s ease-in-out;
+    transform: translateX(0);
+
+    @media (max-width: 800px) {
+      display: none;
+    }
+
+    h1 {
+      padding-left: 20px;
+    }
+    .sidebar-heading {
+      padding: 14px 20px;
+      border-bottom: 1px solid #d4d8dc;
+    }
+  }
+  .pages-nav {
+    border-bottom: 1px solid #d4d8dc;
+  }
+  nav {
+    ul {
+      list-style: none;
+      padding-left: 0;
+
+      > li:first-child > a {
+        margin-top: 28px;
+      }
+
+      li {
+        border-left: 2px solid transparent;
+        transition: border-left 0.3s ease;
+
+        a {
+          width: 100%;
+          height: 100%;
+          padding: 12px 16px 12px 24px;
+        }
+
+        &.sidebar-item--active {
+          border-left: 2px solid #66b3ff;
+          background-color: #f0f8ff;
+          a {
+            color: #1d64ab;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: variables.$sky10;
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+      a {
+        color: #30363c;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+</style>
+
+<aside class="sidebar">
+  <nav class="nav pages-nav">
+    <ul>
+      {
+        orderedTitles.map((o) => (
+          <li>
+            <a href={o.id === "index" ? "/" : `/${o.id}`}>{o.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <nav class="nav indices-nav">
+    <h1>Indices</h1>
+    <ul>
+      {
+        indices.sort(sortIndicesByName).map((o) => (
+          <li>
+            <a href={`/indices/${o.id}`}>{o.data.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sidebarLinks = document.querySelectorAll(".sidebar .nav li");
+    const currentPath = window.location.pathname;
+
+    sidebarLinks.forEach((linkItem) => {
+      const link = linkItem.querySelector("a");
+      if (link) {
+        const href = link.getAttribute("href");
+
+        if (currentPath === href) {
+          linkItem.classList.add("sidebar-item--active");
+        }
+
+        linkItem.addEventListener("click", () => {
+          sidebarLinks.forEach((el) =>
+            el.classList.remove("sidebar-item--active")
+          );
+          linkItem.classList.add("sidebar-item--active");
+        });
+      }
+    });
+  });
+</script>

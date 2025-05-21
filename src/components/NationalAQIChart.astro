@@ -1,0 +1,157 @@
+---
+import * as d3 from "d3";
+import type { CountryMapDefinition, IndexDefinition } from "src/types/types";
+import countriesMap from "../data/countries.json";
+import { loadIndices } from "@data/loaders";
+
+interface Bar {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  fill: string;
+}
+
+const data = loadIndices();
+const map = countriesMap as CountryMapDefinition;
+
+let filteredContent = data.filter(
+  (o: IndexDefinition) => o.pollutant == "PM2.5" && o.averagingPeriod == 24
+);
+
+filteredContent = filteredContent.map((o: IndexDefinition) => {
+  o.concentrationUpper ? o.concentrationUpper : (o.concentrationUpper = 500);
+  return o;
+});
+
+let pm2524hr = filteredContent
+  .filter((o: IndexDefinition) => o.concentrationLower !== undefined)
+  .map((o: IndexDefinition) => {
+    o.concentrationUpper = o.concentrationUpper || 500;
+    return o;
+  });
+pm2524hr = pm2524hr.map((o: IndexDefinition) => {
+  o.country = map[o.iso];
+  return o;
+});
+pm2524hr = pm2524hr.filter((o: IndexDefinition) => o.iso !== "IL");
+
+const width = 800,
+  margin = { top: 20, right: 20, bottom: 50, left: 150 };
+const height = 4 * pm2524hr.length + margin.top + margin.bottom;
+
+const xScale = d3
+  .scaleLinear()
+  .domain([0, 500])
+  .range([margin.left, width - margin.right]);
+
+const yScale = d3
+  .scaleBand()
+  .domain(pm2524hr.map((d: IndexDefinition) => d.country))
+  .range([margin.top, height - margin.bottom])
+  .padding(0.02);
+
+const bars = pm2524hr.map((d: IndexDefinition) => {
+  return {
+    x: xScale(d.concentrationLower),
+    y: yScale(d.country || d.iso),
+    width: xScale(+d.concentrationUpper) - xScale(d.concentrationLower),
+    height: yScale.bandwidth(),
+    fill: d.hex,
+  };
+});
+---
+
+<style lang="scss">
+  .national-aqi-chart {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+
+    text {
+      font-size: 1rem;
+
+      @media (min-width: 1000px) {
+        font-size: 0.9rem;
+      }
+
+      @media (min-width: 1300px) {
+        font-size: 0.7rem;
+      }
+    }
+
+    .labels {
+      font-weight: 600;
+    }
+  }
+</style>
+
+<svg viewBox={`0 0 ${width} ${height}`} class="national-aqi-chart">
+  {
+    bars.map((bar: Bar) => (
+      <rect
+        x={bar.x}
+        y={bar.y}
+        width={bar.width}
+        height={bar.height}
+        fill={bar.fill}
+      />
+    ))
+  }
+  <line
+    x1={margin.left}
+    y1={height - margin.bottom}
+    x2={width - margin.right}
+    y2={height - margin.bottom}
+    stroke="gray"></line>
+
+  <line
+    x1={margin.left}
+    y1={margin.top}
+    x2={margin.left}
+    y2={height - margin.bottom}
+    stroke="gray"></line>
+
+  {
+    yScale.domain().map((label) => (
+      <g
+        transform={`translate(${margin.left}, ${yScale(label)! + yScale.bandwidth() / 2})`}
+      >
+        <line x1="-6" stroke="gray" />
+        <text x="-10" y="5" text-anchor="end" class="y-axis">
+          {label}
+        </text>
+      </g>
+    ))
+  }
+
+  {
+    xScale.ticks(8).map((label) => (
+      <g transform={`translate(${xScale(label)}, ${height - margin.bottom})`}>
+        <line y2="6" stroke="gray" />
+        <text y="20" text-anchor="middle" class="x-axis">
+          {label}
+        </text>
+      </g>
+    ))
+  }
+
+  <text
+    class="labels"
+    x={margin.left - 100}
+    y={(height - margin.top - margin.bottom) / 2.5 + margin.top}
+    transform={`rotate(-90, ${margin.left - 100}, ${(height - margin.top - margin.bottom) / 2 + margin.top})`}
+    text-anchor="middle"
+  >
+    National AQI
+  </text>
+
+  <text
+    class="labels"
+    x={width - margin.right}
+    y={height - 5}
+    text-anchor="end"
+  >
+    PM2.5 24 hr. avg. µg/m³ →
+  </text>
+</svg>

@@ -1,25 +1,36 @@
 {
+  "name": "aqi-hub",
   "type": "module",
-  "private": true,
+  "version": "0.0.1",
   "scripts": {
-    "clean": "rimraf docs/.observablehq/cache",
-    "build": "rimraf dist && observable build",
-    "sitemap": "node ./scripts/sitemap.js",
-    "dev": "observable preview",
-    "deploy": "observable deploy",
-    "observable": "observable"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@observablehq/framework": "^1.12.0",
-    "d3-dsv": "^3.0.1",
-    "d3-time-format": "^4.1.0",
-    "markdown-it": "^14.1.0",
-    "markdown-it-footnote": "^4.0.0"
+    "@astro-content/types": "^0.0.0-alpha.13",
+    "@astrojs/mdx": "^4.2.4",
+    "@astrojs/solid-js": "^5.0.8",
+    "@observablehq/plot": "^0.6.17",
+    "@types/node": "^22.14.0",
+    "astro": "^5.7.1",
+    "astro-og-canvas": "^0.7.0",
+    "buffer": "^6.0.3",
+    "csv-parse": "^5.6.0",
+    "d3": "^7.9.0",
+    "openaq-design-system": "github:openaq/openaq-design-system",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-external-links": "^3.0.0",
+    "rehype-katex": "^7.0.1",
+    "rehype-slug": "^6.0.0",
+    "remark-math": "^6.0.0",
+    "solid-js": "^1.9.5",
+    "tinyglobby": "^0.2.12"
   },
   "devDependencies": {
-    "rimraf": "^5.0.5"
-  },
-  "engines": {
-    "node": ">=20"
+    "@rollup/plugin-dsv": "^3.0.5",
+    "@types/d3": "^7.4.3",
+    "sass-embedded": "^1.86.3"
   }
 }

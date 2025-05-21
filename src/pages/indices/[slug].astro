@@ -1,0 +1,42 @@
+---
+import IndexLayout from '@layouts/IndexLayout.astro';
+import { render } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const indices = await getCollection('indices');
+
+  return [...indices].map((indice) => ({
+    params: { slug: indice.id },
+    props: { indice },
+  }));
+}
+
+const { indice } = Astro.props;
+
+const { Content } = await render(indice);
+---
+
+<style is:global>
+  .aqi-calculator {
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px 40px;
+    border: 1px solid #a9b0bb;
+  }
+
+  .information-wrapper {
+    p {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+  }
+</style>
+
+<IndexLayout
+  name={indice.data.name}
+  indexName={indice.data.indexName}
+  indexAcronym={indice.data.indexAcronym}
+>
+  <Content />
+</IndexLayout>

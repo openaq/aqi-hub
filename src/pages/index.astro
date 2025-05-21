@@ -1,0 +1,16 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
+
+const homepage = await getEntry("pages", "index");
+if (!homepage) {
+  throw new Error("Could not find homepage");
+}
+
+const { Content } = await render(homepage);
+---
+
+<PageLayout>
+  <Content />
+</PageLayout>

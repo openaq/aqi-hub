@@ -1,0 +1,16 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
+
+const reportingPeriods = await getEntry("pages", "reporting-periods");
+if (!reportingPeriods) {
+  throw new Error("Could not find reporting-periods");
+}
+
+const { Content } = await render(reportingPeriods);
+---
+
+<PageLayout>
+  <Content />
+</PageLayout>

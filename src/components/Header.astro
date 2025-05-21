@@ -1,0 +1,67 @@
+---
+import Logo from "@assets/svg/logo.svg";
+import MenuIcon from "@assets/svg/menu.svg";
+---
+
+<style lang="scss">
+  header {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 80px;
+    z-index: 100;
+    border-bottom: 1px solid #d4d8dc;
+    margin-left: 20px;
+
+    @media (min-width: 800px) {
+      margin-left: 0;
+      padding: 1rem;
+    }
+
+    .menu-button-container {
+      display: block;
+      cursor: pointer;
+      @media (min-width: 500px) {
+        margin-left: 30px;
+      }
+      @media (min-width: 801px) {
+        display: none;
+      }
+    }
+
+    h1 {
+      font-size: clamp(1.65rem, 1rem + 3vw, 3.2rem);
+      margin-left: 20px;
+
+      @media (min-width: 500px) {
+        margin-left: 30px;
+      }
+
+      @media (min-width: 801px) {
+        margin-left: 210px;
+      }
+    }
+    a {
+      @media (max-width: 800px) {
+        display: none;
+      }
+    }
+  }
+</style>
+
+<header>
+  <div
+    class="menu-button-container"
+    onclick="document.body.classList.toggle('menu-open')"
+  >
+    <MenuIcon width="24" height="24" aria-label="Menu Icon" />
+  </div>
+
+  <a href="https://openaq.org" class="header-logo" aria-label="openaq logo">
+    <Logo width="72" height="40" aria-label="OpenAQ logo" />
+  </a>
+  <h1 class="gradient-title homepage-title">Air Quality Index Hub</h1>
+</header>

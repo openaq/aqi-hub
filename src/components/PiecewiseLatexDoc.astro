@@ -1,0 +1,8 @@
+---
+import { piecewiseLatexDocs } from "src/utils/piecewiseLatexDocs";
+
+const { label } = Astro.props;
+const latexDocHtml = piecewiseLatexDocs(label);
+---
+
+<div set:html={latexDocHtml} />

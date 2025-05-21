@@ -1,0 +1,117 @@
+---
+const { contentSelector } = Astro.props;
+---
+
+<style lang="scss" is:global>
+  li {
+    cursor: pointer;
+  }
+  .toc {
+    position: fixed;
+    top: 80px;
+    right: 0;
+    overflow-y: auto;
+    width: 12rem;
+    height: 100vh;
+    z-index: 10;
+    border-left: 1px solid #d4d8dc;
+
+    .h3-indented {
+      margin-left: 8px;
+    }
+
+    @media (max-width: 1199px) {
+      display: none;
+    }
+
+    &__list {
+      list-style: none;
+      padding-left: 8px;
+
+      .toc-anchor-item {
+        box-sizing: border-box;
+        padding: 8px 16px;
+
+        &--active {
+          border-left: 2px solid #66b3ff;
+          color: #1d64ab;
+        }
+        &:active {
+          border-left: 2px solid #66b3ff;
+          color: #1d64ab;
+        }
+      }
+    }
+  }
+</style>
+
+<aside class="toc">
+  <ul class="toc__list"></ul>
+</aside>
+
+<script define:vars={{ contentSelector }}>
+  const headings = document.querySelectorAll("h1[id], h2[id], h3[id]");
+
+  const checkAnchorInViewport = () => {
+    let currentHeading = null;
+
+    headings.forEach((heading) => {
+      const top = heading.offsetTop;
+      if (window.scrollY >= top - 200) {
+        currentHeading = heading;
+      }
+
+      if (currentHeading) {
+        const id = currentHeading.getAttribute("id");
+        document.querySelectorAll(".toc-anchor-item").forEach((el) => {
+          el.classList.remove("toc-anchor-item--active");
+        });
+
+        const activeLink = document.querySelector(
+          `.toc__list li[data-href-value="#${id}"]`
+        );
+
+        if (activeLink) {
+          activeLink.classList.add("toc-anchor-item--active");
+        }
+      }
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const content = document.querySelector(contentSelector);
+    const anchorLinks = content.querySelectorAll(".anchor-link");
+    const tocList = document.querySelector(".toc > .toc__list");
+    for (const anchorLink of anchorLinks) {
+      const heading = anchorLink.closest("h1, h2, h3");
+      if (!heading) {
+        continue;
+      }
+
+      const li = document.createElement("li");
+
+      if (heading.tagName === "H3") {
+        li.classList.add("h3-indented");
+      }
+
+      li.classList.add("toc-anchor-item");
+      li.setAttribute("data-href-value", anchorLink.getAttribute("href"));
+      li.innerText = anchorLink.innerText;
+      li.addEventListener("click", () => {
+        anchorLink.scrollIntoView({ behavior: "smooth" });
+
+        setTimeout(() => {
+          document
+            .querySelectorAll(".toc-anchor-item--active")
+            .forEach((el) => {
+              el.classList.remove("toc-anchor-item--active");
+            });
+          li.classList.add("toc-anchor-item--active");
+        }, 800);
+      });
+      tocList.appendChild(li);
+    }
+
+    window.addEventListener("scroll", checkAnchorInViewport);
+  });
+</script>

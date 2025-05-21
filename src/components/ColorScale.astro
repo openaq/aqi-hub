@@ -1,0 +1,37 @@
+---
+import ColorScaleChart from "./ColorScaleChart.astro";
+import { colorScaleReshape } from "../utils/utils.jsx";
+import type { ColorScaleDefinition, IndexDefinition } from "src/types/types";
+import { loadIndex } from "@data/loaders";
+
+const { colorScaleValues, index, value } = Astro.props;
+
+let colorScale: ColorScaleDefinition[] = [];
+
+if (colorScaleValues) {
+  colorScale = colorScaleValues;
+} else if (index) {
+
+  const breakpoints = loadIndex(index);
+  let filteredContent = breakpoints.filter((o: IndexDefinition) => o.category);
+
+  const seen = new Set();
+  filteredContent = filteredContent.filter((item: IndexDefinition) => {
+    const key = `${item.category}_${item.hex}`;
+    if (seen.has(key)) {
+      return false;
+    } else {
+      seen.add(key);
+      return true;
+    }
+  });
+
+  filteredContent = filteredContent.map((o: IndexDefinition) => {
+    o.concentrationUpper ? o.concentrationUpper : (o.concentrationUpper = 500);
+    return o;
+  });
+  colorScale = colorScaleReshape(filteredContent, value);
+}
+---
+
+<ColorScaleChart colorScale={colorScale} />
