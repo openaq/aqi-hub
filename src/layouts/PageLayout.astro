@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+const { pageTitle } = Astro.props;
+
 ---
 
 <style lang="scss">
@@ -15,7 +17,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
   }
 </style>
 
-<BaseLayout>
+<BaseLayout pageTitle={pageTitle}>
   <div class="content">
     <slot />
   </div>
