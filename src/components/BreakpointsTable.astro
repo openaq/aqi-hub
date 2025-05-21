@@ -129,7 +129,7 @@ const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
                     ? match.concentrationLower === 0 &&
                       match.concentrationUpper === 0
                       ? "-"
-                      : `${match.concentrationLower}${match.concentrationUpper ? `-${match.concentrationUpper}` : "+"} ${unitsLabel}`
+                      : `${match.concentrationLower}${match.concentrationUpper ? `-${match.concentrationUpper}` : "+"}`
                     : "-"}
                 </td>
               );
