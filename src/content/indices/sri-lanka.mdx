@@ -1,0 +1,191 @@
+---
+name: Sri Lanka
+indexName: Air Quality Index
+indexAcronym: AQI-SL
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+
+## Background
+
+The Air Quality Index for Sri Lanka (AQI-SL) is a standardized system developed to communicate ambient air quality levels across the country. 
+Inspired by the Air Quality Index used by the U.S. Environmental Protection Agency (US EPA), AQI-SL is adapted to reflect Sri Lanka’s specific environmental, social, 
+and economic context. After the release of the World Health Organization’s updated guidelines in 2005, Sri Lanka revised its national standards, particularly for 
+PM<sub>10</sub> and PM<sub>2.5</sub>, and officially implemented the changes in August 2008.
+
+Both the US and Sri Lanka systems for calculating AQI share similarities. They incorporate the same six criteria pollutants ( PM<sub>2.5</sub>, PM<sub>10</sub>, 
+O<sub>3</sub>, CO, NO<sub>2</sub>, SO<sub>2</sub>), and apply the same formulas for calculating sub-AQI values. However, the specific breakpoint values for 
+pollutant concentrations differ: AQI-SL’s breakpoints derived from Sri Lankan National Ambient Air Quality Standards and informed by WHO guidelines, while the US EPA 
+uses its own standards.
+
+## Color scale
+
+The Air Quality Index of Sri Lanka consists of six categories: 
+
+<ColorScale index="sri-lanka" value={true} />
+
+_Note_: Adapted from https://cea.lk/web/images/pdf/airqulity/AQI-SL_Calculation_Guideline_CEA.LK_V1.0.pdf
+
+## Methods
+
+<BreakpointsTable index="sri-lanka" />
+
+Each pollutant has its own sub-AQI value calculated based on its breakpoint concentration. The following piecewise linear function is used: 
+
+<div class="latex-container">
+
+<PiecewiseLatexDoc label="AQI-SL" />
+
+</div>
+
+<AqiCalculator
+  client:only="solid"
+  index="sri-lanka"
+  acronym={frontmatter.indexAcronym}
+/>
+
+Dominant Pollutant: After calculating sub-AQI values for all pollutants, the highest sub-AQI becomes the overall AQI. (The AQI values are rounded to the nearest integer before publication.)
+
+<div class="latex-container">
+$$
+{AQI} = {Max}({I}_{PM_{2.5}},{I}_{PM_{10}},{I}_{O_{3}},{I}_{CO},{I}_{NO_{2}},{I}_{SO_{2}})
+$$
+</div>
+
+At least 75% data availability is needed to compute a valid AQI. At least one PM value (PM2.5 or PM10) is necessary to generate the AQI[^1]. 
+
+**Individual Pollutant Calculation Method**
+
+The alternative approach to calculating AQI involves breaking down the calculation process into multiple sections for each pollutant, focusing on specific 
+concentration ranges with corresponding formulas. 
+
+Each pollutant has predefined concentration ranges, and specific formulas are applied based on which range the concentration 
+falls into, allowing for more tailored calculations. 
+
+
+**Particulate Matter 2.5** (PM<sub>2.5</sub>) (µg/m3) – Averaging Time: 24 hours
+
+| **Concentration** | **Index** | **Formula** |
+| ----------------- | --------- | ----------- |
+| C ≤ 75 | I ≤ 150 | I = C * 2 |
+| C ≤ 150 | I ≤ 200 | I = (C-75) * (⅔) + 150 | 
+| C ≤ 250 | I ≤ 300 | I = (C-150) + 200 | 
+| C ≤ 400 | I ≤ 500 | I = (C-250) * (4/3) + 300 |
+| C > 400 | Beyond AQI |  | 
+
+
+**Particulate Matter 10** (PM<sub>10</sub>) (µg/m3) – Averaging Time: 24 hours
+
+| **Concentration** | **Index** | **Formula** |
+| ----------------- | --------- | ----------- |
+| C ≤ 150 | I ≤ 150 | I = C | 
+| C ≤ 275 | I ≤ 200 | I = (C-150) * (2/5) + 150 | 
+| C ≤ 450 | I ≤ 300 | I = (C-275) * (4/7) + 200 | 
+| C ≤ 650 | I ≤ 500 | I = (C-450) + 300 |
+| C > 650 | Beyond AQI |  | 
+
+
+**Ozone** (O<sub>3</sub>) (ppb) – Averaging Time: 1 hour (max concentration of 1-hour readings)
+
+| **Concentration** | **Index** | **Formula** |
+| ----------------- | --------- | ----------- |
+| C ≤ 100 | I ≤ 100 | I = C | 
+| C ≤ 300 | I ≤ 200 | I = (C-100) * (1/2) + 100 | 
+| C ≤ 600 | I ≤ 500 | I = (C-300) + 200 | 
+| C > 600 | Beyond AQI |  | 
+
+
+**Carbon Monoxide** (CO) (ppb) –  Averaging Time: 8 hours
+
+| **Concentration** | **Index** | **Formula** |
+| ----------------- | --------- | ----------- |
+| C ≤ 4500 | I ≤ 100 | I = C * (1/45) | 
+| C ≤ 9000 | I ≤ 150 | I = (C-4500) * (1/90) + 100 | 
+| C ≤ 15000 | I ≤ 200 | I = (C-9000) * (1/120) + 150 | 
+| C ≤ 30000 | I ≤ 300 | I = (C-150000) * (1/150) + 200 | 
+| C ≤ 50000 | I ≤ 500 | I = (C-30000) * 0.01 + 300 | 
+| C > 50000 | Beyond AQI |  | 
+
+
+**Nitrogen Dioxide** (NO<sub>2</sub>) (ppm) – Averaging Time: 1 hour  (max concentration of 1-hour readings)
+
+| **Concentration** | **Index** | **Formula** |
+| ----------------- | --------- | ----------- |
+| C ≤ 130 | I ≤ 100 | I = C * (10/13) | 
+| C ≤ 350 | I ≤ 150 | I = (C-130) * (5/22) + 100 |
+| C ≤ 1250 | I ≤ 300 | I = (C-1250) * (⅙) + 150 | 
+| C ≤ 2000 | I ≤ 500 | I = (C-1250) * 0.01 + 300 |
+| C > 2000 | Beyond AQI |  | 
+
+
+
+**Sulfur Dioxide** (SO<sub>2</sub>) (ppm) – Averaging Time: 24 hours
+
+| **Concentration** | **Index** | **Formula** |
+| ----------------- | --------- | ----------- |
+| C ≤ 30 | I ≤ 100 | I = C * (10/13) | 
+| C ≤ 80 | I ≤ 150 | I = (C-30) + 100 | 
+| C ≤ 250 | I ≤ 200 | I = (C-80) * (5/17) + 150 | 
+| C ≤ 600 | I ≤ 300 | I = (C-250) * (2/7) + 200 | 
+| C ≤ 1000 | I ≤ 500 | I = (C-600) * 0.5 + 300 | 
+| C > 1000 | Beyond AQI |  | 
+
+
+**Example Calculation for PM2.5**
+
+1. Given Data: 
+    - Concentration (C): 45 µg/m3
+    - Breakpoints: 
+        - Low Breakpoint (BPLo): 25 µg/m3 
+        - High Breakpoint (BPHi): 50 µg/m3 
+        - Index value corresponding to BPLo (ILo): 50
+        - Index value corresponding to BPHi (IHi): 100
+
+2. Apply the Formula: 
+<div class="latex-container">
+$$
+I = \left( \frac{C - BPLo}{BPHi - BPLo} \right) \times (IHi - ILo) + ILo
+$$
+</div>
+
+3. Substitute Values: 
+<div class="latex-container">
+$$
+I = \left( \frac{45 - 25}{50 - 25} \right) \times (100 - 50) + 50
+$$
+</div>
+
+4. Calculate the difference 
+    - (C - BPLo) = 45 - 25 = 20
+    - (BPHi - BPLo = 50 - 25 = 25)
+    - (IHi - ILo = 100 - 50 = 50)
+
+5. Plug into the Equation: 
+<div class="latex-container">
+$$
+I = \left( \frac{20}{25} \right) \times 50 + 50
+$$
+</div>
+    - I = 40+50 = 90
+
+The sub-AQI for PM2.5 with a concentration of 45 µg/m3 is 90. This means that the air quality for PM2.5 falls into the ‘Moderate’ category based on Sri Lanka’s AQI scale. 
+
+
+
+
+## References
+
+Air Quality Index for Sri Lanka (AQI-SL), Calculation & Guideline (v1.0) - CEA.LK, June 5, 2023
+[https://cea.lk/web/images/pdf/airqulity/AQI-SL_Calculation_Guideline_CEA.LK_V1.0.pdf](https://cea.lk/web/images/pdf/airqulity/AQI-SL_Calculation_Guideline_CEA.LK_V1.0.pdf)
+
+Air quality in Sri Lanka
+[https://www.iqair.com/us/sri-lanka?srsltid=AfmBOorZsNEvC9qA5kF-HRgsP3tMJ4YysHj8nPewkiU7zxI1fVnCG9lH](https://www.iqair.com/us/sri-lanka?srsltid=AfmBOorZsNEvC9qA5kF-HRgsP3tMJ4YysHj8nPewkiU7zxI1fVnCG9lH)
+
+The Gazette of the Democratic Socialist Republic of Sri Lanka - The National Environmental Act, August 15, 2008
+[https://cea.lk/web/images/pdf/airqulity/1562_22E%20Ambient%20air%20quality%20-%20english.pdf](https://cea.lk/web/images/pdf/airqulity/1562_22E%20Ambient%20air%20quality%20-%20english.pdf)
+
+
+[^1]: [https://cea.lk/web/images/pdf/airqulity/AQI-SL_Calculation_Guideline_CEA.LK_V1.0.pdf](https://cea.lk/web/images/pdf/airqulity/AQI-SL_Calculation_Guideline_CEA.LK_V1.0.pdf)
