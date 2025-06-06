@@ -1,10 +1,10 @@
 ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
 LK,,Good,#32CD32,0,50,PM2.5,µg/m3,24,0,25
-LK,,Good ,#32CD32,0,50,PM10,µg/m3,24,0,50
-LK,,Good ,#32CD32,0,50,O3,ppb,1,0,50
-LK,,Good ,#32CD32,0,50,CO,ppb,8,0,2250
-LK,,Good ,#32CD32,0,50,NO2,ppb,1,0,65
-LK,,Good ,#32CD32,0,50,SO2,ppb,24,0,15
+LK,,Good,#32CD32,0,50,PM10,µg/m3,24,0,50
+LK,,Good,#32CD32,0,50,O3,ppb,1,0,50
+LK,,Good,#32CD32,0,50,CO,ppb,8,0,2250
+LK,,Good,#32CD32,0,50,NO2,ppb,1,0,65
+LK,,Good,#32CD32,0,50,SO2,ppb,24,0,15
 LK,,Moderate,#FFFF00,50,100,PM2.5,µg/m3,24,25,50
 LK,,Moderate,#FFFF00,50,100,PM10,µg/m3,24,50,100
 LK,,Moderate,#FFFF00,50,100,O3,ppb,1,50,100

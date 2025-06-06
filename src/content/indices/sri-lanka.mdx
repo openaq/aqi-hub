@@ -8,6 +8,7 @@ import ColorScale from "@components/ColorScale.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
 import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
 import { AqiCalculator } from "@components/AqiCalculator.tsx";
+import Admonition from "@components/Admonition.astro";
 
 ## Background
 
@@ -33,6 +34,16 @@ _Note_: Adapted from https://cea.lk/web/images/pdf/airqulity/AQI-SL_Calculation_
 
 <BreakpointsTable index="sri-lanka" />
 
+<Admonition type="note">
+
+In the available AQI breakpoint data for Sri Lanka, there is visible overlap between the upper and lower bounds 
+of subsequent risk categories. The original source does not clarify whether these values are meant to be inclusive or exclusive of their endpoints.
+
+To maintain consistency with other reported AQI systems and avoid ambiguity, we have assumed that the upper bounds of each category are exclusive. 
+However, due to the lack of explicit guidance in the source material, this interpretation should be treated with caution.
+
+</Admonition>
+
 Each pollutant has its own sub-AQI value calculated based on its breakpoint concentration. The following piecewise linear function is used: 
 
 <div class="latex-container">
@@ -55,7 +66,7 @@ $$
 $$
 </div>
 
-At least 75% data availability is needed to compute a valid AQI. At least one PM value (PM2.5 or PM10) is necessary to generate the AQI[^1]. 
+At least 75% data availability is needed to compute a valid AQI. At least one PM value (PM<sub>2.5</sub> or PM<sub>10</sub>) is necessary to generate the AQI[^1]. 
 
 **Individual Pollutant Calculation Method**
 
@@ -66,58 +77,58 @@ Each pollutant has predefined concentration ranges, and specific formulas are ap
 falls into, allowing for more tailored calculations. 
 
 
-**Particulate Matter 2.5** (PM<sub>2.5</sub>) (µg/m3) – Averaging Time: 24 hours
+**Particulate Matter 2.5** (PM<sub>2.5</sub> µg/m<sup>3</sup>) – Averaging Time: 24 hours
 
 | **Concentration** | **Index** | **Formula** |
 | ----------------- | --------- | ----------- |
-| C ≤ 75 | I ≤ 150 | I = C * 2 |
-| C ≤ 150 | I ≤ 200 | I = (C-75) * (⅔) + 150 | 
-| C ≤ 250 | I ≤ 300 | I = (C-150) + 200 | 
-| C ≤ 400 | I ≤ 500 | I = (C-250) * (4/3) + 300 |
+| C ≤ 75 | I ≤ 150 | $$ I = C \times 2 $$ |
+| C ≤ 150 | I ≤ 200 | $$ I = (C - 75) \times \left(\frac{2}{3}\right) + 150 $$ | 
+| C ≤ 250 | I ≤ 300 | $$ I = (C - 150) + 200 $$ | 
+| C ≤ 400 | I ≤ 500 | $$ I = (C - 250) \times \left(\frac{4}{3}\right) + 300 $$ |
 | C > 400 | Beyond AQI |  | 
 
 
-**Particulate Matter 10** (PM<sub>10</sub>) (µg/m3) – Averaging Time: 24 hours
+**Particulate Matter 10** (PM<sub>10</sub> µg/m<sup>3</sup>) – Averaging Time: 24 hours
 
 | **Concentration** | **Index** | **Formula** |
 | ----------------- | --------- | ----------- |
-| C ≤ 150 | I ≤ 150 | I = C | 
-| C ≤ 275 | I ≤ 200 | I = (C-150) * (2/5) + 150 | 
-| C ≤ 450 | I ≤ 300 | I = (C-275) * (4/7) + 200 | 
-| C ≤ 650 | I ≤ 500 | I = (C-450) + 300 |
+| C ≤ 150 | I ≤ 150 | $$ I = C $$ | 
+| C ≤ 275 | I ≤ 200 | $$ I = (C - 150) \times \left(\frac{2}{5}\right) + 150 $$ | 
+| C ≤ 450 | I ≤ 300 | $$ I = (C - 275) \times \left(\frac{4}{7}\right) + 200 $$ | 
+| C ≤ 650 | I ≤ 500 | $$ I = (C - 450) + 300 $$ |
 | C > 650 | Beyond AQI |  | 
 
 
-**Ozone** (O<sub>3</sub>) (ppb) – Averaging Time: 1 hour (max concentration of 1-hour readings)
+**Ozone** (O<sub>3</sub> ppb) – Averaging Time: 1 hour (max concentration of 1-hour readings)
 
 | **Concentration** | **Index** | **Formula** |
 | ----------------- | --------- | ----------- |
-| C ≤ 100 | I ≤ 100 | I = C | 
-| C ≤ 300 | I ≤ 200 | I = (C-100) * (1/2) + 100 | 
-| C ≤ 600 | I ≤ 500 | I = (C-300) + 200 | 
+| C ≤ 100 | I ≤ 100 | $$ I = C $$ | 
+| C ≤ 300 | I ≤ 200 | $$ I = (C - 100) \times \left(\frac{1}{2}\right) + 100 $$ | 
+| C ≤ 600 | I ≤ 500 | $$ I = (C - 300) + 200 $$ | 
 | C > 600 | Beyond AQI |  | 
 
 
-**Carbon Monoxide** (CO) (ppb) –  Averaging Time: 8 hours
+**Carbon Monoxide** (CO ppb) –  Averaging Time: 8 hours
 
 | **Concentration** | **Index** | **Formula** |
 | ----------------- | --------- | ----------- |
-| C ≤ 4500 | I ≤ 100 | I = C * (1/45) | 
-| C ≤ 9000 | I ≤ 150 | I = (C-4500) * (1/90) + 100 | 
-| C ≤ 15000 | I ≤ 200 | I = (C-9000) * (1/120) + 150 | 
-| C ≤ 30000 | I ≤ 300 | I = (C-150000) * (1/150) + 200 | 
-| C ≤ 50000 | I ≤ 500 | I = (C-30000) * 0.01 + 300 | 
+| C ≤ 4500 | I ≤ 100 | $$ I = C \times \left(\frac{1}{45}\right) $$ | 
+| C ≤ 9000 | I ≤ 150 | $$ I = (C - 4500) \times \left(\frac{1}{90}\right) + 100 $$ | 
+| C ≤ 15000 | I ≤ 200 | $$ I = (C - 9000) \times \left(\frac{1}{120}\right) + 150 $$ | 
+| C ≤ 30000 | I ≤ 300 | $$ I = (C - 150000) \times \left(\frac{1}{150}\right) + 200 $$ | 
+| C ≤ 50000 | I ≤ 500 | $$ I = (C - 30000) \times 0.01 + 300 $$ | 
 | C > 50000 | Beyond AQI |  | 
 
 
-**Nitrogen Dioxide** (NO<sub>2</sub>) (ppm) – Averaging Time: 1 hour  (max concentration of 1-hour readings)
+**Nitrogen Dioxide** (NO<sub>2</sub> ppm) – Averaging Time: 1 hour  (max concentration of 1-hour readings)
 
 | **Concentration** | **Index** | **Formula** |
 | ----------------- | --------- | ----------- |
-| C ≤ 130 | I ≤ 100 | I = C * (10/13) | 
-| C ≤ 350 | I ≤ 150 | I = (C-130) * (5/22) + 100 |
-| C ≤ 1250 | I ≤ 300 | I = (C-1250) * (⅙) + 150 | 
-| C ≤ 2000 | I ≤ 500 | I = (C-1250) * 0.01 + 300 |
+| C ≤ 130 | I ≤ 100 | $$ I = C \times \left(\frac{10}{13}\right) $$ | 
+| C ≤ 350 | I ≤ 150 | $$ I = (C - 130) \times \left(\frac{5}{22}\right) + 100 $$ |
+| C ≤ 1250 | I ≤ 300 | $$ I = (C - 1250) \times \left(\frac{1}{6}\right) + 150 $$ | 
+| C ≤ 2000 | I ≤ 500 | $$ I = (C - 1250) \times 0.01 + 300 $$ |
 | C > 2000 | Beyond AQI |  | 
 
 
@@ -126,21 +137,21 @@ falls into, allowing for more tailored calculations.
 
 | **Concentration** | **Index** | **Formula** |
 | ----------------- | --------- | ----------- |
-| C ≤ 30 | I ≤ 100 | I = C * (10/13) | 
-| C ≤ 80 | I ≤ 150 | I = (C-30) + 100 | 
-| C ≤ 250 | I ≤ 200 | I = (C-80) * (5/17) + 150 | 
-| C ≤ 600 | I ≤ 300 | I = (C-250) * (2/7) + 200 | 
-| C ≤ 1000 | I ≤ 500 | I = (C-600) * 0.5 + 300 | 
+| C ≤ 30 | I ≤ 100 |$$ I = C \times \left(\frac{10}{13}\right) $$ | 
+| C ≤ 80 | I ≤ 150 |$$ I = (C - 30) + 100 $$ | 
+| C ≤ 250 | I ≤ 200 | $$ I = (C - 80) \times \left(\frac{5}{17}\right) + 150 $$ | 
+| C ≤ 600 | I ≤ 300 | $$ I = (C - 250) \times \left(\frac{2}{7}\right) + 200 $$ | 
+| C ≤ 1000 | I ≤ 500 | $$ I = (C - 600) \times \left(\frac{1}{2}\right) + 300 $$ | 
 | C > 1000 | Beyond AQI |  | 
 
 
-**Example Calculation for PM2.5**
+**Example Calculation for PM<sub>2.5</sub>**
 
 1. Given Data: 
-    - Concentration (C): 45 µg/m3
+    - Concentration (C): 45 µg/m<sup>3</sup>
     - Breakpoints: 
-        - Low Breakpoint (BPLo): 25 µg/m3 
-        - High Breakpoint (BPHi): 50 µg/m3 
+        - Low Breakpoint (BPLo): 25 µg/m<sup>3</sup> 
+        - High Breakpoint (BPHi): 50 µg/m<sup>3</sup> 
         - Index value corresponding to BPLo (ILo): 50
         - Index value corresponding to BPHi (IHi): 100
 
@@ -171,7 +182,7 @@ $$
 </div>
     - I = 40+50 = 90
 
-The sub-AQI for PM2.5 with a concentration of 45 µg/m3 is 90. This means that the air quality for PM2.5 falls into the ‘Moderate’ category based on Sri Lanka’s AQI scale. 
+The sub-AQI for PM<sub>2.5</sub> with a concentration of 45 µg/m<sup>3</sup> is 90. This means that the air quality for PM<sub>2.5</sub> falls into the ‘Moderate’ category based on Sri Lanka’s AQI scale. 
 
 
 
