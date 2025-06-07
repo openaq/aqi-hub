@@ -1,0 +1,127 @@
+---
+name: Quito
+indexName: Indice Quiteño de la Calidad Del Aire
+indexAcronym: IQCA
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+import Admonition from "@components/Admonition.astro";
+
+## Background
+
+The Municipality of the Metropolitan District of Quito (MDMQ), through its air monitoring network REMMAQ, provides real-time data on ambient 
+air quality to both policymakers and the public. This initiative is part of a broader effort to uphold the population’s access to healthy environments, 
+especially in high-altitude areas like Quito, where geography and weather patterns intensify air pollution impacts. 
+
+REMMAQ operates remote stations throughout Quito and nearby valleys to track six key pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, and O<sub>3</sub>. To make this 
+information accessible, the Ministry of Environmental Management created Indice Quiteño de la Calidad Del Aire (Quito Air Quality Index or IQCA). 
+The IQCA translates pollutant concentration data into a numerical and color-coded scale, allowing for easier interpretation of air pollution.  
+
+
+## Color scale
+
+The Quito Air Quality Index consists of six categories: 
+
+<ColorScale index="quito" value={true} />
+
+_Note_: Adapted from INDICEQUITEODELACALIDADDEAIRE.pdf
+
+## Methods
+
+First, specific air quality indicators are identified, including the common pollutants such as particulate matter (PM), nitrogen dioxide (NO<sub>2</sub>),
+ sulfur dioxide (SO<sub>2</sub>), ozone (O<sub>3</sub>), and carbon monoxide (CO). For each pollutant, the breakpoint table is used to establish thresholds that 
+ categorize the levels of pollution into different categories (desirable, acceptable, caution level...). 
+
+The measurements of pollutant concentrations are collected and compared against these breakpoints. Each concentration is translated into a corresponding 
+numerical index value based on its position relative to the breakpoints. The index, often defined on a scale from 0 to 100, represents the degree of 
+air quality impact where lower values indicate better air quality. 
+
+<BreakpointsTable index="quito" />
+
+**Individual Pollutant Calculation**
+
+The following mathematical expressions are used for each pollutant to calculate the IQCA  
+
+(Ci: concentration of the given pollutant)
+
+**Particulate Matter 2.5** (PM<sub>2.5</sub> µg/m<sup>3</sup>) - Averaging Time: 24 hours
+
+| **Concentration** | **Formula** |
+| ----------------- | ----------- |
+| 0 < Ci ≤ 50 | $$ IQCA = 2.00 \times Ci $$ |
+| 50 < Ci ≤ 250 | $$ IQCA = Ci + 50.00 $$ | 
+| 250 < Ci | $$ IQCA = Ci + 50.00 $$ | 
+
+
+**Particulate Matter 10** (PM<sub>10</sub> µg/m<sup>3</sup>) - Averaging Time: 24 hours
+
+| **Concentration** | **Formula** |
+| ----------------- | ----------- |
+| 0 < Ci ≤ 100 | $$ IQCA = Ci $$ |
+| 100 < Ci ≤ 250 | $$ IQCA = 0.6667 \times Ci + 33.333 $$ | 
+| 250 < Ci ≤ 400 | $$ IQCA = 0.6667 \times Ci + 33.33 $$ | 
+| 400 < Ci | $$ IQCA = Ci - 100 $$ | 
+
+
+**Ozone** (O<sub>3</sub> µg/m<sup>3</sup>) - Averaging Time: 8 hours
+
+| **Concentration** | **Formula** |
+| ----------------- | ----------- |
+| 0 < Ci ≤ 100 | $$ IQCA = Ci $$ |
+| 100 < Ci ≤ 200 | $$ IQCA = Ci $$ | 
+| 200 < Ci ≤ 600 | $$ IQCA = 0.5 \times Ci + 100.00 $$ | 
+| 600 < Ci | $$ IQCA = 0.5 \times Ci + 100.00 $$ | 
+
+
+**Carbon Monoxide** (CO mg/m<sup>3</sup>) -  Averaging Time: 8 hours
+
+| **Concentration** | **Formula** |
+| ----------------- | ----------- |
+| 0 < Ci ≤ 10 | $$ IQCA = 10 \times Ci $$ |
+| 10 < Ci ≤ 15 | $$ IQCA = 20 \times Ci - 100.00 $$ | 
+| 15 < Ci ≤ 30 | $$ IQCA = 6.67 \times Ci + 100.00 $$ | 
+| 30 < Ci | $$ IQCA = 10 \times Ci $$ | 
+
+
+**Nitrogen Dioxide** (NO<sub>2</sub> µg/m<sup>3</sup>) - Averaging Time: 1 hour  (max concentration of 1-hour readings)
+
+| **Concentration** | **Formula** |
+| ----------------- | ----------- |
+| 0 < Ci ≤ 200 | $$ IQCA = 0.5 \times Ci $$ |
+| 200 < Ci ≤ 1000 | $$ IQCA = 0.125 \times Ci + 75.00 $$ | 
+| 1000 < Ci ≤ 3000 | $$ IQCA = 0.1 \times Ci + 100.00 $$ | 
+| 3000 < Ci | $$ IQCA = 0.1 \times Ci + 100.00 $$ | 
+
+
+**Sulfur Dioxide** (SO<sub>2</sub> µg/m<sup>3</sup>) - Averaging Time: 24 hours
+
+| **Concentration** | **Formula** |
+| ----------------- | ----------- |
+| 0 < Ci ≤ 62.5 | $$ IQCA = 0.8 \times Ci $$ |
+| 62.5 < Ci ≤ 125 | $$ IQCA = 1.333 \times Ci + 66.667 $$ | 
+| 125 < Ci ≤ 200 | $$ IQCA = 0.125 \times Ci + 175.00 $$ | 
+| 200 < Ci | $$ IQCA = 0.125 \times Ci + 175.00 $$ |  
+
+<Admonition type="note">
+
+There appears to be a contradiction in how the final IQCA is calculated across different sources. Some sources state 
+that the IQCA is determined by computing a weighted average of the individual pollutant indices, reflecting the varying toxicity 
+and health impacts of each pollutant. However, other sources indicate that the final IQCA value is simply the maximum of the individual 
+pollutant indices, highlighting the most severe pollutant at a given time to ensure a more immediate public health warning. 
+
+</Admonition>
+
+
+## References
+
+Municipio Del Distrito Metropolitano De Quito 
+[https://aireambiente.quito.gob.ec/](https://aireambiente.quito.gob.ec/)
+
+Respiratory Health Impacts of Outdoor Air Pollution and the Efficacy of Local Risk Communication in Quito, Ecuador
+[https://pmc.ncbi.nlm.nih.gov/articles/PMC10379231/](https://pmc.ncbi.nlm.nih.gov/articles/PMC10379231/)
+
+INDICE QUITEÑO DE LA CALIDAD DEL AIRE IQCA
+[https://github.com/user-attachments/files/20417071/INDICEQUITEODELACALIDADDEAIRE.pdf](https://github.com/user-attachments/files/20417071/INDICEQUITEODELACALIDADDEAIRE.pdf)
