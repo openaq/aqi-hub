@@ -1,5 +1,5 @@
 ---
-name: Quito
+name: Quito (Ecuador)
 indexName: Indice Quiteño de la Calidad Del Aire
 indexAcronym: IQCA
 ---
@@ -27,7 +27,7 @@ The Quito Air Quality Index consists of six categories:
 
 <ColorScale index="quito" value={true} />
 
-_Note_: Adapted from INDICEQUITEODELACALIDADDEAIRE.pdf
+_Note_: Adapted from [INDICEQUITEODELACALIDADDEAIRE.pdf](https://github.com/user-attachments/files/20417071/INDICEQUITEODELACALIDADDEAIRE.pdf)
 
 ## Methods
 
@@ -45,65 +45,65 @@ air quality impact where lower values indicate better air quality.
 
 The following mathematical expressions are used for each pollutant to calculate the IQCA  
 
-(Ci: concentration of the given pollutant)
+(C<sub>i</sub>: concentration of the given pollutant)
 
 **Particulate Matter 2.5** (PM<sub>2.5</sub> µg/m<sup>3</sup>) - Averaging Time: 24 hours
 
 | **Concentration** | **Formula** |
 | ----------------- | ----------- |
-| 0 < Ci ≤ 50 | $$ IQCA = 2.00 \times Ci $$ |
-| 50 < Ci ≤ 250 | $$ IQCA = Ci + 50.00 $$ | 
-| 250 < Ci | $$ IQCA = Ci + 50.00 $$ | 
+| 0 < $$ {C_{i}} $$ ≤ 50 | $$ IQCA = 2.00 \times {C_{i}} $$ |
+| 50 < $$ {C_{i}} $$ ≤ 250 | $$ IQCA = {C_{i}} + 50.00 $$ | 
+| 250 < $$ {C_{i}} $$ | $$ IQCA = {C_{i}} + 50.00 $$ | 
 
 
 **Particulate Matter 10** (PM<sub>10</sub> µg/m<sup>3</sup>) - Averaging Time: 24 hours
 
 | **Concentration** | **Formula** |
 | ----------------- | ----------- |
-| 0 < Ci ≤ 100 | $$ IQCA = Ci $$ |
-| 100 < Ci ≤ 250 | $$ IQCA = 0.6667 \times Ci + 33.333 $$ | 
-| 250 < Ci ≤ 400 | $$ IQCA = 0.6667 \times Ci + 33.33 $$ | 
-| 400 < Ci | $$ IQCA = Ci - 100 $$ | 
+| 0 < $$ {C_{i}} $$ ≤ 100 | $$ IQCA = {C_{i}} $$ |
+| 100 < $$ {C_{i}} $$ ≤ 250 | $$ IQCA = 0.6667 \times {C_{i}} + 33.333 $$ | 
+| 250 < $$ {C_{i}} $$ ≤ 400 | $$ IQCA = 0.6667 \times {C_{i}} + 33.33 $$ | 
+| 400 < $$ {C_{i}} $$ | $$ IQCA = {C_{i}} - 100 $$ | 
 
 
 **Ozone** (O<sub>3</sub> µg/m<sup>3</sup>) - Averaging Time: 8 hours
 
 | **Concentration** | **Formula** |
 | ----------------- | ----------- |
-| 0 < Ci ≤ 100 | $$ IQCA = Ci $$ |
-| 100 < Ci ≤ 200 | $$ IQCA = Ci $$ | 
-| 200 < Ci ≤ 600 | $$ IQCA = 0.5 \times Ci + 100.00 $$ | 
-| 600 < Ci | $$ IQCA = 0.5 \times Ci + 100.00 $$ | 
+| 0 < $$ {C_{i}} $$ ≤ 100 | $$ IQCA = {C_{i}} $$ |
+| 100 < $$ {C_{i}} $$ ≤ 200 | $$ IQCA = {C_{i}} $$ | 
+| 200 < $$ {C_{i}} $$ ≤ 600 | $$ IQCA = 0.5 \times {C_{i}} + 100.00 $$ | 
+| 600 < $$ {C_{i}} $$ | $$ IQCA = 0.5 \times {C_{i}} + 100.00 $$ | 
 
 
 **Carbon Monoxide** (CO mg/m<sup>3</sup>) -  Averaging Time: 8 hours
 
 | **Concentration** | **Formula** |
 | ----------------- | ----------- |
-| 0 < Ci ≤ 10 | $$ IQCA = 10 \times Ci $$ |
-| 10 < Ci ≤ 15 | $$ IQCA = 20 \times Ci - 100.00 $$ | 
-| 15 < Ci ≤ 30 | $$ IQCA = 6.67 \times Ci + 100.00 $$ | 
-| 30 < Ci | $$ IQCA = 10 \times Ci $$ | 
+| 0 < $$ {C_{i}} $$ ≤ 10 | $$ IQCA = 10 \times {C_{i}} $$ |
+| 10 < $$ {C_{i}} $$ ≤ 15 | $$ IQCA = 20 \times {C_{i}} - 100.00 $$ | 
+| 15 < $$ {C_{i}} $$ ≤ 30 | $$ IQCA = 6.67 \times {C_{i}} + 100.00 $$ | 
+| 30 < $$ {C_{i}} $$ | $$ IQCA = 10 \times {C_{i}} $$ | 
 
 
 **Nitrogen Dioxide** (NO<sub>2</sub> µg/m<sup>3</sup>) - Averaging Time: 1 hour  (max concentration of 1-hour readings)
 
 | **Concentration** | **Formula** |
 | ----------------- | ----------- |
-| 0 < Ci ≤ 200 | $$ IQCA = 0.5 \times Ci $$ |
-| 200 < Ci ≤ 1000 | $$ IQCA = 0.125 \times Ci + 75.00 $$ | 
-| 1000 < Ci ≤ 3000 | $$ IQCA = 0.1 \times Ci + 100.00 $$ | 
-| 3000 < Ci | $$ IQCA = 0.1 \times Ci + 100.00 $$ | 
+| 0 < $$ {C_{i}} $$ ≤ 200 | $$ IQCA = 0.5 \times {C_{i}} $$ |
+| 200 < $$ {C_{i}} $$ ≤ 1000 | $$ IQCA = 0.125 \times {C_{i}} + 75.00 $$ | 
+| 1000 < $$ {C_{i}} $$ ≤ 3000 | $$ IQCA = 0.1 \times {C_{i}} + 100.00 $$ | 
+| 3000 < $$ {C_{i}} $$ | $$ IQCA = 0.1 \times {C_{i}} + 100.00 $$ | 
 
 
 **Sulfur Dioxide** (SO<sub>2</sub> µg/m<sup>3</sup>) - Averaging Time: 24 hours
 
 | **Concentration** | **Formula** |
 | ----------------- | ----------- |
-| 0 < Ci ≤ 62.5 | $$ IQCA = 0.8 \times Ci $$ |
-| 62.5 < Ci ≤ 125 | $$ IQCA = 1.333 \times Ci + 66.667 $$ | 
-| 125 < Ci ≤ 200 | $$ IQCA = 0.125 \times Ci + 175.00 $$ | 
-| 200 < Ci | $$ IQCA = 0.125 \times Ci + 175.00 $$ |  
+| 0 < $$ {C_{i}} $$ ≤ 62.5 | $$ IQCA = 0.8 \times {C_{i}} $$ |
+| 62.5 < $$ {C_{i}} $$ ≤ 125 | $$ IQCA = 1.333 \times {C_{i}} + 66.667 $$ | 
+| 125 < $$ {C_{i}} $$ ≤ 200 | $$ IQCA = 0.125 \times {C_{i}} + 175.00 $$ | 
+| 200 < $$ {C_{i}} $$ | $$ IQCA = 0.125 \times {C_{i}} + 175.00 $$ |  
 
 <Admonition type="note">
 
