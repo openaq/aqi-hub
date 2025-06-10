@@ -1,0 +1,115 @@
+---
+name: Bogotá (Columbia)
+indexName: El Índice Bogotano de Calidad del Aire y Riesgo en Salud
+indexAcronym: IBOCA
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+import Admonition from "@components/Admonition.astro";
+
+## Background
+
+The Bogotá Air Quality and Health Risk Index (IBOCA) is the official tool, created by the Secretaría Distrital de Ambiente (Bogotá District 
+Secretariat of Environment) in 2015, used to communicate air pollution levels and their associated health risks in Columbia’s capital. Developed as 
+part of a coordinated public health and environmental strategy, IBOCA is designed to inform both institutional responses and individual actions for 
+reducing public exposure and mitigating the health impacts of poor air quality. IBOCA evaluates air quality based on six key pollutants: PM<sub>2.5</sub> 
+(fine particulate matter), PM<sub>10</sub> (coarse particulate matter), O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. Its calculation is based on the U.S. Environmental Protection Agency’s 
+(US-EPA) most recent 2018 method, which replaced Columbia’s earlier index based on the 2012 version. Specifically, IBOCA uses the NowCast method for 
+particulate matter, which was developed by the US-EPA to provide timely warnings and reduce 24-hour exposure. 
+
+In addition, IBOCA integrates health risk estimates from the World Health Organization (WHO). Their Air Quality Guideline includes how excess health risk 
+is calculated by comparing pollutant levels to a counterfactual concentration. If concentrations go below this given level, there are no observed health effects. 
+
+IBOCA’s methodology was formally updated in Joint Resolution 868 of 2021 and further revised in Joint Resolution 2840 of 2023. Its implementation helped 
+inform Bogotá’s broader 2030 Air Plan, including the “Comprehensive Health Risk Management Program for Air Quality”, and has supported declaration of air 
+quality alerts during episodes of pollution. 
+
+
+
+## Color scale
+
+The IBOCA consists of five main categories with a subcategory for 'Dangerous' representing the severity of health effects: 
+
+<ColorScale index="bogota" value={true} />
+
+_Note_: Adapted from [Joint Resolution 2840 of 2023](https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152203)
+
+## Methods
+
+The IBOCA is calculated using real-time data from the Bogotá Air Quality Monitoring Network (RMCAB), which reports concentrations of criteria pollutants: 
+PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. 
+
+Dimensionless Value Calculation
+The IBOCA is calculated to provide a dimensionless value on a scale from 0 to 500. This is based on predefined concentration intervals for each pollutant. 
+Each pollutant is compared against its respective thresholds outlined in the table: 
+
+
+<BreakpointsTable index="bogota" />
+
+- Each pollutant’s index is based on either a weighted moving average (NowCast) or a simple moving average, calculated over a specific number 
+of hours before the current time, depending on the pollutant
+
+- The NowCast method is used for particulate matter, while the arithmetic mean is used for gaseous pollutants
+
+
+<Admonition type="note">
+
+In the rare case where the IBOCA value exceeds 500, it retains the same qualitative color coding and risk category as the purple level. 
+However, in these cases, only the actual pollutant concentrations (not the index value) will be reported. 
+
+</Admonition>
+
+**Calculation of dimensionless values for IBOCA**
+1. Determine Concentration: obtain most recent concentration values (in µg/m<sup>3</sup>) for each pollutant from the air quality monitoring data
+
+2. Apply Standard Equation - For each pollutant, use the following formula: 
+
+    $$ \text{IBOCA}_p = \left( \frac{I_{\text{high}} - I_{\text{low}}}{C_{\text{high}} - C_{\text{low}}} \right) (C_p - C_{\text{low}}) + I_{\text{low}}  $$
+    - C<sub>p</sub> = concentration of the pollutant 
+    - C<sub>mayor</sub> = Threshold greater than or equal to C<sub>p</sub> in the concentration ranges of the contaminant p of the Table 1 (for particulate matter, 
+    refers to weighted moving average concentrations; for gases, refers to moving average concentrations).
+
+3. Selection of Worst Conditions: For each station in the monitoring network, the worst IBOCA condition among the pollutants is selected for communication. 
+
+<Admonition type="note">
+
+The equation for calculating Bogotá’s AQI (IBOCA) is a piecewise linear function, which is a standard similar to the U.S. EPA AQI (the IBOCA is modeled after this) 
+    - The equation maps a given pollutant concentration to a corresponding AQI value using breakpoints: C<sub>low</sub> and C<sub>high</sub> for lower and upper concentration 
+    breakpoints containing C<sub>p</sub> and I<sub>low</sub> and I<sub>high</sub> for corresponding index values 
+    - The entire function consists of multiple linear segments for different concentration ranges → piecewise linear
+
+</Admonition>
+
+**NowCast Method**
+
+For PM<sub>2.5</sub> and PM<sub>10</sub>, the NowCast value is calculated using the last 12 hour concentration data points. The most recent data points are weighted to provide a real-time 
+assessment. To ensure accuracy, at least two of the last three data points must be available; otherwise, the NowCast cannot be calculated. For the remaining gaseous pollutants, 
+concentrations are based on moving averages that are calculated over a specific number of hourly data points: for O<sub>3</sub> and CO, no averaging is applied (instead, instantaneous 
+values are used), while for NO<sub>2</sub> and SO<sub>2</sub>, the average is taken over one hour of data. 
+
+1. Data Selection: select the last 12 hourly concentration values (in µg/m<sup>3</sup>) of the specific pollutant
+2. Calculate the weighting factor (W) for each of the previous hours based on their recency. This is done using a predefined formula: 
+$$ W = \frac{C_{\text{min}}}{C_{\text{max}}} $$
+
+3. Calculate NowCast value: 
+
+    $$ \text{NowCast} = \frac{\sum (C_i \times w_i)}{\sum w_i} $$
+    - C<sub>i</sub> = concentration value of the pollutant for the hour (i)
+    - W<sub>i</sub> = corresponding weight for hour (i)
+
+## References
+
+Evaluation of the level of personal exposure to particulate matter PM 2.5 in short trips of school buses with Diesel engine
+[https://ieeexplore.ieee.org/document/9703406](https://ieeexplore.ieee.org/document/9703406)
+
+Evolution of health impact evaluation experiences in Bogotá, Colombia
+[https://ehp.niehs.nih.gov/doi/10.1289/isee.2024.1801](https://ehp.niehs.nih.gov/doi/10.1289/isee.2024.1801)
+
+¿Qué es el IBOCA?
+[http://iboca.ambientebogota.gov.co/publicaciones/175/que-es-el-iboca/](http://iboca.ambientebogota.gov.co/publicaciones/175/que-es-el-iboca/)
+
+Resolución Conjunta 2840 de 2023 Secretaría Distrital de Ambiente - Secretaría Distrital de Salud
+[https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152203](https://www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152203)
