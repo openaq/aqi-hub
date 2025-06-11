@@ -31,7 +31,10 @@ quality alerts during episodes of pollution.
 
 ## Color scale
 
-The IBOCA consists of five main categories with a subcategory for 'Dangerous' representing the severity of health effects: 
+The IBOCA consists of five main categories with a subcategory for 'Dangerous' representing the severity of health effects. 
+This subcategory exists because the concentration ranges for each IBOCA color do not directly correspond to personal exposure, 
+but rather to equivalent levels of excess health risk (ER). For each color category, including 'Dangerous', the lower and upper 
+bounds represent pollutant concentrations that result in the same level of ER.: 
 
 <ColorScale index="bogota" value={true} />
 
@@ -67,16 +70,21 @@ However, in these cases, only the actual pollutant concentrations (not the index
 
 2. Apply Standard Equation - For each pollutant, use the following formula: 
 
-    $$ \text{IBOCA}_p = \left( \frac{I_{\text{high}} - I_{\text{low}}}{C_{\text{high}} - C_{\text{low}}} \right) (C_p - C_{\text{low}}) + I_{\text{low}}  $$
-    - C<sub>p</sub> = concentration of the pollutant 
-    - C<sub>mayor</sub> = Threshold greater than or equal to C<sub>p</sub> in the concentration ranges of the contaminant p of the Table 1 (for particulate matter, 
-    refers to weighted moving average concentrations; for gases, refers to moving average concentrations).
+<div class="latex-container">
+  <PiecewiseLatexDoc label="AQI" />
+</div>
+
+<AqiCalculator
+  client:only="solid"
+  index="bogota"
+  acronym={frontmatter.indexAcronym}
+/>
 
 3. Selection of Worst Conditions: For each station in the monitoring network, the worst IBOCA condition among the pollutants is selected for communication. 
 
 <Admonition type="note">
 
-The equation for calculating Bogotá’s AQI (IBOCA) is a piecewise linear function, which is a standard similar to the U.S. EPA AQI (the IBOCA is modeled after this) 
+The equation for calculating Bogotá’s AQI (IBOCA) is a piecewise linear function, which is a standard like the U.S. EPA AQI (the IBOCA is modeled after this) 
     - The equation maps a given pollutant concentration to a corresponding AQI value using breakpoints: C<sub>low</sub> and C<sub>high</sub> for lower and upper concentration 
     breakpoints containing C<sub>p</sub> and I<sub>low</sub> and I<sub>high</sub> for corresponding index values 
     - The entire function consists of multiple linear segments for different concentration ranges → piecewise linear
