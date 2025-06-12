@@ -1,37 +1,37 @@
 ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
-EC,Quito,Desirable,#FFFFFF,0,50,PM2.5,µg/m3,24,0,25
-EC,Quito,Desirable,#FFFFFF,0,50,PM10,µg/m3,24,0,50
-EC,Quito,Desirable,#FFFFFF,0,50,O3,µg/m3,8,0,50
+EC,Quito,Desirable,#FFFFFF,0,50,PM2.5,ug/m3,24,0,25
+EC,Quito,Desirable,#FFFFFF,0,50,PM10,ug/m3,24,0,50
+EC,Quito,Desirable,#FFFFFF,0,50,O3,ug/m3,8,0,50
 EC,Quito,Desirable,#FFFFFF,0,50,CO,mg/m3,8,0,5000
-EC,Quito,Desirable,#FFFFFF,0,50,NO2,µg/m3,1,0,10
-EC,Quito,Desirable,#FFFFFF,0,50,SO2,µg/m3,24,0,62.5
-EC,Quito,Acceptable,#52FD00,51,100,PM2.5,µg/m3,24,26,50
-EC,Quito,Acceptable,#52FD00,51,100,PM10,µg/m3,24,51,100
-EC,Quito,Acceptable,#52FD00,51,100,O3,µg/m3,8,51,100
+EC,Quito,Desirable,#FFFFFF,0,50,NO2,ug/m3,1,0,10
+EC,Quito,Desirable,#FFFFFF,0,50,SO2,ug/m3,24,0,62.5
+EC,Quito,Acceptable,#52FD00,51,100,PM2.5,ug/m3,24,26,50
+EC,Quito,Acceptable,#52FD00,51,100,PM10,ug/m3,24,51,100
+EC,Quito,Acceptable,#52FD00,51,100,O3,ug/m3,8,51,100
 EC,Quito,Acceptable,#52FD00,51,100,CO,mg/m3,8,5001,10000
-EC,Quito,Acceptable,#52FD00,51,100,NO2,µg/m3,1,101,200
-EC,Quito,Acceptable,#52FD00,51,100,SO2,µg/m3,24,63.5,125
-EC,Quito,Caution Level,#D8D8D8,101,200,PM2.5,µg/m3,24,51,150
-EC,Quito,Caution Level,#D8D8D8,101,200,PM10,µg/m3,24,101,250
-EC,Quito,Caution Level,#D8D8D8,101,200,O3,µg/m3,8,101,200
+EC,Quito,Acceptable,#52FD00,51,100,NO2,ug/m3,1,101,200
+EC,Quito,Acceptable,#52FD00,51,100,SO2,ug/m3,24,63.5,125
+EC,Quito,Caution Level,#D8D8D8,101,200,PM2.5,ug/m3,24,51,150
+EC,Quito,Caution Level,#D8D8D8,101,200,PM10,ug/m3,24,101,250
+EC,Quito,Caution Level,#D8D8D8,101,200,O3,ug/m3,8,101,200
 EC,Quito,Caution Level,#D8D8D8,101,200,CO,mg/m3,8,10001,15000
-EC,Quito,Caution Level,#D8D8D8,101,200,NO2,µg/m3,1,201,1000
-EC,Quito,Caution Level,#D8D8D8,101,200,SO2,µg/m3,24,126,200
-EC,Quito,Alert Level,#FEFC02,201,300,PM2.5,µg/m3,24,151,250
-EC,Quito,Alert Level,#FEFC02,201,300,PM10,µg/m3,24,251,400
-EC,Quito,Alert Level,#FEFC02,201,300,O3,µg/m3,8,201,400
+EC,Quito,Caution Level,#D8D8D8,101,200,NO2,ug/m3,1,201,1000
+EC,Quito,Caution Level,#D8D8D8,101,200,SO2,ug/m3,24,126,200
+EC,Quito,Alert Level,#FEFC02,201,300,PM2.5,ug/m3,24,151,250
+EC,Quito,Alert Level,#FEFC02,201,300,PM10,ug/m3,24,251,400
+EC,Quito,Alert Level,#FEFC02,201,300,O3,ug/m3,8,201,400
 EC,Quito,Alert Level,#FEFC02,201,300,CO,mg/m3,8,15001,30000
-EC,Quito,Alert Level,#FEFC02,201,300,NO2,µg/m3,1,1001,2000
-EC,Quito,Alert Level,#FEFC02,201,300,SO2,µg/m3,24,201,1000
-EC,Quito,Alarm Level,#FD9A00,301,400,PM2.5,µg/m3,24,251,350
-EC,Quito,Alarm Level,#FD9A00,301,400,PM10,µg/m3,24,401,500
-EC,Quito,Alarm Level,#FD9A00,301,400,O3,µg/m3,8,401,600
+EC,Quito,Alert Level,#FEFC02,201,300,NO2,ug/m3,1,1001,2000
+EC,Quito,Alert Level,#FEFC02,201,300,SO2,ug/m3,24,201,1000
+EC,Quito,Alarm Level,#FD9A00,301,400,PM2.5,ug/m3,24,251,350
+EC,Quito,Alarm Level,#FD9A00,301,400,PM10,ug/m3,24,401,500
+EC,Quito,Alarm Level,#FD9A00,301,400,O3,ug/m3,8,401,600
 EC,Quito,Alarm Level,#FD9A00,301,400,CO,mg/m3,8,30001,40000
-EC,Quito,Alarm Level,#FD9A00,301,400,NO2,µg/m3,1,2001,3000
-EC,Quito,Alarm Level,#FD9A00,301,400,SO2,µg/m3,24,1001,1800
-EC,Quito,Emergency Level,#F9000,401,500,PM2.5,µg/m3,24,351,
-EC,Quito,Emergency Level,#F9000,401,500,PM10,µg/m3,24,501,
-EC,Quito,Emergency Level,#F9000,401,500,O3,µg/m3,8,601,
+EC,Quito,Alarm Level,#FD9A00,301,400,NO2,ug/m3,1,2001,3000
+EC,Quito,Alarm Level,#FD9A00,301,400,SO2,ug/m3,24,1001,1800
+EC,Quito,Emergency Level,#F9000,401,500,PM2.5,ug/m3,24,351,
+EC,Quito,Emergency Level,#F9000,401,500,PM10,ug/m3,24,501,
+EC,Quito,Emergency Level,#F9000,401,500,O3,ug/m3,8,601,
 EC,Quito,Emergency Level,#F9000,401,500,CO,mg/m3,8,40001,
-EC,Quito,Emergency Level,#F9000,401,500,NO2,µg/m3,1,3001,
-EC,Quito,Emergency Level,#F9000,401,500,SO2,µg/m3,24,1801,
+EC,Quito,Emergency Level,#F9000,401,500,NO2,ug/m3,1,3001,
+EC,Quito,Emergency Level,#F9000,401,500,SO2,ug/m3,24,1801,
