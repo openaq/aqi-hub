@@ -1,0 +1,41 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+BE,"",Excellent,#0000FF,1,"",O3,ug/m3,8,0,30
+BE,"",Excellent,#0000FF,1,"",PM2.5,ug/m3,24,0,2.5
+BE,"",Excellent,#0000FF,1,"",PM10,ug/m3,24,0,5
+BE,"",Excellent,#0000FF,1,"",NO2,ug/m3,24,0,5
+BE,"",Very Good, #007EFD,2,"",O3,ug/m3,8,31,60
+BE,"",Very Good, #007EFD,2,"",PM2.5,ug/m3,24,2.6,5
+BE,"",Very Good, #007EFD,2,"",PM10,ug/m3,24,6,15
+BE,"",Very Good, #007EFD,2,"",NO2,ug/m3,24,6,10
+BE,"",Good,#00C000,3,"",O3,ug/m3,8,61,70
+BE,"",Good,#00C000,3,"",PM2.5,ug/m3,24,5.1,7.5
+BE,"",Good,#00C000,3,"",PM10,ug/m3,24,16,25
+BE,"",Good,#00C000,3,"",NO2,ug/m3,24,11,15
+BE,"",Fairly Good,#00FF00,4,"",O3,ug/m3,8,71,80
+BE,"",Fairly Good,#00FF00,4,"",PM2.5,ug/m3,24,7.6,10
+BE,"",Fairly Good,#00FF00,4,"",PM10,ug/m3,24,26,35
+BE,"",Fairly Good,#00FF00,4,"",NO2,ug/m3,24,16,20
+BE,"",Moderate,#CCFF33,5,"",O3,ug/m3,8,81,100
+BE,"",Moderate,#CCFF33,5,"",PM2.5,ug/m3,24,11,15
+BE,"",Moderate,#CCFF33,5,"",PM10,ug/m3,24,36,45
+BE,"",Moderate,#CCFF33,5,"",NO2,ug/m3,24,21,25
+BE,"",Poor,#F8E748,6,"",O3,ug/m3,8,101,130
+BE,"",Poor,#F8E748,6,"",PM2.5,ug/m3,24,16,25
+BE,"",Poor,#F8E748,6,"",PM10,ug/m3,24,46,60
+BE,"",Poor,#F8E748,6,"",NO2,ug/m3,24,26,30
+BE,"",Very Poor, #FF8000,7,"",O3,ug/m3,8,131,160
+BE,"",Very Poor, #FF8000,7,"",PM2.5,ug/m3,24,26,35
+BE,"",Very Poor, #FF8000,7,"",PM10,ug/m3,24,61,70
+BE,"",Very Poor, #FF8000,7,"",NO2,ug/m3,24,31,35
+BE,"",Bad,#FF0000,8,"",O3,ug/m3,8,161,190
+BE,"",Bad,#FF0000,8,"",PM2.5,ug/m3,24,36,40
+BE,"",Bad,#FF0000,8,"",PM10,ug/m3,24,71,80
+BE,"",Bad,#FF0000,8,"",NO2,ug/m3,24,36,40
+BE,"",Very Bad,#C00000,9,"",O3,ug/m3,8,191,220
+BE,"",Very Bad,#C00000,9,"",PM2.5,ug/m3,24,41,50
+BE,"",Very Bad,#C00000,9,"",PM10,ug/m3,24,81,100
+BE,"",Very Bad,#C00000,9,"",NO2,ug/m3,24,41,50
+BE,"",Horrible,#800000,10,"",O3,ug/m3,8,220,
+BE,"",Horrible,#800000,10,"",PM2.5,ug/m3,24,50,
+BE,"",Horrible,#800000,10,"",PM10,ug/m3,24,100,
+BE,"",Horrible,#800000,10,"",NO2,ug/m3,24,50,

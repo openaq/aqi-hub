@@ -1,0 +1,41 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+BE,"",Excellent,#0000FF,1,"",O3,ug/m3,8,0,30
+BE,"",Excellent,#0000FF,1,"",SO2,ug/m3,24,0,15
+BE,"",Excellent,#0000FF,1,"",PM10,ug/m3,24,0,10
+BE,"",Excellent,#0000FF,1,"",NO2,ug/m3,1,0,25
+BE,"",Very Good, #007EFD,2,"",O3,ug/m3,8,31,45
+BE,"",Very Good, #007EFD,2,"",SO2,ug/m3,24,16,30
+BE,"",Very Good, #007EFD,2,"",PM10,ug/m3,24,11,20
+BE,"",Very Good, #007EFD,2,"",NO2,ug/m3,1,26,45
+BE,"",Good,#00C000,3,"",O3,ug/m3,8,46,60
+BE,"",Good,#00C000,3,"",SO2,ug/m3,24,31,45
+BE,"",Good,#00C000,3,"",PM10,ug/m3,24,21,30
+BE,"",Good,#00C000,3,"",NO2,ug/m3,1,46,60
+BE,"",Fairly Good,#00FF00,4,"",O3,ug/m3,8,61,80
+BE,"",Fairly Good,#00FF00,4,"",SO2,ug/m3,24,46,60
+BE,"",Fairly Good,#00FF00,4,"",PM10,ug/m3,24,31,40
+BE,"",Fairly Good,#00FF00,4,"",NO2,ug/m3,1,61,80
+BE,"",Moderate,#CCFF33,5,"",O3,ug/m3,8,81,100
+BE,"",Moderate,#CCFF33,5,"",SO2,ug/m3,24,61,80
+BE,"",Moderate,#CCFF33,5,"",PM10,ug/m3,24,41,50
+BE,"",Moderate,#CCFF33,5,"",NO2,ug/m3,1,81,100
+BE,"",Poor,#F8E748,6,"",O3,ug/m3,8,101,120
+BE,"",Poor,#F8E748,6,"",SO2,ug/m3,24,81,100
+BE,"",Poor,#F8E748,6,"",PM10,ug/m3,24,51,70
+BE,"",Poor,#F8E748,6,"",NO2,ug/m3,1,101,120
+BE,"",Very Poor, #FF8000,7,"",O3,ug/m3,8,121,150
+BE,"",Very Poor, #FF8000,7,"",SO2,ug/m3,24,101,125
+BE,"",Very Poor, #FF8000,7,"",PM10,ug/m3,24,71,100
+BE,"",Very Poor, #FF8000,7,"",NO2,ug/m3,1,121,150
+BE,"",Bad,#FF0000,8,"",O3,ug/m3,8,151,200
+BE,"",Bad,#FF0000,8,"",SO2,ug/m3,24,126,165
+BE,"",Bad,#FF0000,8,"",PM10,ug/m3,24,101,150
+BE,"",Bad,#FF0000,8,"",NO2,ug/m3,1,151,200
+BE,"",Very Bad,#C00000,9,"",O3,ug/m3,8,201,270
+BE,"",Very Bad,#C00000,9,"",SO2,ug/m3,24,166,250
+BE,"",Very Bad,#C00000,9,"",PM10,ug/m3,24,151,200
+BE,"",Very Bad,#C00000,9,"",NO2,ug/m3,1,201,270
+BE,"",Horrible,#800000,10,"",O3,ug/m3,8,270,
+BE,"",Horrible,#800000,10,"",SO2,ug/m3,24,250,
+BE,"",Horrible,#800000,10,"",PM10,ug/m3,24,200,
+BE,"",Horrible,#800000,10,"",NO2,ug/m3,1,270,

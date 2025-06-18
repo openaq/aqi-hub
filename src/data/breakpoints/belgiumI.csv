@@ -1,0 +1,41 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+BE,"",Excellent,#0000FF,1,"",O3,ug/m3,1,0,25
+BE,"",Excellent,#0000FF,1,"",PM2.5,ug/m3,24,0,5
+BE,"",Excellent,#0000FF,1,"",PM10,ug/m3,24,0,10
+BE,"",Excellent,#0000FF,1,"",NO2,ug/m3,1,0,20
+BE,"",Very Good, #007EFD,2,"",O3,ug/m3,1,26,50
+BE,"",Very Good, #007EFD,2,"",PM2.5,ug/m3,24,6,10
+BE,"",Very Good, #007EFD,2,"",PM10,ug/m3,24,11,20
+BE,"",Very Good, #007EFD,2,"",NO2,ug/m3,1,20,50
+BE,"",Good,#00C000,3,"",O3,ug/m3,1,51,70
+BE,"",Good,#00C000,3,"",PM2.5,ug/m3,24,11,15
+BE,"",Good,#00C000,3,"",PM10,ug/m3,24,21,30
+BE,"",Good,#00C000,3,"",NO2,ug/m3,1,51,70
+BE,"",Fairly Good,#00FF00,4,"",O3,ug/m3,1,71,120
+BE,"",Fairly Good,#00FF00,4,"",PM2.5,ug/m3,24,16,25
+BE,"",Fairly Good,#00FF00,4,"",PM10,ug/m3,24,31,40
+BE,"",Fairly Good,#00FF00,4,"",NO2,ug/m3,1,71,120
+BE,"",Moderate,#CCFF33,5,"",O3,ug/m3,1,121,160
+BE,"",Moderate,#CCFF33,5,"",PM2.5,ug/m3,24,26,35
+BE,"",Moderate,#CCFF33,5,"",PM10,ug/m3,24,41,50
+BE,"",Moderate,#CCFF33,5,"",NO2,ug/m3,1,121,150
+BE,"",Poor,#F8E748,6,"",O3,ug/m3,1,161,180
+BE,"",Poor,#F8E748,6,"",PM2.5,ug/m3,24,36,40
+BE,"",Poor,#F8E748,6,"",PM10,ug/m3,24,51,60
+BE,"",Poor,#F8E748,6,"",NO2,ug/m3,1,151,180
+BE,"",Very Poor, #FF8000,7,"",O3,ug/m3,1,181,240
+BE,"",Very Poor, #FF8000,7,"",PM2.5,ug/m3,24,41,50
+BE,"",Very Poor, #FF8000,7,"",PM10,ug/m3,24,61,70
+BE,"",Very Poor, #FF8000,7,"",NO2,ug/m3,1,181,200
+BE,"",Bad,#FF0000,8,"",O3,ug/m3,1,241,280
+BE,"",Bad,#FF0000,8,"",PM2.5,ug/m3,24,51,60
+BE,"",Bad,#FF0000,8,"",PM10,ug/m3,24,71,80
+BE,"",Bad,#FF0000,8,"",NO2,ug/m3,1,201,250
+BE,"",Very Bad,#C00000,9,"",O3,ug/m3,1,281,320
+BE,"",Very Bad,#C00000,9,"",PM2.5,ug/m3,24,61,70
+BE,"",Very Bad,#C00000,9,"",PM10,ug/m3,24,81,100
+BE,"",Very Bad,#C00000,9,"",NO2,ug/m3,1,251,300
+BE,"",Horrible,#800000,10,"",O3,ug/m3,1,320,
+BE,"",Horrible,#800000,10,"",PM2.5,ug/m3,24,70,
+BE,"",Horrible,#800000,10,"",PM10,ug/m3,24,100,
+BE,"",Horrible,#800000,10,"",NO2,ug/m3,1,300,
