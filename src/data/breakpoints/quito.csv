@@ -29,9 +29,9 @@ EC,Quito,Alarm Level,#FD9A00,301,400,O3,ug/m3,8,401,600
 EC,Quito,Alarm Level,#FD9A00,301,400,CO,mg/m3,8,30001,40000
 EC,Quito,Alarm Level,#FD9A00,301,400,NO2,ug/m3,1,2001,3000
 EC,Quito,Alarm Level,#FD9A00,301,400,SO2,ug/m3,24,1001,1800
-EC,Quito,Emergency Level,#F9000,401,500,PM2.5,ug/m3,24,351,
-EC,Quito,Emergency Level,#F9000,401,500,PM10,ug/m3,24,501,
-EC,Quito,Emergency Level,#F9000,401,500,O3,ug/m3,8,601,
-EC,Quito,Emergency Level,#F9000,401,500,CO,mg/m3,8,40001,
-EC,Quito,Emergency Level,#F9000,401,500,NO2,ug/m3,1,3001,
-EC,Quito,Emergency Level,#F9000,401,500,SO2,ug/m3,24,1801,
+EC,Quito,Emergency Level,#FF0000,401,500,PM2.5,ug/m3,24,351,
+EC,Quito,Emergency Level,#FF0000,401,500,PM10,ug/m3,24,501,
+EC,Quito,Emergency Level,#FF0000,401,500,O3,ug/m3,8,601,
+EC,Quito,Emergency Level,#FF0000,401,500,CO,mg/m3,8,40001,
+EC,Quito,Emergency Level,#FF0000,401,500,NO2,ug/m3,1,3001,
+EC,Quito,Emergency Level,#FF0000,401,500,SO2,ug/m3,24,1801,
