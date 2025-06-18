@@ -230,7 +230,7 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
         </div>
         <div class="result-wrapper">
           <Show when={result() > 0}>
-            <p class="result-text">{Math.round(result())}</p>
+            <output class="result-text">{Math.round(result())}</output>
             <div class="color-box-wrapper">
               <div
                 class="color-box"
@@ -240,14 +240,14 @@ const PiecewiseCalculator = (props: PiecewiseCalculatorDefinition) => {
           </Show>
         </div>
         <Show when={concentration() === maxValue()}>
-          <p class="out-of-range-text">You've reached the maximum breakpoint</p>
+          <output class="out-of-range-text">You've reached the maximum breakpoint</output>
         </Show>
         <Show when={concentration() > maxValue()}>
           <p class="out-of-range-text">
             Concentration exceeds maximum breakpoint definition:{" "}
-            <span>
+            <output>
               {maxValue()} {normalizeUnitsLabel(filteredData()[0]?.units)}
-            </span>
+            </output>
           </p>
         </Show>
       </section>
