@@ -1,0 +1,37 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+LK,,Good,#32CD32,0,50,PM2.5,ug/m3,24,0,25
+LK,,Good,#32CD32,0,50,PM10,ug/m3,24,0,50
+LK,,Good,#32CD32,0,50,O3,ppb,1,0,50
+LK,,Good,#32CD32,0,50,CO,ppb,8,0,2250
+LK,,Good,#32CD32,0,50,NO2,ppb,1,0,65
+LK,,Good,#32CD32,0,50,SO2,ppb,24,0,15
+LK,,Moderate,#FFFF00,50,100,PM2.5,ug/m3,24,25,50
+LK,,Moderate,#FFFF00,50,100,PM10,ug/m3,24,50,100
+LK,,Moderate,#FFFF00,50,100,O3,ppb,1,50,100
+LK,,Moderate,#FFFF00,50,100,CO,ppb,8,2250,4500
+LK,,Moderate,#FFFF00,50,100,NO2,ppb,1,65,130
+LK,,Moderate,#FFFF00,50,100,SO2,ppb,24,15,30
+LK,,Slightly Unhealthy,#FF8C00,100,150,PM2.5,ug/m3,24,50,75
+LK,,Slightly Unhealthy,#FF8C00,100,150,PM10,ug/m3,24,100,150
+LK,,Slightly Unhealthy,#FF8C00,100,150,O3,ppb,1,100,200
+LK,,Slightly Unhealthy,#FF8C00,100,150,CO,ppb,8,4500,9000
+LK,,Slightly Unhealthy,#FF8C00,100,150,NO2,ppb,1,130,350
+LK,,Slightly Unhealthy,#FF8C00,100,150,SO2,ppb,24,30,80
+LK,,Unhealthy,#FF0000,150,200,PM2.5,ug/m3,24,75,150
+LK,,Unhealthy,#FF0000,150,200,PM10,ug/m3,24,150,275
+LK,,Unhealthy,#FF0000,150,200,O3,ppb,1,200,300
+LK,,Unhealthy,#FF0000,150,200,CO,ppb,8,9000,15000
+LK,,Unhealthy,#FF0000,150,200,NO2,ppb,1,350,650
+LK,,Unhealthy,#FF0000,150,200,SO2,ppb,24,80,250
+LK,,Very Unhealthy,#9400D3,200,300,PM2.5,ug/m3,24,150,250
+LK,,Very Unhealthy,#9400D3,200,300,PM10,ug/m3,24,275,450
+LK,,Very Unhealthy,#9400D3,200,300,O3,ppb,1,300,400
+LK,,Very Unhealthy,#9400D3,200,300,CO,ppb,8,15000,30000
+LK,,Very Unhealthy,#9400D3,200,300,NO2,ppb,1,650,1250
+LK,,Very Unhealthy,#9400D3,200,300,SO2,ppb,24,250,600
+LK,,Hazardous,#800000,300,500,PM2.5,ug/m3,24,250,400
+LK,,Hazardous,#800000,300,500,PM10,ug/m3,24,450,650
+LK,,Hazardous,#800000,300,500,O3,ppb,1,400,600
+LK,,Hazardous,#800000,300,500,CO,ppb,8,30000,50000
+LK,,Hazardous,#800000,300,500,NO2,ppb,1,1250,2000
+LK,,Hazardous,#800000,300,500,SO2,ppb,24,600,1000
