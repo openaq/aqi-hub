@@ -10,14 +10,14 @@ import BreakpointsTable from "@components/BreakpointsTable.astro";
 
 ## Background
 
-The BelAQI (Belgian Air Quality Index) was developed in the context of the European ‘JOAQUIN’ project. It is an adaptation of 
+The BelAQI (Belgian Air Quality Index) was developed in the context of the European ‘JOAQUIN’ project [^1]. It is an adaptation of 
 the Joaquin-index specifically for Belgium. This index is used to assess air quality by translating various ambient air pollutant 
 concentrations into a single, easily understandable number. BelAQI is used in apps like BelAIR to alert the public to sudden changes. 
-It focuses on health impacts related to short-term exposure to pollutants like PM2.5, NO2, and O3. 
+It focuses on health impacts related to short-term exposure to pollutants like PM<sub>2.5</sub>, NO<sub>2</sub>, and O<sub>3</sub>. 
 
 Belgium also uses the BelATMO air quality index. Its primary goal is to communicate air quality conditions clearly to the public, summarizing 
-data from several pollutants into a single number on a scale from 1 (excellent) to 10 (extremely bad). This index consists of four pollutants: 
-an 8-hour average of Ozone (O3), an hourly maximum of Nitrogen Dioxide (NO2), a 24-hour average of Sulfur Dioxide (SO2), and a 24-hour average of 
+data from several pollutants into a single number on a scale from 1 (excellent) to 10 (horrible). This index consists of four pollutants: 
+an 8-hour average of Ozone (O<sub>3</sub>), an hourly maximum of Nitrogen Dioxide (NO<sub>2</sub>), a 24-hour average of Sulfur Dioxide (SO<sub>2</sub>), and a 24-hour average of 
 Particulate Matter (PM). 
 
 ## Color scale
@@ -33,8 +33,8 @@ and https://www.irceline.be/en/air-quality/measurements/air-quality-index/inform
 <Admonition type="note">
   The air quality index does not define specific numerical ranges 
   for the overall index value. Instead, it categorizes air quality 
-  into 10 discrete levels, ranging from Excellent (1) to Extremely 
-  Bad (10). Each category corresponds to concentration thresholds for 
+  into 10 discrete levels, ranging from Excellent (1) to Horrible 
+  (10). Each category corresponds to concentration thresholds for 
   individual pollutants, but the overall index is simply the worst 
   (highest) sub-index among them, without an associated quantitative 
   range for the combined value.
@@ -42,13 +42,13 @@ and https://www.irceline.be/en/air-quality/measurements/air-quality-index/inform
 
 ## Methods
 
-The old BelAQI, before November 2022 was based on 2005 WHO air quality guidelines. It used 24-hour averages for PM2.5 and PM10. Mortality risk was calculated on 
-Relative Risk (RR) values from WHO’s HRAPIE report: 
+The old BelAQI, before November 2022 was based on 2005 WHO air quality guidelines. It used 24-hour averages for PM<sub>2.5</sub> and PM<sub>10</sub>. Mortality risk was calculated on 
+Relative Risk (RR) values from WHO’s Health Risks of Air Pollution in Europe (HRAPIE) report [^2]: 
 
 
-- PM2.5: 1.0123 → 1.23% increase in daily mortality per 10 µg/m³
-- O₃: 1.0029 → 0.29%
-- NO₂: 1.0027 → 0.27%
+- PM<sub>2.5</sub>: 1.0123 → 1.23% increase in daily mortality per 10 µg/m<sup>3</sup>
+- O<sub>3</sub>: 1.0029 → 0.29%
+- NO<sub>2</sub>: 1.0027 → 0.27%
 
 **Old BelAQI:** 
 
@@ -60,7 +60,7 @@ _Note_: https://www.irceline.be/en/air-quality/measurements/belaqi-air-quality-i
 The WHO released new, stricter guidelines in 2021 for both short- and long-term exposure to air pollution. These changes led Belgium to update the BelAQI to better 
 reflect actual health risks, including:
 
-- Lower limits for PM2.5, PM10, and NO₂.
+- Lower limits for PM<sub>2.5</sub>, PM<sub>10</sub>, and NO<sub>2</sub>.
 - New interim targets for pollutants.
 - A shift toward using hourly averages for real-time tracking.    
 
@@ -73,14 +73,15 @@ reflect actual health risks, including:
 To address the lag in responsiveness of 24-hour averages, the new hourly BelAQI uses hourly concentrations, derived using ratios of daily/hourly peaks (based on 
 historical Belgian data):
 
-- PM2.5: ×1.51
-- PM10: ×1.38
-- NO₂: ×1.51
-- O₃: ×1.10
+- PM<sub>2.5</sub>: ×1.51
+- PM<sub>10</sub>: ×1.38
+- NO<sub>2</sub>: ×1.51
+- O<sub>3</sub>: ×1.10
 
-**Example (PM2.5):**
-If daily "Poor" = 16–25 µg/m³
-→ Hourly "Poor" = 21–35 µg/m³ (25 × 1.51 ≈ 38)
+
+**Example (PM$_{2.5}$):**  
+If daily “Poor” = 16–25 $\mu$g/m$^3$  
+→ Hourly “Poor” = 21–35 $\mu$g/m$^3$ (25 × 1.51 ≈ 38)
 
 (The result is rounded to the nearest whole number to make the index easier to communicate and implement. In this case 37.75 → 38 µg/m³)
 
@@ -106,8 +107,8 @@ If daily "Poor" = 16–25 µg/m³
 <BreakpointsTable index="belgiumIV" />
 
 1. For each pollutant, a sub-index value is determined by matching the measured concentration to the corresponding range in the table
-    a. This is a direct categorical assignment – for example, if the 8-hour average ozone (O3) level is 68 ug/m3, it falls in the 61-80 range, which corresponds to an index value of 4 (Fairly Good) 
-    b. This process is repeated for all four pollutants (O3, NO2, SO2, PM10).
+    a. This is a direct categorical assignment – for example, if the 8-hour average ozone (O<sub>3</sub>) level is 68 μg/m<sup>3</sup>, it falls in the 61-80 range, which corresponds to an index value of 4 (Fairly Good) 
+    b. This process is repeated for all four pollutants (O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, PM<sub>10</sub>).
 
 2. The final BelATMO index is the maximum of these four sub-indices (i.e., the worst pollutant level).
 
@@ -133,4 +134,8 @@ https://airscan.org/belgium-updates-air-quality-index-who-standards/
 
 “BelATMO Index — English.” Irceline.be, 2025, [www.irceline.be/en/air-quality/measurements/air-quality-index/information](www.irceline.be/en/air-quality/measurements/air-quality-index/information).
 
+‌“Air Quality Index.” Wallonair.be, 2017, [www.wallonair.be/en/find-out-more/air-quality-index.html](www.wallonair.be/en/find-out-more/air-quality-index.html).
+
+[^1]: [www.wallonair.be/en/find-out-more/air-quality-index.html](www.wallonair.be/en/find-out-more/air-quality-index.html)
+[^2]: [https://www.irceline.be/en/air-quality/measurements/belaqi-air-quality-index/information](https://www.irceline.be/en/air-quality/measurements/belaqi-air-quality-index/information)
 ‌
