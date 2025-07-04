@@ -24,7 +24,7 @@ ICA, the IBOCA adapts the calculation method and category thresholds to better r
 
 Colombia’s national ICA calculation consists of six categories: 
 
-<ColorScale index="colombia" value={true} />
+<ColorScale variant="Colombia" index="colombia" value={true} />
 
 _Note_: Adapted from [INDICEQUITEODELACALIDADDEAIRE.pdf](https://www.researchgate.net/profile/Joseph-Sanchez-4/post/How-is-calculated-the-air-quality-index-in-your-country/attachment/5cd2f133cfe4a7968d9dab83/AS%3A756303353896962%401557328179531/download/INDICE+QUITE%C3%91O+DE+LA+CALIDAD+DE+AIRE.pdf)
 
@@ -34,7 +34,7 @@ For each pollutant, a set of breakpoints defines the thresholds that divide poll
 these thresholds to determine their corresponding category. Using these values, each concentration is converted into a numerical index that reflects its relative position within a 
 range. This index quantifies the impact on air quality, with lower values signifying cleaner air. 
 
-<BreakpointsTable index="colombia" />
+<BreakpointsTable variant="Colombia" index="colombia" />
 
 Typically, regions with ozone monitoring stations are required to report the 8-hour ozone AQI. However, in certain regions, using the 1-hour ozone AQI provides a more protective 
 assessment. In such cases, both the 8-hour and 1-hour ozone AQI values should be calculated, and the higher of the two should be reported. Additionally, if ozone concentrations 
@@ -88,7 +88,7 @@ The IBOCA consists of five main categories with a subcategory for 'Dangerous' re
 for each IBOCA color do not directly correspond to personal exposure, but rather to equivalent levels of excess health risk (ER). For each color category, including 'Dangerous', 
 the lower and upper bounds represent pollutant concentrations that result in the same level of ER.: 
 
-<ColorScale index="bogota" value={true} />
+<ColorScale variant="Bogotá" index="colombia" value={true} />
 
 _Note_: Adapted from [INDICEQUITEODELACALIDADDEAIRE.pdf](https://www.researchgate.net/profile/Joseph-Sanchez-4/post/How-is-calculated-the-air-quality-index-in-your-country/attachment/5cd2f133cfe4a7968d9dab83/AS%3A756303353896962%401557328179531/download/INDICE+QUITE%C3%91O+DE+LA+CALIDAD+DE+AIRE.pdf)
 
@@ -101,7 +101,7 @@ The IBOCA is calculated to provide a dimensionless value on a scale from 0 to 50
 against its respective thresholds outlined in the table: 
 
 
-<BreakpointsTable index="bogota" />
+<BreakpointsTable variant="Bogotá" index="colombia" />
 
 - Each pollutant’s index is based on either a weighted moving average (NowCast) or a simple moving average, calculated over a specific number of hours before the current time, depending on the pollutant
 - The NowCast method is used for particulate matter, while the arithmetic mean is used for gaseous pollutants
