@@ -35,14 +35,14 @@ These regional variations reflect differences in pollutants monitored, local cli
 
 Brazil’s SMAC IQA calculation consists of five categories: 
 
-<ColorScale index="brazil" value={true} variations="Rio de Janeiro"/>
+<ColorScale variant="Rio de Janeiro" index="brazil" value={true}/>
 
 _Note_: Adapted from https://jeap.rio.rj.gov.br/je-metinfosmac/institucional/docs/entenda_iqa.pdf
 
 
 Brazil’s CETESB  ( São Paulo )IQA calculation consists of five categories with different ranges: 
 
-<ColorScale index="brazil" value={true} variations="São Paulo"/>
+<ColorScale variant="São Paulo" index="brazil" value={true} />
 
 _Note_: Adapted from https://cetesb.sp.gov.br/ar/padroes-de-qualidade-do-ar/
 
@@ -54,7 +54,7 @@ Identify Pollutants: First, measure the concentrations of the relevant pollutant
 is used to establish thresholds that categorize the levels of pollution into the 5 different categories. 
 
 
-<BreakpointsTable index="brazil" />
+<BreakpointsTable variant="Rio de Janeiro" index="brazil" />
 
 2. **Determine Concentration Ranges** 
 Each pollutant included in the IQA calculation is associated with defined concentration intervals that correspond to specific air quality categories, such as Boa, Regular, Inadeqada, 
@@ -100,7 +100,7 @@ CETESB (Environmental Agency of São Paulo) established the AQI calculation proc
 times. For example, ozone levels are measured as an 8-hour mean, while PM10 is evaluated over a 24-hour period. The AQI reflects health implications, indicating when 
 air quality may pose risks to the population, particularly vulnerable groups.
 
-<BreakpointsTable index="brazil" />
+<BreakpointsTable variant="São Paulo" index="brazil" />
 
 In the CETESB system, air quality at a monitoring station is assessed across all measured pollutants; however, for public reporting, only the highest individual pollutant 
 index is used. This means the overall air quality classification reflects the most critical (worst-case) pollutant level at that location.
