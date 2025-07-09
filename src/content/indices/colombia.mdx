@@ -38,7 +38,7 @@ range. This index quantifies the impact on air quality, with lower values signif
 
 Typically, regions with ozone monitoring stations are required to report the 8-hour ozone AQI. However, in certain regions, using the 1-hour ozone AQI provides a more protective 
 assessment. In such cases, both the 8-hour and 1-hour ozone AQI values should be calculated, and the higher of the two should be reported. Additionally, if ozone concentrations 
-exceed 394 ug/m3, the 8-hour ozone AQI is no longer applicable, and only the 1-hour ozone AQI should be used for reporting. 
+exceed 394 μg/m<sup>3</sup>, the 8-hour ozone AQI is no longer applicable, and only the 1-hour ozone AQI should be used for reporting. 
 
 Each pollutant has its own sub-AQI value calculated based on its breakpoint concentration. The following piecewise linear function is used: 
 
@@ -58,12 +58,10 @@ After calculating the sub-AQI values for each pollutant, the highest sub-AQI bec
 be computed from single pollutant if only one is monitored. There is no minimum number of pollutants needed to determine the ICA value.  
 
 
----
-name: Bogota
-indexName: El Índice Bogotano de Calidad del Aire y Riesgo en Salud
-indexAcronym: IBOCA
----
-
+<h1 style="font-size: 2rem; font-weight: bold; margin-top: 2rem;">Bogotá</h1>
+<h2 style="font-size: 20px; text-decoration: underline; font-weight: 400; margin-bottom: 1rem; margin-top: 0.25rem;">
+  El Índice Bogotano de Calidad del Aire y Riesgo en Salud (IBOCA)
+</h2>
 
 
 ## Background
@@ -71,7 +69,7 @@ indexAcronym: IBOCA
 The Bogotá Air Quality and Health Risk Index (IBOCA) is the official tool, created by the Secretaría Distrital de Ambiente (Bogotá District Secretariat of Environment) in 2015, 
 used to communicate air pollution levels and their associated health risks in Columbia’s capital. Developed as part of a coordinated public health and environmental strategy, 
 IBOCA is designed to inform both institutional responses and individual actions for reducing public exposure and mitigating the health impacts of poor air quality. IBOCA evaluates 
-air quality based on six key pollutants: PM2.5 (fine particulate matter), PM10 (coarse particulate matter), O3, NO2, SO2, and CO. Its calculation is based on the U.S. Environmental 
+air quality based on six key pollutants: PM<sub>2.5</sub> (fine particulate matter), PM<sub>10</sub> (coarse particulate matter), O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. Its calculation is based on the U.S. Environmental 
 Protection Agency’s (US-EPA) most recent 2018 method, which replaced Columbia’s earlier index based on the 2012 version. Specifically, IBOCA uses the NowCast method for particulate 
 matter, which was developed by the US-EPA to provide timely warnings and reduce 24-hour exposure. 
 
@@ -94,7 +92,7 @@ _Note_: Adapted from [INDICEQUITEODELACALIDADDEAIRE.pdf](https://www.researchgat
 
 ## Methods
 
-The IBOCA is calculated using real-time data from the Bogotá Air Quality Monitoring Network (RMCAB), which reports concentrations of criteria pollutants: PM2.5, PM10, O3, NO2, SO2, and CO. 
+The IBOCA is calculated using real-time data from the Bogotá Air Quality Monitoring Network (RMCAB), which reports concentrations of criteria pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. 
 
 Dimensionless Value Calculation
 The IBOCA is calculated to provide a dimensionless value on a scale from 0 to 500. This is based on predefined concentration intervals for each pollutant. Each pollutant is compared 
@@ -116,9 +114,10 @@ value) will be reported.
 </Admonition>
 
 **Calculation of dimensionless values for IBOCA:**
-1. Determine Concentration: obtain most recent concentration values (in µg/m3) for each pollutant from the air quality monitoring data
+1. **Determine Concentration**: obtain most recent concentration values (in µg/m<sup>3</sup>) for each pollutant from the air quality monitoring data
 
-2. Apply the Standard Equation
+2. **Apply the Standard Equation**
+
      For each pollutant, use the following formula: 
 
         <div class="latex-container">
@@ -127,7 +126,7 @@ value) will be reported.
 
         </div>
 
-3. Selection of Worst Conditions: For each station in the monitoring network, the worst IBOCA condition among the pollutants is selected for communication. 
+3. **Selection of Worst Conditions**: For each station in the monitoring network, the worst IBOCA condition among the pollutants is selected for communication. 
 
 
 The equation for calculating Bogotá’s AQI (IBOCA) is a piecewise linear function, which is a standard similar to the U.S. EPA AQI (the IBOCA is modeled after this) 
@@ -140,12 +139,12 @@ So the entire function consists of multiple linear segments for different concen
 
 **NowCast Method**
 
-For PM2.5 and PM10, the NowCast value is calculated using the last 12 hour concentration data points. The most recent data points are weighted to provide a real-time 
+For PM<sub>2.5</sub> and PM<sub>10</sub>, the NowCast value is calculated using the last 12 hour concentration data points. The most recent data points are weighted to provide a real-time 
 assessment. To ensure accuracy, at least two of the last three data points must be available; otherwise, the NowCast cannot be calculated. For the remaining gaseous 
-pollutants, concentrations are based on moving averages that are calculated over a specific number of hourly data points: for O3 and CO, no averaging is applied (instead, 
-instantaneous values are used), while for NO2 and SO2, the average is taken over one hour of data. 
+pollutants, concentrations are based on moving averages that are calculated over a specific number of hourly data points: for O<sub>3</sub> and CO, no averaging is applied (instead, 
+instantaneous values are used), while for NO<sub>2</sub> and SO<sub>2</sub>, the average is taken over one hour of data. 
 
-1. Data Selection: select the last 12 hourly concentration values (in µg/m3) of the specific pollutant 
+1. Data Selection: select the last 12 hourly concentration values (in µg/m<sup>3</sup>) of the specific pollutant 
 
 2. Calculate the weighting factor (w) for each of the previous hours based on their recency. This is done using a predefined formula: 
         $$ W = \frac{C_{\text{min}}}{C_{\text{max}}} $$
