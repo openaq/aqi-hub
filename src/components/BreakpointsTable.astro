@@ -12,13 +12,8 @@ import {
 } from "../utils/utils";
 import { loadIndex } from "@data/loaders";
 
-const { index, rangeValue, labelValue, variant } = Astro.props;
+const { index, rangeValue, labelValue } = Astro.props;
 const breakpoints = loadIndex(index);
-
-let filteredContent = breakpoints
-if (variant) {
-    filteredContent = filteredContent.filter((o: IndexDefinition) => o.variant === variant)
-}
 
 let label = true;
 let range = true;
@@ -31,7 +26,7 @@ if (typeof rangeValue !== "undefined") {
 }
 
 const seen = new Set();
-const headerColumns = filteredContent
+const headerColumns = breakpoints
   .map((i: IndexDefinition) => {
     const categoryText = label ? i.category : "";
     const rangeText = i.categoryUpper
@@ -53,7 +48,7 @@ const headerColumns = filteredContent
     return true;
   });
 
-const reshapedData = reshapeTableData(filteredContent);
+const reshapedData = reshapeTableData(breakpoints);
 
 const finalTableRows: TableRowsDefinition = tableReshape(reshapedData);
 ---
