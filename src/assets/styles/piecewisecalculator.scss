@@ -1,8 +1,8 @@
-@use "openaq-design-system/scss/mixins/index.scss" as mixins;
-@use "openaq-design-system/scss/mixins/typography" as *;
-@use "openaq-design-system/scss/utilities/types";
-@use "openaq-design-system/scss/variables";
-@use "openaq-design-system/scss/inputs/index.scss" as *;
+@use 'openaq-design-system/scss/mixins/index.scss' as mixins;
+@use 'openaq-design-system/scss/mixins/typography' as *;
+@use 'openaq-design-system/scss/utilities/types';
+@use 'openaq-design-system/scss/variables';
+@use 'openaq-design-system/scss/inputs/index.scss' as *;
 
 .headers {
   display: grid;
@@ -29,6 +29,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 100%;
 }
 
 .color-box {
@@ -262,12 +263,12 @@
 }
 
 @media (width <= 1000px) {
-  input[type="number"] {
+  input[type='number'] {
     appearance: textfield;
   }
 
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button {
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
     appearance: none;
     margin: 0;
   }

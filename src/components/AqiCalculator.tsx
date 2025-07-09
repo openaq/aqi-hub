@@ -18,7 +18,7 @@ const MaxSubIndexCalculator = () => {
     <>
       <div class="final-result-wrapper">
         <h4 class="final-result-text">
-          Final result (Maximum of sub-index values): {Math.round(max()?.value)}{" "}
+          Final result (Maximum of sub-index values): <output>{Math.round(max()?.value)}</output> {" "}
         </h4>
 
         <div class="color-box-wrapper">

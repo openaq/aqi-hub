@@ -1,0 +1,161 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+BE,oldBelAQI,Excellent,#0000FF,1,,O3,ug/m3,1,0,25
+BE,oldBelAQI,Excellent,#0000FF,1,,PM2.5,ug/m3,24,0,5
+BE,oldBelAQI,Excellent,#0000FF,1,,PM10,ug/m3,24,0,10
+BE,oldBelAQI,Excellent,#0000FF,1,,NO2,ug/m3,1,0,20
+BE,oldBelAQI,Very Good, #007EFD,2,,O3,ug/m3,1,26,50
+BE,oldBelAQI,Very Good, #007EFD,2,,PM2.5,ug/m3,24,6,10
+BE,oldBelAQI,Very Good, #007EFD,2,,PM10,ug/m3,24,11,20
+BE,oldBelAQI,Very Good, #007EFD,2,,NO2,ug/m3,1,20,50
+BE,oldBelAQI,Good,#00C000,3,,O3,ug/m3,1,51,70
+BE,oldBelAQI,Good,#00C000,3,,PM2.5,ug/m3,24,11,15
+BE,oldBelAQI,Good,#00C000,3,,PM10,ug/m3,24,21,30
+BE,oldBelAQI,Good,#00C000,3,,NO2,ug/m3,1,51,70
+BE,oldBelAQI,Fairly Good,#00FF00,4,,O3,ug/m3,1,71,120
+BE,oldBelAQI,Fairly Good,#00FF00,4,,PM2.5,ug/m3,24,16,25
+BE,oldBelAQI,Fairly Good,#00FF00,4,,PM10,ug/m3,24,31,40
+BE,oldBelAQI,Fairly Good,#00FF00,4,,NO2,ug/m3,1,71,120
+BE,oldBelAQI,Moderate,#CCFF33,5,,O3,ug/m3,1,121,160
+BE,oldBelAQI,Moderate,#CCFF33,5,,PM2.5,ug/m3,24,26,35
+BE,oldBelAQI,Moderate,#CCFF33,5,,PM10,ug/m3,24,41,50
+BE,oldBelAQI,Moderate,#CCFF33,5,,NO2,ug/m3,1,121,150
+BE,oldBelAQI,Poor,#F8E748,6,,O3,ug/m3,1,161,180
+BE,oldBelAQI,Poor,#F8E748,6,,PM2.5,ug/m3,24,36,40
+BE,oldBelAQI,Poor,#F8E748,6,,PM10,ug/m3,24,51,60
+BE,oldBelAQI,Poor,#F8E748,6,,NO2,ug/m3,1,151,180
+BE,oldBelAQI,Very Poor, #FF8000,7,,O3,ug/m3,1,181,240
+BE,oldBelAQI,Very Poor, #FF8000,7,,PM2.5,ug/m3,24,41,50
+BE,oldBelAQI,Very Poor, #FF8000,7,,PM10,ug/m3,24,61,70
+BE,oldBelAQI,Very Poor, #FF8000,7,,NO2,ug/m3,1,181,200
+BE,oldBelAQI,Bad,#FF0000,8,,O3,ug/m3,1,241,280
+BE,oldBelAQI,Bad,#FF0000,8,,PM2.5,ug/m3,24,51,60
+BE,oldBelAQI,Bad,#FF0000,8,,PM10,ug/m3,24,71,80
+BE,oldBelAQI,Bad,#FF0000,8,,NO2,ug/m3,1,201,250
+BE,oldBelAQI,Very Bad,#C00000,9,,O3,ug/m3,1,281,320
+BE,oldBelAQI,Very Bad,#C00000,9,,PM2.5,ug/m3,24,61,70
+BE,oldBelAQI,Very Bad,#C00000,9,,PM10,ug/m3,24,81,100
+BE,oldBelAQI,Very Bad,#C00000,9,,NO2,ug/m3,1,251,300
+BE,oldBelAQI,Horrible,#800000,10,,O3,ug/m3,1,320,
+BE,oldBelAQI,Horrible,#800000,10,,PM2.5,ug/m3,24,70,
+BE,oldBelAQI,Horrible,#800000,10,,PM10,ug/m3,24,100,
+BE,oldBelAQI,Horrible,#800000,10,,NO2,ug/m3,1,300,
+BE,newBelAQI,Excellent,#0000FF,,,O3,ug/m3,8,0,30
+BE,newBelAQI,Excellent,#0000FF,,,PM2.5,ug/m3,24,0,2.5
+BE,newBelAQI,Excellent,#0000FF,,,PM10,ug/m3,24,0,5
+BE,newBelAQI,Excellent,#0000FF,,,NO2,ug/m3,24,0,5
+BE,newBelAQI,Very Good, #007EFD,,,O3,ug/m3,8,31,60
+BE,newBelAQI,Very Good, #007EFD,,,PM2.5,ug/m3,24,2.6,5
+BE,newBelAQI,Very Good, #007EFD,,,PM10,ug/m3,24,6,15
+BE,newBelAQI,Very Good, #007EFD,,,NO2,ug/m3,24,6,10
+BE,newBelAQI,Good,#00C000,,,O3,ug/m3,8,61,70
+BE,newBelAQI,Good,#00C000,,,PM2.5,ug/m3,24,5.1,7.5
+BE,newBelAQI,Good,#00C000,,,PM10,ug/m3,24,16,25
+BE,newBelAQI,Good,#00C000,,,NO2,ug/m3,24,11,15
+BE,newBelAQI,Fairly Good,#00FF00,,,O3,ug/m3,8,71,80
+BE,newBelAQI,Fairly Good,#00FF00,,,PM2.5,ug/m3,24,7.6,10
+BE,newBelAQI,Fairly Good,#00FF00,,,PM10,ug/m3,24,26,35
+BE,newBelAQI,Fairly Good,#00FF00,,,NO2,ug/m3,24,16,20
+BE,newBelAQI,Moderate,#CCFF33,,,O3,ug/m3,8,81,100
+BE,newBelAQI,Moderate,#CCFF33,,,PM2.5,ug/m3,24,11,15
+BE,newBelAQI,Moderate,#CCFF33,,,PM10,ug/m3,24,36,45
+BE,newBelAQI,Moderate,#CCFF33,,,NO2,ug/m3,24,21,25
+BE,newBelAQI,Poor,#F8E748,,,O3,ug/m3,8,101,130
+BE,newBelAQI,Poor,#F8E748,,,PM2.5,ug/m3,24,16,25
+BE,newBelAQI,Poor,#F8E748,,,PM10,ug/m3,24,46,60
+BE,newBelAQI,Poor,#F8E748,,,NO2,ug/m3,24,26,30
+BE,newBelAQI,Very Poor, #FF8000,,,O3,ug/m3,8,131,160
+BE,newBelAQI,Very Poor, #FF8000,,,PM2.5,ug/m3,24,26,35
+BE,newBelAQI,Very Poor, #FF8000,,,PM10,ug/m3,24,61,70
+BE,newBelAQI,Very Poor, #FF8000,,,NO2,ug/m3,24,31,35
+BE,newBelAQI,Bad,#FF0000,,,O3,ug/m3,8,161,190
+BE,newBelAQI,Bad,#FF0000,,,PM2.5,ug/m3,24,36,40
+BE,newBelAQI,Bad,#FF0000,,,PM10,ug/m3,24,71,80
+BE,newBelAQI,Bad,#FF0000,,,NO2,ug/m3,24,36,40
+BE,newBelAQI,Very Bad,#C00000,,,O3,ug/m3,8,191,220
+BE,newBelAQI,Very Bad,#C00000,,,PM2.5,ug/m3,24,41,50
+BE,newBelAQI,Very Bad,#C00000,,,PM10,ug/m3,24,81,100
+BE,newBelAQI,Very Bad,#C00000,,,NO2,ug/m3,24,41,50
+BE,newBelAQI,Horrible,#800000,,,O3,ug/m3,8,220,
+BE,newBelAQI,Horrible,#800000,,,PM2.5,ug/m3,24,50,
+BE,newBelAQI,Horrible,#800000,,,PM10,ug/m3,24,100,
+BE,newBelAQI,Horrible,#800000,,,NO2,ug/m3,24,50,
+BE,newBelAQIHour,Excellent,#0000FF,,,O3,ug/m3,1,0,30
+BE,newBelAQIHour,Excellent,#0000FF,,,PM2.5,ug/m3,1,0,3.5
+BE,newBelAQIHour,Excellent,#0000FF,,,PM10,ug/m3,1,0,10
+BE,newBelAQIHour,Excellent,#0000FF,,,NO2,ug/m3,1,0,10
+BE,newBelAQIHour,Very Good, #007EFD,,,O3,ug/m3,1,31,65
+BE,newBelAQIHour,Very Good, #007EFD,,,PM2.5,ug/m3,1,3.6,7.5
+BE,newBelAQIHour,Very Good, #007EFD,,,PM10,ug/m3,1,11,20
+BE,newBelAQIHour,Very Good, #007EFD,,,NO2,ug/m3,1,11,15
+BE,newBelAQIHour,Good,#00C000,,,O3,ug/m3,1,66,75
+BE,newBelAQIHour,Good,#00C000,,,PM2.5,ug/m3,1,7.6,10
+BE,newBelAQIHour,Good,#00C000,,,PM10,ug/m3,1,21,35
+BE,newBelAQIHour,Good,#00C000,,,NO2,ug/m3,1,16,20
+BE,newBelAQIHour,Fairly Good,#00FF00,,,O3,ug/m3,1,76,90
+BE,newBelAQIHour,Fairly Good,#00FF00,,,PM2.5,ug/m3,1,11,15
+BE,newBelAQIHour,Fairly Good,#00FF00,,,PM10,ug/m3,1,36,45
+BE,newBelAQIHour,Fairly Good,#00FF00,,,NO2,ug/m3,1,21,30
+BE,newBelAQIHour,Moderate,#CCFF33,,,O3,ug/m3,1,91,110
+BE,newBelAQIHour,Moderate,#CCFF33,,,PM2.5,ug/m3,1,16,20
+BE,newBelAQIHour,Moderate,#CCFF33,,,PM10,ug/m3,1,46,60
+BE,newBelAQIHour,Moderate,#CCFF33,,,NO2,ug/m3,1,31,40
+BE,newBelAQIHour,Poor,#F8E748,,,O3,ug/m3,1,111,150
+BE,newBelAQIHour,Poor,#F8E748,,,PM2.5,ug/m3,1,21,35
+BE,newBelAQIHour,Poor,#F8E748,,,PM10,ug/m3,1,61,80
+BE,newBelAQIHour,Poor,#F8E748,,,NO2,ug/m3,1,41,45
+BE,newBelAQIHour,Very Poor, #FF8000,,,O3,ug/m3,1,151,180
+BE,newBelAQIHour,Very Poor, #FF8000,,,PM2.5,ug/m3,1,36,50
+BE,newBelAQIHour,Very Poor, #FF8000,,,PM10,ug/m3,1,81,95
+BE,newBelAQIHour,Very Poor, #FF8000,,,NO2,ug/m3,1,46,50
+BE,newBelAQIHour,Bad,#FF0000,,,O3,ug/m3,1,181,210
+BE,newBelAQIHour,Bad,#FF0000,,,PM2.5,ug/m3,1,51,60
+BE,newBelAQIHour,Bad,#FF0000,,,PM10,ug/m3,1,96,110
+BE,newBelAQIHour,Bad,#FF0000,,,NO2,ug/m3,1,51,60
+BE,newBelAQIHour,Very Bad,#C00000,,,O3,ug/m3,1,211,240
+BE,newBelAQIHour,Very Bad,#C00000,,,PM2.5,ug/m3,1,61,75
+BE,newBelAQIHour,Very Bad,#C00000,,,PM10,ug/m3,1,111,140
+BE,newBelAQIHour,Very Bad,#C00000,,,NO2,ug/m3,1,61,75
+BE,newBelAQIHour,Horrible,#800000,,,O3,ug/m3,1,240,
+BE,newBelAQIHour,Horrible,#800000,,,PM2.5,ug/m3,1,75,
+BE,newBelAQIHour,Horrible,#800000,,,PM10,ug/m3,1,140,
+BE,newBelAQIHour,Horrible,#800000,,,NO2,ug/m3,1,75,
+BE,BelAtmo,Excellent,#0000FF,,,O3,ug/m3,8,0,30
+BE,BelAtmo,Excellent,#0000FF,,,SO2,ug/m3,24,0,15
+BE,BelAtmo,Excellent,#0000FF,,,PM10,ug/m3,24,0,10
+BE,BelAtmo,Excellent,#0000FF,,,NO2,ug/m3,1,0,25
+BE,BelAtmo,Very Good, #007EFD,,,O3,ug/m3,8,31,45
+BE,BelAtmo,Very Good, #007EFD,,,SO2,ug/m3,24,16,30
+BE,BelAtmo,Very Good, #007EFD,,,PM10,ug/m3,24,11,20
+BE,BelAtmo,Very Good, #007EFD,,,NO2,ug/m3,1,26,45
+BE,BelAtmo,Good,#00C000,,,O3,ug/m3,8,46,60
+BE,BelAtmo,Good,#00C000,,,SO2,ug/m3,24,31,45
+BE,BelAtmo,Good,#00C000,,,PM10,ug/m3,24,21,30
+BE,BelAtmo,Good,#00C000,,,NO2,ug/m3,1,46,60
+BE,BelAtmo,Fairly Good,#00FF00,,,O3,ug/m3,8,61,80
+BE,BelAtmo,Fairly Good,#00FF00,,,SO2,ug/m3,24,46,60
+BE,BelAtmo,Fairly Good,#00FF00,,,PM10,ug/m3,24,31,40
+BE,BelAtmo,Fairly Good,#00FF00,,,NO2,ug/m3,1,61,80
+BE,BelAtmo,Moderate,#CCFF33,,,O3,ug/m3,8,81,100
+BE,BelAtmo,Moderate,#CCFF33,,,SO2,ug/m3,24,61,80
+BE,BelAtmo,Moderate,#CCFF33,,,PM10,ug/m3,24,41,50
+BE,BelAtmo,Moderate,#CCFF33,,,NO2,ug/m3,1,81,100
+BE,BelAtmo,Poor,#F8E748,,,O3,ug/m3,8,101,120
+BE,BelAtmo,Poor,#F8E748,,,SO2,ug/m3,24,81,100
+BE,BelAtmo,Poor,#F8E748,,,PM10,ug/m3,24,51,70
+BE,BelAtmo,Poor,#F8E748,,,NO2,ug/m3,1,101,120
+BE,BelAtmo,Very Poor, #FF8000,,,O3,ug/m3,8,121,150
+BE,BelAtmo,Very Poor, #FF8000,,,SO2,ug/m3,24,101,125
+BE,BelAtmo,Very Poor, #FF8000,,,PM10,ug/m3,24,71,100
+BE,BelAtmo,Very Poor, #FF8000,,,NO2,ug/m3,1,121,150
+BE,BelAtmo,Bad,#FF0000,,,O3,ug/m3,8,151,200
+BE,BelAtmo,Bad,#FF0000,,,SO2,ug/m3,24,126,165
+BE,BelAtmo,Bad,#FF0000,,,PM10,ug/m3,24,101,150
+BE,BelAtmo,Bad,#FF0000,,,NO2,ug/m3,1,151,200
+BE,BelAtmo,Very Bad,#C00000,,,O3,ug/m3,8,201,270
+BE,BelAtmo,Very Bad,#C00000,,,SO2,ug/m3,24,166,250
+BE,BelAtmo,Very Bad,#C00000,,,PM10,ug/m3,24,151,200
+BE,BelAtmo,Very Bad,#C00000,,,NO2,ug/m3,1,201,270
+BE,BelAtmo,Horrible,#800000,,,O3,ug/m3,8,270,
+BE,BelAtmo,Horrible,#800000,,,SO2,ug/m3,24,250,
+BE,BelAtmo,Horrible,#800000,,,PM10,ug/m3,24,200,
+BE,BelAtmo,Horrible,#800000,,,NO2,ug/m3,1,270,

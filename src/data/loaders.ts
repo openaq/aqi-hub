@@ -11,8 +11,24 @@ const snakeToCamel = (str: string) =>
     );
 
 
-  const stringToNumber =  (data) : IndexDefinition[] => data.map(
-    (o: IndexDefinition) => ({
+interface CsvIndexDefinition {
+  iso: string;
+  variant: string;
+  category: string;
+  hex: string;
+  categoryLower: string;
+  categoryUpper: string;
+  pollutant: string;
+  units: string;
+  averagingPeriod: string;
+  concentrationLower: string;
+  concentrationUpper: string;
+  country?: string;
+}
+
+
+  const stringToNumber = (data: CsvIndexDefinition[]) : IndexDefinition[] => data.map(
+    (o: CsvIndexDefinition) => ({
       ...o,
       categoryLower: Number(o.categoryLower),
       categoryUpper: Number(o.categoryUpper),

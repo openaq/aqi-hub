@@ -137,8 +137,8 @@ for (const [label, { ranges, colors }] of labelMap) {
             class="color-scale__item"
             style={`background-color: ${o.color}; color: ${getContrast(o.color)}`}
           >
-            <p>{o.label}</p>
-            <p>{o.range}</p>
+            <span class="definition__label">{o.label}</span>
+            <span class="definition__range">{o.range}</span>
           </div>
         ))
       }

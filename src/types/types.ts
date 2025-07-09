@@ -1,6 +1,6 @@
 export interface IndexDefinition {
   iso: string;
-  variant: string;
+  variant?: string;
   category: string;
   hex: string;
   categoryLower: number;

@@ -24,7 +24,7 @@ Particulate Matter (PM).
 
 The Belgian BelAQI and BelATMO system of calculation consists of 10 categories:
 
-<ColorScale index="belgiumI" value={false} />
+<ColorScale variant="oldBelAQI" index="belgium" value={false} />
 
 _Note_: Adapted from https://repository.uantwerpen.be/docman/irua/b75e85/a183191.pdf 
 
@@ -52,7 +52,7 @@ Relative Risk (RR) values from WHO’s Health Risks of Air Pollution in Europe (
 
 **Old BelAQI:** 
 
-<BreakpointsTable index="belgiumI" />
+<BreakpointsTable variant="oldBelAQI" index="belgium" />
 
 _Note_: https://www.irceline.be/en/air-quality/measurements/belaqi-air-quality-index/information
 
@@ -68,7 +68,7 @@ reflect actual health risks, including:
 
 **New BelAQI Daily Index Table:** 
 
-<BreakpointsTable index="belgiumII" />
+<BreakpointsTable variant="newBelAQI" index="belgium" />
 
 To address the lag in responsiveness of 24-hour averages, the new hourly BelAQI uses hourly concentrations, derived using ratios of daily/hourly peaks (based on 
 historical Belgian data):
@@ -88,7 +88,7 @@ If daily “Poor” = 16–25 $\mu$g/m$^3$
 
 **New BelAQI Hourly Index Table:** 
 
-<BreakpointsTable index="belgiumIII" />
+<BreakpointsTable variant="newBelAQIHour" index="belgium" />
 
 1. Each pollutant’s concentration is mapped to an index value between 1 (Excellent) and 10 (Horrible) using pre-defined breakpoint thresholds (which differ for daily vs. hourly values).
 2. The final BelAQI is simply the maximum of the sub-indices. 
@@ -104,7 +104,7 @@ If daily “Poor” = 16–25 $\mu$g/m$^3$
 
 **BelATMO Index Table:** 
 
-<BreakpointsTable index="belgiumIV" />
+<BreakpointsTable variant="BelAtmo" index="belgium" />
 
 1. For each pollutant, a sub-index value is determined by matching the measured concentration to the corresponding range in the table
     a. This is a direct categorical assignment – for example, if the 8-hour average ozone (O<sub>3</sub>) level is 68 μg/m<sup>3</sup>, it falls in the 61-80 range, which corresponds to an index value of 4 (Fairly Good) 
