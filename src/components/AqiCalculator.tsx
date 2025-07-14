@@ -44,6 +44,7 @@ const MaxSubIndexCalculator = () => {
 interface AqiCalculatorDefinition {
   index: string;
   acronym: string;
+  variant?: string;
 }
 
 async function fetchIndex(country: string) {
@@ -53,12 +54,18 @@ async function fetchIndex(country: string) {
 }
 
 export const AqiCalculator = (props: AqiCalculatorDefinition) => {
-  const [data] = createResource(() => props.index, fetchIndex);
+  let [data] = createResource(() => props.index, fetchIndex);
+
 
   const pollutants = () => {
     const groupedPollutants = new Map<string, PollutantData>();
     if (data()) {
       for (const item of data()!) {
+        if (props.variant) {
+          if (item.variant !== props.variant) {
+            continue
+          }
+        }  
         const key = item.pollutant;
         if (!groupedPollutants.has(key)) {
           groupedPollutants.set(key, {
