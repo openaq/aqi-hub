@@ -1,79 +1,79 @@
 ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
-CO,Bogotá,Bajo (Low),#00E400,0,50,PM2.5,ug/m3,12,0,12
-CO,Bogotá,Bajo (Low),#00E400,0,50,PM10,ug/m3,12,0,27.2
-CO,Bogotá,Bajo (Low),#00E400,0,50,O3,ug/m3,8,0,72
-CO,Bogotá,Bajo (Low),#00E400,0,50,CO,ug/m3,8,0,2549
-CO,Bogotá,Bajo (Low),#00E400,0,50,NO2,ug/m3,1,0,28.5
-CO,Bogotá,Bajo (Low),#00E400,0,50,SO2,ug/m3,1,0,9.6
-CO,Bogotá,Moderado (Moderate),#FFFF00,51,100,PM2.5,ug/m3,12,12.1,35.4
-CO,Bogotá,Moderado (Moderate),#FFFF00,51,100,PM10,ug/m3,12,27.3,63.8
-CO,Bogotá,Moderado (Moderate),#FFFF00,51,100,O3,ug/m3,8,73,107
-CO,Bogotá,Moderado (Moderate),#FFFF00,51,100,CO,ug/m3,8,2550,5022
-CO,Bogotá,Moderado (Moderate),#FFFF00,51,100,NO2,ug/m3,1,28.6,84.1
-CO,Bogotá,Moderado (Moderate),#FFFF00,51,100,SO2,ug/m3,1,9.7,38.5
-CO,Bogotá,Regular (Regular),#FF7E00,101,150,PM2.5,ug/m3,12,35.5,55.4
-CO,Bogotá,Regular (Regular),#FF7E00,101,150,PM10,ug/m3,12,63.9,95.5
-CO,Bogotá,Regular (Regular),#FF7E00,101,150,O3,ug/m3,8,108,137
-CO,Bogotá,Regular (Regular),#FF7E00,101,150,CO,ug/m3,8,5023,7165
-CO,Bogotá,Regular (Regular),#FF7E00,101,150,NO2,ug/m3,1,84.2,132.2
-CO,Bogotá,Regular (Regular),#FF7E00,101,150,SO2,ug/m3,1,38.6,63.5
-CO,Bogotá,Alto (High),#FF0000,151,200,PM2.5,ug/m3,12,55.5,151.2
-CO,Bogotá,Alto (High),#FF0000,151,200,PM10,ug/m3,12,95.6,246.7
-CO,Bogotá,Alto (High),#FF0000,151,200,O3,ug/m3,8,138,281
-CO,Bogotá,Alto (High),#FF0000,151,200,CO,ug/m3,8,7166,17384
-CO,Bogotá,Alto (High),#FF0000,151,200,NO2,ug/m3,1,132.2,361.9
-CO,Bogotá,Alto (High),#FF0000,151,200,SO2,ug/m3,1,63.6,182.7
-CO,Bogotá,Peligroso (Dangerous) 1,#8F3F97,201,300,PM2.5,ug/m3,12,151.3,250.4
-CO,Bogotá,Peligroso (Dangerous) 1,#8F3F97,201,300,PM10,ug/m3,12,246.8,405.2
-CO,Bogotá,Peligroso (Dangerous) 1,#8F3F97,201,300,O3,ug/m3,8,282,432
-CO,Bogotá,Peligroso (Dangerous) 1,#8F3F97,201,300,CO,ug/m3,8,17385,28099
-CO,Bogotá,Peligroso (Dangerous) 1,#8F3F97,201,300,NO2,ug/m3,1,362,602.6
-CO,Bogotá,Peligroso (Dangerous) 1,#8F3F97,201,300,SO2,ug/m3,1,182.8,307.7
-CO,Bogotá,Peligroso (Dangerous) 2,#8F3F97,301,500,PM2.5,ug/m3,12,250.5,500.4
-CO,Bogotá,Peligroso (Dangerous) 2,#8F3F97,301,500,PM10,ug/m3,12,405.3,800.4
-CO,Bogotá,Peligroso (Dangerous) 2,#8F3F97,301,500,O3,ug/m3,8,433,809
-CO,Bogotá,Peligroso (Dangerous) 2,#8F3F97,301,500,CO,ug/m3,8,28100,54802
-CO,Bogotá,Peligroso (Dangerous) 2,#8F3F97,301,500,NO2,ug/m3,1,602.7,1202.6
-CO,Bogotá,Peligroso (Dangerous) 2,#8F3F97,301,500,SO2,ug/m3,1,307.8,619.2
-CO,Colombia,Buena,#00E400,0,50,PM2.5,ug/m3,24,0,12
-CO,Colombia,Buena,#00E400,0,50,PM10,ug/m3,24,0,54
-CO,Colombia,Buena,#00E400,0,50,CO,ug/m3,8,0,5094
-CO,Colombia,Buena,#00E400,0,50,NO2,ug/m3,1,0,100
-CO,Colombia,Buena,#00E400,0,50,SO2,ug/m3,1,0,93
-CO,Colombia,Buena,#00E400,0,50,O3,ug/m3,8,0,106
-CO,Colombia,Buena,#00E400,0,50,O3,ug/m3,1,,
-CO,Colombia,Aceptable,#FFFF00,51,100,PM2.5,ug/m3,24,13,37
-CO,Colombia,Aceptable,#FFFF00,51,100,PM10,ug/m3,24,55,154
-CO,Colombia,Aceptable,#FFFF00,51,100,CO,ug/m3,8,5095,10819
-CO,Colombia,Aceptable,#FFFF00,51,100,NO2,ug/m3,1,101,189
-CO,Colombia,Aceptable,#FFFF00,51,100,SO2,ug/m3,1,94,197
-CO,Colombia,Aceptable,#FFFF00,51,100,O3,ug/m3,8,107,138
-CO,Colombia,Aceptable,#FFFF00,51,100,O3,ug/m3,1,,
-CO,Colombia,Dañina a la salud de Grupos Sensibles ,#FF7E00,101,150,PM2.5,ug/m3,24,38,55
-CO,Colombia,Dañina a la salud de Grupos Sensibles ,#FF7E00,101,150,PM10,ug/m3,24,155,254
-CO,Colombia,Dañina a la salud de Grupos Sensibles ,#FF7E00,101,150,CO,ug/m3,8,10820,14254
-CO,Colombia,Dañina a la salud de Grupos Sensibles ,#FF7E00,101,150,NO2,ug/m3,1,190,677
-CO,Colombia,Dañina a la salud de Grupos Sensibles ,#FF7E00,101,150,SO2,ug/m3,1,198,486
-CO,Colombia,Dañina a la salud de Grupos Sensibles ,#FF7E00,101,150,O3,ug/m3,8,139,167
-CO,Colombia,Dañina a la salud de Grupos Sensibles ,#FF7E00,101,150,O3,ug/m3,1,245,323
-CO,Colombia,Dañina a la salud ,#FF0000,151,200,PM2.5,ug/m3,24,56,150
-CO,Colombia,Dañina a la salud ,#FF0000,151,200,PM10,ug/m3,24,255,354
-CO,Colombia,Dañina a la salud ,#FF0000,151,200,CO,ug/m3,8,14255,17688
-CO,Colombia,Dañina a la salud ,#FF0000,151,200,NO2,ug/m3,1,678,1221
-CO,Colombia,Dañina a la salud ,#FF0000,151,200,SO2,ug/m3,1,487,797
-CO,Colombia,Dañina a la salud ,#FF0000,151,200,O3,ug/m3,8,168,207
-CO,Colombia,Dañina a la salud ,#FF0000,151,200,O3,ug/m3,1,324,401
-CO,Colombia,Muy dañina para la salud ,#8f3f97,201,300,PM2.5,ug/m3,24,151,250
-CO,Colombia,Muy dañina para la salud ,#8f3f97,201,300,PM10,ug/m3,24,355,424
-CO,Colombia,Muy dañina para la salud ,#8f3f97,201,300,CO,ug/m3,8,17689,34862
-CO,Colombia,Muy dañina para la salud ,#8f3f97,201,300,NO2,ug/m3,1,1222,2349
-CO,Colombia,Muy dañina para la salud ,#8f3f97,201,300,SO2,ug/m3,1,798,1583
-CO,Colombia,Muy dañina para la salud ,#8f3f97,201,300,O3,ug/m3,8,208,393
-CO,Colombia,Muy dañina para la salud ,#8f3f97,201,300,O3,ug/m3,1,402,794
-CO,Colombia,Peligrosa,#7e0023,301,500,PM2.5,ug/m3,24,251,500
-CO,Colombia,Peligrosa,#7e0023,301,500,PM10,ug/m3,24,425,604
-CO,Colombia,Peligrosa,#7e0023,301,500,CO,ug/m3,8,34863,57703
-CO,Colombia,Peligrosa,#7e0023,301,500,NO2,ug/m3,1,2350,3853
-CO,Colombia,Peligrosa,#7e0023,301,500,SO2,ug/m3,1,1584,2629
-CO,Colombia,Peligrosa,#7e0023,301,500,O3,ug/m3,8,394,
-CO,Colombia,Peligrosa,#7e0023,301,500,O3,ug/m3,1,795,1185
+CO,Bogotá,Low,#00E400,0,50,PM2.5,ug/m3,12,0,12
+CO,Bogotá,Low,#00E400,0,50,PM10,ug/m3,12,0,27.2
+CO,Bogotá,Low,#00E400,0,50,O3,ug/m3,8,0,72
+CO,Bogotá,Low,#00E400,0,50,CO,ug/m3,8,0,2549
+CO,Bogotá,Low,#00E400,0,50,NO2,ug/m3,1,0,28.5
+CO,Bogotá,Low,#00E400,0,50,SO2,ug/m3,1,0,9.6
+CO,Bogotá,Moderate,#FFFF00,51,100,PM2.5,ug/m3,12,12.1,35.4
+CO,Bogotá,Moderate,#FFFF00,51,100,PM10,ug/m3,12,27.3,63.8
+CO,Bogotá,Moderate,#FFFF00,51,100,O3,ug/m3,8,73,107
+CO,Bogotá,Moderate,#FFFF00,51,100,CO,ug/m3,8,2550,5022
+CO,Bogotá,Moderate,#FFFF00,51,100,NO2,ug/m3,1,28.6,84.1
+CO,Bogotá,Moderate,#FFFF00,51,100,SO2,ug/m3,1,9.7,38.5
+CO,Bogotá,Regular,#FF7E00,101,150,PM2.5,ug/m3,12,35.5,55.4
+CO,Bogotá,Regular,#FF7E00,101,150,PM10,ug/m3,12,63.9,95.5
+CO,Bogotá,Regular,#FF7E00,101,150,O3,ug/m3,8,108,137
+CO,Bogotá,Regular,#FF7E00,101,150,CO,ug/m3,8,5023,7165
+CO,Bogotá,Regular,#FF7E00,101,150,NO2,ug/m3,1,84.2,132.2
+CO,Bogotá,Regular,#FF7E00,101,150,SO2,ug/m3,1,38.6,63.5
+CO,Bogotá,High,#FF0000,151,200,PM2.5,ug/m3,12,55.5,151.2
+CO,Bogotá,High,#FF0000,151,200,PM10,ug/m3,12,95.6,246.7
+CO,Bogotá,High,#FF0000,151,200,O3,ug/m3,8,138,281
+CO,Bogotá,High,#FF0000,151,200,CO,ug/m3,8,7166,17384
+CO,Bogotá,High,#FF0000,151,200,NO2,ug/m3,1,132.2,361.9
+CO,Bogotá,High,#FF0000,151,200,SO2,ug/m3,1,63.6,182.7
+CO,Bogotá,Dangerous 1,#8F3F97,201,300,PM2.5,ug/m3,12,151.3,250.4
+CO,Bogotá,Dangerous 1,#8F3F97,201,300,PM10,ug/m3,12,246.8,405.2
+CO,Bogotá,Dangerous 1,#8F3F97,201,300,O3,ug/m3,8,282,432
+CO,Bogotá,Dangerous 1,#8F3F97,201,300,CO,ug/m3,8,17385,28099
+CO,Bogotá,Dangerous 1,#8F3F97,201,300,NO2,ug/m3,1,362,602.6
+CO,Bogotá,Dangerous 1,#8F3F97,201,300,SO2,ug/m3,1,182.8,307.7
+CO,Bogotá,Dangerous 2,#8F3F97,301,500,PM2.5,ug/m3,12,250.5,500.4
+CO,Bogotá,Dangerous 2,#8F3F97,301,500,PM10,ug/m3,12,405.3,800.4
+CO,Bogotá,Dangerous 2,#8F3F97,301,500,O3,ug/m3,8,433,809
+CO,Bogotá,Dangerous 2,#8F3F97,301,500,CO,ug/m3,8,28100,54802
+CO,Bogotá,Dangerous 2,#8F3F97,301,500,NO2,ug/m3,1,602.7,1202.6
+CO,Bogotá,Dangerous 2,#8F3F97,301,500,SO2,ug/m3,1,307.8,619.2
+CO,Colombia,Good,#00E400,0,50,PM2.5,ug/m3,24,0,12
+CO,Colombia,Good,#00E400,0,50,PM10,ug/m3,24,0,54
+CO,Colombia,Good,#00E400,0,50,CO,ug/m3,8,0,5094
+CO,Colombia,Good,#00E400,0,50,NO2,ug/m3,1,0,100
+CO,Colombia,Good,#00E400,0,50,SO2,ug/m3,1,0,93
+CO,Colombia,Good,#00E400,0,50,O3,ug/m3,8,0,106
+CO,Colombia,Good,#00E400,0,50,O3,ug/m3,1,,
+CO,Colombia,Acceptable,#FFFF00,51,100,PM2.5,ug/m3,24,13,37
+CO,Colombia,Acceptable,#FFFF00,51,100,PM10,ug/m3,24,55,154
+CO,Colombia,Acceptable,#FFFF00,51,100,CO,ug/m3,8,5095,10819
+CO,Colombia,Acceptable,#FFFF00,51,100,NO2,ug/m3,1,101,189
+CO,Colombia,Acceptable,#FFFF00,51,100,SO2,ug/m3,1,94,197
+CO,Colombia,Acceptable,#FFFF00,51,100,O3,ug/m3,8,107,138
+CO,Colombia,Acceptable,#FFFF00,51,100,O3,ug/m3,1,,
+CO,Colombia,Harmful to the health of Sensitive Groups,#FF7E00,101,150,PM2.5,ug/m3,24,38,55
+CO,Colombia,Harmful to the health of Sensitive Groups,#FF7E00,101,150,PM10,ug/m3,24,155,254
+CO,Colombia,Harmful to the health of Sensitive Groups,#FF7E00,101,150,CO,ug/m3,8,10820,14254
+CO,Colombia,Harmful to the health of Sensitive Groups,#FF7E00,101,150,NO2,ug/m3,1,190,677
+CO,Colombia,Harmful to the health of Sensitive Groups,#FF7E00,101,150,SO2,ug/m3,1,198,486
+CO,Colombia,Harmful to the health of Sensitive Groups,#FF7E00,101,150,O3,ug/m3,8,139,167
+CO,Colombia,Harmful to the health of Sensitive Groups,#FF7E00,101,150,O3,ug/m3,1,245,323
+CO,Colombia,Harmful to health,#FF0000,151,200,PM2.5,ug/m3,24,56,150
+CO,Colombia,Harmful to health,#FF0000,151,200,PM10,ug/m3,24,255,354
+CO,Colombia,Harmful to health,#FF0000,151,200,CO,ug/m3,8,14255,17688
+CO,Colombia,Harmful to health,#FF0000,151,200,NO2,ug/m3,1,678,1221
+CO,Colombia,Harmful to health,#FF0000,151,200,SO2,ug/m3,1,487,797
+CO,Colombia,Harmful to health,#FF0000,151,200,O3,ug/m3,8,168,207
+CO,Colombia,Harmful to health,#FF0000,151,200,O3,ug/m3,1,324,401
+CO,Colombia,Very harmful to health,#8f3f97,201,300,PM2.5,ug/m3,24,151,250
+CO,Colombia,Very harmful to health,#8f3f97,201,300,PM10,ug/m3,24,355,424
+CO,Colombia,Very harmful to health,#8f3f97,201,300,CO,ug/m3,8,17689,34862
+CO,Colombia,Very harmful to health,#8f3f97,201,300,NO2,ug/m3,1,1222,2349
+CO,Colombia,Very harmful to health,#8f3f97,201,300,SO2,ug/m3,1,798,1583
+CO,Colombia,Very harmful to health,#8f3f97,201,300,O3,ug/m3,8,208,393
+CO,Colombia,Very harmful to health,#8f3f97,201,300,O3,ug/m3,1,402,794
+CO,Colombia,Dangerous,#7e0023,301,500,PM2.5,ug/m3,24,251,500
+CO,Colombia,Dangerous,#7e0023,301,500,PM10,ug/m3,24,425,604
+CO,Colombia,Dangerous,#7e0023,301,500,CO,ug/m3,8,34863,57703
+CO,Colombia,Dangerous,#7e0023,301,500,NO2,ug/m3,1,2350,3853
+CO,Colombia,Dangerous,#7e0023,301,500,SO2,ug/m3,1,1584,2629
+CO,Colombia,Dangerous,#7e0023,301,500,O3,ug/m3,8,394,
+CO,Colombia,Dangerous,#7e0023,301,500,O3,ug/m3,1,795,1185

@@ -19,13 +19,14 @@ In Colombia, the Índice de Calidad del Aire (ICA) is the national standard for 
 with higher values indicating more severe pollution and greater health risks. Regulated by Resolution 2254 of 2017, the ICA considers six key pollutants, each with defined 
 thresholds to categorize air quality and inform the public. 
 
-Bogotá, the capital city, uses a localized version of this system known as IBOCA (Índice Bogotano de Calidad del Aire). While based on the same general principles as the national 
+Bogotá, the capital city, uses a localized version of this system known as [IBOCA (Índice Bogotano de Calidad del Aire)](#iboca). While based on the same general principles as the national 
 ICA, the IBOCA adapts the calculation method and category thresholds to better reflect Bogotá's unique environmental and health context.
 
 
 ### Color scale
 
-Colombia's national ICA calculation consists of six categories: 
+Colombia's national ICA calculation consists of six categories: Buena (Good), Aceptable (Acceptable), Dañina a la salud de Grupos Sensibles (Harmful to the health of Sensitive Groups), 
+Dañina a la salud (Harmful to health), Muy dañina para la salud (Very harmful to health), Peligrosa (Dangerous)
 
 <ColorScale variant="Colombia" index="colombia" value={true} />
 
@@ -41,7 +42,7 @@ range. This index quantifies the impact on air quality, with lower values signif
 
 Typically, regions with ozone monitoring stations are required to report the 8-hour ozone AQI. However, in certain regions, using the 1-hour ozone AQI provides a more protective 
 assessment. In such cases, both the 8-hour and 1-hour ozone AQI values should be calculated, and the higher of the two should be reported. Additionally, if ozone concentrations 
-exceed 394 μg/m<sup>3</sup>, the 8-hour ozone AQI is no longer applicable, and only the 1-hour ozone AQI should be used for reporting. 
+exceed 394 μg/m<sup>3</sup>, the 8-hour ozone AQI is no longer applicable, and only the 1-hour ozone AQI should be used for reporting[^1]. 
 
 Each pollutant has its own sub-AQI value calculated based on its breakpoint concentration. The following piecewise linear function is used: 
 
@@ -52,16 +53,19 @@ Each pollutant has its own sub-AQI value calculated based on its breakpoint conc
 </div>
 
 <AqiCalculator
+  variant="Colombia"
   client:only="solid"
   index="colombia"
   acronym={frontmatter.indexAcronym}
 />
 
 After calculating the sub-AQI values for each pollutant, the highest sub-AQI becomes the overall AQI. Not all pollutants are required for this calculation–an ICA can still 
-be computed from single pollutant if only one is monitored. There is no minimum number of pollutants needed to determine the ICA value.  
+be computed from single pollutant if only one is monitored. There is no minimum number of pollutants needed to determine the ICA value[^2].  
 
+<div id="iboca">
+  ## Bogotá
+</div>
 
-## Bogotá
 <h2 style="font-size: 20px; text-decoration: underline; font-weight: 400; margin-bottom: 1rem; margin-top: 0.25rem;">
   El Índice Bogotano de Calidad del Aire y Riesgo en Salud (IBOCA)
 </h2>
@@ -80,7 +84,7 @@ In addition, IBOCA integrates health risk estimates from the World Health Organi
 pollutant levels to a counterfactual concentration. If concentrations go below this given level, there are no observed health effects. 
 
 IBOCA's methodology was formally updated in Joint Resolution 868 of 2021 and further revised in Joint Resolution 2840 of 2023. Its implementation helped inform Bogotá's broader 
-2030 Air Plan, including the “Comprehensive Health Risk Management Program for Air Quality”, and has supported declaration of air quality alerts during episodes of pollution. 
+2030 Air Plan, including the “Comprehensive Health Risk Management Program for Air Quality”, and has supported declaration of air quality alerts during episodes of pollution[^3]. 
 
 
 ### Color scale
@@ -117,11 +121,11 @@ value) will be reported.
 </Admonition>
 
 **Calculation of dimensionless values for IBOCA:**
-1. **Determine Concentration**: obtain most recent concentration values (in µg/m<sup>3</sup>) for each pollutant from the air quality monitoring data
+**Determine Concentration**: obtain most recent concentration values (in µg/m<sup>3</sup>) for each pollutant from the air quality monitoring data
 
-2. **Apply the Standard Equation**
+**Apply the Standard Equation**
 
-     For each pollutant, use the following formula: 
+     Each pollutant has its own sub-AQI value calculated based on its breakpoint concentration. The following piecewise linear function is used:
 
         <div class="latex-container">
 
@@ -129,7 +133,7 @@ value) will be reported.
 
         </div>
 
-3. **Selection of Worst Conditions**: For each station in the monitoring network, the worst IBOCA condition among the pollutants is selected for communication. 
+**Selection of Worst Conditions**: For each station in the monitoring network, the worst IBOCA condition among the pollutants is selected for communication. 
 
 
 The equation for calculating Bogotá's AQI (IBOCA) is a piecewise linear function, which is a standard similar to the U.S. EPA AQI (the IBOCA is modeled after this) 
@@ -140,19 +144,22 @@ Cp and Ilow and Ihigh for corresponding index values
 So the entire function consists of multiple linear segments for different concentration ranges → piecewise linear 
 
 
-**NowCast Method**
+### NowCast Method
+
+NowCast is not a separate air quality index, but a real-time averaging technique used only for PM<sub>2.5</sub> and PM<sub>10</sub> in the calculation of IBOCA. 
+There is no separately associated color scale, as NowCast follows the standard IBOCA method. 
 
 For PM<sub>2.5</sub> and PM<sub>10</sub>, the NowCast value is calculated using the last 12 hour concentration data points. The most recent data points are weighted to provide a real-time 
 assessment. To ensure accuracy, at least two of the last three data points must be available; otherwise, the NowCast cannot be calculated. For the remaining gaseous 
 pollutants, concentrations are based on moving averages that are calculated over a specific number of hourly data points: for O<sub>3</sub> and CO, no averaging is applied (instead, 
 instantaneous values are used), while for NO<sub>2</sub> and SO<sub>2</sub>, the average is taken over one hour of data. 
 
-1. Data Selection: select the last 12 hourly concentration values (in µg/m<sup>3</sup>) of the specific pollutant 
+Data Selection: select the last 12 hourly concentration values (in µg/m<sup>3</sup>) of the specific pollutant 
 
-2. Calculate the weighting factor (w) for each of the previous hours based on their recency. This is done using a predefined formula: 
+Calculate the weighting factor (w) for each of the previous hours based on their recency. This is done using a predefined formula: 
         $$ W = \frac{C_{\text{min}}}{C_{\text{max}}} $$
 
-3. Calculate NowCast Value: 
+Calculate NowCast Value: 
         $$ \text{NowCast} = \frac{\sum (C_i \times w_i)}{\sum w_i} $$
 
         Where: 
@@ -175,3 +182,7 @@ Medina Palacios, Edna Katalina, et al. “Evolution of Health Impact Evaluation 
 "Informe del estado de la Calidad del Aire en Colombia." Ambiente, 2022, [www.andi.com.co/Uploads/Informe%20del%20estado%20de%20la%20Calidad%20del%20Aire%20en%20Colombia%202022_compressed.pdf](https://www.andi.com.co/Uploads/Informe%20del%20estado%20de%20la%20Calidad%20del%20Aire%20en%20Colombia%202022_compressed.pdf)
 
 "Ministerio De Ambiente Y Desarrollo Sostenible - Resolución No. 2254." República De Colombia, 2017, [www.minambiente.gov.co/wp-content/uploads/2021/10/Resolucion-2254-de-2017.pdf](https://www.minambiente.gov.co/wp-content/uploads/2021/10/Resolucion-2254-de-2017.pdf)
+
+[^1]: [www.minambiente.gov.co/wp-content/uploads/2021/10/Resolucion-2254-de-2017.pdf](https://www.minambiente.gov.co/wp-content/uploads/2021/10/Resolucion-2254-de-2017.pdf)
+[^2]: [www.andi.com.co/Uploads/Informe%20del%20estado%20de%20la%20Calidad%20del%20Aire%20en%20Colombia%202022_compressed.pdf](https://www.andi.com.co/Uploads/Informe%20del%20estado%20de%20la%20Calidad%20del%20Aire%20en%20Colombia%202022_compressed.pdf)
+[^3]: [ehp.niehs.nih.gov/doi/10.1289/isee.2024.1801](https://ehp.niehs.nih.gov/doi/10.1289/isee.2024.1801)
