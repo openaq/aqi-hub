@@ -73,25 +73,23 @@ reflect actual health risks, including:
 To address the lag in responsiveness of 24-hour averages, the new hourly BelAQI uses hourly concentrations, derived using ratios of daily/hourly peaks (based on 
 historical Belgian data):
 
-- PM<sub>2.5</sub>: ×1.51
-- PM<sub>10</sub>: ×1.38
-- NO<sub>2</sub>: ×1.51
-- O<sub>3</sub>: ×1.10
+<div class="latex-container">
+$${PM_{2.5}}: \times 1.51$$
 
+$${PM_{10}}: \times 1.38$$
 
-**Example (PM$_{2.5}$):**  
-If daily “Poor” = 16–25 $\mu$g/m$^3$  
-→ Hourly “Poor” = 21–35 $\mu$g/m$^3$ (25 × 1.51 ≈ 38)
+$${NO_{2}}: \times 1.51$$
 
-(The result is rounded to the nearest whole number to make the index easier to communicate and implement. In this case 37.75 → 38 µg/m³)
-
+$${O_{3}}: \times 1.10$$
+</div>
 
 **New BelAQI Hourly Index Table:** 
 
 <BreakpointsTable variant="newBelAQIHour" index="belgium" />
 
-1. Each pollutant’s concentration is mapped to an index value between 1 (Excellent) and 10 (Horrible) using pre-defined breakpoint thresholds (which differ for daily vs. hourly values).
-2. The final BelAQI is simply the maximum of the sub-indices. 
+Each pollutant’s concentration is mapped to an index value between 1 (Excellent) and 10 (Horrible) using pre-defined breakpoint thresholds (which differ for daily vs. hourly values).
+
+The final BelAQI is simply the maximum of the sub-indices. 
 
 <Admonition type="note">
   There is limited publicly available documentation detailing the specific 
@@ -106,16 +104,27 @@ If daily “Poor” = 16–25 $\mu$g/m$^3$
 
 <BreakpointsTable variant="BelAtmo" index="belgium" />
 
-1. For each pollutant, a sub-index value is determined by matching the measured concentration to the corresponding range in the table
-    a. This is a direct categorical assignment – for example, if the 8-hour average ozone (O<sub>3</sub>) level is 68 μg/m<sup>3</sup>, it falls in the 61-80 range, which corresponds to an index value of 4 (Fairly Good) 
-    b. This process is repeated for all four pollutants (O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, PM<sub>10</sub>).
+For each pollutant, a sub-index value is determined by matching the measured concentration to the corresponding range in the table. This is a direct categorical assignment – for example, 
+if the 8-hour average ozone (O<sub>3</sub>) level is 68 μg/m<sup>3</sup>, it falls in the 61-80 range, which corresponds to an index value of 4 (Fairly Good) . This process is repeated 
+for all four pollutants (O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, PM<sub>10</sub>).
 
-2. The final BelATMO index is the maximum of these four sub-indices (i.e., the worst pollutant level).
+The final BelATMO index is the maximum of these four sub-indices (i.e., the worst pollutant level).
+
+<div class="latex-container">
+$$
+{AQI} = {Max}({I}_{PM_{10}},{I}_{SO_{2}},{I}_{NO_{2}},{I}_{O_{3}})
+$$
+</div>
 
 - Geographic Range: This index is calculated for the country, each of the three Regions, major urban areas, and some districts. 
-- Note: The BelATMO is qualitative and meant for public communication only, providing a simplified view of air quality. It does not involve any interpolation or averaging across pollutants. This index should not be used for scientific studies or regulatory decisions — for those, raw pollutant concentration data must be used.
 
-
+<Admonition type="note">
+  The BelATMO is qualitative and meant for public communication only, providing a 
+  simplified view of air quality. It does not involve any interpolation or averaging 
+  across pollutants. This index should not be used for scientific studies or regulatory 
+  decisions — for those, raw pollutant concentration data must be used.
+</Admonition>
+[^3]
 
 ## References
 
@@ -137,5 +146,5 @@ https://airscan.org/belgium-updates-air-quality-index-who-standards/
 ‌“Air Quality Index.” Wallonair.be, 2017, [www.wallonair.be/en/find-out-more/air-quality-index.html](www.wallonair.be/en/find-out-more/air-quality-index.html).
 
 [^1]: [www.wallonair.be/en/find-out-more/air-quality-index.html](www.wallonair.be/en/find-out-more/air-quality-index.html)
-[^2]: [https://www.irceline.be/en/air-quality/measurements/belaqi-air-quality-index/information](https://www.irceline.be/en/air-quality/measurements/belaqi-air-quality-index/information)
-‌
+[^2]: [www.irceline.be/en/air-quality/measurements/belaqi-air-quality-index/information](https://www.irceline.be/en/air-quality/measurements/belaqi-air-quality-index/information). 
+[^3]: [www.irceline.be/en/air-quality/measurements/air-quality-index/information](https://www.irceline.be/en/air-quality/measurements/air-quality-index/information)
