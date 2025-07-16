@@ -33,14 +33,16 @@ These regional variations reflect differences in pollutants monitored, local cli
 
 ## Color scale
 
-Brazil’s SMAC IQA calculation consists of five categories: 
+### SMAC IQA
+Brazil’s SMAC (Rio de Janeiro) IQA calculation consists of five categories: Boa (Good), Regular (Regular), Inadequada (Inadequate), Má (Bad), Péssima (Terrible)
 
 <ColorScale variant="Rio de Janeiro" index="brazil" value={true}/>
 
 _Note_: Adapted from https://jeap.rio.rj.gov.br/je-metinfosmac/institucional/docs/entenda_iqa.pdf
 
 
-Brazil’s CETESB  ( São Paulo )IQA calculation consists of five categories with different ranges: 
+### CETESB IQA
+Brazil’s CETESB  (São Paulo) IQA calculation consists of five categories: Boa (Good), Moderada (Moderate), Má (Bad), , Muito ruim (Very Bad), Péssima (Terrible)
 
 <ColorScale variant="São Paulo" index="brazil" value={true} />
 
@@ -49,18 +51,18 @@ _Note_: Adapted from https://cetesb.sp.gov.br/ar/padroes-de-qualidade-do-ar/
 
 ## Methods
 
-1. **Rio De Janeiro - SMAC calculation process**
+### SMAC IQA
 Identify Pollutants: First, measure the concentrations of the relevant pollutants SO<sub>2</sub> (µg/m<sup>3</sup>), CO (ppm), PM<sub>10</sub> (µg/m<sup>3</sup>), O<sub>3</sub> (µg/m<sup>3</sup>), NO<sub>2</sub> (µg/m<sup>3</sup>). For each pollutant, the breakpoint table 
 is used to establish thresholds that categorize the levels of pollution into the 5 different categories. 
 
 
 <BreakpointsTable variant="Rio de Janeiro" index="brazil" />
 
-2. **Determine Concentration Ranges** 
+**Determine Concentration Ranges** 
 Each pollutant included in the IQA calculation is associated with defined concentration intervals that correspond to specific air quality categories, such as Boa, Regular, Inadeqada, 
 Ma, and Pessima. These ranges serve as the foundation for assigning an air quality index value based on measured pollution levels. 
 
-3. **Use the Formula** 
+**Use the Formula** 
 For each pollutant, the corresponding IQA sub-index is calculated using a standardized piecewise linear formula. This formula interpolates the pollutant concentration within its 
 applicable range to determine its sub-index value. Apply this formula: 
 
@@ -70,9 +72,15 @@ applicable range to determine its sub-index value. Apply this formula:
 
 </div>
 
-4. The overall IQA value is the highest pollutant sub-index value calculated from the individual pollutant concentration. This value indicates the overall air quality.
+The overall IQA value is the highest pollutant sub-index value calculated from the individual pollutant concentration. This value indicates the overall air quality.
 
-5. Classification: The AQI value is then classified into categories based on predetermined ranges.
+<div class="latex-container">
+$$
+{AQI} = {Max}({I}_{PM_{10}},{I}_{SO_{2}},{I}_{NO_{2}},{I}_{O_{3}}, {I}_{CO})
+$$
+</div>
+
+Classification: The AQI value is then classified into categories based on predetermined ranges.
 
 
 <Admonition type="note">
@@ -91,8 +99,8 @@ for the number of pollutants necessary to calculate the overall AQI.
 />
 
 
-**Sao Paulo - CETESB calculation process**
-1. In São Paulo, the Air Quality Index (AQI) is calculated using the combined concentrations of six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. The AQI 
+### CETESB IQA
+In São Paulo, the Air Quality Index (AQI) is calculated using the combined concentrations of six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. The AQI 
 classification system consists of five levels, similar to the SMAC system from Rio de Janeiro with different concentration ranges. 
 
 
@@ -106,13 +114,13 @@ In the CETESB system, air quality at a monitoring station is assessed across all
 index is used. This means the overall air quality classification reflects the most critical (worst-case) pollutant level at that location.
 
 This classification approach aligns with the CONAMA Resolution No. 491/2018, which sets legal air quality standards based on public health impacts. Notably, this evaluation 
-is independent of any interim targets or local standards and focuses solely on pollutant concentrations and their associated health risks.
+is independent of any interim targets or local standards and focuses solely on pollutant concentrations and their associated health risks[^1].
 
 
-2. Determine Concentration Ranges: Each pollutant included in the IQA calculation is associated with defined concentration intervals that correspond to specific air quality 
+Determine Concentration Ranges: Each pollutant included in the IQA calculation is associated with defined concentration intervals that correspond to specific air quality 
 categories, such as Boa, Regular, Inadeqada, Ma, and Pessima. These ranges serve as the foundation for assigning an air quality index value based on measured pollution levels. 
 
-3. Use the Formula: For each pollutant, the corresponding IQA sub-index is calculated using a standardized piecewise linear formula. This formula interpolates the pollutant concentration 
+Use the Formula: For each pollutant, the corresponding IQA sub-index is calculated using a standardized piecewise linear formula. This formula interpolates the pollutant concentration 
 within its applicable range to determine its sub-index value. Apply this formula: 
 
 <div class="latex-container">
@@ -121,9 +129,16 @@ within its applicable range to determine its sub-index value. Apply this formula
 
 </div>
 
-4. The overall IQA value is the highest pollutant sub-index value calculated from the individual pollutant concentration. This value indicates the overall air quality.
+The overall IQA value is the highest pollutant sub-index value calculated from the individual pollutant concentration. This value indicates the overall air quality.
 
-5. Classification: The AQI value is then classified into categories based on predetermined ranges.
+
+<div class="latex-container">
+$$
+{AQI} = {Max}({I}_{PM_{10}},{I}_{SO_{2}},{I}_{NO_{2}},{I}_{O_{3}}, {I}_{CO})
+$$
+</div>
+
+Classification: The AQI value is then classified into categories based on predetermined ranges.
 
 <Admonition type="note">
 
@@ -149,3 +164,4 @@ it does not clarify whether all must be measured to calculate the final index.
 "Guia Da Qualidade Do Ar." Governo Do Estado Do Espirito Santo, [iema.es.gov.br/Media/iema/CQAI/Cartilha/Guia_Qualidade_Ar_ebook.pdf](https://iema.es.gov.br/Media/iema/CQAI/Cartilha/Guia_Qualidade_Ar_ebook.pdf)
 
 
+[^1]: [energiaeambiente.org.br/qualidadedoar/en/](https://energiaeambiente.org.br/qualidadedoar/en/)
