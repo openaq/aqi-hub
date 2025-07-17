@@ -58,11 +58,9 @@ is used to establish thresholds that categorize the levels of pollution into the
 
 <BreakpointsTable variant="Rio de Janeiro" index="brazil" />
 
-**Determine Concentration Ranges** 
 Each pollutant included in the IQA calculation is associated with defined concentration intervals that correspond to specific air quality categories, such as Boa, Regular, Inadeqada, 
 Ma, and Pessima. These ranges serve as the foundation for assigning an air quality index value based on measured pollution levels. 
 
-**Use the Formula** 
 For each pollutant, the corresponding IQA sub-index is calculated using a standardized piecewise linear formula. This formula interpolates the pollutant concentration within its 
 applicable range to determine its sub-index value. Apply this formula: 
 
@@ -98,11 +96,10 @@ for the number of pollutants necessary to calculate the overall AQI.
   acronym={frontmatter.indexAcronym}
 />
 
-
 ### CETESB IQA
+
 In São Paulo, the Air Quality Index (AQI) is calculated using the combined concentrations of six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. The AQI 
 classification system consists of five levels, similar to the SMAC system from Rio de Janeiro with different concentration ranges. 
-
 
 CETESB (Environmental Agency of São Paulo) established the AQI calculation process based on the maximum daily concentrations of these pollutants over specific averaging
 times. For example, ozone levels are measured as an 8-hour mean, while PM<sub>10</sub> is evaluated over a 24-hour period. The AQI reflects health implications, indicating when 
@@ -117,10 +114,10 @@ This classification approach aligns with the CONAMA Resolution No. 491/2018, whi
 is independent of any interim targets or local standards and focuses solely on pollutant concentrations and their associated health risks[^1].
 
 
-Determine Concentration Ranges: Each pollutant included in the IQA calculation is associated with defined concentration intervals that correspond to specific air quality 
+Each pollutant included in the IQA calculation is associated with defined concentration intervals that correspond to specific air quality 
 categories, such as Boa, Regular, Inadeqada, Ma, and Pessima. These ranges serve as the foundation for assigning an air quality index value based on measured pollution levels. 
 
-Use the Formula: For each pollutant, the corresponding IQA sub-index is calculated using a standardized piecewise linear formula. This formula interpolates the pollutant concentration 
+For each pollutant, the corresponding IQA sub-index is calculated using a standardized piecewise linear formula. This formula interpolates the pollutant concentration 
 within its applicable range to determine its sub-index value. Apply this formula: 
 
 <div class="latex-container">
