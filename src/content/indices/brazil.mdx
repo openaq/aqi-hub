@@ -1,0 +1,164 @@
+---
+name: Brazil
+indexName: Índice de Qualidade do Ar 
+indexAcronym: IQA
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+import Admonition from "@components/Admonition.astro";
+
+## Background
+
+Unlike some countries which operate under a unified national air quality index, Brazil employs municipal air quality indices, with some cities or regions developing their own system based on 
+local conditions, pollutants, and monitoring. Cities like Rio de Janeiro and São Paulo implement their own methodologies for IQA calculation. 
+
+In Rio de Janeiro, the Índice de Qualidade do Ar (IQA) is the official metric used to communicate daily air quality levels to the public. Adopted and defined by the State Environmental 
+Institute, the IQA follows standards consistent with those used by Monitorar-Rio, the state’s air quality monitoring program.
+
+Following a similar approach, Brazil's IQA serves as a public health communication tool, translating complex pollutant concentration data into a single numeric value on a scale from 0 to 300.
+
+Air quality is categorized into five qualitative levels, ranging from “Good” to “Terrible,” each indicating the potential health risks of exposure. A lower IQA value (e.g., 50 or below) 
+suggests clean air with minimal health risks, while values above 300 reflect severe pollution levels that pose serious health threats to the general population.
+
+This standardized index enables citizens, policymakers, and institutions in Rio de Janeiro to stay informed about current air quality conditions and respond appropriately to pollution-related 
+health risks.
+
+São Paulo uses a system established by the São Paulo State Environmental Agency (CETESB), which also features a five-tier scale but includes categories like “Extremely High Pollution.” 
+In contrast, Rio de Janeiro’s system, implemented by the Municipal Department of the Environment (SMAC), uses slightly different pollutant thresholds to define each air quality category. 
+These regional variations reflect differences in pollutants monitored, local climate, population sensitivity, and regulatory frameworks.
+
+
+## Color scale
+
+### SMAC IQA
+Brazil’s SMAC (Rio de Janeiro) IQA calculation consists of five categories: Boa (Good), Regular (Regular), Inadequada (Inadequate), Má (Bad), Péssima (Terrible)
+
+<ColorScale variant="Rio de Janeiro" index="brazil" value={true}/>
+
+_Note_: Adapted from https://jeap.rio.rj.gov.br/je-metinfosmac/institucional/docs/entenda_iqa.pdf
+
+
+### CETESB IQA
+Brazil’s CETESB  (São Paulo) IQA calculation consists of five categories: Boa (Good), Moderada (Moderate), Má (Bad), , Muito ruim (Very Bad), Péssima (Terrible)
+
+<ColorScale variant="São Paulo" index="brazil" value={true} />
+
+_Note_: Adapted from https://cetesb.sp.gov.br/ar/padroes-de-qualidade-do-ar/
+
+
+## Methods
+
+### SMAC IQA
+Identify Pollutants: First, measure the concentrations of the relevant pollutants SO<sub>2</sub> (µg/m<sup>3</sup>), CO (ppm), PM<sub>10</sub> (µg/m<sup>3</sup>), O<sub>3</sub> (µg/m<sup>3</sup>), NO<sub>2</sub> (µg/m<sup>3</sup>). For each pollutant, the breakpoint table 
+is used to establish thresholds that categorize the levels of pollution into the 5 different categories. 
+
+
+<BreakpointsTable variant="Rio de Janeiro" index="brazil" />
+
+Each pollutant included in the IQA calculation is associated with defined concentration intervals that correspond to specific air quality categories, such as Boa, Regular, Inadeqada, 
+Ma, and Pessima. These ranges serve as the foundation for assigning an air quality index value based on measured pollution levels. 
+
+For each pollutant, the corresponding IQA sub-index is calculated using a standardized piecewise linear formula. This formula interpolates the pollutant concentration within its 
+applicable range to determine its sub-index value. Apply this formula: 
+
+<div class="latex-container">
+
+<PiecewiseLatexDoc label="IQA" />
+
+</div>
+
+The overall IQA value is the highest pollutant sub-index value calculated from the individual pollutant concentration. This value indicates the overall air quality.
+
+<div class="latex-container">
+$$
+{AQI} = {Max}({I}_{PM_{10}},{I}_{SO_{2}},{I}_{NO_{2}},{I}_{O_{3}}, {I}_{CO})
+$$
+</div>
+
+Classification: The AQI value is then classified into categories based on predetermined ranges.
+
+
+<Admonition type="note">
+
+Note: Sources do not specify a minimum number of pollutants required to calculate the overall IQA in the SMAC methodology. 
+They only mention that specific air pollutants, SO<sub>2</sub>, CO, PM<sub>10</sub>, O<sub>3</sub>, and NO<sub>2</sub> were monitored, but doesn’t detail requirements 
+for the number of pollutants necessary to calculate the overall AQI. 
+
+</Admonition>
+
+
+<AqiCalculator
+  client:only="solid"
+  index="brazil"
+  acronym={frontmatter.indexAcronym}
+/>
+
+### CETESB IQA
+
+In São Paulo, the Air Quality Index (AQI) is calculated using the combined concentrations of six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. The AQI 
+classification system consists of five levels, similar to the SMAC system from Rio de Janeiro with different concentration ranges. 
+
+CETESB (Environmental Agency of São Paulo) established the AQI calculation process based on the maximum daily concentrations of these pollutants over specific averaging
+times. For example, ozone levels are measured as an 8-hour mean, while PM<sub>10</sub> is evaluated over a 24-hour period. The AQI reflects health implications, indicating when 
+air quality may pose risks to the population, particularly vulnerable groups.
+
+<BreakpointsTable variant="São Paulo" index="brazil" />
+
+In the CETESB system, air quality at a monitoring station is assessed across all measured pollutants; however, for public reporting, only the highest individual pollutant 
+index is used. This means the overall air quality classification reflects the most critical (worst-case) pollutant level at that location.
+
+This classification approach aligns with the CONAMA Resolution No. 491/2018, which sets legal air quality standards based on public health impacts. Notably, this evaluation 
+is independent of any interim targets or local standards and focuses solely on pollutant concentrations and their associated health risks[^1].
+
+
+Each pollutant included in the IQA calculation is associated with defined concentration intervals that correspond to specific air quality 
+categories, such as Boa, Regular, Inadeqada, Ma, and Pessima. These ranges serve as the foundation for assigning an air quality index value based on measured pollution levels. 
+
+For each pollutant, the corresponding IQA sub-index is calculated using a standardized piecewise linear formula. This formula interpolates the pollutant concentration 
+within its applicable range to determine its sub-index value. Apply this formula: 
+
+<div class="latex-container">
+
+<PiecewiseLatexDoc label="IQA" />
+
+</div>
+
+The overall IQA value is the highest pollutant sub-index value calculated from the individual pollutant concentration. This value indicates the overall air quality.
+
+
+<div class="latex-container">
+$$
+{AQI} = {Max}({I}_{PM_{10}},{I}_{SO_{2}},{I}_{NO_{2}},{I}_{O_{3}}, {I}_{CO})
+$$
+</div>
+
+Classification: The AQI value is then classified into categories based on predetermined ranges.
+
+<Admonition type="note">
+
+Note: The CETESB methodology does not define a minimum number of pollutants required to compute 
+the overall IQA. While it specifics that the pollutants, SO<sub>2</sub>, CO, PM<sub>10</sub>, O<sub>3</sub>, and NO<sub>2</sub> are monitored, 
+it does not clarify whether all must be measured to calculate the final index. 
+
+</Admonition>
+
+
+
+
+## References
+
+“Padrões de Qualidade Do Ar | Qualidade Do Ar.” Cetesb.sp.gov.br, [cetesb.sp.gov.br/ar/padroes-de-qualidade-do-ar/](cetesb.sp.gov.br/ar/padroes-de-qualidade-do-ar/).
+
+"Índice de Qualidade do Ar." [jeap.rio.rj.gov.br/je-metinfosmac/institucional/docs/entenda_iqa.pdf](https://jeap.rio.rj.gov.br/je-metinfosmac/institucional/docs/entenda_iqa.pdf)
+
+"Air Quality." Energiaeambiente.org.br, 2015, [energiaeambiente.org.br/qualidadedoar/en/](https://energiaeambiente.org.br/qualidadedoar/en/)
+
+"Instituto Estadual Do Ambientte." Inea.rj.gov.br, 2018, [www.inea.rj.gov.br/poluentes-monitorados/](https://www.inea.rj.gov.br/poluentes-monitorados/)
+
+"Guia Da Qualidade Do Ar." Governo Do Estado Do Espirito Santo, [iema.es.gov.br/Media/iema/CQAI/Cartilha/Guia_Qualidade_Ar_ebook.pdf](https://iema.es.gov.br/Media/iema/CQAI/Cartilha/Guia_Qualidade_Ar_ebook.pdf)
+
+
+[^1]: [energiaeambiente.org.br/qualidadedoar/en/](https://energiaeambiente.org.br/qualidadedoar/en/)
