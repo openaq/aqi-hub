@@ -1,0 +1,73 @@
+---
+name: Monaco
+indexName: Indice Qualité de l'air
+indexAcronym: IQA
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import Admonition from "@components/Admonition.astro";
+
+
+## Background
+
+Monaco (Principality of Monaco) assesses and communicates urban air quality through their national Indice Qualité de l'air (IQA), developed in collaboration 
+with AtmoSud, the regional air monitoring agency. The AQI ranges from 0 (very good) to 100 (alert threshold) and is based on real-time data collected from 
+five monitoring stations across the Principality[^1]. In addition to current conditions, forecasted AQI values for the following day are also provided, integrating 
+meteorological predictions. 
+
+Monaco’s IQA methodology is designed to be straightforward, which reflects public exposure to key urban pollutants. It considers three major pollutants: 
+nitrogen dioxide (NO<sub>2</sub>), fine particulate matter (PM<sub>10</sub>), and ozone (O<sub>3</sub>). 
+
+## Color scale
+
+The IQA uses 10 color-coded index levels that fall under six broader air quality categories. Each color represents a specific range of AQI values and is 
+designed to provide a quick visual cue of pollution severity and associated health risks:  Très Bon (Very Good), Bon (Good), Moyen (Average), Mediocre (Poor), 
+Seuil d’information (Information Threshold), Seuil d’alerte (Alert Threshold)
+
+<ColorScale index="monaco" value={false} />
+
+## Methods
+
+The IQA is computed using concentration measurements for Nitrogen Dioxide (NO<sub>2</sub>), Particulate Matter (PM<sub>10</sub>) and Ozone (O<sub>3</sub>).
+The following breakpoint table defines the thresholds that divide pollution levels into the six categories:
+
+<BreakpointsTable index="monaco" />
+
+<Admonition type="note">
+
+Each “Bon” and “Mediocre” range is subdivided further for finer categorization. Sources have not specified reasonings for this division in the categories. 
+
+</Admonition>
+
+**Sub-indices**
+        For each pollutant, a sub-index is calculated by comparing the pollutant’s measured concentration to a defined set of concentration breakpoints. These breakpoints correspond to 
+        air quality categories that range from “Très Bon” (very good) to “Seuil d’alerte” (alert threshold). 
+
+**Final IQA Calculation (Maximum Rule)**
+        The final index is calculated as the maximum of the sub-indices derived from three pollutants: PM<sub>10</sub> (24-hour average), NO<sub>2</sub> (hourly average), and O<sub>3</sub> (max 8-hour rolling average). 
+        All three pollutants are used to ensure a comprehensive measure of air quality. However, if data from one or more pollutants is missing then an overall AQI can’t be computed 
+        for that location under the current methodology. The index relies on having sub-indices for each of the three pollutants to select the maximum value. Incomplete data would prevent 
+        an official AQI value from being reported for that site. 
+
+
+        <div class="latex-container">
+        $$
+        {IQA} = {Max}({I}_{NO_{2}},{I}_{PM_{10}},{I}_{O_{3}})
+        $$
+        </div>
+
+        This ensures that the worst pollutant determines the air quality rating for the day. 
+
+
+**Threshold interpretation**
+        The index ranges from 0 to over 100, segmented into categories from “Très Bon” (Very good) to “Seuil d’alerte” (Alert Threshold). Each sub-index corresponds to a category 
+        depending on the concentration range the pollutant falls into. The categories also have associated color codes to visually communicate the air quality level. 
+
+
+
+## References
+
+"Air Quality Index." Gouvernement Princier, [en.gouv.mc/Policy-Practice/The-Environment/Monaco-a-sustainable-town/Meteorological-data-air-quality-noise-measurement-and-pollens-measurements/Air-Quality-Index](https://en.gouv.mc/Policy-Practice/The-Environment/Monaco-a-sustainable-town/Meteorological-data-air-quality-noise-measurement-and-pollens-measurements/Air-Quality-Index).
+
+[^1]: [en.gouv.mc/Policy-Practice/The-Environment/Monaco-a-sustainable-town/Meteorological-data-air-quality-noise-measurement-and-pollens-measurements/Air-Quality-Index](https://en.gouv.mc/Policy-Practice/The-Environment/Monaco-a-sustainable-town/Meteorological-data-air-quality-noise-measurement-and-pollens-measurements/Air-Quality-Index)
