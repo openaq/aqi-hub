@@ -1,0 +1,88 @@
+---
+title: Colors and Symbols
+figureCaption: This circular histogram illustrates the frequency of specific hues used across global Air Quality Index systems as documented in the AQI Hub. Each segment represents a hue, with length indicating frequency, highlighting common reliance on green, yellow, red, and purple.
+---
+import { Image } from 'astro:assets';
+import HongKong from '@components/HongKongIconsFigure.astro';
+
+import ColorsChart from '@components/ColorsChart.astro';
+import Character01 from "@assets/imgs/korea/211_character01.png";
+import Character02 from "@assets/imgs/korea/211_character02.png";
+import Character03 from "@assets/imgs/korea/211_character03.png";
+import Character04 from "@assets/imgs/korea/211_character04.png";
+
+## Overview
+
+In addition to numeric and categorical labels, colors and symbols are often used
+in Air Quality Indexes (AQIs) to indicate the level of pollution danger and the
+necessary precautionary measures. Clear communication is crucial in enabling
+people to understand and respond effectively to changes in air quality, which
+has a direct impact on public health. AQIs rely heavily on visual elements, such
+as color coding, icons, and symbols, to quickly convey the severity of pollution
+levels, making them more accessible across languages and literacy levels in
+frequent public health announcements. This review examines how AQIs are
+presented and interpreted, with a particular focus on their design, clarity, and
+impact on public understanding and behavior. Similar color spectrums are also
+found in other public health systems, such as fire danger ratings and heat risk
+forecasts, where colors like green, yellow, and red help the public understand
+risks and respond appropriately. Consistent use of colors and symbols enhances
+risk recognition and facilitates timely protective actions.
+
+## Color
+
+Color plays a vital role in public health communication by attracting attention,
+conveying urgency, and enhancing message retention across diverse audiences. The
+strategic use of color can enhance comprehension of complex health information
+and influence behavior. AQI systems worldwide employ varied color schemes that
+reflect both scientific thresholds and cultural interpretations of risk.
+Generally, cooler tones, such as green or blue, typically represent healthy air,
+while warmer colors, like orange, red, purple, or black, signal increasing
+levels of pollution and a higher health risk[^1]. These variations in color
+thresholds influence how risk is perceived, underscoring the need for intuitive
+AQI design. Color is a powerful tool in public health communication that helps
+convey risk levels clearly and influences how people understand and respond to
+health information across different cultures.
+
+
+<ColorsChart caption={frontmatter.figureCaption}/ >
+
+Utilizing colorblind-safe palettes, such as those developed by Color Universal
+Design (CUD) or the 2024 updated U.S. EPA, which have been tested explicitly for
+colorblind visibility[^2]. However, many systems can present accessibility
+issues due to cultural specificity, color vision deficiencies, and complex
+language. This calls for a multimodal approach that combines accessible colors,
+clear icons, simple language, and numeric values to ensure effective communication
+across diverse audiences and abilities[^3].
+
+## Symbols and Icons
+
+Symbols and icons are also used in some contexts, in addition to numeric and
+color-based systems for AQI. Symbols and icons further enhance AQI comprehension,
+especially for populations with limited scientific literacy, by activating
+intuitive visual cues that convey risk at a glance. The effectiveness of
+symbolic communication depends on cultural context, local familiarity with
+imagery, and the audience’s literacy levels, which highlights the need for
+regionally tailored visual systems. Visual symbols, such as masks, communicate
+the precautions people can take. Although not common in official AQIs,
+anthropomorphic symbols such as smiling or frowning faces appear in some
+visualizations to convey emotional cues about air quality. Systems like
+South Korea's CAI even add personal protective equipment (PPE), in the form of
+face masks, to signal safety or risk. These visuals help make data more relatable, especially for broad audiences, but are
+still rarely used in standardized indexes.
+
+<figure>
+<Image src={Character01} width={100} alt="Pictogram for South Korea CAI Good"/>
+<Image src={Character02} width={100} alt="Pictogram for South Korea CAI Moderate"/>
+<Image src={Character03} width={100} alt="Pictogram for South Korea CAI Unhealthy"/>
+<Image src={Character04} width={100} alt="Pictogram for South Korea CAI Very Unhealthy"/>
+</figure>
+
+<HongKong />
+
+
+[^1]: https://journals.sagepub.com/doi/abs/10.1509/jimk.8.4.90.19795
+
+[^2]:   https://www.icrc2023.org/material\_guidelines/2023/04/29/Color-Universal-Design.html
+
+[^3]:   [https://goaqs.org/wp-content/uploads/2025/05/white-paper-go-aqs-v0.81.pdf](https://goaqs.org/wp-content/uploads/2025/05/white-paper-go-aqs-v0.81.pdf)
+

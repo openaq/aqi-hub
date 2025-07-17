@@ -1,0 +1,31 @@
+---
+import HongKongIconLow from '@assets/svg/hk_icon_low.svg';
+import HongKongIconModerate from '@assets/svg/hk_icon_moderate.svg';
+
+import HongKongIconHigh from '@assets/svg/hk_icon_high.svg';
+
+import HongKongIconVeryHigh from '@assets/svg/hk_icon_very_high.svg';
+import HongKongIconSerious from '@assets/svg/hk_icon_serious.svg';
+
+import { Image } from 'astro:assets';
+---
+
+<style lang="scss">
+  figure {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+
+    img {
+        flex:1;
+    }
+  }
+</style>
+
+<figure>
+  <Image src={HongKongIconLow} alt="Hong Kong Low Icon" />
+  <Image src={HongKongIconModerate} alt="Hong Kong Low Icon" />
+  <Image src={HongKongIconHigh} alt="Hong Kong Low Icon" />
+  <Image src={HongKongIconVeryHigh} alt="Hong Kong Low Icon" />
+  <Image src={HongKongIconSerious} alt="Hong Kong Low Icon" />
+</figure>
