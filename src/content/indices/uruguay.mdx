@@ -17,15 +17,27 @@ in 2006 and modeled after the U.S. EPA’s Air Quality Index (AQI). Over the yea
 introduced; by 2012 and 2013, PM<sub>2.5</sub> and TRS (Total Reduced Sulfur) were incorporated. Although the numeric ICAire values were officially discontinued in 2019 
 due to concerns over statistical misuse, the categorical classification system remains in use. In 2022 and again in 2024, the thresholds and category labels 
 were revised to align with stricter air quality targets outlined in Decree 135/021 by the Ministry of the Environment, reflecting Uruguay’s ongoing commitment to 
-health-focused air monitoring and transparent communicatio[^1]. 
+health-focused air monitoring and transparent communication[^1]. 
 
 
 ## Color scale
+
+### Pre-2010 
 
 ICAire converts pollutant concentrations into a standardized scale ranging from 0 to 400, divided into six color-coded categories that describe the potential 
 health impacts: Buena (Good), Aceptable (Acceptable), Inadecuada (Inadequate), Mala (Bad), Muy Mala (Very Bad).
 
 <ColorScale variant="old" index="uruguay" value={true} />
+
+_Note_: Adapted from https://montevideo.gub.uy/sites/default/files/biblioteca/icaire2010_0.pdf
+
+### 2010 update
+
+In 2010, Uruguay updated its ICAire system to align more closely with the World Health Organization (WHO) guidelines. 
+A new “Very Good” category was added for the cleanest air (ICAire < 25): Muy Buena (Very Good), Buena (Good), Aceptable (Acceptable), Inadecuada (Inadequate), Mala (Bad), or Muy Mala (Very Bad). 
+The Aceptable and Buena categories were adjusted. 
+
+<ColorScale variant="new" index="uruguay" value={true} />
 
 _Note_: Adapted from https://montevideo.gub.uy/sites/default/files/biblioteca/icaire2010_0.pdf
 
@@ -48,21 +60,11 @@ Pollutant Breakpoints values used until 2009 in the ICAire publication
 For each station, the highest ICAire value among all pollutants determines the daily index, and that pollutant is labeled the Predominant Parameter.
 
 
-## New Color Scale
-In 2010, Uruguay updated its ICAire system to align more closely with the World Health Organization (WHO) guidelines. 
-A new “Very Good” category was added for the cleanest air (ICAire < 25): Muy Buena (Very Good), Buena (Good), Aceptable (Acceptable), Inadecuada (Inadequate), Mala (Bad), or Muy Mala (Very Bad). 
-The Aceptable and Buena categories were adjusted. 
-
-<ColorScale variant="new" index="uruguay" value={true} />
-
-_Note_: Adapted from https://montevideo.gub.uy/sites/default/files/biblioteca/icaire2010_0.pdf
-
-
-## New Methods
+### 2010 method
 
 <BreakpointsTable variant="new" index="uruguay" />
 
-### Total Particulate Matter 
+**Total Particulate Matter**
 
 Although the WHO does not recommend PTS as a metric for assessing air quality, these stations continued to report PTS values until they were transitioned to monitoring PM<sub>10</sub>. 
 Till then, PTS measurements were used to calculate the ICAire using this protocol: 
@@ -98,7 +100,7 @@ $$
 This value would be reported as "Muy Buena" air quality. 
 
 
-### Particulate Matter 10
+**Particulate Matter 10**
 
 Particulate matter with a diameter less than 10 microns (PM<sub>10</sub>) is monitored at four air quality stations in Montevideo. The ICAire is calculated using the 24-hour average concentration 
 of PM<sub>10</sub> in micrograms per cubic meter (μg/m<sup>3</sup>).
@@ -136,9 +138,9 @@ $$
 This value would be reported as "Buena" air quality.
 
 
-### Black Carbon
+**Black Carbon**
 
-Black Smoke (also referred to as Black Carbon) is monitored at four air quality stations in Montevideo. Although there are currently no active guideline values specific to Black Smoke in 
+Black Smoke (also commonly referred to as Black Carbon) is monitored at four air quality stations in Montevideo. Although there are currently no active guideline values specific to Black Smoke in 
 Uruguay, historical standards from 1992 remain in reference. Given that Black Smoke particles are composed primarily of elemental carbon mixed with sulfates and hydrocarbons—and their 
 diameter is typically under 10 microns—ICAire values for this pollutant are calculated using the same methodology as for PM<sub>10</sub>.
 
@@ -176,7 +178,7 @@ $$
 This value would be reported as "Muy Buena" air quality category.
 
 
-### Sulfur Dioxide
+**Sulfur Dioxide**
 
 Sulfur Dioxide, measured as acidity, is monitored at four air quality stations in Montevideo. To evaluate air quality from SO<sub>2</sub>, the 24-hour average concentration is used. 
 
@@ -203,7 +205,7 @@ Each SO<sub>2</sub> concentration is matched to its respective range, and the as
 category, ranging from Muy Buena (Very Good) to Muy Mala (Very Bad).
 
 
-### Nitrogen Dioxide
+**Nitrogen Dioxide**
 
 In Montevideo’s automatic air quality monitoring network, Nitrogen Dioxide (NO<sub>2</sub>) is monitored hourly at four stations. From the hourly data, a 24-hour average concentration of NO<sub>2</sub> is calculated 
 for each station daily.
@@ -238,7 +240,7 @@ $$
 This value corresponds to the "Aceptable" air quality category.
 
 
-### Carbon Monoxide
+**Carbon Monoxide**
 
 Carbon Monoxide (CO) levels are measured hourly at four stations in Montevideo. From these hourly values, an 8-hour moving average is calculated for each day. The maximum 8-hour average 
 observed in a day is then used to compute the ICAire.
@@ -272,7 +274,7 @@ $$
 </div>
 
 
-### Ozone
+**Ozone**
 
 Ozone (O<sub>3</sub>) concentrations are measured hourly. To assess daily exposure, an 8-hour moving average is computed from the hourly ozone data. The maximum 8-hour average observed during the 
 day is then used to calculate the ICAire value.
