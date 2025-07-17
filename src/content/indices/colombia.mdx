@@ -1,0 +1,188 @@
+---
+name: Colombia
+indexName: El Índice de Calidad del Aire
+indexAcronym: ICA
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+import Admonition from "@components/Admonition.astro";
+
+
+## National ICA
+
+### Background
+
+In Colombia, the Índice de Calidad del Aire (ICA) is the national standard for assessing and communicating air pollution levels. This dimensionless index ranges from 0 to 500, 
+with higher values indicating more severe pollution and greater health risks. Regulated by Resolution 2254 of 2017, the ICA considers six key pollutants, each with defined 
+thresholds to categorize air quality and inform the public. 
+
+Bogotá, the capital city, uses a localized version of this system known as [IBOCA (Índice Bogotano de Calidad del Aire)](#iboca). While based on the same general principles as the national 
+ICA, the IBOCA adapts the calculation method and category thresholds to better reflect Bogotá's unique environmental and health context.
+
+
+### Color scale
+
+Colombia's national ICA calculation consists of six categories: Buena (Good), Aceptable (Acceptable), Dañina a la salud de Grupos Sensibles (Harmful to the health of Sensitive Groups), 
+Dañina a la salud (Harmful to health), Muy dañina para la salud (Very harmful to health), Peligrosa (Dangerous)
+
+<ColorScale variant="Colombia" index="colombia" value={true} />
+
+_Note_: Adapted from [INDICEQUITEODELACALIDADDEAIRE.pdf](https://www.researchgate.net/profile/Joseph-Sanchez-4/post/How-is-calculated-the-air-quality-index-in-your-country/attachment/5cd2f133cfe4a7968d9dab83/AS%3A756303353896962%401557328179531/download/INDICE+QUITE%C3%91O+DE+LA+CALIDAD+DE+AIRE.pdf)
+
+### Methods
+
+For each pollutant, a set of breakpoints defines the thresholds that divide pollution levels into six distinct categories. Measured pollutant concentrations are evaluated against 
+these thresholds to determine their corresponding category. Using these values, each concentration is converted into a numerical index that reflects its relative position within a 
+range. This index quantifies the impact on air quality, with lower values signifying cleaner air. 
+
+<BreakpointsTable variant="Colombia" index="colombia" />
+
+Typically, regions with ozone monitoring stations are required to report the 8-hour ozone AQI. However, in certain regions, using the 1-hour ozone AQI provides a more protective 
+assessment. In such cases, both the 8-hour and 1-hour ozone AQI values should be calculated, and the higher of the two should be reported. Additionally, if ozone concentrations 
+exceed 394 μg/m<sup>3</sup>, the 8-hour ozone AQI is no longer applicable, and only the 1-hour ozone AQI should be used for reporting[^1]. 
+
+Each pollutant has its own sub-AQI value calculated based on its breakpoint concentration. The following piecewise linear function is used: 
+
+<div class="latex-container">
+
+<PiecewiseLatexDoc label="ICA" />
+
+</div>
+
+<AqiCalculator
+  variant="Colombia"
+  client:only="solid"
+  index="colombia"
+  acronym={frontmatter.indexAcronym}
+/>
+
+After calculating the sub-AQI values for each pollutant, the highest sub-AQI becomes the overall AQI. Not all pollutants are required for this calculation–an ICA can still 
+be computed from single pollutant if only one is monitored. There is no minimum number of pollutants needed to determine the ICA value[^2].  
+
+<div id="iboca">
+  ## Bogotá
+</div>
+
+<h2 style="font-size: 20px; text-decoration: underline; font-weight: 400; margin-bottom: 1rem; margin-top: 0.25rem;">
+  El Índice Bogotano de Calidad del Aire y Riesgo en Salud (IBOCA)
+</h2>
+
+
+### Background
+
+The Bogotá Air Quality and Health Risk Index (IBOCA) is the official tool, created by the Secretaría Distrital de Ambiente (Bogotá District Secretariat of Environment) in 2015, 
+used to communicate air pollution levels and their associated health risks in Columbia's capital. Developed as part of a coordinated public health and environmental strategy, 
+IBOCA is designed to inform both institutional responses and individual actions for reducing public exposure and mitigating the health impacts of poor air quality. IBOCA evaluates 
+air quality based on six key pollutants: PM<sub>2.5</sub> (fine particulate matter), PM<sub>10</sub> (coarse particulate matter), O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. Its calculation is based on the U.S. Environmental 
+Protection Agency's (US-EPA) most recent 2018 method, which replaced Columbia's earlier index based on the 2012 version. Specifically, IBOCA uses the NowCast method for particulate 
+matter, which was developed by the US-EPA to provide timely warnings and reduce 24-hour exposure. 
+
+In addition, IBOCA integrates health risk estimates from the World Health Organization (WHO). Their Air Quality Guideline includes how excess health risk is calculated by comparing 
+pollutant levels to a counterfactual concentration. If concentrations go below this given level, there are no observed health effects. 
+
+IBOCA's methodology was formally updated in Joint Resolution 868 of 2021 and further revised in Joint Resolution 2840 of 2023. Its implementation helped inform Bogotá's broader 
+2030 Air Plan, including the “Comprehensive Health Risk Management Program for Air Quality”, and has supported declaration of air quality alerts during episodes of pollution[^3]. 
+
+
+### Color scale
+
+The IBOCA consists of five main categories with a subcategory for 'Dangerous' representing the severity of health effects. This subcategory exists because the concentration ranges 
+for each IBOCA color do not directly correspond to personal exposure, but rather to equivalent levels of excess health risk (ER). For each color category, including 'Dangerous', 
+the lower and upper bounds represent pollutant concentrations that result in the same level of ER.: 
+
+<ColorScale variant="Bogotá" index="colombia" value={true} />
+
+_Note_: Adapted from [INDICEQUITEODELACALIDADDEAIRE.pdf](https://www.researchgate.net/profile/Joseph-Sanchez-4/post/How-is-calculated-the-air-quality-index-in-your-country/attachment/5cd2f133cfe4a7968d9dab83/AS%3A756303353896962%401557328179531/download/INDICE+QUITE%C3%91O+DE+LA+CALIDAD+DE+AIRE.pdf)
+
+### Methods
+
+The IBOCA is calculated using real-time data from the Bogotá Air Quality Monitoring Network (RMCAB), which reports concentrations of criteria pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. 
+
+Dimensionless Value Calculation
+The IBOCA is calculated to provide a dimensionless value on a scale from 0 to 500. This is based on predefined concentration intervals for each pollutant. Each pollutant is compared 
+against its respective thresholds outlined in the table: 
+
+
+<BreakpointsTable variant="Bogotá" index="colombia" />
+
+- Each pollutant's index is based on either a weighted moving average (NowCast) or a simple moving average, calculated over a specific number of hours before the current time, depending on the pollutant
+- The NowCast method is used for particulate matter, while the arithmetic mean is used for gaseous pollutants
+
+
+<Admonition type="note">
+
+Note: In the rare case where the IBOCA value exceeds 500, it retains the same qualitative color coding and risk 
+category as the purple level. However, in these cases, only the actual pollutant concentrations (not the index 
+value) will be reported. 
+
+</Admonition>
+
+**Calculation of dimensionless values for IBOCA:**
+**Determine Concentration**: obtain most recent concentration values (in µg/m<sup>3</sup>) for each pollutant from the air quality monitoring data
+
+**Apply the Standard Equation**
+
+     Each pollutant has its own sub-AQI value calculated based on its breakpoint concentration. The following piecewise linear function is used:
+
+        <div class="latex-container">
+
+        <PiecewiseLatexDoc label="ICA" />
+
+        </div>
+
+**Selection of Worst Conditions**: For each station in the monitoring network, the worst IBOCA condition among the pollutants is selected for communication. 
+
+
+The equation for calculating Bogotá's AQI (IBOCA) is a piecewise linear function, which is a standard similar to the U.S. EPA AQI (the IBOCA is modeled after this) 
+
+The equation maps a given pollutant concentration to a corresponding AQI value using breakpoints: Clow and Chigh for lower and upper concentration breakpoints containing 
+Cp and Ilow and Ihigh for corresponding index values 
+
+So the entire function consists of multiple linear segments for different concentration ranges → piecewise linear 
+
+
+### NowCast Method
+
+NowCast is not a separate air quality index, but a real-time averaging technique used only for PM<sub>2.5</sub> and PM<sub>10</sub> in the calculation of IBOCA. 
+There is no separately associated color scale, as NowCast follows the standard IBOCA method. 
+
+For PM<sub>2.5</sub> and PM<sub>10</sub>, the NowCast value is calculated using the last 12 hour concentration data points. The most recent data points are weighted to provide a real-time 
+assessment. To ensure accuracy, at least two of the last three data points must be available; otherwise, the NowCast cannot be calculated. For the remaining gaseous 
+pollutants, concentrations are based on moving averages that are calculated over a specific number of hourly data points: for O<sub>3</sub> and CO, no averaging is applied (instead, 
+instantaneous values are used), while for NO<sub>2</sub> and SO<sub>2</sub>, the average is taken over one hour of data. 
+
+Data Selection: select the last 12 hourly concentration values (in µg/m<sup>3</sup>) of the specific pollutant 
+
+Calculate the weighting factor (w) for each of the previous hours based on their recency. This is done using a predefined formula: 
+        $$ W = \frac{C_{\text{min}}}{C_{\text{max}}} $$
+
+Calculate NowCast Value: 
+        $$ \text{NowCast} = \frac{\sum (C_i \times w_i)}{\sum w_i} $$
+
+        Where: 
+        Ci = concentration value of the pollutant for hour (i)
+        Wi - corresponding weight for hour (i)
+
+
+
+
+## References
+
+Angela, Magaly, et al. "Evaluation of the Level of Personal Exposure to Particulate Matter PM 2.5 in Short Trips of School Buses with Diesel Engine. 3 Nov. 2021, pp. 1-6, [ieeexplore.ieee.org/document/9703406/](https://ieeexplore.ieee.org/document/9703406/).
+
+Medina Palacios, Edna Katalina, et al. “Evolution of Health Impact Evaluation Experiences in Bogotá, Colombia.” ISEE Conference Abstracts, vol. 2024, no. 1, 15 Aug. 2024, [doi.org/10.1289/isee.2024.1801](https://doi.org/10.1289/isee.2024.1801).
+
+“¿Qué Es El IBOCA?” Iboca.ambientebogota.gov.co, [iboca.ambientebogota.gov.co/publicaciones/175/que-es-el-iboca/](iboca.ambientebogota.gov.co/publicaciones/175/que-es-el-iboca/).
+
+"Resolución Conjunta 2840 de 2023 Secretaría Distrital de Ambiente - Secretaría Distrital de Salud." Alcaldiabogota.gov.co, 2023, [www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152203](www.alcaldiabogota.gov.co/sisjur/normas/Norma1.jsp?i=152203).
+
+"Informe del estado de la Calidad del Aire en Colombia." Ambiente, 2022, [www.andi.com.co/Uploads/Informe%20del%20estado%20de%20la%20Calidad%20del%20Aire%20en%20Colombia%202022_compressed.pdf](https://www.andi.com.co/Uploads/Informe%20del%20estado%20de%20la%20Calidad%20del%20Aire%20en%20Colombia%202022_compressed.pdf)
+
+"Ministerio De Ambiente Y Desarrollo Sostenible - Resolución No. 2254." República De Colombia, 2017, [www.minambiente.gov.co/wp-content/uploads/2021/10/Resolucion-2254-de-2017.pdf](https://www.minambiente.gov.co/wp-content/uploads/2021/10/Resolucion-2254-de-2017.pdf)
+
+[^1]: [www.minambiente.gov.co/wp-content/uploads/2021/10/Resolucion-2254-de-2017.pdf](https://www.minambiente.gov.co/wp-content/uploads/2021/10/Resolucion-2254-de-2017.pdf)
+[^2]: [www.andi.com.co/Uploads/Informe%20del%20estado%20de%20la%20Calidad%20del%20Aire%20en%20Colombia%202022_compressed.pdf](https://www.andi.com.co/Uploads/Informe%20del%20estado%20de%20la%20Calidad%20del%20Aire%20en%20Colombia%202022_compressed.pdf)
+[^3]: [ehp.niehs.nih.gov/doi/10.1289/isee.2024.1801](https://ehp.niehs.nih.gov/doi/10.1289/isee.2024.1801)
