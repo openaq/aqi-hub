@@ -123,7 +123,7 @@ export function LollipopChart(props: LollipopChartDefinition) {
     .filter(
       (o: DataDefinition) => o.averagingPeriod === 24 && o.pollutant === 'PM2.5'
     )
-    .filter((o) => ['PE', 'MX', 'GB', 'IL', 'EU'].indexOf(o.iso) < 0)
+    .filter((o) => ['PE', 'MX', 'GB', 'IL', 'EU', 'BE'].indexOf(o.iso) < 0)
     .map((o) => {
       if (!o.concentrationUpper) {
         o.concentrationUpper = 2 * o.concentrationLower;
