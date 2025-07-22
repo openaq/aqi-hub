@@ -1,0 +1,326 @@
+---
+name: Uruguay
+indexName: Índice de Calidad del Aire
+indexAcronym: ICAire
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+import Admonition from "@components/Admonition.astro";
+
+## Background
+
+In Uruguay, air quality has been communicated through the ICAire (Índice de Calidad del Aire en la República Oriental del Uruguay), a national index developed 
+in 2006 and modeled after the U.S. EPA’s Air Quality Index (AQI). Over the years, the methodology has evolved: in 2010, new parameters and a category were 
+introduced; by 2012 and 2013, PM<sub>2.5</sub> and TRS (Total Reduced Sulfur) were incorporated. Although the numeric ICAire values were officially discontinued in 2019 
+due to concerns over statistical misuse, the categorical classification system remains in use. In 2022 and again in 2024, the thresholds and category labels 
+were revised to align with stricter air quality targets outlined in Decree 135/021 by the Ministry of the Environment, reflecting Uruguay’s ongoing commitment to 
+health-focused air monitoring and transparent communication[^1]. 
+
+
+## Color scale
+
+### Pre-2010 
+
+ICAire converts pollutant concentrations into a standardized scale ranging from 0 to 400, divided into six color-coded categories that describe the potential 
+health impacts: Buena (Good), Aceptable (Acceptable), Inadecuada (Inadequate), Mala (Bad), Muy Mala (Very Bad).
+
+<ColorScale variant="old" index="uruguay" value={true} />
+
+_Note_: Adapted from https://montevideo.gub.uy/sites/default/files/biblioteca/icaire2010_0.pdf
+
+### 2010 update
+
+In 2010, Uruguay updated its ICAire system to align more closely with the World Health Organization (WHO) guidelines. 
+A new “Very Good” category was added for the cleanest air (ICAire < 25): Muy Buena (Very Good), Buena (Good), Aceptable (Acceptable), Inadecuada (Inadequate), Mala (Bad), or Muy Mala (Very Bad). 
+The Aceptable and Buena categories were adjusted. 
+
+<ColorScale variant="new" index="uruguay" value={true} />
+
+_Note_: Adapted from https://montevideo.gub.uy/sites/default/files/biblioteca/icaire2010_0.pdf
+
+## Methods
+
+### Pre-2010 method
+
+Uruguay’s ICAire is a dimensionless index developed to communicate air quality conditions across diverse monitoring sites in Montevideo. The index is calculated 
+separately for each pollutant using pollutant-specific equations that relate measured concentrations to health-based reference values drawn from national 
+regulations, WHO guidelines, and regional advisory bodies like GESTA-Air. 
+
+Montevideo’s air quality network includes both manual and automatic stations: 
+
+- Manual stations sample every six days and measure parameters like total suspended particulates (PTS), PM<sub>10</sub>, black smoke, and acidity (as a proxy for SO<sub>2</sub>)
+- Automatic stations operate continuously, measuring PM<sub>10</sub>, SO<sub>2</sub>, NO<sub>2</sub>, CO, O<sub>3</sub>, and report daily ICAire values based on pollutant averages or maxima (e.g. 8-hour moving 
+averages for CO and O<sub>3</sub>)
+
+Pollutant Breakpoints values used until 2009 in the ICAire publication
+
+<BreakpointsTable variant="old" index="uruguay" />
+
+For each station, the highest ICAire value among all pollutants determines the daily index, and that pollutant is labeled the Predominant Parameter.
+
+
+### 2010 method
+
+<BreakpointsTable variant="new" index="uruguay" />
+
+**Total Particulate Matter**
+
+Although the WHO does not recommend PTS as a metric for assessing air quality, these stations continued to report PTS values until they were transitioned to monitoring PM<sub>10</sub>. 
+Till then, PTS measurements were used to calculate the ICAire using this protocol: 
+
+The ICAire for PTS is based on a 24-hour average concentration. Each recorded value is first classified into a range based on established concentration breakpoints, which correspond to 
+one of six air quality categories. Each range has an associated linear equation of the form: 
+
+<div class="latex-container">
+$$
+{ICAire} = {(PTS)} \times {a} + {b}
+$$
+</div>
+
+Where a and b are constants specific to the corresponding air quality category. The constants used are shown below: 
+
+| **ICAire Category** | **a**   | **b**    |
+|-----------------|-----|------|
+| Muy Buena       | 0.4 | 0    |
+| Buena           | 0.6 | -13  |
+| Aceptable       | 1.0 | -50  |
+| Inadecuada      | 0.4 | 33   |
+| Mala            | 0.5 | 1    |
+| Muy mala        | 0.4 | 100  |
+
+For example, if the 24-hour PTS concentration is 30 μg/m<sup>3</sup>, it falls within the “Muy Buena” range. Applying the corresponding formula: 
+
+<div class="latex-container">
+$$
+{ICAire} = {30} \times {0.4} + {0} = 12
+$$
+</div>
+
+This value would be reported as "Muy Buena" air quality. 
+
+
+**Particulate Matter 10**
+
+Particulate matter with a diameter less than 10 microns (PM<sub>10</sub>) is monitored at four air quality stations in Montevideo. The ICAire is calculated using the 24-hour average concentration 
+of PM<sub>10</sub> in micrograms per cubic meter (μg/m<sup>3</sup>).
+
+To determine the ICAire for PM<sub>10</sub>, the concentration value is first matched to a predefined range. Each range corresponds to an air quality category and has an associated linear equation of the form:
+	
+<div class="latex-container">
+$$
+{ICAire} = {(PM_{10})} \times {a} + {b}
+$$
+</div>
+
+The constants a and b vary depending on the PM<sub>10</sub> concentration range, as shown below:
+
+| **ICAire Category** | **a**   | **b**    |
+|-----------------|-----|------|
+| Muy Buena       | 0.5 | 0    |
+| Buena           | 1.0 | -25  |
+| Aceptable       | 2.0 | -100  |
+| Inadecuada      | 2.0 | -100   |
+| Mala            | 1.3 | 0    |
+| Muy mala        | 0.9 | 104  |
+
+Once the appropriate interval is identified, the PM<sub>10</sub> concentration is substituted into the equation to calculate the ICAire value. This result is then matched to the corresponding air 
+quality category (e.g. Muy Buena, Aceptable, Mala). 
+
+For example, if a 24-hour PM<sub>10</sub> average is 70 μg/m<sup>3</sup>, the value falls within the “Buena” category. Applying the formula: 
+
+<div class="latex-container">
+$$
+{ICAire} = {70} \times {1.0} + {(-25)} = 45
+$$
+</div>
+
+This value would be reported as "Buena" air quality.
+
+
+**Black Carbon**
+
+Black Smoke (also commonly referred to as Black Carbon) is monitored at four air quality stations in Montevideo. Although there are currently no active guideline values specific to Black Smoke in 
+Uruguay, historical standards from 1992 remain in reference. Given that Black Smoke particles are composed primarily of elemental carbon mixed with sulfates and hydrocarbons—and their 
+diameter is typically under 10 microns—ICAire values for this pollutant are calculated using the same methodology as for PM<sub>10</sub>.
+
+To assess air quality, the 24-hour average concentration of Black Smoke (in μg/m<sup>3</sup>) is used. The corresponding ICAire value is calculated by first identifying the appropriate concentration 
+range and then applying a linear equation of the form:
+	
+<div class="latex-container">
+$$
+{ICAire} = {(BC)} \times {a} + {b}
+$$
+</div>
+
+Where BC is the Black Smoke concentration, and a and b are constants specific to the concentration range: 
+
+| **ICAire Category** | **a**   | **b**    |
+|-----------------|-----|------|
+| Muy Buena       | 0.5 | 0    |
+| Buena           | 1.0 | -25  |
+| Aceptable       | 2.0 | -100  |
+| Inadecuada      | 2.0 | -100   |
+| Mala            | 1.3 | 0    |
+| Muy mala        | 0.9 | 104  |
+
+Once the 24-hour concentration is measured, the appropriate equation is applied to calculate the ICAire, which determines the air quality category (e.g., Muy Buena, Mala, Muy Mala). For 
+example, if the 24-hour average Black Smoke concentration is 20 μg/m<sup>3</sup>: 
+
+For example, if a 24-hour PM<sub>10</sub> average is 70 μg/m<sup>3</sup>, the value falls within the “Buena” category. Applying the formula: 
+
+<div class="latex-container">
+$$
+{ICAire} = {20} \times {0.5} + {0} = 10
+$$
+</div>
+
+This value would be reported as "Muy Buena" air quality category.
+
+
+**Sulfur Dioxide**
+
+Sulfur Dioxide, measured as acidity, is monitored at four air quality stations in Montevideo. To evaluate air quality from SO<sub>2</sub>, the 24-hour average concentration is used. 
+
+The ICAire for SO<sub>2</sub> is calculated by identifying the appropriate concentration range and applying a linear transformation of the form:
+	
+<div class="latex-container">
+$$
+{ICAire} = {(SO_{2})} \times {a} + {b}
+$$
+</div>
+
+Where SO<sub>2</sub> is the 24-hour average concentration, and a and b are constants defined for each range:
+
+| **ICAire Category** | **a**   | **b**    |
+|-----------------|-----|------|
+| Muy Buena       | 1.3 | 0    |
+| Buena           | 0.8 | 8  |
+| Aceptable       | 0.7 | 17  |
+| Inadecuada      | 0.4 | 48   |
+| Mala            | 0.5 | 3    |
+| Muy mala        | 0.4 | 100  |
+
+Each SO<sub>2</sub> concentration is matched to its respective range, and the associated formula is applied to compute the ICAire score. This index value determines the corresponding air quality 
+category, ranging from Muy Buena (Very Good) to Muy Mala (Very Bad).
+
+
+**Nitrogen Dioxide**
+
+In Montevideo’s automatic air quality monitoring network, Nitrogen Dioxide (NO<sub>2</sub>) is monitored hourly at four stations. From the hourly data, a 24-hour average concentration of NO<sub>2</sub> is calculated 
+for each station daily.
+
+To compute the corresponding ICAire value, a segmented linear function is applied. Each concentration range is assigned specific constants a and b, and the ICAire is calculated using:
+	
+<div class="latex-container">
+$$
+{ICAire} = {(NO_{2})} \times {a} + {b}
+$$
+</div>
+
+The range into which the measured 24-hour average falls determines which constants to use, based on the following table:
+
+| **ICAire Category** | **a**   | **b**    |
+|-----------------|-----|------|
+| Muy Buena       | 0.6 | 0    |
+| Buena           | 0.7 | -4  |
+| Aceptable       | 0.4 | 20  |
+| Inadecuada      | 0.3 | 33   |
+| Mala            | 0.2 | 121    |
+| Muy mala        | 0.1 | 200  |
+
+For example, If the 24-hour average NO<sub>2</sub> concentration is 80 μg/m<sup>3</sup>:
+
+<div class="latex-container">
+$$
+{ICAire} = {80} \times {0.4} + {20} = 52
+$$
+</div>
+
+This value corresponds to the "Aceptable" air quality category.
+
+
+**Carbon Monoxide**
+
+Carbon Monoxide (CO) levels are measured hourly at four stations in Montevideo. From these hourly values, an 8-hour moving average is calculated for each day. The maximum 8-hour average 
+observed in a day is then used to compute the ICAire.
+
+The ICAire value for CO is determined by applying a piecewise linear function, using specific coefficients a and b that correspond to the concentration range of the CO measurement. The equation used is:
+	
+<div class="latex-container">
+$$
+{ICAire} = {(CO)} \times {a} + {b}
+$$
+</div>
+
+The value of a and b depends on which range the maximum 8-hour CO average falls into, based on the following table:
+
+| **ICAire Category** | **a**   | **b**    |
+|-----------------|-----|------|
+| Muy Buena       | 5.6 | 0    |
+| Buena           | 10.0 | -20  |
+| Aceptable       | 16.7 | -67  |
+| Inadecuada      | 20.0 | -100   |
+| Mala            | 14.3 | -14    |
+| Muy mala        | 9.1 | 100  |
+
+For example, if the maximum 8-hour CO average is 8 μg/m<sup>3</sup>, it falls in the ≤ 10 category. The ICAire would be calculated as:
+
+
+<div class="latex-container">
+$$
+{ICAire} = {8} \times {16.7} + {(-67)} = 66.6
+$$
+</div>
+
+
+**Ozone**
+
+Ozone (O<sub>3</sub>) concentrations are measured hourly. To assess daily exposure, an 8-hour moving average is computed from the hourly ozone data. The maximum 8-hour average observed during the 
+day is then used to calculate the ICAire value.
+
+The ICAire for ozone is determined using a piecewise linear function, where the ozone concentration is multiplied by a slope (a) and then adjusted by an intercept (b). The formula is:
+
+<div class="latex-container">
+$$
+{ICAire} = {(O_{3})} \times {a} + {b}
+$$
+</div>
+
+The values of a and b vary based on which range the maximum 8-hour ozone average falls into, according to the table below:
+
+| **ICAire Category** | **a**   | **b**    |
+|-----------------|-----|------|
+| Muy Buena       | 0.3 | 0    |
+| Buena           | 1.3 | -75  |
+| Aceptable       | 0.8 | -33  |
+| Inadecuada      | 1.3 | -100   |
+| Mala            | 0.8 | 0    |
+| Muy mala        | 0.6 | 100  |
+
+For example, If the maximum 8-hour moving average for ozone is 150 μg/m<sup>3</sup>, it falls in the ≤ 200 category. The ICAire would be calculated as:
+
+<div class="latex-container">
+$$
+{ICAire} = {150} \times {0.8} + {(-33)} = 87
+$$
+</div>
+
+This value corresponds to the "Aceptable" air quality category.
+
+
+This method ensures that pollution levels are translated into a standardized, interpretable index, enabling public communication and comparisons across pollutants. The highest 
+ICAire value among all measured pollutants at a station determines the daily air quality category, with the corresponding pollutant noted as the Predominant Parameter.
+
+
+
+## References
+
+"INDICE de CALIDAD DEL AIRE (ICAire)". [montevideo.gub.uy/sites/default/files/biblioteca/icaire2010_0.pdf](montevideo.gub.uy/sites/default/files/biblioteca/icaire2010_0.pdf).
+
+"Indice de Calidad del Aire de Montevideo". Montevideo deTodos, [montevideo.gub.uy/sites/default/files/biblioteca/indicecalidadaire.pdf](https://montevideo.gub.uy/sites/default/files/biblioteca/indicecalidadaire.pdf)
+
+
+[^1]: [montevideo.gub.uy/sites/default/files/biblioteca/icaire2010_0.pdf](https://montevideo.gub.uy/sites/default/files/biblioteca/icaire2010_0.pdf)
