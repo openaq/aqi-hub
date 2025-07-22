@@ -1,0 +1,34 @@
+---
+import Character01 from "@assets/imgs/korea/211_character01.png";
+import Character02 from "@assets/imgs/korea/211_character02.png";
+import Character03 from "@assets/imgs/korea/211_character03.png";
+import Character04 from "@assets/imgs/korea/211_character04.png";
+
+import { Image } from 'astro:assets';
+---
+
+<style lang="scss">
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    figure {
+      figcaption {
+        font-size: 0.8rem;
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+  }
+</style>
+
+<div>
+  <figure>
+    <Image src={Character01} alt="South Korea Good Icon" />
+    <Image src={Character02} alt="South Korea Moderate Icon" />
+    <Image src={Character03} alt="South Korea Unhealthy Icon" />
+    <Image src={Character04} alt="South Korea Very Unhealthy Icon" />
+    <figcaption>Pictograms used alongside the South Korea CAI.</figcaption>
+  </figure>
+</div>
