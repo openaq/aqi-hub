@@ -1,0 +1,16 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import { getEntry } from "astro:content";
+import { render } from "astro:content";
+
+const colorsSymbols = await getEntry("pages", "colors-symbols");
+if (!colorsSymbols) {
+  throw new Error("Could not find reporting-periods");
+}
+
+const { Content } = await render(colorsSymbols);
+---
+
+<PageLayout>
+  <Content />
+</PageLayout>

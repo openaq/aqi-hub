@@ -4,8 +4,9 @@ import { getCollection, type CollectionEntry } from "astro:content";
 const indices = await getCollection("indices");
 const pages = await getCollection("pages");
 
-const desiredOrder = [
+const order = [
   "Introduction",
+  "Colors and Symbols",
   "Pollutants",
   "Reporting periods",
   "Methods",
@@ -13,7 +14,7 @@ const desiredOrder = [
 
 const orderedTitles = pages.sort(
   (a, b) =>
-    desiredOrder.indexOf(a.data.title) - desiredOrder.indexOf(b.data.title)
+    order.indexOf(a.data.title) - order.indexOf(b.data.title)
 );
 
 const sortIndicesByName = (

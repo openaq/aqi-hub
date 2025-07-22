@@ -1,0 +1,191 @@
+---
+import {
+  scaleBand as d3scaleBand,
+  scaleRadial as d3scaleRadial,
+  max as d3max,
+  arc as d3arc,
+  stack,
+} from 'd3';
+
+import { loadIndices } from '@data/loaders';
+
+const { caption } = Astro.props;
+
+const data = loadIndices();
+
+const width = 400;
+const height = width;
+const innerRadius = width / 10;
+const outerRadius = width / 2 - 10;
+const binSize = 20;
+
+function rgbToHsl(r: number, g: number, b: number) {
+  const r1 = r / 255;
+  const g1 = g / 255;
+  const b1 = b / 255;
+
+  const max = Math.max(r1, g1, b1) ?? 255;
+  const min = Math.min(r1, g1, b1) ?? 0;
+
+  let h,
+    s,
+    l = (max + min) / 2;
+
+  if (max === min) {
+    h = s = 0;
+  } else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+
+    switch (max) {
+      case r1:
+        h = (g1 - b1) / d + (g < b1 ? 6 : 0);
+        break;
+      case g1:
+        h = (b1 - r1) / d + 2;
+        break;
+      case b1:
+        h = (r1 - g1) / d + 4;
+        break;
+    }
+
+    h /= 6;
+  }
+
+  h *= 360;
+  s *= 100;
+  l *= 100;
+
+  return [h, s, l];
+}
+
+function hexToRgb(hex: string): number[] {
+  let hexValue = hex.startsWith('#') ? hex.slice(1) : hex;
+  if (hexValue.length === 3) {
+    hexValue = hexValue
+      .split('')
+      .map((char) => char + char)
+      .join('');
+  }
+  const r = parseInt(hexValue.substring(0, 2), 16);
+  const g = parseInt(hexValue.substring(2, 4), 16);
+  const b = parseInt(hexValue.substring(4, 6), 16);
+
+  return [r, g, b];
+}
+
+const e = [
+  ...new Set(
+    data
+      .map((o) => {
+        return { iso: o.iso, hex: o.hex.toUpperCase() };
+      })
+      .map(JSON.stringify)
+  ),
+].map(JSON.parse);
+
+const colorHsl = e
+  .filter((o) => o.hex.startsWith('#'))
+  .map((o) => {
+    const [r, g, b] = hexToRgb(o.hex);
+    return {
+      hue: rgbToHsl(r, g, b)[0],
+      saturation: rgbToHsl(r, g, b)[1],
+      lightness: rgbToHsl(r, g, b)[2],
+      hex: o.hex,
+    };
+  })
+  .map((o) => {
+    return o.hue < 0
+      ? { lightness: o.lightness, hex: o.hex, hue: 360 + o.hue }
+      : o;
+  })
+  .filter((o) => o.lightness !== 0)
+  .filter((o) => o.lightness !== 100)
+  .filter((o) => o.saturation !== 0);
+
+const binnedHueCounter = new Map();
+const bins = Array(360 / binSize)
+  .fill()
+  .map((e, i) => i * binSize);
+bins.forEach((o) => binnedHueCounter.set(o, new Map()));
+const hexToLightness = new Map(colorHsl.map((d) => [d.hex, d.lightness]));
+const hexCodes = Array.from(new Set(colorHsl.map((o) => o.hex))).sort(
+  (a, b) => hexToLightness.get(a) - hexToLightness.get(b)
+);
+
+colorHsl.forEach((d) => {
+  const hueBin = Math.floor(d.hue / binSize) * binSize;
+  if (!binnedHueCounter.has(hueBin)) {
+    binnedHueCounter.set(hueBin, new Map());
+  }
+  const binMap = binnedHueCounter.get(hueBin);
+  binMap.set(d.hex, (binMap.get(d.hex) || 0) + 1);
+});
+
+const dataForStacking = Array.from(binnedHueCounter.entries())
+  .map(([hueBin, hexCounts]) => {
+    const obj = { hueBin };
+    hexCodes.forEach((hex) => {
+      obj[hex] = hexCounts.get(hex) || 0;
+    });
+    return obj;
+  })
+  .sort((a, b) => a.hueBin - b.hueBin);
+
+const series = stack()
+  .keys(hexCodes)
+  .value((d, key) => d[key])(dataForStacking);
+
+const x = d3scaleBand()
+  .domain(series[0].map((d) => d.data.hueBin))
+  .range([0, 2 * Math.PI])
+  .align(0);
+
+const y = d3scaleRadial()
+  .domain([0, d3max(series, (d) => d3max(d, (d) => d[1]))])
+  .range([innerRadius, outerRadius]);
+
+const arc = d3arc()
+  .innerRadius((d) => y(d[0]))
+  .outerRadius((d) => y(d[1]))
+  .startAngle((d) => x(d.data.hueBin))
+  .endAngle((d) => x(d.data.hueBin) + x.bandwidth())
+  .padAngle(1.5 / innerRadius)
+  .padRadius(innerRadius);
+---
+
+<style lang="scss">
+  div {
+    display: flex;
+    justify-content: center;
+
+    figure {
+      width: 80%;
+
+      figcaption {
+        font-size: 0.8rem;
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+  }
+</style>
+<div>
+  <figure>
+    <svg viewBox={`${-width / 2} ${-height / 2 - 50} ${width} ${height}`}>
+      {
+        series.map((o) => (
+          <g fill={o.key}>
+            {o.map((d) => (
+              <path d={arc(d)} />
+            ))}
+          </g>
+        ))
+      }
+    </svg>
+    <figcaption>
+      {caption}
+    </figcaption>
+  </figure>
+</div>

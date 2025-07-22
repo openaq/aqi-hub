@@ -1,0 +1,36 @@
+---
+import HongKongIconLow from '@assets/svg/hk_icon_low.svg';
+import HongKongIconModerate from '@assets/svg/hk_icon_moderate.svg';
+import HongKongIconHigh from '@assets/svg/hk_icon_high.svg';
+import HongKongIconVeryHigh from '@assets/svg/hk_icon_very_high.svg';
+import HongKongIconSerious from '@assets/svg/hk_icon_serious.svg';
+
+import { Image } from 'astro:assets';
+---
+
+<style lang="scss">
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    figure {
+      figcaption {
+        font-size: 0.8rem;
+        margin-top: 20px;
+        text-align: center;
+      }
+    }
+  }
+</style>
+
+<div>
+  <figure>
+    <Image src={HongKongIconLow} alt="Hong Kong Low Icon" />
+    <Image src={HongKongIconModerate} alt="Hong Kong Moderate Icon" />
+    <Image src={HongKongIconHigh} alt="Hong Kong High Icon" />
+    <Image src={HongKongIconVeryHigh} alt="Hong Very High Icon" />
+    <Image src={HongKongIconSerious} alt="Hong Kong Serious Icon" />
+    <figcaption>Pictograms used alongside the Hong Kong AQHI.</figcaption>
+  </figure>
+</div>
