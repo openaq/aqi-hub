@@ -200,6 +200,8 @@ export function normalizeUnitsLabel(value) {
       return 'μg/m³';
     case 'mg/m3':
       return 'mg/m³';
+    case 'ug/Nm3':
+      return 'μg/Nm³';
     default:
       return value;
   }
