@@ -1,0 +1,101 @@
+---
+name: Philippines
+indexName: Air Quality Index
+indexAcronym: AQI
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import Admonition from "@components/Admonition.astro";
+
+
+## Background
+
+In the Philippines, air quality monitoring and assessment are governed by the Department of Environment and Natural Resources (DENR) through 
+its Environmental Management Bureau (EMB). The foundational legal framework is the Philippine Clean Air Act of 1999 (Republic Act No. 8749), 
+which establishes national ambient air quality standards (NAAQS) and mandates the continuous improvement of air quality nationwide.
+
+To inform the public about air pollution in a clear and actionable way, the EMB developed a six-tier Air Quality Index (AQI) system. This 
+framework provides color-coded health advisories based on measured concentrations of key air pollutants. Unlike some international systems 
+that use numerical scoring such as the EU, the Philippine AQI uses qualitative categories: Good, Fair, Unhealthy for Sensitive Groups, Very 
+Unhealthy, Acutely Unhealthy, and Emergency.  
+
+## Color scale
+
+The AQI in the Philippines uses a 6-point index: Good, Fair, Unhealthy for sensitive groups, Very Unhealthy, Acutely Unhealthy, Emergency. 
+Each category reflects increasing levels of air pollution and associated health risks.
+
+<ColorScale index="philippines" value={false} />
+
+
+<Admonition type="note">
+
+Sources do not specify where values between 90.1 and 90.9 
+fall. The “Emergency” category is defined as values “Above 
+91,” leaving a gap in interpretation for AQI values in the 
+90-91 range. 
+
+</Admonition>
+
+
+## Methods
+
+The Philippines AQI is designed to communicate the potential health impacts of air pollution by categorizing pollutant concentrations into 
+qualitative descriptors (e.g., “Good”, “Fair”, “Unhealthy”) across a standardized scale. The methodology for calculating AQI levels in the 
+Philippines is pollutant-specific and incorporates both manual sampling protocols and percentile-based guidelines. 
+
+Air quality data are collected for key pollutants: Total Suspended Particulates (TSP), Particulate Matter (PM<sub>10</sub>, PM<sub>2.5</sub>), Sulfur Dioxide (SO<sub>2</sub>), 
+Ozone (O<sub>3</sub>), Carbon Monoxide (CO), Nitrogen Dioxide (NO<sub>2</sub>)
+
+Pollutant concentrations are typically measured in micrograms per normal cubic meter (µg/Nm<sup>3</sup>) or parts per million (ppm). The use of normal 
+cubic meter (Nm<sup>3</sup>) assumes standard temperature and pressure conditions. 
+
+For post pollutants, the 24-hour average concentration is used, except for: 
+ - O<sub>3</sub> and CO, which also include 8-hour and 1-hour averages, and 
+ - NO<sub>2</sub>, which is measured as a 1-hour average for extreme pollution episodes
+
+Sampling is conducted once every six days using manual methods for TSP and PM. A minimum of 12 sampling days per quarter (or 48 days per year) 
+is required. Continuous analyzers are not yet widely available, but may enable daily sampling in the future. 
+
+ - Short-term Exposure Limits: 98th percentile values are used to evaluate whether short-term thresholds are exceeded, meaning the pollutant 
+ concentration should not exceed the stated level more than 2% of the days in a year (i.e., about 7 days/year)
+
+ - Annual Averages: For PM and TSP, annual values are expressed using the geometric mean, which accounts for the log-normal distribution of 
+ pollutant concentrations. This approach helps smooth out year-to-year variability and extreme values. 
+
+
+<BreakpointsTable index="philippines" />
+
+<Admonition type="note">
+
+When O<sub>3</sub> 8-hour concentrations exceed 0.374 ppm, the AQI must 
+be calculated using 1-hour O<sub>3</sub> values instead, due to higher 
+acute health risks. 
+
+</Admonition>
+
+
+<Admonition type="note">
+
+NO<sub>2</sub> does not have a standard 1-hour AQI guideline for regular 
+reporting but is used to indicate extremely high pollution 
+episodes. 
+
+</Admonition>
+
+These breakpoints define the thresholds for transitioning from one AQI category to the next. The AQI is calculated separately for each pollutant 
+using its observed concentration and the corresponding breakpoint table. The highest individual sub-index value among all pollutants is then 
+selected to represent the overall AQI at a given location and time. This “maximum operator” method ensures that the most health-relevant pollutant 
+determines the reported air quality level. 
+
+## References
+
+[https://air.emb.gov.ph/wp-content/uploads/2025/01/NAQSR-2021-v2.pdf](https://air.emb.gov.ph/wp-content/uploads/2025/01/NAQSR-2021-v2.pdf). 
+
+[https://air.emb.gov.ph/wp-content/uploads/2017/04/DAO-2013-13-PM2.5.pdf](https://air.emb.gov.ph/wp-content/uploads/2017/04/DAO-2013-13-PM2.5.pdf). 
+
+EMB MEMORANDUM CIRCULAR No. 2021 -07 SUBJECT : ADOPTION of the MANUAL on DATA HANDLING PROTOCOLS for CRITERIA AIR POLLUTANTS [https://air.emb.gov.ph/wp-content/uploads/2021/05/EMB-M.C.-2021-07.pdf](https://air.emb.gov.ph/wp-content/uploads/2021/05/EMB-M.C.-2021-07.pdf).
+
+[https://air.emb.gov.ph/wp-content/uploads/2021/01/DAO-2020-14-PM-2.5-Signed.pdf](https://air.emb.gov.ph/wp-content/uploads/2021/01/DAO-2020-14-PM-2.5-Signed.pdf)
+
+The Lawphil Project. “R.A. 8749.” Lawphil.net, 1999, [lawphil.net/statutes/repacts/ra1999/ra_8749_1999.html](https://lawphil.net/statutes/repacts/ra1999/ra_8749_1999.html).
