@@ -1,0 +1,76 @@
+---
+name: Ireland
+indexName: Air Quality Index for Health
+indexAcronym: AQIH
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import Admonition from "@components/Admonition.astro";
+
+
+## Background
+
+In Ireland, air quality monitoring and assessment are managed by the Environmental Protection Agency (EPA) following European Union regulations. 
+The EU’s Ambient Air Quality (AAQ) Directives, particularly Directive 2008/50/EC and Directive 2004/107/EC, establish the legal framework for 
+air quality standards across member states, including Ireland. These directives are informed by the World Health Organization’s (WHO) Air Quality 
+Guidelines, which reflect the latest scientific understanding of the health impacts of air pollution. While some pollutant thresholds, such as 
+those for nitrogen dioxide (NO<sub>2</sub>) and carbon monoxide (CO), align closely with WHO guidelines, others, like sulfur dioxide (SO<sub>2</sub>), ozone (O<sub>3</sub>), and 
+particulate matter (PM<sub>2.5</sub> and PM<sub>10</sub>), are more stringent under WHO recommendations. 
+
+To communicate air quality information to the public in an accessible way, the EPA developed the Air Quality Index for Health (AQIH). Rather than 
+applying the European public index, the AQIH was designed specifically for Ireland to translate pollution into an accessible format. As Ireland 
+aims to transition toward meeting more stringent WHO guidelines, the AQIH plays a central role in the government’s broader efforts to raise 
+awareness and inform the Clean Air Strategy. This index is a numeric scale from 1 to 10 that reflects the current air quality at monitoring stations 
+throughout Ireland.  
+
+
+## Color scale
+
+The AQIH in Ireland uses a 10-point index divided into four color-coded sections: Good, Fair, Poor, and Very Poor. Each category reflects 
+increasing levels of air pollution and associated health risks.
+
+
+<ColorScale index="ireland" value={false} />
+
+## Methods
+
+The AQIH is based on five key air pollutants: Ozone (O<sub>3</sub>), Nitrogen Dioxide gas (NO<sub>2</sub>), Sulphur Dioxide gas (SO<sub>2</sub>), PM<sub>2.5</sub> particles, PM<sub>10</sub> particles.
+
+All pollutant concentrations are measured in micrograms per cubic meter (μg/m<sup>3</sup>). However, not all monitoring stations measure every pollutant. 
+PM<sub>2.5</sub> is the most widely monitored pollutant due to its strong link to adverse health effects, while NO<sub>2</sub> is primarily tracked in urban areas 
+with heavy traffic.
+
+<Admonition type="note">
+
+It is not explicitly stated whether there is a minimum number of 
+pollutants required at a station to calculate an AQIH value. 
+
+</Admonition>
+
+Each station computes a separate index value (ranging from 1 to 10) for each pollutant it monitors. These index values are determined by 
+matching the pollutant’s concentration to pre-defined threshold bands, as shown in the EPA’s AQIH breakpoints scale (see table). 
+
+There is no mathematical formula used to convert concentration into index value; instead, the method relies on a direct lookup of the 
+measured concentration against the corresponding range in the AQIH table.
+
+
+<BreakpointsTable index="ireland" rangeValue={false}/>
+
+The final AQIH value for a given station is the highest individual index value among the pollutants measured at that location. This conservative 
+approach ensures that the reported AQIH reflects the greatest potential health risk posed by any single pollutant at that time. 
+
+<div class="latex-container">
+$$
+{AQI} = {Max}({I}_{O_{3}}, {I}_{NO_{2}}, {I}_{SO_{2}}, {I}_{PM_{2.5}}, {I}_{PM_{10}})
+$$
+</div>
+
+
+## References
+
+Environmental Protection Agency. "FAQs Air Quality." EPA, [www.epa.ie/resources/faqs/air/faqs-air-quality/](www.epa.ie/resources/faqs/air/faqs-air-quality/.).
+
+EPA. “Air Quality Index for Health | AirQuality.ie.” Airquality.ie, 2021, [airquality.ie/information/air-quality-index-for-health](airquality.ie/information/air-quality-index-for-health).
+
+Environmental Protection Agency. “News Releases 2023.” EPA, [https://www.epa.ie/news-releases/news-releases-2023/irelands-ambition-to-move-towards-the-health-based-who-air-quality-guidelines-will-be-challenging-but-will-have-a-significantly-positive-impact-on-health.php](https://www.epa.ie/news-releases/news-releases-2023/irelands-ambition-to-move-towards-the-health-based-who-air-quality-guidelines-will-be-challenging-but-will-have-a-significantly-positive-impact-on-health.php)
