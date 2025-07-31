@@ -1,49 +1,49 @@
 ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
-PHL,,Good,#00e400,0,25,TSP,ug/Nm3,24,0,80
-PHL,,Good,#00e400,0,25,PM10,ug/Nm3,24,0,54
-PHL,,Good,#00e400,0,25,PM2.5,ug/Nm3,24,0,25
-PHL,,Good,#00e400,0,25,SO2,ppm,24,0,0.034
-PHL,,Good,#00e400,0,25,O3,ppm,8,0,0.064
-PHL,,Good,#00e400,0,25,O3,ppm,1,,
-PHL,,Good,#00e400,0,25,CO,ppm,8,0,4.4
-PHL,,Good,#00e400,0,25,NO2,ppm,1,,
-PHL,,Fair,#ffff00,25.1,35,TSP,ug/Nm3,24,81,230
-PHL,,Fair,#ffff00,25.1,35,PM10,ug/Nm3,24,55,154
-PHL,,Fair,#ffff00,25.1,35,PM2.5,ug/Nm3,24,25.1,35
-PHL,,Fair,#ffff00,25.1,35,SO2,ppm,24,0.035,0.144
-PHL,,Fair,#ffff00,25.1,35,O3,ppm,8,0.065,0.084
-PHL,,Fair,#ffff00,25.1,35,O3,ppm,1,,
-PHL,,Fair,#ffff00,25.1,35,CO,ppm,8,4.5,9.4
-PHL,,Fair,#ffff00,25.1,35,NO2,ppm,1,,
-PHL,,Unhealthy for sensitive groups,#ff7e00,35.1,45,TSP,ug/Nm3,24,231,349
-PHL,,Unhealthy for sensitive groups,#ff7e00,35.1,45,PM10,ug/Nm3,24,155,254
-PHL,,Unhealthy for sensitive groups,#ff7e00,35.1,45,PM2.5,ug/Nm3,24,35.1,45
-PHL,,Unhealthy for sensitive groups,#ff7e00,35.1,45,SO2,ppm,24,0.145,0.224
-PHL,,Unhealthy for sensitive groups,#ff7e00,35.1,45,O3,ppm,8,0.085,0.104
-PHL,,Unhealthy for sensitive groups,#ff7e00,35.1,45,O3,ppm,1,0.125,0.164
-PHL,,Unhealthy for sensitive groups,#ff7e00,35.1,45,CO,ppm,8,9.5,12.4
-PHL,,Unhealthy for sensitive groups,#ff7e00,35.1,45,NO2,ppm,1,,
-PHL,,Very unhealthy,#ff0000,45.1,55,TSP,ug/Nm3,24,350,599
-PHL,,Very unhealthy,#ff0000,45.1,55,PM10,ug/Nm3,24,255,354
-PHL,,Very unhealthy,#ff0000,45.1,55,PM2.5,ug/Nm3,24,45.1,55
-PHL,,Very unhealthy,#ff0000,45.1,55,SO2,ppm,24,0.225,0.304
-PHL,,Very unhealthy,#ff0000,45.1,55,O3,ppm,8,0.105,0.124
-PHL,,Very unhealthy,#ff0000,45.1,55,O3,ppm,1,0.165,0.204
-PHL,,Very unhealthy,#ff0000,45.1,55,CO,ppm,8,12.5,15.4
-PHL,,Very unhealthy,#ff0000,45.1,55,NO2,ppm,1,,
-PHL,,Acutely unhealthy,#903f97,55.1,90,TSP,ug/Nm3,24,600,899
-PHL,,Acutely unhealthy,#903f97,55.1,90,PM10,ug/Nm3,24,355,424
-PHL,,Acutely unhealthy,#903f97,55.1,90,PM2.5,ug/Nm3,24,55.1,90
-PHL,,Acutely unhealthy,#903f97,55.1,90,SO2,ppm,24,0.305,0.604
-PHL,,Acutely unhealthy,#903f97,55.1,90,O3,ppm,8,0.125,0.374
-PHL,,Acutely unhealthy,#903f97,55.1,90,O3,ppm,1,0.205,0.404
-PHL,,Acutely unhealthy,#903f97,55.1,90,CO,ppm,8,15.5,30.4
-PHL,,Acutely unhealthy,#903f97,55.1,90,NO2,ppm,1,0.65,1.24
-PHL,,Emergency,#7e0024,91,,TSP,ug/Nm3,24,900,
-PHL,,Emergency,#7e0024,91,,PM10,ug/Nm3,24,425,504
-PHL,,Emergency,#7e0024,91,,PM2.5,ug/Nm3,24,91,
-PHL,,Emergency,#7e0024,91,,SO2,ppm,24,0.605,0.804
-PHL,,Emergency,#7e0024,91,,O3,ppm,8,,
-PHL,,Emergency,#7e0024,91,,O3,ppm,1,0.405,0.504
-PHL,,Emergency,#7e0024,91,,CO,ppm,8,30.5,40.4
-PHL,,Emergency,#7e0024,91,,NO2,ppm,1,1.25,1.64
+PH,,Good,#00e400,0,25,TSP,ug/Nm3,24,0,80
+PH,,Good,#00e400,0,25,PM10,ug/Nm3,24,0,54
+PH,,Good,#00e400,0,25,PM2.5,ug/Nm3,24,0,25
+PH,,Good,#00e400,0,25,SO2,ppm,24,0,0.034
+PH,,Good,#00e400,0,25,O3,ppm,8,0,0.064
+PH,,Good,#00e400,0,25,O3,ppm,1,,
+PH,,Good,#00e400,0,25,CO,ppm,8,0,4.4
+PH,,Good,#00e400,0,25,NO2,ppm,1,,
+PH,,Fair,#ffff00,25.1,35,TSP,ug/Nm3,24,81,230
+PH,,Fair,#ffff00,25.1,35,PM10,ug/Nm3,24,55,154
+PH,,Fair,#ffff00,25.1,35,PM2.5,ug/Nm3,24,25.1,35
+PH,,Fair,#ffff00,25.1,35,SO2,ppm,24,0.035,0.144
+PH,,Fair,#ffff00,25.1,35,O3,ppm,8,0.065,0.084
+PH,,Fair,#ffff00,25.1,35,O3,ppm,1,,
+PH,,Fair,#ffff00,25.1,35,CO,ppm,8,4.5,9.4
+PH,,Fair,#ffff00,25.1,35,NO2,ppm,1,,
+PH,,Unhealthy for sensitive groups,#ff7e00,35.1,45,TSP,ug/Nm3,24,231,349
+PH,,Unhealthy for sensitive groups,#ff7e00,35.1,45,PM10,ug/Nm3,24,155,254
+PH,,Unhealthy for sensitive groups,#ff7e00,35.1,45,PM2.5,ug/Nm3,24,35.1,45
+PH,,Unhealthy for sensitive groups,#ff7e00,35.1,45,SO2,ppm,24,0.145,0.224
+PH,,Unhealthy for sensitive groups,#ff7e00,35.1,45,O3,ppm,8,0.085,0.104
+PH,,Unhealthy for sensitive groups,#ff7e00,35.1,45,O3,ppm,1,0.125,0.164
+PH,,Unhealthy for sensitive groups,#ff7e00,35.1,45,CO,ppm,8,9.5,12.4
+PH,,Unhealthy for sensitive groups,#ff7e00,35.1,45,NO2,ppm,1,,
+PH,,Very unhealthy,#ff0000,45.1,55,TSP,ug/Nm3,24,350,599
+PH,,Very unhealthy,#ff0000,45.1,55,PM10,ug/Nm3,24,255,354
+PH,,Very unhealthy,#ff0000,45.1,55,PM2.5,ug/Nm3,24,45.1,55
+PH,,Very unhealthy,#ff0000,45.1,55,SO2,ppm,24,0.225,0.304
+PH,,Very unhealthy,#ff0000,45.1,55,O3,ppm,8,0.105,0.124
+PH,,Very unhealthy,#ff0000,45.1,55,O3,ppm,1,0.165,0.204
+PH,,Very unhealthy,#ff0000,45.1,55,CO,ppm,8,12.5,15.4
+PH,,Very unhealthy,#ff0000,45.1,55,NO2,ppm,1,,
+PH,,Acutely unhealthy,#903f97,55.1,90,TSP,ug/Nm3,24,600,899
+PH,,Acutely unhealthy,#903f97,55.1,90,PM10,ug/Nm3,24,355,424
+PH,,Acutely unhealthy,#903f97,55.1,90,PM2.5,ug/Nm3,24,55.1,90
+PH,,Acutely unhealthy,#903f97,55.1,90,SO2,ppm,24,0.305,0.604
+PH,,Acutely unhealthy,#903f97,55.1,90,O3,ppm,8,0.125,0.374
+PH,,Acutely unhealthy,#903f97,55.1,90,O3,ppm,1,0.205,0.404
+PH,,Acutely unhealthy,#903f97,55.1,90,CO,ppm,8,15.5,30.4
+PH,,Acutely unhealthy,#903f97,55.1,90,NO2,ppm,1,0.65,1.24
+PH,,Emergency,#7e0024,91,,TSP,ug/Nm3,24,900,
+PH,,Emergency,#7e0024,91,,PM10,ug/Nm3,24,425,504
+PH,,Emergency,#7e0024,91,,PM2.5,ug/Nm3,24,91,
+PH,,Emergency,#7e0024,91,,SO2,ppm,24,0.605,0.804
+PH,,Emergency,#7e0024,91,,O3,ppm,8,,
+PH,,Emergency,#7e0024,91,,O3,ppm,1,0.405,0.504
+PH,,Emergency,#7e0024,91,,CO,ppm,8,30.5,40.4
+PH,,Emergency,#7e0024,91,,NO2,ppm,1,1.25,1.64
