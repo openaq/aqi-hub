@@ -38,7 +38,7 @@ increasing levels of air pollution and associated health risks.
 The AQIH is based on five key air pollutants: Ozone (O<sub>3</sub>), Nitrogen Dioxide gas (NO<sub>2</sub>), Sulphur Dioxide gas (SO<sub>2</sub>), PM<sub>2.5</sub> particles, PM<sub>10</sub> particles.
 
 All pollutant concentrations are measured in micrograms per cubic meter (μg/m<sup>3</sup>). However, not all monitoring stations measure every pollutant. 
-PM1.5 is the most widely monitored pollutant due to its strong link to adverse health effects, while NO<sub>2</sub> is primarily tracked in urban areas 
+PM<sub>2.5</sub> is the most widely monitored pollutant due to its strong link to adverse health effects, while NO<sub>2</sub> is primarily tracked in urban areas 
 with heavy traffic.
 
 <Admonition type="note">
@@ -55,10 +55,16 @@ There is no mathematical formula used to convert concentration into index value;
 measured concentration against the corresponding range in the AQIH table.
 
 
-<BreakpointsTable index="ireland" />
+<BreakpointsTable index="ireland" rangeValue={false}/>
 
 The final AQIH value for a given station is the highest individual index value among the pollutants measured at that location. This conservative 
 approach ensures that the reported AQIH reflects the greatest potential health risk posed by any single pollutant at that time. 
+
+<div class="latex-container">
+$$
+{AQI} = {Max}({I}_{O_{3}}, {I}_{NO_{2}}, {I}_{SO_{2}}, {I}_{PM_{2.5}}, {I}_{PM_{10}})
+$$
+</div>
 
 
 ## References
