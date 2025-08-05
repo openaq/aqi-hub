@@ -1,61 +1,61 @@
 ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
-MNG,,Pure,#00e400,0,50,SO2,ug/m3,24,,
-MNG,,Pure,#00e400,0,50,SO2,ug/m3,1,0,100
-MNG,,Pure,#00e400,0,50,NO2,ug/m3,24,,
-MNG,,Pure,#00e400,0,50,NO2,ug/m3,1,0,100
-MNG,,Pure,#00e400,0,50,PM10,ug/m3,24,0,50
-MNG,,Pure,#00e400,0,50,PM2.5,ug/m3,24,0,35
-MNG,,Pure,#00e400,0,50,CO,ug/m3,8,0,5
-MNG,,Pure,#00e400,0,50,CO,ug/m3,1,,
-MNG,,Pure,#00e400,0,50,O3,ug/m3,8,0,50
-MNG,,Pure,#00e400,0,50,O3,ug/m3,1,,
-MNG,,Normal,#ffff00,51,100,SO2,ug/m3,24,,
-MNG,,Normal,#ffff00,51,100,SO2,ug/m3,1,101,300
-MNG,,Normal,#ffff00,51,100,NO2,ug/m3,24,,
-MNG,,Normal,#ffff00,51,100,NO2,ug/m3,1,101,200
-MNG,,Normal,#ffff00,51,100,PM10,ug/m3,24,51,100
-MNG,,Normal,#ffff00,51,100,PM2.5,ug/m3,24,36,50
-MNG,,Normal,#ffff00,51,100,CO,ug/m3,8,5,10
-MNG,,Normal,#ffff00,51,100,CO,ug/m3,1,11,30
-MNG,,Normal,#ffff00,51,100,O3,ug/m3,8,51,100
-MNG,,Normal,#ffff00,51,100,O3,ug/m3,1,50,
-MNG,,Less polluted,#ff7e00,101,200,SO2,ug/m3,24,50,800
-MNG,,Less polluted,#ff7e00,101,200,SO2,ug/m3,1,301,800
-MNG,,Less polluted,#ff7e00,101,200,NO2,ug/m3,24,50,280
-MNG,,Less polluted,#ff7e00,101,200,NO2,ug/m3,1,201,700
-MNG,,Less polluted,#ff7e00,101,200,PM10,ug/m3,24,101,300
-MNG,,Less polluted,#ff7e00,101,200,PM2.5,ug/m3,24,51,150
-MNG,,Less polluted,#ff7e00,101,200,CO,ug/m3,8,11,15
-MNG,,Less polluted,#ff7e00,101,200,CO,ug/m3,1,31,60
-MNG,,Less polluted,#ff7e00,101,200,O3,ug/m3,8,101,265
-MNG,,Less polluted,#ff7e00,101,200,O3,ug/m3,1,250,400
-MNG,,Contaminated,#ff0000,201,300,SO2,ug/m3,24,801,1600
-MNG,,Contaminated,#ff0000,201,300,SO2,ug/m3,1,801,1600
-MNG,,Contaminated,#ff0000,201,300,NO2,ug/m3,24,281,565
-MNG,,Contaminated,#ff0000,201,300,NO2,ug/m3,1,701,2000
-MNG,,Contaminated,#ff0000,201,300,PM10,ug/m3,24,301,420
-MNG,,Contaminated,#ff0000,201,300,PM2.5,ug/m3,24,151,250
-MNG,,Contaminated,#ff0000,201,300,CO,ug/m3,8,16,30
-MNG,,Contaminated,#ff0000,201,300,CO,ug/m3,1,61,90
-MNG,,Contaminated,#ff0000,201,300,O3,ug/m3,8,266,800
-MNG,,Contaminated,#ff0000,201,300,O3,ug/m3,1,401,800
-MNG,,Great polluted,#8f3f97,301,400,SO2,ug/m3,24,1601,2100
-MNG,,Great polluted,#8f3f97,301,400,SO2,ug/m3,1,1601,2100
-MNG,,Great polluted,#8f3f97,301,400,NO2,ug/m3,24,566,750
-MNG,,Great polluted,#8f3f97,301,400,NO2,ug/m3,1,2001,3500
-MNG,,Great polluted,#8f3f97,301,400,PM10,ug/m3,24,421,500
-MNG,,Great polluted,#8f3f97,301,400,PM2.5,ug/m3,24,251,350
-MNG,,Great polluted,#8f3f97,301,400,CO,ug/m3,8,31,40
-MNG,,Great polluted,#8f3f97,301,400,CO,ug/m3,1,91,120
-MNG,,Great polluted,#8f3f97,301,400,O3,ug/m3,8,,
-MNG,,Great polluted,#8f3f97,301,400,O3,ug/m3,1,801,1000
-MNG,,Very polluted,#7e0023,401,500,SO2,ug/m3,24,2101,2620
-MNG,,Very polluted,#7e0023,401,500,SO2,ug/m3,1,2101,2620
-MNG,,Very polluted,#7e0023,401,500,NO2,ug/m3,24,751,940
-MNG,,Very polluted,#7e0023,401,500,NO2,ug/m3,1,3501,3840
-MNG,,Very polluted,#7e0023,401,500,PM10,ug/m3,24,501,
-MNG,,Very polluted,#7e0023,401,500,PM2.5,ug/m3,24,351,
-MNG,,Very polluted,#7e0023,401,500,CO,ug/m3,8,40,50
-MNG,,Very polluted,#7e0023,401,500,CO,ug/m3,1,120,150
-MNG,,Very polluted,#7e0023,401,500,O3,ug/m3,8,,
-MNG,,Very polluted,#7e0023,401,500,O3,ug/m3,1,1001,1200
+MN,,Pure,#00e400,0,50,SO2,ug/m3,24,,
+MN,,Pure,#00e400,0,50,SO2,ug/m3,1,0,100
+MN,,Pure,#00e400,0,50,NO2,ug/m3,24,,
+MN,,Pure,#00e400,0,50,NO2,ug/m3,1,0,100
+MN,,Pure,#00e400,0,50,PM10,ug/m3,24,0,50
+MN,,Pure,#00e400,0,50,PM2.5,ug/m3,24,0,35
+MN,,Pure,#00e400,0,50,CO,ug/m3,8,0,5
+MN,,Pure,#00e400,0,50,CO,ug/m3,1,,
+MN,,Pure,#00e400,0,50,O3,ug/m3,8,0,50
+MN,,Pure,#00e400,0,50,O3,ug/m3,1,,
+MN,,Normal,#ffff00,51,100,SO2,ug/m3,24,,
+MN,,Normal,#ffff00,51,100,SO2,ug/m3,1,101,300
+MN,,Normal,#ffff00,51,100,NO2,ug/m3,24,,
+MN,,Normal,#ffff00,51,100,NO2,ug/m3,1,101,200
+MN,,Normal,#ffff00,51,100,PM10,ug/m3,24,51,100
+MN,,Normal,#ffff00,51,100,PM2.5,ug/m3,24,36,50
+MN,,Normal,#ffff00,51,100,CO,ug/m3,8,5,10
+MN,,Normal,#ffff00,51,100,CO,ug/m3,1,11,30
+MN,,Normal,#ffff00,51,100,O3,ug/m3,8,51,100
+MN,,Normal,#ffff00,51,100,O3,ug/m3,1,50,
+MN,,Slight contamination,#ff7e00,101,200,SO2,ug/m3,24,50,800
+MN,,Slight contamination,#ff7e00,101,200,SO2,ug/m3,1,301,800
+MN,,Slight contamination,#ff7e00,101,200,NO2,ug/m3,24,50,280
+MN,,Slight contamination,#ff7e00,101,200,NO2,ug/m3,1,201,700
+MN,,Slight contamination,#ff7e00,101,200,PM10,ug/m3,24,101,300
+MN,,Slight contamination,#ff7e00,101,200,PM2.5,ug/m3,24,51,150
+MN,,Slight contamination,#ff7e00,101,200,CO,ug/m3,8,11,15
+MN,,Slight contamination,#ff7e00,101,200,CO,ug/m3,1,31,60
+MN,,Slight contamination,#ff7e00,101,200,O3,ug/m3,8,101,265
+MN,,Slight contamination,#ff7e00,101,200,O3,ug/m3,1,250,400
+MN,,Contaminated,#ff0000,201,300,SO2,ug/m3,24,801,1600
+MN,,Contaminated,#ff0000,201,300,SO2,ug/m3,1,801,1600
+MN,,Contaminated,#ff0000,201,300,NO2,ug/m3,24,281,565
+MN,,Contaminated,#ff0000,201,300,NO2,ug/m3,1,701,2000
+MN,,Contaminated,#ff0000,201,300,PM10,ug/m3,24,301,420
+MN,,Contaminated,#ff0000,201,300,PM2.5,ug/m3,24,151,250
+MN,,Contaminated,#ff0000,201,300,CO,ug/m3,8,16,30
+MN,,Contaminated,#ff0000,201,300,CO,ug/m3,1,61,90
+MN,,Contaminated,#ff0000,201,300,O3,ug/m3,8,266,800
+MN,,Contaminated,#ff0000,201,300,O3,ug/m3,1,401,800
+MN,,Very polluted,#8f3f97,301,400,SO2,ug/m3,24,1601,2100
+MN,,Very polluted,#8f3f97,301,400,SO2,ug/m3,1,1601,2100
+MN,,Very polluted,#8f3f97,301,400,NO2,ug/m3,24,566,750
+MN,,Very polluted,#8f3f97,301,400,NO2,ug/m3,1,2001,3500
+MN,,Very polluted,#8f3f97,301,400,PM10,ug/m3,24,421,500
+MN,,Very polluted,#8f3f97,301,400,PM2.5,ug/m3,24,251,350
+MN,,Very polluted,#8f3f97,301,400,CO,ug/m3,8,31,40
+MN,,Very polluted,#8f3f97,301,400,CO,ug/m3,1,91,120
+MN,,Very polluted,#8f3f97,301,400,O3,ug/m3,8,,
+MN,,Very polluted,#8f3f97,301,400,O3,ug/m3,1,801,1000
+MN,,Very dirty,#7e0023,401,500,SO2,ug/m3,24,2101,2620
+MN,,Very dirty,#7e0023,401,500,SO2,ug/m3,1,2101,2620
+MN,,Very dirty,#7e0023,401,500,NO2,ug/m3,24,751,940
+MN,,Very dirty,#7e0023,401,500,NO2,ug/m3,1,3501,3840
+MN,,Very dirty,#7e0023,401,500,PM10,ug/m3,24,501,
+MN,,Very dirty,#7e0023,401,500,PM2.5,ug/m3,24,351,
+MN,,Very dirty,#7e0023,401,500,CO,ug/m3,8,40,50
+MN,,Very dirty,#7e0023,401,500,CO,ug/m3,1,120,150
+MN,,Very dirty,#7e0023,401,500,O3,ug/m3,8,,
+MN,,Very dirty,#7e0023,401,500,O3,ug/m3,1,1001,1200
