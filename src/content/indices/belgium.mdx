@@ -52,7 +52,7 @@ Relative Risk (RR) values from WHO’s Health Risks of Air Pollution in Europe (
 
 ### Old BelAQI
 
-<BreakpointsTable variant="oldBelAQI" index="belgium" />
+<BreakpointsTable variant="oldBelAQI" index="belgium" rangeValue={false}/>
 
 _Note_ Adapted from: https://www.irceline.be/en/air-quality/measurements/belaqi-air-quality-index/information
 
@@ -68,7 +68,7 @@ reflect actual health risks, including:
 
 ### New BelAQI
 
-<BreakpointsTable variant="newBelAQI" index="belgium" />
+<BreakpointsTable variant="newBelAQI" index="belgium" rangeValue={false}/>
 
 To address the lag in responsiveness of 24-hour averages, the new hourly BelAQI uses hourly concentrations, derived using ratios of daily/hourly peaks (based on 
 historical Belgian data):
@@ -85,7 +85,7 @@ $${O_{3}}: \times 1.10$$
 
 **New BelAQI Hourly Index Table:** 
 
-<BreakpointsTable variant="newBelAQIHour" index="belgium" />
+<BreakpointsTable variant="newBelAQIHour" index="belgium" rangeValue={false}/>
 
 Each pollutant’s concentration is mapped to an index value between 1 (Excellent) and 10 (Horrible) using pre-defined breakpoint thresholds (which differ for daily vs. hourly values).
 
@@ -102,7 +102,7 @@ The final BelAQI is simply the maximum of the sub-indices.
 
 ### BelATMO
 
-<BreakpointsTable variant="BelAtmo" index="belgium" />
+<BreakpointsTable variant="BelAtmo" index="belgium" rangeValue={false}/>
 
 For each pollutant, a sub-index value is determined by matching the measured concentration to the corresponding range in the table. This is a direct categorical assignment – for example, 
 if the 8-hour average ozone (O<sub>3</sub>) level is 68 μg/m<sup>3</sup>, it falls in the 61-80 range, which corresponds to an index value of 4 (Fairly Good) . This process is repeated 
