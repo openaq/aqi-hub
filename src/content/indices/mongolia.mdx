@@ -1,0 +1,77 @@
+---
+name: Mongolia
+indexName: Air Quality Index
+indexAcronym: АЧИ
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+import Admonition from "@components/Admonition.astro";
+
+
+## Background
+
+In Mongolia, air quality assessment and public communication are governed by the Ministry of Environment and Tourism under the authority 
+of the “Air Law”, particularly Articles 7.1.2 and 12.3. To operationalize this law, the ministry approved the “Procedure for Evaluating 
+and Reporting Air Quality by Air Quality Index”, which formally defines the country’s Air Quality Index (АЧИ) system[^1]. 
+
+The АЧИ is designed in accordance with the national air quality standard MNS 4585:2016, which specifies the technical requirements for ambient 
+air quality. Mongolia’s АЧИ system classifies air quality into six categories, each associated with a color code[^2]. These categories range from 
+"Pure" to "Very polluted," reflecting increasing levels of air pollution and corresponding health impacts. 
+
+
+## Color scale
+
+The АЧИ in Mongolia utilizes a 6-point index to convey air pollution levels and their corresponding health impacts: Цэвэр (Pure), Хэвийн (Normal), 
+Бага зэргийн бохирдолтой (Slight contamination), Бохирдолтой (Contaminated), Их бохирдолтой (Very polluted), Маш их бохирдолтой (Very dirty). Each category is assigned 
+a color and numerical range: 
+
+<ColorScale index="mongolia" value={true} />
+
+## Methods
+
+The АЧИ calculation is pollutant-specific and requires data from at least three major pollutants to compute a valid index. These include: 
+Sulfur Dioxide (SO<sub>2</sub>), Nitrogen Dioxide (NO<sub>2</sub>), Particulate Matter (PM<sub>10</sub> or PM<sub>2.5</sub>), Carbon Monoxide (CO), and Ozone (O<sub>3</sub>). 
+
+Each pollutant has an associated averaging time: 
+ - PM<sub>2.5</sub> and PM<sub>10</sub> use an average of the last 3 hours
+ - SO<sub>2</sub>, measured with 1-hour averages
+    - If the 1-hour average of SO<sub>2</sub> exceeds 301 μg/m<sup>3</sup>, the АЧИ calculation must switch to using the 24-hour index
+ - NO<sub>2</sub>, measured with 1-hour averages
+    - If the 1-hour average of NO<sub>2</sub> exceeds 201 μg/m<sup>3</sup>, the АЧИ is calculated using the 24-hour index instead 
+ - CO, an 8-hour moving average
+    - If only a 1-hour concentration is available, that may be used as an alternative depending on data availability
+ - O<sub>3</sub>, an 8-hour moving average
+    - If ozone concentration exceeds 250 μg/m<sup>3</sup> (1-hour average), the index must switch to using the 8-hour average to account for acute health effects. 
+
+Pollutant concentrations are translated into index values based on the defined breakpoint table, which assigns specific АЧИ ranges to corresponding 
+concentration intervals. 
+
+
+<BreakpointsTable index="mongolia" />
+
+For each pollutant, the АЧИ is calculated using a linear piecewise function: 
+
+<div class="latex-container">
+    <PiecewiseLatexDoc label="АЧИ" />
+</div>
+
+<AqiCalculator
+  client:only="solid"
+  index="mongolia"
+  acronym={frontmatter.indexAcronym}
+/>
+
+After individual АЧИ values are computed for each pollutant, the highest АЧИ value among them is selected as the overall АЧИ for that time and 
+location. This “maximum operator” approach ensures that the pollutant posing the greatest health risk determines the final reported АЧИ level. 
+
+## References
+
+[http://agaar.mn/files/article/692/%D0%90%D0%B3%D0%B0%D0%B0%D1%80%D1%8B%D0%BD%20%D1%87%D0%B0%D0%BD%D0%B0%D1%80%D1%8B%D0%BD%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%8D%D1%8D%D1%80%20%D0%B0%D0%B3%D0%B0%D0%B0%D1%80%D1%8B%D0%BD%20%D1%87%D0%B0%D0%BD%D0%B0%D1%80%D1%8B%D0%B3%20%D2%AF%D0%BD%D1%8D%D0%BB%D1%8D%D1%85,%20%D0%BC%D1%8D%D0%B4%D1%8D%D1%8D%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf](http://agaar.mn/files/article/692/%D0%90%D0%B3%D0%B0%D0%B0%D1%80%D1%8B%D0%BD%20%D1%87%D0%B0%D0%BD%D0%B0%D1%80%D1%8B%D0%BD%20%D0%B8%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%D1%8D%D1%8D%D1%80%20%D0%B0%D0%B3%D0%B0%D0%B0%D1%80%D1%8B%D0%BD%20%D1%87%D0%B0%D0%BD%D0%B0%D1%80%D1%8B%D0%B3%20%D2%AF%D0%BD%D1%8D%D0%BB%D1%8D%D1%85,%20%D0%BC%D1%8D%D0%B4%D1%8D%D1%8D%D0%BB%D1%8D%D1%85%20%D0%B6%D1%83%D1%80%D0%B0%D0%BC.pdf)
+
+ASTVision. “Агаарын чанар.” Agaar.mn, 2025, [agaar.mn/article-view/547](http://agaar.mn/article-view/547).
+
+[^1]: [https://legalinfo.mn/en/edtl/16230948634111](https://legalinfo.mn/en/edtl/16230948634111)
+[^2]: [https://greenassessment.mn/upload/files/20160623_MNS_45852016_%D0%90%D0%B3%D0%B0%D0%B0%D1%80%D1%8B%D0%BD_%D1%87%D0%B0%D0%BD%D0%B0%D1%80._%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8%D0%B9%D0%BD_%D0%B5%D1%80%D3%A9%D0%BD%D1%85%D0%B8%D0%B9_%D1%88%D0%B0%D0%B0%D1%80%D0%B4%D0%BB%D0%B0%D0%B3%D0%B0_.pdf](https://greenassessment.mn/upload/files/20160623_MNS_45852016_%D0%90%D0%B3%D0%B0%D0%B0%D1%80%D1%8B%D0%BD_%D1%87%D0%B0%D0%BD%D0%B0%D1%80._%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8%D0%B9%D0%BD_%D0%B5%D1%80%D3%A9%D0%BD%D1%85%D0%B8%D0%B9_%D1%88%D0%B0%D0%B0%D1%80%D0%B4%D0%BB%D0%B0%D0%B3%D0%B0_.pdf)
