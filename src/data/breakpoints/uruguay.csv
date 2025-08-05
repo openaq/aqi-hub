@@ -1,78 +1,78 @@
 ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
-URY,old,Good,#02ff00,0,50,PTS,ug/m3,24,0,100
-URY,old,Good,#02ff00,0,50,PM10,ug/m3,24,0,75
-URY,old,Good,#02ff00,0,50,Black smoke,ug/m3,24,0,75
-URY,old,Good,#02ff00,0,50,SO2,ug/m3,24,0,50
-URY,old,Good,#02ff00,0,50,NO2,ug/m3,1,0,75
-URY,old,Good,#02ff00,0,50,CO,ug/m3,8,0,7
-URY,old,Good,#02ff00,0,50,O3,ug/m3,8,0,100
-URY,old,Acceptable,#008001,51,100,PTS,ug/m3,24,100,150
-URY,old,Acceptable,#008001,51,100,PM10,ug/m3,24,75,100
-URY,old,Acceptable,#008001,51,100,Black smoke,ug/m3,24,75,100
-URY,old,Acceptable,#008001,51,100,SO2,ug/m3,24,50,125
-URY,old,Acceptable,#008001,51,100,NO2,ug/m3,1,75,200
-URY,old,Acceptable,#008001,51,100,CO,ug/m3,8,7,10
-URY,old,Acceptable,#008001,51,100,O3,ug/m3,8,100,160
-URY,old,Inadequate,#ffff00,101,200,PTS,ug/m3,24,150,375
-URY,old,Inadequate,#ffff00,101,200,PM10,ug/m3,24,100,150
-URY,old,Inadequate,#ffff00,101,200,Black smoke,ug/m3,24,100,150
-URY,old,Inadequate,#ffff00,101,200,SO2,ug/m3,24,125,365
-URY,old,Inadequate,#ffff00,101,200,NO2,ug/m3,1,200,500
-URY,old,Inadequate,#ffff00,101,200,CO,ug/m3,8,10,15
-URY,old,Inadequate,#ffff00,101,200,O3,ug/m3,8,160,240
-URY,old,Bad,#ff9966,201,300,PTS,ug/m3,24,375,563
-URY,old,Bad,#ff9966,201,300,PM10,ug/m3,24,150,225
-URY,old,Bad,#ff9966,201,300,Black smoke,ug/m3,24,150,225
-URY,old,Bad,#ff9966,201,300,SO2,ug/m3,24,365,550
-URY,old,Bad,#ff9966,201,300,NO2,ug/m3,1,500,1130
-URY,old,Bad,#ff9966,201,300,CO,ug/m3,8,15,22
-URY,old,Bad,#ff9966,201,300,O3,ug/m3,8,240,540
-URY,old,Very Bad,#ff0000,301,400,PTS,ug/m3,24,563,845
-URY,old,Very Bad,#ff0000,301,400,PM10,ug/m3,24,225,340
-URY,old,Very Bad,#ff0000,301,400,Black smoke,ug/m3,24,225,340
-URY,old,Very Bad,#ff0000,301,400,SO2,ug/m3,24,550,825
-URY,old,Very Bad,#ff0000,301,400,NO2,ug/m3,1,1130,2260
-URY,old,Very Bad,#ff0000,301,400,CO,ug/m3,8,22,33
-URY,old,Very Bad,#ff0000,301,400,O3,ug/m3,8,540,1080
-URY,new,Very Good,#02ff00,0,25,PTS,ug/m3,24,0,60
-URY,new,Very Good,#02ff00,0,25,PM10,ug/m3,24,0,50
-URY,new,Very Good,#02ff00,0,25,Black smoke,ug/m3,24,0,50
-URY,new,Very Good,#02ff00,0,25,SO2,ug/m3,24,0,20
-URY,new,Very Good,#02ff00,0,25,NO2,ug/m3,1,0,40
-URY,new,Very Good,#02ff00,0,25,CO,ug/m3,8,0,4.5
-URY,new,Very Good,#02ff00,0,25,O3,ug/m3,8,0,80
-URY,new,Good,#94bd5e,26,50,PTS,ug/m3,24,60,100
-URY,new,Good,#94bd5e,26,50,PM10,ug/m3,24,50,75
-URY,new,Good,#94bd5e,26,50,Black smoke,ug/m3,24,50,75
-URY,new,Good,#94bd5e,26,50,SO2,ug/m3,24,20,50
-URY,new,Good,#94bd5e,26,50,NO2,ug/m3,1,40,75
-URY,new,Good,#94bd5e,26,50,CO,ug/m3,8,4.5,7
-URY,new,Good,#94bd5e,26,50,O3,ug/m3,8,80,100
-URY,new,Acceptable,#008001,51,100,PTS,ug/m3,24,100,150
-URY,new,Acceptable,#008001,51,100,PM10,ug/m3,24,75,100
-URY,new,Acceptable,#008001,51,100,Black smoke,ug/m3,24,75,100
-URY,new,Acceptable,#008001,51,100,SO2,ug/m3,24,50,125
-URY,new,Acceptable,#008001,51,100,NO2,ug/m3,1,75,200
-URY,new,Acceptable,#008001,51,100,CO,ug/m3,8,7,10
-URY,new,Acceptable,#008001,51,100,O3,ug/m3,8,100,160
-URY,new,Inadequate,#ffff00,101,200,PTS,ug/m3,24,150,375
-URY,new,Inadequate,#ffff00,101,200,PM10,ug/m3,24,100,150
-URY,new,Inadequate,#ffff00,101,200,Black smoke,ug/m3,24,100,150
-URY,new,Inadequate,#ffff00,101,200,SO2,ug/m3,24,125,365
-URY,new,Inadequate,#ffff00,101,200,NO2,ug/m3,1,200,500
-URY,new,Inadequate,#ffff00,101,200,CO,ug/m3,8,10,15
-URY,new,Inadequate,#ffff00,101,200,O3,ug/m3,8,160,240
-URY,new,Bad,#ff9966,201,300,PTS,ug/m3,24,375,563
-URY,new,Bad,#ff9966,201,300,PM10,ug/m3,24,150,225
-URY,new,Bad,#ff9966,201,300,Black smoke,ug/m3,24,150,225
-URY,new,Bad,#ff9966,201,300,SO2,ug/m3,24,365,550
-URY,new,Bad,#ff9966,201,300,NO2,ug/m3,1,500,1130
-URY,new,Bad,#ff9966,201,300,CO,ug/m3,8,15,22
-URY,new,Bad,#ff9966,201,300,O3,ug/m3,8,240,540
-URY,new,Very Bad,#ff0000,301,400,PTS,ug/m3,24,563,845
-URY,new,Very Bad,#ff0000,301,400,PM10,ug/m3,24,225,340
-URY,new,Very Bad,#ff0000,301,400,Black smoke,ug/m3,24,225,340
-URY,new,Very Bad,#ff0000,301,400,SO2,ug/m3,24,550,825
-URY,new,Very Bad,#ff0000,301,400,NO2,ug/m3,1,1130,2260
-URY,new,Very Bad,#ff0000,301,400,CO,ug/m3,8,22,33
-URY,new,Very Bad,#ff0000,301,400,O3,ug/m3,8,540,1080
+UY,old,Good,#02ff00,0,50,PTS,ug/m3,24,0,100
+UY,old,Good,#02ff00,0,50,PM10,ug/m3,24,0,75
+UY,old,Good,#02ff00,0,50,Black smoke,ug/m3,24,0,75
+UY,old,Good,#02ff00,0,50,SO2,ug/m3,24,0,50
+UY,old,Good,#02ff00,0,50,NO2,ug/m3,1,0,75
+UY,old,Good,#02ff00,0,50,CO,ug/m3,8,0,7
+UY,old,Good,#02ff00,0,50,O3,ug/m3,8,0,100
+UY,old,Acceptable,#008001,51,100,PTS,ug/m3,24,100,150
+UY,old,Acceptable,#008001,51,100,PM10,ug/m3,24,75,100
+UY,old,Acceptable,#008001,51,100,Black smoke,ug/m3,24,75,100
+UY,old,Acceptable,#008001,51,100,SO2,ug/m3,24,50,125
+UY,old,Acceptable,#008001,51,100,NO2,ug/m3,1,75,200
+UY,old,Acceptable,#008001,51,100,CO,ug/m3,8,7,10
+UY,old,Acceptable,#008001,51,100,O3,ug/m3,8,100,160
+UY,old,Inadequate,#ffff00,101,200,PTS,ug/m3,24,150,375
+UY,old,Inadequate,#ffff00,101,200,PM10,ug/m3,24,100,150
+UY,old,Inadequate,#ffff00,101,200,Black smoke,ug/m3,24,100,150
+UY,old,Inadequate,#ffff00,101,200,SO2,ug/m3,24,125,365
+UY,old,Inadequate,#ffff00,101,200,NO2,ug/m3,1,200,500
+UY,old,Inadequate,#ffff00,101,200,CO,ug/m3,8,10,15
+UY,old,Inadequate,#ffff00,101,200,O3,ug/m3,8,160,240
+UY,old,Bad,#ff9966,201,300,PTS,ug/m3,24,375,563
+UY,old,Bad,#ff9966,201,300,PM10,ug/m3,24,150,225
+UY,old,Bad,#ff9966,201,300,Black smoke,ug/m3,24,150,225
+UY,old,Bad,#ff9966,201,300,SO2,ug/m3,24,365,550
+UY,old,Bad,#ff9966,201,300,NO2,ug/m3,1,500,1130
+UY,old,Bad,#ff9966,201,300,CO,ug/m3,8,15,22
+UY,old,Bad,#ff9966,201,300,O3,ug/m3,8,240,540
+UY,old,Very Bad,#ff0000,301,400,PTS,ug/m3,24,563,845
+UY,old,Very Bad,#ff0000,301,400,PM10,ug/m3,24,225,340
+UY,old,Very Bad,#ff0000,301,400,Black smoke,ug/m3,24,225,340
+UY,old,Very Bad,#ff0000,301,400,SO2,ug/m3,24,550,825
+UY,old,Very Bad,#ff0000,301,400,NO2,ug/m3,1,1130,2260
+UY,old,Very Bad,#ff0000,301,400,CO,ug/m3,8,22,33
+UY,old,Very Bad,#ff0000,301,400,O3,ug/m3,8,540,1080
+UY,new,Very Good,#02ff00,0,25,PTS,ug/m3,24,0,60
+UY,new,Very Good,#02ff00,0,25,PM10,ug/m3,24,0,50
+UY,new,Very Good,#02ff00,0,25,Black smoke,ug/m3,24,0,50
+UY,new,Very Good,#02ff00,0,25,SO2,ug/m3,24,0,20
+UY,new,Very Good,#02ff00,0,25,NO2,ug/m3,1,0,40
+UY,new,Very Good,#02ff00,0,25,CO,ug/m3,8,0,4.5
+UY,new,Very Good,#02ff00,0,25,O3,ug/m3,8,0,80
+UY,new,Good,#94bd5e,26,50,PTS,ug/m3,24,60,100
+UY,new,Good,#94bd5e,26,50,PM10,ug/m3,24,50,75
+UY,new,Good,#94bd5e,26,50,Black smoke,ug/m3,24,50,75
+UY,new,Good,#94bd5e,26,50,SO2,ug/m3,24,20,50
+UY,new,Good,#94bd5e,26,50,NO2,ug/m3,1,40,75
+UY,new,Good,#94bd5e,26,50,CO,ug/m3,8,4.5,7
+UY,new,Good,#94bd5e,26,50,O3,ug/m3,8,80,100
+UY,new,Acceptable,#008001,51,100,PTS,ug/m3,24,100,150
+UY,new,Acceptable,#008001,51,100,PM10,ug/m3,24,75,100
+UY,new,Acceptable,#008001,51,100,Black smoke,ug/m3,24,75,100
+UY,new,Acceptable,#008001,51,100,SO2,ug/m3,24,50,125
+UY,new,Acceptable,#008001,51,100,NO2,ug/m3,1,75,200
+UY,new,Acceptable,#008001,51,100,CO,ug/m3,8,7,10
+UY,new,Acceptable,#008001,51,100,O3,ug/m3,8,100,160
+UY,new,Inadequate,#ffff00,101,200,PTS,ug/m3,24,150,375
+UY,new,Inadequate,#ffff00,101,200,PM10,ug/m3,24,100,150
+UY,new,Inadequate,#ffff00,101,200,Black smoke,ug/m3,24,100,150
+UY,new,Inadequate,#ffff00,101,200,SO2,ug/m3,24,125,365
+UY,new,Inadequate,#ffff00,101,200,NO2,ug/m3,1,200,500
+UY,new,Inadequate,#ffff00,101,200,CO,ug/m3,8,10,15
+UY,new,Inadequate,#ffff00,101,200,O3,ug/m3,8,160,240
+UY,new,Bad,#ff9966,201,300,PTS,ug/m3,24,375,563
+UY,new,Bad,#ff9966,201,300,PM10,ug/m3,24,150,225
+UY,new,Bad,#ff9966,201,300,Black smoke,ug/m3,24,150,225
+UY,new,Bad,#ff9966,201,300,SO2,ug/m3,24,365,550
+UY,new,Bad,#ff9966,201,300,NO2,ug/m3,1,500,1130
+UY,new,Bad,#ff9966,201,300,CO,ug/m3,8,15,22
+UY,new,Bad,#ff9966,201,300,O3,ug/m3,8,240,540
+UY,new,Very Bad,#ff0000,301,400,PTS,ug/m3,24,563,845
+UY,new,Very Bad,#ff0000,301,400,PM10,ug/m3,24,225,340
+UY,new,Very Bad,#ff0000,301,400,Black smoke,ug/m3,24,225,340
+UY,new,Very Bad,#ff0000,301,400,SO2,ug/m3,24,550,825
+UY,new,Very Bad,#ff0000,301,400,NO2,ug/m3,1,1130,2260
+UY,new,Very Bad,#ff0000,301,400,CO,ug/m3,8,22,33
+UY,new,Very Bad,#ff0000,301,400,O3,ug/m3,8,540,1080
