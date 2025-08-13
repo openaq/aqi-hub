@@ -15,6 +15,7 @@ import TableOfContents from "@components/TableOfContents.astro";
     <link rel="sitemap" href="/sitemap.xml" /> 
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
     <title>{pageTitle ?? "OpenAQ AQI Hub"}</title>
     {import.meta.env.PROD && (
       <>
