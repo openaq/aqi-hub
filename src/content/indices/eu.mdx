@@ -1,11 +1,13 @@
 ---
 name: European Union
 indexName: European Air Quality Index
-indexAcronym: AQI
+indexAcronym: EAQI
 ---
 
 import ColorScale from "@components/ColorScale.astro";
 import BreakpointsTable from "@components/BreakpointsTable.astro";
+import Admonition from "@components/Admonition.astro";
+
 
 ## Background
 
@@ -17,6 +19,15 @@ The European Air Quality Index is calculated for over 3,500 stations across Euro
 
 Note that the AQI map provided by the European Environment Agency depicts the air quality for 3 hours ago by default. The AQI for the past 48 hours and forecast for the next 24 hours can also be displayed.
 
+____________________________
+
+The European Environment Agency (EEA) has updated the methodology used to calculate the European Air Quality Index (EAQI) to improve scientific consistency and public communication of air quality risks.
+
+The updated index aligns with the 2021 World Health Organization (WHO) Air Quality Guidelines and elements of the revised EU Ambient Air Quality Directive (EU 2024/2881) [^4]. It introduces pollutant bands that are designed to represent comparable health risks across pollutants, making the index easier to interpret.
+
+The EAQI continues to be reported at the monitoring station level, while maps using modelled concentrations may also be provided to show broader spatial patterns.
+
+
 ## Color scale
 
 The European Air Quality Index is comprised of six categories:
@@ -26,6 +37,8 @@ The European Air Quality Index is comprised of six categories:
 _Note_: Adapted from "European Air Quality Index" (n.d.), [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)[^2]. Accessed 23 July 2024.
 
 ## Methods
+
+**1980s-2024**
 
 NO<sub>2</sub>, O<sub>3</sub>, and SO<sub>2</sub> use hourly concentrations, while PM<sub>2.5</sub> and PM<sub>10</sub> use 24-hour running means for the previous 24 hours when calculating the European Air Quality Index. A 24-hour running mean is calculated if there is corresponding data for at least 18 hours out of the previous 24. There are no rounding conventions stated for concentration or sub-index values.
 
@@ -43,11 +56,34 @@ The index for traffic stations only accounts for NO<sub>2</sub> and PM (either P
 
 The index for industrial and background stations requires data to be either measured or modeled for at least three pollutants for calculation: O<sub>3</sub>, NO<sub>2</sub>, and PM (either PM<sub>2.5</sub> or PM<sub>10</sub> or both).
 
+
+**Updated 2024 Methodology**
+
+The AQI is calculated using hourly concentration data from five key pollutants: PM2.5, PM10, Nitrogen Dioxide (NO2), Ozone (O3), and Sulfur Dioxide (SO2). All pollutant concentrations are expressed in micrograms per cubic meter (µg/m³).
+
+Each pollutant's hourly concentration is compared against predefined concentrations corresponding to the six qualitative air quality categories: Good, Fair, Moderate, Poor, Very Poor, and Extremely Poor. 
+
+Air quality categories are now based on equal relative risk of short-term mortality from air pollution exposure. The system uses PM₂.₅ as the reference pollutant, with its concentration thresholds defined using WHO guideline levels and interim targets. Thresholds for other pollutants are then calculated so that each band corresponds to a similar level of health risk.
+
+Another important change is that the index is now updated hourly for all pollutants, including particulate matter (PM), allowing the index to better reflect short-term changes in air quality.
+
+
+<BreakpointsTable index="eea" />
+
+Unlike breakpoint-based systems such as the U.S. Air Quality Index, the European Air Quality Index does not calculate a numeric sub-index using linear interpolation. Instead, measured pollutant concentrations are directly classified into predefined air quality categories.
+
+The overall air quality level at a monitoring station is determined by the pollutant with the highest severity category at that time.
+
+It is important to note that the index reflects short-term (hourly) air quality conditions only. It is intended as a public information tool and does not represent long-term regulatory compliance with EU air quality limit values.
+
 For all monitoring stations, the index is calculated if there is at least one pollutant with adequate data. For stations that do not report adequate data or if data cannot be filled for the minimum pollutants, the data is depicted as semi-transparent circles on the map provided by the EEA. For stations that have no data, a gray dot is used [^2].
 
-When data is not reported for a given hour, pollutant concentrations are 'gap-filled' through approximations from CAMS data [^2]. NO<sub>2</sub>, PM<sub>2.5</sub>, and PM<sub>10</sub> use the difference method of gap-filling, while O<sub>3</sub> uses the multiplicative method. No gap-filling is performed for SO<sub>2</sub> values. The difference method adds or subtracts a correction factor equal to the average difference between measured values and CAMS modeled values for the same hour for at least 3 of the 4 previous days. The multiplicative method applies a correction factor equal to the average ratio between measured values and CAMS-modeled data for the same hour for at least 3 of the 4 previous days. If there is no data for at least 3 of the 4 previous days, no value for the pollutant will be calculated.
 
-CAMS provides forecasts of pollutants up to 4 days in advance based on the regional ensemble model [^3].
+<Admonition type="note">
+    When data is not reported for a given hour, pollutant concentrations are 'gap-filled' through approximations from CAMS data [^2]. NO<sub>2</sub>, PM<sub>2.5</sub>, and PM<sub>10</sub> use the difference method of gap-filling, while O<sub>3</sub> uses the multiplicative method. No gap-filling is performed for SO<sub>2</sub> values. The difference method adds or subtracts a correction factor equal to the average difference between measured values and CAMS modeled values for the same hour for at least 3 of the 4 previous days. The multiplicative method applies a correction factor equal to the average ratio between measured values and CAMS-modeled data for the same hour for at least 3 of the 4 previous days. If there is no data for at least 3 of the 4 previous days, no value for the pollutant will be calculated.
+
+    CAMS provides forecasts of pollutants up to 4 days in advance based on the regional ensemble model [^3].    
+</Admonition>
 
 ## References
 
@@ -62,6 +98,10 @@ Baran, Paulina. "Guidelines for the demonstration and subtraction of exceedances
 
 "European Air Quality Index Calculation." Copernicus Atmosphere Monitoring Service, [ecmwf-projects.github.io/copernicus-training-cams/proc-aq-index.html](https://ecmwf-projects.github.io/copernicus-training-cams/proc-aq-index.html).
 
+“ETC HE Report 2024/17: EEA´S Revision of the European Air Quality Index Bands.” Eionet Portal, 2024, www.eionet.europa.eu/etcs/etc-he/products/etc-he-products/etc-he-reports/etc-he-report-2024-17-eeas-revision-of-the-european-air-quality-index-bands. 
+
+
 [^1]: [https://environment.ec.europa.eu/topics/air/air-quality_en\#:\~:text=Background%20Since%20the%201980s%2C%20the%20EU%20has%20adopted,for%20most%20air%20pollutants%20over%20the%20past%20decade](https://environment.ec.europa.eu/topics/air/air-quality_en#:~:text=Background%20Since%20the%201980s%2C%20the%20EU%20has%20adopted,for%20most%20air%20pollutants%20over%20the%20past%20decade).
 [^2]: [https://airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html)
-[^3]: [https://atmosphere.copernicus.eu/european-air-quality-forecast-plots](https://atmosphere.copernicus.eu/european-air-quality-forecast-plots)
+[^3]: [www.eionet.europa.eu/etcs/etc-he/products/etc-he-products/etc-he-reports/etc-he-report-2024-17-eeas-revision-of-the-european-air-quality-index-bands](www.eionet.europa.eu/etcs/etc-he/products/etc-he-products/etc-he-reports/etc-he-report-2024-17-eeas-revision-of-the-european-air-quality-index-bands)
+[^4]: [https://atmosphere.copernicus.eu/european-air-quality-forecast-plots](https://atmosphere.copernicus.eu/european-air-quality-forecast-plots)
