@@ -18,18 +18,18 @@ North Macedonia’s Air Quality Index uses the same six-color classification sys
 
 <ColorScale index="northmacedonia" value={false} />
 
-_Note_: Adapted from “Индекс за квалитет на воздух.” Moepp.gov.mk, 2025, air.moepp.gov.mk/StaticSites/air_quality_index. Accessed 8 Mar. 2026.
+_Note_: Adapted from “Индекс за квалитет на воздух.” Moepp.gov.mk, 2025, [air.moepp.gov.mk/StaticSites/air_quality_index](air.moepp.gov.mk/StaticSites/air_quality_index). Accessed 8 Mar. 2026.
 
 ## Methods
 
-The AQI is calculated using hourly concentration data from five key pollutants: PM2.5, PM10, Nitrogen Dioxide (NO2), Ozone (O3), and Sulfur Dioxide (SO2). All pollutant concentrations are expressed in micrograms per cubic meter (µg/m³).
+The AQI is calculated using hourly concentration data from five key pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, Nitrogen Dioxide (NO<sub>2</sub>), Ozone (O<sub>3</sub>), and Sulfur Dioxide (SO<sub>2</sub>). All pollutant concentrations are expressed in micrograms per cubic meter (µg/m³).
 
 For each monitoring station (or modelled grid cell), the most recent hourly concentration for each of the five pollutants is obtained. 
 
-A station must report required pollutants (NO₂ and at least one particulate pollutant; O₃ required for background/industrial stations) for a full AQI classification. If real-time data are missing for NO2, PM2.5, PM10, or O3, values may be gap-filled using downscaled Copernicus Atmospheric Monitoring Service (CAMS) model data: 
-Difference method (for NO2, PM2.5, PM10): The CAMS model value is adjusted by adding or subtracting the average historical difference between measured and modelled values for the same hour over at least three of the previous four days. 
-Multiplicative method (for O3): The CAMS model value is corrected using the average ratio between previously measured and modelled values for the same hour over at least three of the previous four days. 
-No gap-filling is performed for SO2
+A station must report required pollutants (NO₂ and at least one particulate pollutant; O<sub>3</sub> required for background/industrial stations) for a full AQI classification. If real-time data are missing for NO<sub>2</sub>, PM<sub>2.5</sub>, PM<sub>10</sub>, or O<sub>3</sub>, values may be gap-filled using downscaled Copernicus Atmospheric Monitoring Service (CAMS) model data: 
+Difference method (for NO<sub>2</sub>, PM<sub>2.5</sub>, PM<sub>10</sub>): The CAMS model value is adjusted by adding or subtracting the average historical difference between measured and modelled values for the same hour over at least three of the previous four days. 
+Multiplicative method (for O<sub>3</sub>): The CAMS model value is corrected using the average ratio between previously measured and modelled values for the same hour over at least three of the previous four days. 
+No gap-filling is performed for SO<sub>2</sub>
 
 Each pollutant's hourly concentration is compared against predefined concentrations corresponding to the six qualitative air quality categories: Good, Fair, Moderate, Poor, Very Poor, and Extremely Poor. 
 
@@ -37,7 +37,7 @@ Pollutant breakpoints are defined in the table below:
 
 <BreakpointsTable index="northmacedonia" />
 
-_Note_: Adapted from “European Air Quality Index.” Europa.eu, 2024, airindex.eea.europa.eu/AQI/index.html.
+_Note_: Adapted from “European Air Quality Index.” Europa.eu, 2024, [airindex.eea.europa.eu/AQI/index.html](airindex.eea.europa.eu/AQI/index.html).
 
 Unlike breakpoint-based systems (such as the U.S. AQI), the European/North Macedonian AQI does not use linear interpolation to calculate a numeric sub-index. Instead, pollutant concentrations are directly classified. 
 
