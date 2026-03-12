@@ -1,0 +1,31 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+MX-CMX,,Buena,#00e400,0,50,O3,ppm,1,0,0.055
+MX-CMX,,Buena,#00e400,0,50,NO2,ppm,1,0,0.105
+MX-CMX,,Buena,#00e400,0,50,SO2,ppm,24,0,0.065
+MX-CMX,,Buena,#00e400,0,50,CO,ppm,8,0,5.5
+MX-CMX,,Buena,#00e400,0,50,PM10,ug/m3,24,0,60
+MX-CMX,,Buena,#00e400,0,50,PM2.5,ug/m3,24,0,15.4
+MX-CMX,,Regular,#ffff00,51,100,O3,ppm,1,0.056,0.11
+MX-CMX,,Regular,#ffff00,51,100,NO2,ppm,1,0.106,0.21
+MX-CMX,,Regular,#ffff00,51,100,SO2,ppm,24,0.066,0.13
+MX-CMX,,Regular,#ffff00,51,100,CO,ppm,8,5.51,11
+MX-CMX,,Regular,#ffff00,51,100,PM10,ug/m3,24,61,120
+MX-CMX,,Regular,#ffff00,51,100,PM2.5,ug/m3,24,15.5,40.4
+MX-CMX,,Mala,#ff7e00,101,150,O3,ppm,1,0.111,0.165
+MX-CMX,,Mala,#ff7e00,101,150,NO2,ppm,1,0.211,0.315
+MX-CMX,,Mala,#ff7e00,101,150,SO2,ppm,24,0.131,0.195
+MX-CMX,,Mala,#ff7e00,101,150,CO,ppm,8,11.01,16.5
+MX-CMX,,Mala,#ff7e00,101,150,PM10,ug/m3,24,121,220
+MX-CMX,,Mala,#ff7e00,101,150,PM2.5,ug/m3,24,40.5,65.4
+MX-CMX,,Muy Mala,#ff0000,151,200,O3,ppm,1,0.166,0.22
+MX-CMX,,Muy Mala,#ff0000,151,200,NO2,ppm,1,0.316,0.42
+MX-CMX,,Muy Mala,#ff0000,151,200,SO2,ppm,24,0.196,0.26
+MX-CMX,,Muy Mala,#ff0000,151,200,CO,ppm,8,16.51,22
+MX-CMX,,Muy Mala,#ff0000,151,200,PM10,ug/m3,24,221,320
+MX-CMX,,Muy Mala,#ff0000,151,200,PM2.5,ug/m3,24,65.5,150.4
+MX-CMX,,Extremadamente Mala,#8f3f97,201,,O3,ppm,1,0.22,
+MX-CMX,,Extremadamente Mala,#8f3f97,201,,NO2,ppm,1,0.42,
+MX-CMX,,Extremadamente Mala,#8f3f97,201,,SO2,ppm,24,0.26,
+MX-CMX,,Extremadamente Mala,#8f3f97,201,,CO,ppm,8,22,
+MX-CMX,,Extremadamente Mala,#8f3f97,201,,PM10,ug/m3,24,320,
+MX-CMX,,Extremadamente Mala,#8f3f97,201,,PM2.5,ug/m3,24,150.4,
