@@ -4,10 +4,15 @@ indexName: Índice AIRE Y SALUD
 indexAcronym: ""
 ---
 
-import Admonition from "@components/Admonition.astro";
 import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+import Admonition from "@components/Admonition.astro";
 
-## Background
+## National Indice Aire Y Salud
+
+### Background
 
 Mexico's Air Quality and Health Risk index, Índice de Calidad del Aire y Riesgos a la Salud or Índice AIRE Y SALUD, accounts for pollutant concentrations of PM<sub>2.5</sub>, PM<sub>10</sub>, CO, O<sub>3</sub>, SO<sub>2</sub>, and NO<sub>2</sub>. It utilizes hourly average concentrations, 8-hour moving average concentrations, and 12-hour moving average concentrations.
 
@@ -15,17 +20,18 @@ The Norma Oficial Mexicana (NOM), Official Mexican Standard, establishes the gui
 
 The guidelines for calculating and communicating the Índice AIRE Y SALUD was approved by the National Consultative Committee for the Standardization of the Environment and Natural Resources on December 8, 2017 for publication. NOM was confirmed as definitive by the National Consultative Committee for the Standardization of the Environment of Natural Resources on October 10, 2019.
 
-## Color scale
+
+### Color scale
 
 The Índice AIRE Y SALUD uses a color scale comprised of five levels:
 
-<ColorScale index="mexico" value={true} />
+<ColorScale variant="national" index="mexico" value={true} />
 
 _Note_: Adapted from "SECRETARIA DE MEDIO AMBIENTE Y RECURSOS NATURALES" (20 Nov. 2019), [https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf](https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf)[^1]. Accessed 1 July 2024.
 
 In cases of stations under maintenance and/or without viable information, the associated color is reported as white.
 
-## Methods
+### Methods
 
 PM<sub>2.5</sub> and PM<sub>10</sub> use a 12-hour weighted moving average concentration, using the NowCast calculation method established by the United States EPA. This average 24-hour concentration presents "timely information to the population about risks of exposure to high levels of contamination by this pollutant" [^2]. CO uses an 8-hour moving average concentration, NO<sub>2</sub> uses an average hourly concentration, and SO<sub>2</sub> uses a 24-hour moving average concentration as an approximation of the 24-average. O<sub>3</sub> is measured using both an 8-hour moving average concentration and average hourly concentration.
 
@@ -213,10 +219,60 @@ NOM standards for each pollutant provide measurement methods for determining the
 
 _Note_: Adapted from "SECRETARIA DE MEDIO AMBIENTE Y RECURSOS NATURALES" (20 November 2019), [https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf](https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf)[^1]. Accessed 1 July 2024.
 
+
+<div id="imeca">
+  ## Mexico City
+</div>
+
+<h2 style="font-size: 20px; text-decoration: underline; font-weight: 400; margin-bottom: 1rem; margin-top: 0.25rem;">
+  El Indice Metropolitano De La Calidad Del Aire (IMECA)
+</h2>
+
+### Background
+
+The Air Quality Index used in Mexico City, known as the Índice Metropolitano de la Calidad del Aire (IMECA), was developed to provide timely and understandable information about air pollution levels in the Metropolitan Zone of the Valley of Mexico (ZMVM) in order to protect public health. The index evolved from earlier efforts beginning in 1977 with the Mexican Air Quality Index (IMEXCA), and in 1982 was formally structured as IMECA, adapting elements of the U.S. Pollutant Standard Index to Mexican environmental health standards. 
+IMECA converts concentrations of regulated (“criteria”) pollutants into a dimensionless scale, establishing 100 points as the health protection threshold for each pollutant based on Mexican Official Standards (NOM). 
+
+The Secretariat of the Environment of Mexico City formalized guidelines to ensure IMECA is calculated through transparent methods, aligned with national health standards, and communicated in a way that clearly conveys health risks and recommended protective actions. 
+
+
+### Color scale
+
+IMECA converts pollutant concentrations into a standardized scale, divided into five color-coded categories that describe the potential health impacts.
+
+<ColorScale variant="cdmx" index="mexico" value={true} />
+_Note_: Adapted from [https://web.archive.org/web/20140729052500/http://www.sedema.df.gob.mx/padla/index.php?option=com_content&view=article&id=331:nadf-009-aire-2006&catid=53:normas-ambientales-del-distrito-federal&Itemid=87](https://web.archive.org/web/20140729052500/http://www.sedema.df.gob.mx/padla/index.php?option=com_content&view=article&id=331:nadf-009-aire-2006&catid=53:normas-ambientales-del-distrito-federal&Itemid=87)
+
+### Methods
+For each pollutant (O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, PM<sub>10</sub>, PM<sub>2.5</sub>), the breakpoint table is used to establish the thresholds that categorize the levels of pollution into the 5 categories. 
+
+<BreakpointsTable variant="cdmx" index="mexico" />
+
+For each pollutant, the corresponding IMECA sub-index is calculated using a standard piecewise linear formula. This formula interpolates the pollutant concentration within its applicable range to determine its sub-index value. Apply this formula:
+
+<div class="latex-container">
+    <PiecewiseLatexDoc label="IMECA" />
+</div>
+
+<AqiCalculator
+  client:only="solid"
+  index="mexico"
+  variant="cdmx"
+  acronym={frontmatter.indexAcronym}
+/>
+
+The overall IMECA value is the highest pollutant sub-index value calculated from the individual pollutant concentration. This value indicates the overall air quality.
+
+The IMECA value is then classified into the categories based on predetermined ranges. An IMECA value of 100 corresponds to the health protection limit established in the applicable Mexican Official Standard (NOM) for each pollutant.
+
+
+
 ## References
 
 [^1]: [https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf](https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf)
 [^2]: [https://www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf](https://www.gob.mx/cms/uploads/attachment/file/554425/comunicado_indice_calidad_aire_05_2020_FINAL_v3.pdf)
+
+Administrator. “NADF 009 AIRE 2006.” Archive.org, 2026, [web.archive.org/web/20140729052500/www.sedema.df.gob.mx/padla/index.php?option=com_content&view=article&id=331:nadf-009-aire-2006&catid=53:normas-ambientales-del-distrito-federal&Itemid=87](web.archive.org/web/20140729052500/www.sedema.df.gob.mx/padla/index.php?option=com_content&view=article&id=331:nadf-009-aire-2006&catid=53:normas-ambientales-del-distrito-federal&Itemid=87).
 
 Duarte, Filiberto Perez. "Normas Oficiales Mexicanas (NOM) - Salud Ambiental." 18 Aug. 1994, Mexico City, [sinaica.inecc.gob.mx/pags/noms.php](https://sinaica.inecc.gob.mx/pags/noms.php).
 
