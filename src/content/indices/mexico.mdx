@@ -25,7 +25,7 @@ The guidelines for calculating and communicating the Índice AIRE Y SALUD was ap
 
 The Índice AIRE Y SALUD uses a color scale comprised of five levels:
 
-<ColorScale index="mexico" value={true} />
+<ColorScale variant="national" index="mexico" value={true} />
 
 _Note_: Adapted from "SECRETARIA DE MEDIO AMBIENTE Y RECURSOS NATURALES" (20 Nov. 2019), [https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf](https://sinaica.inecc.gob.mx/archivo/noms/NOM-172-SEMARNAT-2019-Indice-AIRE-y-SALUD.pdf)[^1]. Accessed 1 July 2024.
 
@@ -240,15 +240,15 @@ The Secretariat of the Environment of Mexico City formalized guidelines to ensur
 
 IMECA converts pollutant concentrations into a standardized scale, divided into five color-coded categories that describe the potential health impacts.
 
-<ColorScale variant="" index="mexico-city" value={true} />
+<ColorScale variant="cdmx" index="mexico" value={true} />
 _Note_: Adapted from [https://web.archive.org/web/20140729052500/http://www.sedema.df.gob.mx/padla/index.php?option=com_content&view=article&id=331:nadf-009-aire-2006&catid=53:normas-ambientales-del-distrito-federal&Itemid=87](https://web.archive.org/web/20140729052500/http://www.sedema.df.gob.mx/padla/index.php?option=com_content&view=article&id=331:nadf-009-aire-2006&catid=53:normas-ambientales-del-distrito-federal&Itemid=87)
 
 ### Methods
 For each pollutant (O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO, PM<sub>10</sub>, PM<sub>2.5</sub>), the breakpoint table is used to establish the thresholds that categorize the levels of pollution into the 5 categories. 
 
-<BreakpointsTable variant="" index="mexico-city" />
+<BreakpointsTable variant="cdmx" index="mexico" />
 
-For each pollutant, the corresponding IMECA sub-index is calculated using a standardized piecewise linear formula. This formula interpolates the pollutant concentration within its applicable range to determine its sub-index value. Apply this formula:
+For each pollutant, the corresponding IMECA sub-index is calculated using a standard piecewise linear formula. This formula interpolates the pollutant concentration within its applicable range to determine its sub-index value. Apply this formula:
 
 <div class="latex-container">
     <PiecewiseLatexDoc label="IMECA" />
@@ -256,7 +256,8 @@ For each pollutant, the corresponding IMECA sub-index is calculated using a stan
 
 <AqiCalculator
   client:only="solid"
-  index="mexico-city"
+  index="mexico"
+  variant="cdmx"
   acronym={frontmatter.indexAcronym}
 />
 
