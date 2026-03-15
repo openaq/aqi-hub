@@ -1,0 +1,60 @@
+---
+name: North Macedonia
+indexName: Air Quality Index
+indexAcronym: AQI
+---
+
+import Admonition from "@components/Admonition.astro";
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+
+## Background
+
+The AQI in North Macedonia is designed to communicate the short-term (hourly) health implications of air pollution in a standardized format. North Macedonia’s system (via the Ministry of Environment and Physical Planning) is not an independent methodology. It is a national implementation of the European Environment Agency's European Air Quality Index framework.
+
+## Color scale
+
+North Macedonia’s Air Quality Index uses the same six-color classification system as the European Union AQI. 
+
+<ColorScale index="northmacedonia" value={false} />
+
+_Note_: Adapted from “Индекс за квалитет на воздух.” Moepp.gov.mk, 2025, [air.moepp.gov.mk/StaticSites/air_quality_index](air.moepp.gov.mk/StaticSites/air_quality_index). Accessed 8 Mar. 2026.
+
+## Methods
+
+The AQI is calculated using hourly concentration data from five key pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, Nitrogen Dioxide (NO<sub>2</sub>), Ozone (O<sub>3</sub>), and Sulfur Dioxide (SO<sub>2</sub>). All pollutant concentrations are expressed in micrograms per cubic meter (µg/m³).
+
+For each monitoring station (or modelled grid cell), the most recent hourly concentration for each of the five pollutants is obtained. 
+
+A station must report required pollutants (NO₂ and at least one particulate pollutant; O<sub>3</sub> required for background/industrial stations) for a full AQI classification. If real-time data are missing for NO<sub>2</sub>, PM<sub>2.5</sub>, PM<sub>10</sub>, or O<sub>3</sub>, values may be gap-filled using downscaled Copernicus Atmospheric Monitoring Service (CAMS) model data: 
+Difference method (for NO<sub>2</sub>, PM<sub>2.5</sub>, PM<sub>10</sub>): The CAMS model value is adjusted by adding or subtracting the average historical difference between measured and modelled values for the same hour over at least three of the previous four days. 
+Multiplicative method (for O<sub>3</sub>): The CAMS model value is corrected using the average ratio between previously measured and modelled values for the same hour over at least three of the previous four days. 
+No gap-filling is performed for SO<sub>2</sub>
+
+Each pollutant's hourly concentration is compared against predefined concentrations corresponding to the six qualitative air quality categories: Good, Fair, Moderate, Poor, Very Poor, and Extremely Poor. 
+
+Pollutant breakpoints are defined in the table below:
+
+<BreakpointsTable index="northmacedonia" />
+
+_Note_: Adapted from “European Air Quality Index.” Europa.eu, 2024, [airindex.eea.europa.eu/AQI/index.html](airindex.eea.europa.eu/AQI/index.html).
+
+Unlike breakpoint-based systems (such as the U.S. AQI), the European/North Macedonian AQI does not use linear interpolation to calculate a numeric sub-index. Instead, pollutant concentrations are directly classified. 
+
+The overall AQI level for a monitoring station is determined by identifying the pollutant with the worst (highest severity) category.
+
+<Admonition type="note">
+  Policy Clarity: The AQI reflects short-term (hourly) air quality 
+  conditions only and does not indicate long-term regulatory 
+  compliance with EU limit values.
+</Admonition>
+
+
+## References
+
+“Air Quality Portal.” Moepp.gov.mk, 2025, [air.moepp.gov.mk/](https://air.moepp.gov.mk/).
+
+“European Air Quality Index.” Europa.eu, 2024, [airindex.eea.europa.eu/AQI/index.html](https://airindex.eea.europa.eu/AQI/index.html).
+
+“Индекс за квалитет на воздух.” Moepp.gov.mk, 2025, [air.moepp.gov.mk/StaticSites/air_quality_index](air.moepp.gov.mk/StaticSites/air_quality_index).
+‌
