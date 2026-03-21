@@ -1,0 +1,55 @@
+---
+name: Netherlands
+indexName: Luchtkwaliteitsindex
+indexAcronym: LKI
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import Admonition from "@components/Admonition.astro";
+
+
+## Background
+
+The Netherlands Air Quality Index (Luchtkwaliteitsindex, LKI) was developed by the National Institute for Public Health and Environment (RIVM) in collaboration with the Municipal Health Services (GGD) to improve how air quality information is communicated to the public. 
+
+The index is based on scientific research examining the relationship between air pollution concentrations and health effects. These studies identify concentration levels at which a measurable portion of the population may experience health impacts. Using this evidence, the Netherlands developed a system that classifies air quality into five categories, from good to very bad. 
+
+The index is used by the Dutch government and public health agencies in air quality communication and smog reporting, including information provided through the national air monitoring network. It focuses on pollutants known to have significant health effects, including particulate matter (PM<sub>2.5</sub> and PM<sub>10</sub>), ozone (O<sub>3</sub>), and nitrogen dioxide (NO<sub>3</sub>).
+
+
+## Color scale
+
+The Netherlands Air Quality Index uses an eleven-point scale grouped into five air quality categories, each represented by a color to indicate increasing levels of air pollution.
+
+<ColorScale index="netherlands" value={false} />
+
+_Note_: Adapted from "Luchtkwaliteitsindex (LKI)", [https://www.luchtmeetnet.nl/informatie/luchtkwaliteit/luchtkwaliteitsindex-(lki)](https://www.luchtmeetnet.nl/informatie/luchtkwaliteit/luchtkwaliteitsindex-(lki))[^1].
+
+## Methods
+
+The Netherlands LKI converts pollutant concentrations into a numerical sub-index ranging from 1 (low pollution) to 11 (high pollution). Each pollutants measured or modeled concentration is assigned a sub-index value according to predefined concentration ranges expressed in micrograms per cubic meter. 
+
+The overall air quality index at a given location and time is determined by the pollutant with the highest sub-index value, reflecting the pollutant posing the greatest health concern. If all pollutants receive the same sub-index value, the total index is increased by one additional point. Any decimal index values are rounded up to the next whole number.
+
+The concentration ranges for each pollutant were designed so that the same index value corresponds to comparable levels of health risk across pollutants. Sulfur dioxide is not included in the calculation because concentrations in the Netherlands have declined significantly and were considered to contribute little additional information.
+
+This classification system allows both measured and modeled air quality data to be summarized into five public-facing categories, enabling consistent reporting of real-time air quality conditions across monitoring stations in the Netherlands.
+
+
+<BreakpointsTable index="netherlands" />
+
+The overall air quality level at a monitoring station is determined by the pollutant with the highest severity category at that time.
+
+
+## References
+
+“Waarschuwingsgrenzen En Luchtkwaliteitsindex - RIVM.” Archive.org, 2017, [web.archive.org/web/20171022234053/www.rivm.nl/Onderwerpen/S/Smog/Waarschuwingsgrenzen_en_luchtkwaliteitsindex](web.archive.org/web/20171022234053/www.rivm.nl/Onderwerpen/S/Smog/Waarschuwingsgrenzen_en_luchtkwaliteitsindex).
+‌
+Luchtmeetnet.nl. “Luchtmeetnet.nl.” Luchtmeetnet.nl, 2026, [www.luchtmeetnet.nl/informatie/luchtkwaliteit/luchtkwaliteitsindex-(lki)](www.luchtmeetnet.nl/informatie/luchtkwaliteit/luchtkwaliteitsindex-(lki)). 
+
+“Dylos Fijnstofmeters FAQ.” Fijnstofmeter.com, 2026, [www.fijnstofmeter.com/faq.html](www.fijnstofmeter.com/faq.html).
+
+‌“Luchtkwaliteit: Meldingen van Inwoners | RIVM.” Rivm.nl, 2016, [www.rivm.nl/ggd-richtlijn-medische-milieukunde-luchtkwaliteit-en-gezondheid/luchtkwaliteit-advisering-door-GGD/meldingen-inwoners-luchtkwaliteit](www.rivm.nl/ggd-richtlijn-medische-milieukunde-luchtkwaliteit-en-gezondheid/luchtkwaliteit-advisering-door-GGD/meldingen-inwoners-luchtkwaliteit).
+
+[^1]: [https://www.luchtmeetnet.nl/informatie/luchtkwaliteit/luchtkwaliteitsindex-(lki)](https://www.luchtmeetnet.nl/informatie/luchtkwaliteit/luchtkwaliteitsindex-(lki))
