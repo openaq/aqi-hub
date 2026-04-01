@@ -119,7 +119,7 @@ for the number of pollutants necessary to calculate the overall AQI.
 
 ### CETESB IQA
 
-In São Paulo, the Air Quality Index (AQI) is calculated using the combined concentrations of six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. The AQI 
+In São Paulo, the Air Quality Index (AQI) is calculated using the concentrations of six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. The AQI 
 classification system consists of five levels, similar to the SMAC system from Rio de Janeiro with different concentration ranges. 
 
 CETESB (Environmental Agency of São Paulo) established the AQI calculation process based on the maximum daily concentrations of these pollutants over specific averaging
@@ -168,13 +168,11 @@ it does not clarify whether all must be measured to calculate the final index.
 
 ### Espírito Santo IAQr
 
-The IQAr is a dimensionless numerical index ranging from 0 to 400, calculated using piecewise linear functions across five concentration ranges 
-for each pollutant. The index is computed individually for each pollutant using the measured concentration and the defined concentration breakpoints 
-for that pollutant 
+The IQAr is a dimensionless numerical index ranging from 0 to 400. The Air Quality Index is calculated using the combined concentrations of six primary pollutants: PM<sub>10</sub>, PM<sub>2.5</sub>, O<sub>3</sub>, CO, NO<sub>2</sub>, and SO<sub>2</sub>. 
 
 <BreakpointsTable variant="Espírito Santo" index="brazil" />
 
-For each pollutant, a sub-index value is calculated. The final IQAr reported for a monitoring station is the highest sub-index value among all measured pollutants. 
+For each pollutant, a sub-index value is calculated using piecewise linear functions across five concentration ranges. The final IQAr reported for a monitoring station is the highest sub-index value among all measured pollutants. 
 
 This calculation and reporting methodology follows the technical guidance established in the Guia Tecnico de Qualidade do Ar issued by Brazil’s Ministry of the Environment (2025). 
 
