@@ -12,6 +12,8 @@ import Admonition from "@components/Admonition.astro";
 
 ## Background
 
+**Rio de Janeiro IQA**
+
 Unlike some countries which operate under a unified national air quality index, Brazil employs municipal air quality indices, with some cities or regions developing their own system based on 
 local conditions, pollutants, and monitoring. Cities like Rio de Janeiro and São Paulo implement their own methodologies for IQA calculation. 
 
@@ -26,9 +28,20 @@ suggests clean air with minimal health risks, while values above 300 reflect sev
 This standardized index enables citizens, policymakers, and institutions in Rio de Janeiro to stay informed about current air quality conditions and respond appropriately to pollution-related 
 health risks.
 
+**Sao Paulo IQA**
+
+
 São Paulo uses a system established by the São Paulo State Environmental Agency (CETESB), which also features a five-tier scale but includes categories like “Extremely High Pollution.” 
 In contrast, Rio de Janeiro’s system, implemented by the Municipal Department of the Environment (SMAC), uses slightly different pollutant thresholds to define each air quality category. 
 These regional variations reflect differences in pollutants monitored, local climate, population sensitivity, and regulatory frameworks.
+
+**Espírito Santo IAQr**
+
+
+The Índice de Qualidade do Ar (IQAr) is the air quality index used by the state of Espírito Santo, Brazil. It provides a standardized numerical indicator of air quality conditions 
+measured at monitoring stations and is used in official reporting across the state’s automatic air monitoring networks (RAMQAr). The concentration thresholds used in the index are based 
+on reference values from the World Health Organization (2021) air quality guidelines and Brazil’s national air quality standards established under CONAMA Resolution No. 506/2024. The 
+index is currently reported for monitoring stations in the RAMQAr Greater Vitória and RAMQAr South networks, serving the municipalities of Anchieta and Guarapari.
 
 
 ## Color scale
@@ -47,6 +60,14 @@ Brazil’s CETESB  (São Paulo) IQA calculation consists of five categories: Boa
 <ColorScale variant="São Paulo" index="brazil" value={true} />
 
 _Note_: Adapted from https://cetesb.sp.gov.br/ar/padroes-de-qualidade-do-ar/
+
+### Espírito Santo IAQr
+
+Brazil’s IEMA (Instituto Estadual de Meio Ambiente e Recursos Hídricos) IQAr calculation also consists of five categories with the following ranges: 
+
+<ColorScale variant="Espírito Santo" index="brazil" value={true} />
+
+_Note_: Adapted from https://iema.es.gov.br/qualidadedoar/indicedequalidadedoar 
 
 
 ## Methods
@@ -98,7 +119,7 @@ for the number of pollutants necessary to calculate the overall AQI.
 
 ### CETESB IQA
 
-In São Paulo, the Air Quality Index (AQI) is calculated using the combined concentrations of six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. The AQI 
+In São Paulo, the Air Quality Index (AQI) is calculated using the concentrations of six primary pollutants: PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, and CO. The AQI 
 classification system consists of five levels, similar to the SMAC system from Rio de Janeiro with different concentration ranges. 
 
 CETESB (Environmental Agency of São Paulo) established the AQI calculation process based on the maximum daily concentrations of these pollutants over specific averaging
@@ -145,6 +166,21 @@ it does not clarify whether all must be measured to calculate the final index.
 
 </Admonition>
 
+### Espírito Santo IAQr
+
+The IQAr is a dimensionless numerical index ranging from 0 to 400. The Air Quality Index is calculated using the combined concentrations of six primary pollutants: PM<sub>10</sub>, PM<sub>2.5</sub>, O<sub>3</sub>, CO, NO<sub>2</sub>, and SO<sub>2</sub>. 
+
+<BreakpointsTable variant="Espírito Santo" index="brazil" />
+
+For each pollutant, a sub-index value is calculated using piecewise linear functions across five concentration ranges. The final IQAr reported for a monitoring station is the highest sub-index value among all measured pollutants. 
+
+This calculation and reporting methodology follows the technical guidance established in the Guia Tecnico de Qualidade do Ar issued by Brazil’s Ministry of the Environment (2025). 
+
+<div class="latex-container">
+
+<PiecewiseLatexDoc label="IQA" />
+
+</div>
 
 
 
@@ -158,7 +194,8 @@ it does not clarify whether all must be measured to calculate the final index.
 
 "Instituto Estadual Do Ambientte." Inea.rj.gov.br, 2018, [www.inea.rj.gov.br/poluentes-monitorados/](https://www.inea.rj.gov.br/poluentes-monitorados/)
 
-"Guia Da Qualidade Do Ar." Governo Do Estado Do Espirito Santo, [iema.es.gov.br/Media/iema/CQAI/Cartilha/Guia_Qualidade_Ar_ebook.pdf](https://iema.es.gov.br/Media/iema/CQAI/Cartilha/Guia_Qualidade_Ar_ebook.pdf)
+"Guia Da Qualidade Do Ar." Governo Do Estado Do Espírito Santo, [iema.es.gov.br/Media/iema/CQAI/Cartilha/Guia_Qualidade_Ar_ebook.pdf](https://iema.es.gov.br/Media/iema/CQAI/Cartilha/Guia_Qualidade_Ar_ebook.pdf)
 
+“IEMA - Qualidade Do Ar.” Iema.es.gov.br, [iema.es.gov.br/qualidadedoar/indicedequalidadedoar](iema.es.gov.br/qualidadedoar/indicedequalidadedoar).
 
 [^1]: [energiaeambiente.org.br/qualidadedoar/en/](https://energiaeambiente.org.br/qualidadedoar/en/)

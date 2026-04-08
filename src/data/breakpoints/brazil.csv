@@ -49,3 +49,33 @@ BR,São Paulo,Terrible,#990065,200,,CO,ppm,8,15,
 BR,São Paulo,Terrible,#990065,200,,PM10,ug/m3,24,250,
 BR,São Paulo,Terrible,#990065,200,,O3,ug/m3,8,200,
 BR,São Paulo,Terrible,#990065,200,,NO2,ug/m3,1,1130,
+BR,Espírito Santo,Good,#02FE00,0,40,PM10,ug/m3,24,0,45
+BR,Espírito Santo,Good,#02FE00,0,40,PM2.5,ug/m3,24,0,15
+BR,Espírito Santo,Good,#02FE00,0,40,O3,ug/m3,8,0,100
+BR,Espírito Santo,Good,#02FE00,0,40,CO,ppm,8,0,9
+BR,Espírito Santo,Good,#02FE00,0,40,NO2,ug/m3,1,0,200
+BR,Espírito Santo,Good,#02FE00,0,40,SO2,ug/m3,24,0,20
+BR,Espírito Santo,Moderate,#FFFF00,41,80,PM10,ug/m3,24,45,100
+BR,Espírito Santo,Moderate,#FFFF00,41,80,PM2.5,ug/m3,24,15,50
+BR,Espírito Santo,Moderate,#FFFF00,41,80,O3,ug/m3,8,100,130
+BR,Espírito Santo,Moderate,#FFFF00,41,80,CO,ppm,8,9,11
+BR,Espírito Santo,Moderate,#FFFF00,41,80,NO2,ug/m3,1,200,240
+BR,Espírito Santo,Moderate,#FFFF00,41,80,SO2,ug/m3,24,20,40
+BR,Espírito Santo,Bad ,#FF7E00,81,120,PM10,ug/m3,24,100,150
+BR,Espírito Santo,Bad ,#FF7E00,81,120,PM2.5,ug/m3,24,50,75
+BR,Espírito Santo,Bad ,#FF7E00,81,120,O3,ug/m3,8,130,160
+BR,Espírito Santo,Bad ,#FF7E00,81,120,CO,ppm,8,11,13
+BR,Espírito Santo,Bad ,#FF7E00,81,120,NO2,ug/m3,1,240,320
+BR,Espírito Santo,Bad ,#FF7E00,81,120,SO2,ug/m3,24,40,365
+BR,Espírito Santo,Very Bad ,#FF0000,121,200,PM10,ug/m3,24,150,250
+BR,Espírito Santo,Very Bad ,#FF0000,121,200,PM2.5,ug/m3,24,75,125
+BR,Espírito Santo,Very Bad ,#FF0000,121,200,O3,ug/m3,8,160,200
+BR,Espírito Santo,Very Bad ,#FF0000,121,200,CO,ppm,8,13,15
+BR,Espírito Santo,Very Bad ,#FF0000,121,200,NO2,ug/m3,1,320,1130
+BR,Espírito Santo,Very Bad ,#FF0000,121,200,SO2,ug/m3,24,365,800
+BR,Espírito Santo,Terrible,#99004B,201,400,PM10,ug/m3,24,250,600
+BR,Espírito Santo,Terrible,#99004B,201,400,PM2.5,ug/m3,24,125,300
+BR,Espírito Santo,Terrible,#99004B,201,400,O3,ug/m3,8,200,800
+BR,Espírito Santo,Terrible,#99004B,201,400,CO,ppm,8,15,50
+BR,Espírito Santo,Terrible,#99004B,201,400,NO2,ug/m3,1,1130,3750
+BR,Espírito Santo,Terrible,#99004B,201,400,SO2,ug/m3,24,800,2620
