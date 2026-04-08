@@ -1,0 +1,45 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+NL,,Good,#0064ff,1,,O3,ug/m3,1,0,15
+NL,,Good,#0064ff,1,,PM10,ug/m3,1,0,10
+NL,,Good,#0064ff,1,,PM2.5,ug/m3,1,0,10
+NL,,Good,#0064ff,1,,NO2,ug/m3,1,0,10
+NL,,Good,#01afff,2,,O3,ug/m3,1,15,30
+NL,,Good,#01afff,2,,PM10,ug/m3,1,10,20
+NL,,Good,#01afff,2,,PM2.5,ug/m3,1,10,15
+NL,,Good,#01afff,2,,NO2,ug/m3,1,10,20
+NL,,Good,#96c8ff,3,,O3,ug/m3,1,30,40
+NL,,Good,#96c8ff,3,,PM10,ug/m3,1,20,30
+NL,,Good,#96c8ff,3,,PM2.5,ug/m3,1,15,20
+NL,,Good,#96c8ff,3,,NO2,ug/m3,1,20,30
+NL,,Moderate,#fffec8,4,,O3,ug/m3,1,40,60
+NL,,Moderate,#fffec8,4,,PM10,ug/m3,1,30,45
+NL,,Moderate,#fffec8,4,,PM2.5,ug/m3,1,20,30
+NL,,Moderate,#fffec8,4,,NO2,ug/m3,1,30,45
+NL,,Moderate,#fffd96,5,,O3,ug/m3,1,60,80
+NL,,Moderate,#fffd96,5,,PM10,ug/m3,1,45,60
+NL,,Moderate,#fffd96,5,,PM2.5,ug/m3,1,30,40
+NL,,Moderate,#fffd96,5,,NO2,ug/m3,1,45,60
+NL,,Moderate,#fffc02,6,,O3,ug/m3,1,80,100
+NL,,Moderate,#fffc02,6,,PM10,ug/m3,1,60,75
+NL,,Moderate,#fffc02,6,,PM2.5,ug/m3,1,40,50
+NL,,Moderate,#fffc02,6,,NO2,ug/m3,1,60,75
+NL,,Unsatisfactory,#ffc800,7,,O3,ug/m3,1,100,140
+NL,,Unsatisfactory,#ffc800,7,,PM10,ug/m3,1,75,100
+NL,,Unsatisfactory,#ffc800,7,,PM2.5,ug/m3,1,50,70
+NL,,Unsatisfactory,#ffc800,7,,NO2,ug/m3,1,75,100
+NL,,Unsatisfactory,#fc9602,8,,O3,ug/m3,1,140,180
+NL,,Unsatisfactory,#fc9602,8,,PM10,ug/m3,1,100,125
+NL,,Unsatisfactory,#fc9602,8,,PM2.5,ug/m3,1,70,90
+NL,,Unsatisfactory,#fc9602,8,,NO2,ug/m3,1,100,125
+NL,,Bad,#fa4c02,9,,O3,ug/m3,1,180,200
+NL,,Bad,#fa4c02,9,,PM10,ug/m3,1,125,150
+NL,,Bad,#fa4c02,9,,PM2.5,ug/m3,1,90,100
+NL,,Bad,#fa4c02,9,,NO2,ug/m3,1,125,150
+NL,,Bad,#f91a02,10,,O3,ug/m3,1,200,240
+NL,,Bad,#f91a02,10,,PM10,ug/m3,1,150,200
+NL,,Bad,#f91a02,10,,PM2.5,ug/m3,1,100,140
+NL,,Bad,#f91a02,10,,NO2,ug/m3,1,150,200
+NL,,Very Bad,#a43ad9,11,,O3,ug/m3,1,240,
+NL,,Very Bad,#a43ad9,11,,PM10,ug/m3,1,200,
+NL,,Very Bad,#a43ad9,11,,PM2.5,ug/m3,1,140,
+NL,,Very Bad,#a43ad9,11,,NO2,ug/m3,1,200,
