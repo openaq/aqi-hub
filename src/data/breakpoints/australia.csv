@@ -1,0 +1,77 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+AU,NSW,Good,#41a93b,,,PM2.5,ug/m3,1,0,25
+AU,NSW,Fair,#eec800,,,PM2.5,ug/m3,1,25,50
+AU,NSW,Poor,#e47301,,,PM2.5,ug/m3,1,50,100
+AU,NSW,Very poor,#b70027,,,PM2.5,ug/m3,1,100,300
+AU,NSW,Extremely poor,#590018,,,PM2.5,ug/m3,1,300,
+AU,NSW,Good,#41a93b,,,PM10,ug/m3,1,0,50
+AU,NSW,Fair,#eec800,,,PM10,ug/m3,1,50,100
+AU,NSW,Poor,#e47301,,,PM10,ug/m3,1,100,200
+AU,NSW,Very poor,#b70027,,,PM10,ug/m3,1,200,600
+AU,NSW,Extremely poor,#590018,,,PM10,ug/m3,1,600,
+AU,NSW,Good,#41a93b,,,CO,ppm,8,0,6
+AU,NSW,Fair,#eec800,,,CO,ppm,8,6,9
+AU,NSW,Poor,#e47301,,,CO,ppm,8,9,13.5
+AU,NSW,Very poor,#b70027,,,CO,ppm,8,13.5,18
+AU,NSW,Extremely poor,#590018,,,CO,ppm,8,18,
+AU,NSW,Good,#41a93b,,,O3,ppb,1,0,67
+AU,NSW,Fair,#eec800,,,O3,ppb,1,67,100
+AU,NSW,Poor,#e47301,,,O3,ppb,1,100,150
+AU,NSW,Very poor,#b70027,,,O3,ppb,1,150,200
+AU,NSW,Extremely poor,#590018,,,O3,ppb,1,200,
+AU,NSW,Good,#41a93b,,,O3,ppb,4,0,54
+AU,NSW,Fair,#eec800,,,O3,ppb,4,54,80
+AU,NSW,Poor,#e47301,,,O3,ppb,4,80,120
+AU,NSW,Very poor,#b70027,,,O3,ppb,4,120,160
+AU,NSW,Extremely poor,#590018,,,O3,ppb,4,160,
+AU,NSW,Good,#41a93b,,,SO2,ppb,1,0,133
+AU,NSW,Fair,#eec800,,,SO2,ppb,1,133,200
+AU,NSW,Poor,#e47301,,,SO2,ppb,1,200,300
+AU,NSW,Very poor,#b70027,,,SO2,ppb,1,300,400
+AU,NSW,Extremely poor,#590018,,,SO2,ppb,1,400,
+AU,NSW,Good,#41a93b,,,NO2,ppb,1,0,80
+AU,NSW,Fair,#eec800,,,NO2,ppb,1,80,120
+AU,NSW,Poor,#e47301,,,NO2,ppb,1,120,180
+AU,NSW,Very poor,#b70027,,,NO2,ppb,1,180,240
+AU,NSW,Extremely poor,#590018,,,NO2,ppb,1,240,
+AU,NSW,Good,#41a93b,,,VIZ,bsp,1,0,1.5
+AU,NSW,Fair,#eec800,,,VIZ,bsp,1,1.5,3
+AU,NSW,Poor,#e47301,,,VIZ,bsp,1,3,6
+AU,NSW,Very poor,#b70027,,,VIZ,bsp,1,6,18
+AU,NSW,Extremely poor,#590018,,,VIZ,bsp,1,18,
+AU,NT,Good,#41a93b,,,PM2.5,ug/m3,1,0,25
+AU,NT,Fair,#eec800,,,PM2.5,ug/m3,1,25,50
+AU,NT,Poor,#e47301,,,PM2.5,ug/m3,1,50,100
+AU,NT,Very poor,#b70027,,,PM2.5,ug/m3,1,100,300
+AU,NT,Extremely poor,#590018,,,PM2.5,ug/m3,1,300,
+AU,NT,Good,#41a93b,,,PM10,ug/m3,1,0,50
+AU,NT,Fair,#eec800,,,PM10,ug/m3,1,50,100
+AU,NT,Poor,#e47301,,,PM10,ug/m3,1,100,200
+AU,NT,Very poor,#b70027,,,PM10,ug/m3,1,200,600
+AU,NT,Extremely poor,#590018,,,PM10,ug/m3,1,600,
+AU,NT,Good,#41a93b,,,CO,ppm,8,0,6
+AU,NT,Fair,#eec800,,,CO,ppm,8,6,9
+AU,NT,Poor,#e47301,,,CO,ppm,8,9,13.5
+AU,NT,Very poor,#b70027,,,CO,ppm,8,13.5,18
+AU,NT,Extremely poor,#590018,,,CO,ppm,8,18,
+AU,NT,Good,#41a93b,,,O3,ppb,1,0,67
+AU,NT,Fair,#eec800,,,O3,ppb,1,67,100
+AU,NT,Poor,#e47301,,,O3,ppb,1,100,150
+AU,NT,Very poor,#b70027,,,O3,ppb,1,150,200
+AU,NT,Extremely poor,#590018,,,O3,ppb,1,200,
+AU,NT,Good,#41a93b,,,SO2,ppb,1,0,133
+AU,NT,Fair,#eec800,,,SO2,ppb,1,133,200
+AU,NT,Poor,#e47301,,,SO2,ppb,1,200,300
+AU,NT,Very poor,#b70027,,,SO2,ppb,1,300,400
+AU,NT,Extremely poor,#590018,,,SO2,ppb,1,400,
+AU,NT,Good,#41a93b,,,NO2,ppb,1,0,80
+AU,NT,Fair,#eec800,,,NO2,ppb,1,80,120
+AU,NT,Poor,#e47301,,,NO2,ppb,1,120,180
+AU,NT,Very poor,#b70027,,,NO2,ppb,1,180,240
+AU,NT,Extremely poor,#590018,,,NO2,ppb,1,240,
+AU,TS,Good,#65b249,,,PM2.5,ug/m3,1,0,9
+AU,TS,Fairly good,#ffff00,,,PM2.5,ug/m3,1,10,24
+AU,TS,Fairly poor,#fdbd77,,,PM2.5,ug/m3,1,25,49
+AU,TS,Poor,#f78507,,,PM2.5,ug/m3,1,50,99
+AU,TS,Very poor,#ff0000,,,PM2.5,ug/m3,1,100,299
+AU,TS,Extremely poor,#9a7660,,,PM2.5,ug/m3,1,300,

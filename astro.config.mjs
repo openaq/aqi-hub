@@ -7,12 +7,29 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import mdx from '@astrojs/mdx';
 import rehypeExternalLinks from 'rehype-external-links';
 import { remarkModifiedTime } from './remark-modified-time.mjs';
-import dsv from '@rollup/plugin-dsv'
+import dsv from '@rollup/plugin-dsv';
 
 import solidJs from '@astrojs/solid-js';
 
 // https://astro.build/config
 export default defineConfig({
+  security: {
+    csp: {
+      directives: [
+        "default-src 'none'",
+        "font-src 'self'",
+        "connect-src 'self' https://plausible.io",
+        "img-src 'self' data:",
+        "frame-src 'none'",
+      ],
+      scriptDirective: {
+        resources: ["'self'", 'https://plausible.io'],
+      },
+      styleDirective: {
+        resources: ["'self'"],
+      },
+    },
+  },
   site: 'https://aqihub.info',
   markdown: {
     syntaxHighlight: 'prism',
@@ -40,6 +57,6 @@ export default defineConfig({
   },
   integrations: [mdx(), solidJs()],
   vite: {
-    plugins: [dsv()]
-  }
+    plugins: [dsv()],
+  },
 });

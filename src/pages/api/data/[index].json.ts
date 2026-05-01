@@ -21,6 +21,6 @@ const staticPaths = glob.map((o) => ({
   params: { index: path.parse(o).name },
 }));
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
   return staticPaths;
 }
