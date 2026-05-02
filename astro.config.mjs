@@ -13,23 +13,6 @@ import solidJs from '@astrojs/solid-js';
 
 // https://astro.build/config
 export default defineConfig({
-  security: {
-    csp: {
-      directives: [
-        "default-src 'none'",
-        "font-src 'self' data:",
-        "connect-src 'self' https://plausible.io",
-        "img-src 'self' data:",
-        "frame-src 'none'",
-      ],
-      scriptDirective: {
-        resources: ["'self'", 'https://plausible.io'],
-      },
-      styleDirective: {
-        hashes: ["sha256-8AHil9ZVlVKEHTQMz8VO3CM/p6G1Jpgvt3QPgdTMOUA="],
-      },
-    },
-  },
   site: 'https://aqihub.info',
   markdown: {
     syntaxHighlight: 'prism',
