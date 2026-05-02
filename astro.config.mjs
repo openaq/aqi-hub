@@ -35,7 +35,7 @@ export default defineConfig({
     syntaxHighlight: 'prism',
     remarkPlugins: [remarkMath, remarkModifiedTime],
     rehypePlugins: [
-      rehypeKatex,
+      [rehypeKatex,  { output: 'mathml' }],
       [
         rehypeExternalLinks,
         { target: '_blank', rel: ['noopener', 'noreferrer'] },
