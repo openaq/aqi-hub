@@ -25,9 +25,6 @@ export default defineConfig({
       scriptDirective: {
         resources: ["'self'", 'https://plausible.io'],
       },
-      styleDirective: {
-        resources: ["'self'", "'unsafe-inline'"],
-      },
     },
   },
   site: 'https://aqihub.info',
