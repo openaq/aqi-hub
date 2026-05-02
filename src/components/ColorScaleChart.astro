@@ -28,7 +28,17 @@ for (const [label, { ranges, colors }] of labelMap) {
     range: ranges.join(", "),
   });
 }
+
+const itemStyles = colorScale.map((o: ColorScaleDefinition, i: number) =>
+  `.cs-item-${i} { background-color: ${o.color}; color: ${getContrast(o.color)}; }`
+).join('\n');
+
+const labelStyles = colorScale.map((o: ColorScaleDefinition, i: number) =>
+  `.cs-label-${i} { background-color: ${o.color}; }`
+).join('\n');
 ---
+
+<style set:html={`${itemStyles}\n${labelStyles}`}></style>
 
 <style lang="scss">
   .color-scale__wrapper {
@@ -99,11 +109,8 @@ for (const [label, { ranges, colors }] of labelMap) {
   <div class="color-scale__mobile">
     <div class="color-scale">
       {
-        colorScale.map((o: ColorScaleDefinition) => (
-          <div
-            class="color-scale__item"
-            style={`background-color: ${o.color}; color: ${getContrast(o.color)}`}
-          >
+        colorScale.map((o: ColorScaleDefinition, i: number) => (
+          <div class={`color-scale__item cs-item-${i}`}>
             <p>{o.range}</p>
           </div>
         ))
@@ -115,11 +122,8 @@ for (const [label, { ranges, colors }] of labelMap) {
         {
           uniqueColorScaleLabels.map((o) => (
             <li class="list-wrapper">
-              {o.colors.map((color: ColorScaleDefinition) => (
-                <div
-                  class="label-color-box"
-                  style={`background-color: ${color}`}
-                />
+              {o.colors.map((color: string, i: number) => (
+                <div class={`label-color-box cs-label-${colorScale.findIndex((c: ColorScaleDefinition) => c.color === color)}`} />
               ))}
               <span>{`${o.label}`}</span>
             </li>
@@ -132,11 +136,8 @@ for (const [label, { ranges, colors }] of labelMap) {
   <div class="color-scale__desktop">
     <div class="color-scale">
       {
-        colorScale.map((o: ColorScaleDefinition) => (
-          <div
-            class="color-scale__item"
-            style={`background-color: ${o.color}; color: ${getContrast(o.color)}`}
-          >
+        colorScale.map((o: ColorScaleDefinition, i: number) => (
+          <div class={`color-scale__item cs-item-${i}`}>
             <span class="definition__label">{o.label}</span>
             <span class="definition__range">{o.range}</span>
           </div>

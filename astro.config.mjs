@@ -25,6 +25,9 @@ export default defineConfig({
       scriptDirective: {
         resources: ["'self'", 'https://plausible.io'],
       },
+      styleDirective: {
+        hashes: ["sha256-8AHil9ZVlVKEHTQMz8VO3CM/p6G1Jpgvt3QPgdTMOUA="],
+      },
     },
   },
   site: 'https://aqihub.info',
