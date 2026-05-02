@@ -45,15 +45,15 @@ const { contentSelector } = Astro.props;
   }
 </style>
 
-<aside class="toc">
+<aside class="toc" data-content-selector={contentSelector}>
   <ul class="toc__list"></ul>
 </aside>
 
-<script define:vars={{ contentSelector }}>
-  const headings = document.querySelectorAll("h1[id], h2[id], h3[id]");
+<script>
+  const headings = document.querySelectorAll<HTMLElement>("h1[id], h2[id], h3[id]");
 
   const checkAnchorInViewport = () => {
-    let currentHeading = null;
+    let currentHeading: HTMLElement | null = null;
 
     headings.forEach((heading) => {
       const top = heading.offsetTop;
@@ -79,8 +79,12 @@ const { contentSelector } = Astro.props;
   };
 
   document.addEventListener("DOMContentLoaded", () => {
+
+    const toc = document.querySelector<HTMLElement>('.toc');
+    const contentSelector = toc?.dataset.contentSelector!;
     const content = document.querySelector(contentSelector);
-    const anchorLinks = content.querySelectorAll(".anchor-link");
+    if (!content) return;
+    const anchorLinks = content.querySelectorAll<HTMLAnchorElement>(".anchor-link");
     const tocList = document.querySelector(".toc > .toc__list");
     for (const anchorLink of anchorLinks) {
       const heading = anchorLink.closest("h1, h2, h3");
@@ -95,7 +99,7 @@ const { contentSelector } = Astro.props;
       }
 
       li.classList.add("toc-anchor-item");
-      li.setAttribute("data-href-value", anchorLink.getAttribute("href"));
+      li.setAttribute("data-href-value", anchorLink.getAttribute("href")!);
       li.innerText = anchorLink.innerText;
       li.addEventListener("click", () => {
         anchorLink.scrollIntoView({ behavior: "smooth" });
@@ -109,7 +113,7 @@ const { contentSelector } = Astro.props;
           li.classList.add("toc-anchor-item--active");
         }, 800);
       });
-      tocList.appendChild(li);
+      tocList!.appendChild(li);
     }
 
     window.addEventListener("scroll", checkAnchorInViewport);

@@ -1,6 +1,6 @@
 ---
-import Logo from "@assets/svg/logo.svg";
-import MenuIcon from "@assets/svg/menu.svg";
+import Logo from '@assets/svg/logo.svg';
+import MenuIcon from '@assets/svg/menu.svg';
 ---
 
 <style lang="scss">
@@ -53,10 +53,7 @@ import MenuIcon from "@assets/svg/menu.svg";
 </style>
 
 <header>
-  <div
-    class="menu-button-container"
-    onclick="document.body.classList.toggle('menu-open')"
-  >
+  <div class="menu-button-container" id="menu-button">
     <MenuIcon width="24" height="24" aria-label="Menu Icon" />
   </div>
 
@@ -65,3 +62,11 @@ import MenuIcon from "@assets/svg/menu.svg";
   </a>
   <h1 class="gradient-title homepage-title">Air Quality Index Hub</h1>
 </header>
+
+<script>
+  document
+    .getElementById('menu-button')
+    ?.addEventListener('click', () =>
+      document.body.classList.toggle('menu-open'),
+    );
+</script>
