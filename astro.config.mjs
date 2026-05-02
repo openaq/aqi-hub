@@ -26,7 +26,7 @@ export default defineConfig({
         resources: ["'self'", 'https://plausible.io'],
       },
       styleDirective: {
-        resources: ["'self'"],
+        resources: ["'self'", "'unsafe-inline'"],
       },
     },
   },
