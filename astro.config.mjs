@@ -17,7 +17,7 @@ export default defineConfig({
     csp: {
       directives: [
         "default-src 'none'",
-        "font-src 'self'",
+        "font-src 'self' data:",
         "connect-src 'self' https://plausible.io",
         "img-src 'self' data:",
         "frame-src 'none'",
