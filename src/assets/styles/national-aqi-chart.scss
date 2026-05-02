@@ -1,0 +1,21 @@
+.national-aqi-chart {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+
+  text {
+    font-size: 1rem;
+
+    @media (min-width: 1000px) {
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 1300px) {
+      font-size: 0.7rem;
+    }
+  }
+
+  .labels {
+    font-weight: 600;
+  }
+}

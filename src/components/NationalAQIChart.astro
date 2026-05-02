@@ -1,5 +1,6 @@
 ---
 import * as d3 from "d3";
+import '@assets/styles/national-aqi-chart.scss';
 import type { CountryMapDefinition, IndexDefinition } from "src/types/types";
 import countriesMap from "../data/countries.json";
 import { loadIndices } from "@data/loaders";
@@ -60,30 +61,6 @@ const bars = pm2524hr.map((d: IndexDefinition) => {
   };
 });
 ---
-
-<style lang="scss">
-  .national-aqi-chart {
-    width: 100%;
-    max-width: 1100px;
-    height: auto;
-
-    text {
-      font-size: 1rem;
-
-      @media (min-width: 1000px) {
-        font-size: 0.9rem;
-      }
-
-      @media (min-width: 1300px) {
-        font-size: 0.7rem;
-      }
-    }
-
-    .labels {
-      font-weight: 600;
-    }
-  }
-</style>
 
 <svg viewBox={`0 0 ${width} ${height}`} class="national-aqi-chart">
   {

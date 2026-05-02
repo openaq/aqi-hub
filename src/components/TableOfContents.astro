@@ -1,49 +1,8 @@
 ---
 const { contentSelector } = Astro.props;
+
+import '@assets/styles/table-of-contents.scss';
 ---
-
-<style lang="scss" is:global>
-  li {
-    cursor: pointer;
-  }
-  .toc {
-    position: fixed;
-    top: 80px;
-    right: 0;
-    overflow-y: auto;
-    width: 12rem;
-    height: 100vh;
-    z-index: 10;
-    border-left: 1px solid #d4d8dc;
-
-    .h3-indented {
-      margin-left: 8px;
-    }
-
-    @media (max-width: 1199px) {
-      display: none;
-    }
-
-    &__list {
-      list-style: none;
-      padding-left: 8px;
-
-      .toc-anchor-item {
-        box-sizing: border-box;
-        padding: 8px 16px;
-
-        &--active {
-          border-left: 2px solid #66b3ff;
-          color: #1d64ab;
-        }
-        &:active {
-          border-left: 2px solid #66b3ff;
-          color: #1d64ab;
-        }
-      }
-    }
-  }
-</style>
 
 <aside class="toc" data-content-selector={contentSelector}>
   <ul class="toc__list"></ul>

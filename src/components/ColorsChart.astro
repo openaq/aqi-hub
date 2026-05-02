@@ -7,6 +7,8 @@ import {
   stack,
 } from 'd3';
 
+import '@assets/styles/colors-chart.scss';
+
 import { loadIndices } from '@data/loaders';
 
 const { caption } = Astro.props;
@@ -155,22 +157,6 @@ const arc = d3arc()
   .padRadius(innerRadius);
 ---
 
-<style lang="scss">
-  div {
-    display: flex;
-    justify-content: center;
-
-    figure {
-      width: 80%;
-
-      figcaption {
-        font-size: 0.8rem;
-        margin-top: 20px;
-        text-align: center;
-      }
-    }
-  }
-</style>
 <div>
   <figure>
     <svg viewBox={`${-width / 2} ${-height / 2 - 50} ${width} ${height}`}>
