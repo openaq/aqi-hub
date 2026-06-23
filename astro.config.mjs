@@ -5,6 +5,7 @@ import rehypeKatex from 'rehype-katex';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import mdx from '@astrojs/mdx';
+import { unified } from '@astrojs/markdown-remark';
 import rehypeExternalLinks from 'rehype-external-links';
 import { remarkModifiedTime } from './remark-modified-time.mjs';
 import dsv from '@rollup/plugin-dsv';
@@ -14,10 +15,11 @@ import solidJs from '@astrojs/solid-js';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://aqihub.info',
-  markdown: {
-    syntaxHighlight: 'prism',
-    remarkPlugins: [remarkMath, remarkModifiedTime],
-    rehypePlugins: [
+    markdown: {
+      syntaxHighlight: 'prism',
+    processor: unified({
+      remarkPlugins: [remarkMath, remarkModifiedTime],
+          rehypePlugins: [
       [rehypeKatex,  { output: 'mathml' }],
       [
         rehypeExternalLinks,
@@ -37,6 +39,7 @@ export default defineConfig({
         },
       ],
     ],
+    }),
   },
   integrations: [mdx(), solidJs()],
   vite: {
