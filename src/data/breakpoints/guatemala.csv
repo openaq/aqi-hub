@@ -1,0 +1,43 @@
+ISO,variant,category,hex,category_lower,category_upper,pollutant,units,averaging_period,concentration_lower,concentration_upper
+GT,,Good,#00e400,0,50,PM2.5,ug/m3,24,0,12
+GT,,Good,#00e400,0,50,PM10,ug/m3,24,0,54
+GT,,Good,#00e400,0,50,CO,ppm,8,0,4.4
+GT,,Good,#00e400,0,50,O3,ppm,1,,
+GT,,Good,#00e400,0,50,O3,ppm,8,0,0.054
+GT,,Good,#00e400,0,50,SO2,ppb,1,0,35
+GT,,Good,#00e400,0,50,NO2,ppb,1,0,53
+GT,,Moderate,#ffff00,51,100,PM2.5,ug/m3,24,12.1,35.4
+GT,,Moderate,#ffff00,51,100,PM10,ug/m3,24,55,154
+GT,,Moderate,#ffff00,51,100,CO,ppm,8,4.5,9.4
+GT,,Moderate,#ffff00,51,100,O3,ppm,1,,
+GT,,Moderate,#ffff00,51,100,O3,ppm,8,0.055,0.07
+GT,,Moderate,#ffff00,51,100,SO2,ppb,1,36,75
+GT,,Moderate,#ffff00,51,100,NO2,ppb,1,54,100
+GT,,Unhealthy for Sensitive Groups,#ff7e00,101,150,PM2.5,ug/m3,24,35.5,55.4
+GT,,Unhealthy for Sensitive Groups,#ff7e00,101,150,PM10,ug/m3,24,155,254
+GT,,Unhealthy for Sensitive Groups,#ff7e00,101,150,CO,ppm,8,9.5,12.4
+GT,,Unhealthy for Sensitive Groups,#ff7e00,101,150,O3,ppm,1,0.125,0.164
+GT,,Unhealthy for Sensitive Groups,#ff7e00,101,150,O3,ppm,8,0.071,0.085
+GT,,Unhealthy for Sensitive Groups,#ff7e00,101,150,SO2,ppb,1,76,185
+GT,,Unhealthy for Sensitive Groups,#ff7e00,101,150,NO2,ppb,1,101,360
+GT,,Unhealthy,#ff0000,151,200,PM2.5,ug/m3,24,55.5,150.4
+GT,,Unhealthy,#ff0000,151,200,PM10,ug/m3,24,255,354
+GT,,Unhealthy,#ff0000,151,200,CO,ppm,8,12.5,15.4
+GT,,Unhealthy,#ff0000,151,200,O3,ppm,1,0.165,0.204
+GT,,Unhealthy,#ff0000,151,200,O3,ppm,8,0.086,0.105
+GT,,Unhealthy,#ff0000,151,200,SO2,ppb,1,186,304
+GT,,Unhealthy,#ff0000,151,200,NO2,ppb,1,361,649
+GT,,Very Unhealthy,#8f3f97,201,300,PM2.5,ug/m3,24,150.5,250.4
+GT,,Very Unhealthy,#8f3f97,201,300,PM10,ug/m3,24,355,424
+GT,,Very Unhealthy,#8f3f97,201,300,CO,ppm,8,15.5,30.4
+GT,,Very Unhealthy,#8f3f97,201,300,O3,ppm,1,0.205,0.404
+GT,,Very Unhealthy,#8f3f97,201,300,O3,ppm,8,0.106,0.2
+GT,,Very Unhealthy,#8f3f97,201,300,SO2,ppb,1,305,604
+GT,,Very Unhealthy,#8f3f97,201,300,NO2,ppb,1,650,1249
+GT,,Hazardous,#7e0023,301,500,PM2.5,ug/m3,24,250.5,500.4
+GT,,Hazardous,#7e0023,301,500,PM10,ug/m3,24,425,604
+GT,,Hazardous,#7e0023,301,500,CO,ppm,8,30.5,50.4
+GT,,Hazardous,#7e0023,301,500,O3,ppm,1,0.405,0.604
+GT,,Hazardous,#7e0023,301,500,O3,ppm,8,,
+GT,,Hazardous,#7e0023,301,500,SO2,ppb,1,605,1004
+GT,,Hazardous,#7e0023,301,500,NO2,ppb,1,1250,2049

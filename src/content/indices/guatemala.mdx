@@ -1,0 +1,91 @@
+---
+name: Guatemala
+indexName: Índice de Calidad del Aire
+indexAcronym: ICA
+---
+
+import ColorScale from "@components/ColorScale.astro";
+import BreakpointsTable from "@components/BreakpointsTable.astro";
+import PiecewiseLatexDoc from "@components/PiecewiseLatexDoc.astro";
+import { AqiCalculator } from "@components/AqiCalculator.tsx";
+
+## Background
+
+The Instituto Nacional de Sismología, Vulcanología, Meteorología e Hidrología
+(INSIVUMEH) reports air quality in Guatemala using the Índice de Calidad del
+Aire (ICA)[^1]. The ICA accounts for pollutant concentrations of
+PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, CO, SO<sub>2</sub> and
+NO<sub>2</sub>, and follows the methodology of the United States Environmental
+Protection Agency (EPA) as described in the 2018 Technical Assistance Document
+for the Reporting of Daily Air Quality (EPA-454/B-18-007)[^2].
+
+The ICA ranges from 0 to 500. Unlike the United States AQI on which it is
+based, the ICA uses a single "Peligrosa" (Hazardous) category covering index
+values from 301 to 500.
+
+## Color scale
+
+The ICA uses a six-level color scale with the following categories: Buena
+(Good), Moderada (Moderate), Dañina a la salud para grupos sensibles (Unhealthy
+for Sensitive Groups), Dañina a la salud (Unhealthy), Muy dañina a la salud
+(Very Unhealthy) and Peligrosa (Hazardous)[^1]:
+
+<ColorScale index="guatemala" value={true} />
+
+_Note_: Adapted from "Boletines de Calidad del Aire" (n.d.),
+[https://insivumeh.gob.gt/boletines-de-calidad-del-aire/](https://insivumeh.gob.gt/boletines-de-calidad-del-aire/)
+[^1]. Accessed 12 Aug. 2026.
+
+## Methods
+
+<BreakpointsTable index="guatemala" />
+
+_Note_: Adapted from "Technical Assistance Document for the Reporting of Daily
+Air Quality – the Air Quality Index (AQI)" (Sept. 2018),
+[https://insivumeh.gob.gt/wp-content/uploads/2026/03/aqi-technical-assistance-document-sept2018.pdf](https://insivumeh.gob.gt/wp-content/uploads/2026/03/aqi-technical-assistance-document-sept2018.pdf)
+[^2]. Accessed 12 Aug. 2026.
+
+Based on the breakpoint values in the table above, a piecewise linear function
+is used to convert the concentration values to ICA values. The function is
+defined as:
+
+<div class="latex-container">
+
+<PiecewiseLatexDoc label="ICA" />
+
+</div>
+
+<AqiCalculator
+  client:only="solid"
+  index="guatemala"
+  acronym={frontmatter.indexAcronym}
+/>
+
+Following the EPA methodology, 8-hour O<sub>3</sub> values do not define index
+values of 301 or higher; such values are calculated using 1-hour
+O<sub>3</sub> concentrations. 1-hour SO<sub>2</sub> values do not define index
+values of 200 or higher; such values are calculated using 24-hour
+SO<sub>2</sub> concentrations[^2].
+
+The ICA uses sub-indices assigned to each of the measured pollutants. The
+highest sub-index determines the overall ICA value.
+
+<div class="latex-container">
+$$
+{ICA} = {Max}({I}_{PM_{10}},{I}_{PM_{2.5}},{I}_{SO_{2}},{I}_{NO_{2}},{I}_{O_{3}},{I}_{CO})
+$$
+</div>
+
+## References
+
+"Boletines de Calidad del Aire." Instituto Nacional de Sismología,
+Vulcanología, Meteorología e Hidrología,
+[insivumeh.gob.gt/boletines-de-calidad-del-aire/](https://insivumeh.gob.gt/boletines-de-calidad-del-aire/).
+
+"Technical Assistance Document for the Reporting of Daily Air Quality – the
+Air Quality Index (AQI)." U.S. Environmental Protection Agency, Sept. 2018,
+[insivumeh.gob.gt/wp-content/uploads/2026/03/aqi-technical-assistance-document-sept2018.pdf](https://insivumeh.gob.gt/wp-content/uploads/2026/03/aqi-technical-assistance-document-sept2018.pdf).
+
+[^1]: "Boletines de Calidad del Aire." Instituto Nacional de Sismología, Vulcanología, Meteorología e Hidrología, [insivumeh.gob.gt/boletines-de-calidad-del-aire/](https://insivumeh.gob.gt/boletines-de-calidad-del-aire/).
+
+[^2]: "Technical Assistance Document for the Reporting of Daily Air Quality – the Air Quality Index (AQI)." U.S. Environmental Protection Agency, Sept. 2018, [insivumeh.gob.gt/wp-content/uploads/2026/03/aqi-technical-assistance-document-sept2018.pdf](https://insivumeh.gob.gt/wp-content/uploads/2026/03/aqi-technical-assistance-document-sept2018.pdf).
