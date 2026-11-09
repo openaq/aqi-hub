@@ -69,6 +69,68 @@ Another government site states that the first AQHI forecast is issued at 6 a.m. 
 
 Forecast amendments can be issued at any time if necessary to provide the most relevant information.
 
+### British Columbia
+
+British Columbia (B.C.) reports a modified version of the AQHI, commonly called the AQHI-Plus. The national AQHI described above is referred to as the "classic" AQHI in B.C. documentation. Every hour, B.C. calculates two values and reports the higher one [^7][^8]:
+
+1. The classic AQHI, calculated from 3-hour rolling averages of PM<sub>2.5</sub>, O<sub>3</sub> and NO<sub>2</sub> using the formula above [^8].
+2. A PM<sub>2.5</sub>-only AQHI, calculated from the 1-hour average PM<sub>2.5</sub> concentration [^8].
+
+The change was made because wildfire smoke can raise PM<sub>2.5</sub> much more quickly and to much higher levels than the usual urban pollution the AQHI was designed for [^7]. In the classic AQHI, changes in NO<sub>2</sub> and O<sub>3</sub> have a greater influence on the index than changes in PM<sub>2.5</sub>, and during the 2017 and 2018 wildfire seasons the classic AQHI stayed in the Low or Moderate categories despite very high PM<sub>2.5</sub> [^8]. B.C. piloted the amended approach before the 2018 wildfire season and has since adopted it permanently on a year-round basis [^8]. A study of four AQHI amendments for B.C. wildfire seasons found that the 1-hour PM<sub>2.5</sub>-only version fit asthma-related health outcomes best, while the classic AQHI fit all-cause mortality and circulatory physician visits best [^9].
+
+The PM<sub>2.5</sub>-only value uses the ceiling function, which returns the smallest integer not less than its argument [^8]:
+
+$$
+AQHI_{PM_{2.5}} =
+\left\lceil
+\frac{PM_{2.5,1h}}{10}
+\right\rceil
+$$
+
+The reported value is the higher of the two [^8]:
+
+$$
+AQHI_{Plus} =
+\max\left(
+AQHI_{classic},
+AQHI_{PM_{2.5}}
+\right)
+$$
+
+The B.C. Centre for Disease Control publishes the values of the PM<sub>2.5</sub>-only AQHI and their risk categories [^7]:
+
+| 1-hour PM<sub>2.5</sub> (µg/m³) | AQHI | Risk category |
+|---|---|---|
+| 0–10 | 1 | Low |
+| 11–20 | 2 | Low |
+| 21–30 | 3 | Low |
+| 31–40 | 4 | Moderate |
+| 41–50 | 5 | Moderate |
+| 51–60 | 6 | Moderate |
+| 61–70 | 7 | High |
+| 71–80 | 8 | High |
+| 81–90 | 9 | High |
+| 91–100 | 10 | High |
+| 101+ | 10+ | Very High |
+
+_Note_: Adapted from "Wildfire Smoke and the Air Quality Health Index (AQHI)" (May 2024), [www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/Health-Environment/BCCDC_WildFire_FactSheet_SmokeAndTheAQHI.pdf](https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/Health-Environment/BCCDC_WildFire_FactSheet_SmokeAndTheAQHI.pdf) [^7]. Accessed 9 Nov. 2026.
+
+The ceiling formula returns 0 when the PM<sub>2.5</sub> concentration is exactly 0, whereas the published table assigns an AQHI of 1 to the 0–10 µg/m³ range. The available documentation does not explain how this case is handled [^7][^8]. The table above reproduces the published categories.
+
+#### Kitimat SO<sub>2</sub> pilot
+
+In Kitimat, B.C. is also testing an AQHI-Plus for sulphur dioxide (SO<sub>2</sub>). The reported AQHI is the higher of the classic AQHI, the PM<sub>2.5</sub>-only AQHI and an SO<sub>2</sub>-based value. The SO<sub>2</sub>-based value is determined each hour from the highest 1-hour SO<sub>2</sub> concentration among three community monitoring sites (Whitesail, Riverlodge and Haisla Village) [^10].
+
+| AQHI (PM<sub>2.5</sub>, NO<sub>2</sub>, O<sub>3</sub>) | 1-hour SO<sub>2</sub> (ppb) | AQHI-Plus (1-hour SO<sub>2</sub>) | Reported AQHI | Special note |
+|---|---|---|---|---|
+| 1–10+ | 0–35 | N/A | AQHI | None |
+| 1–3 | 36–184 | N/A | AQHI | Added advice for people with chronic respiratory conditions such as asthma |
+| 4–10+ | 36–184 | N/A | AQHI | None |
+| 1–6 | 185+ | 7 | 7 | Value adjusted upward to reflect SO<sub>2</sub> |
+| 7–10+ | 185+ | 7 | AQHI | None |
+
+_Note_: Adapted from "Kitimat SO2 Alert Pilot Project" (30 May 2023), [www2.gov.bc.ca/gov/content/environment/air-land-water/air/air-quality/measuring/kitimat-so2-alert-pilot-project](https://www2.gov.bc.ca/gov/content/environment/air-land-water/air/air-quality/measuring/kitimat-so2-alert-pilot-project) [^10]. Accessed 9 Nov. 2026.
+
 ## References
 
 [^1]: [https://www.tandfonline.com/doi/epdf/10.3155/1047-3289.58.3.435?needAccess=true](https://www.tandfonline.com/doi/epdf/10.3155/1047-3289.58.3.435?needAccess=true)
@@ -77,19 +139,31 @@ Forecast amendments can be issued at any time if necessary to provide the most r
 [^4]: [https://www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html](https://www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html)
 [^5]: [https://www.alberta.ca/air-quality-health-index-calculation](https://www.alberta.ca/air-quality-health-index-calculation)
 [^6]: [https://www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html](https://www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html)
+[^7]: [https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/Health-Environment/BCCDC_WildFire_FactSheet_SmokeAndTheAQHI.pdf](https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/Health-Environment/BCCDC_WildFire_FactSheet_SmokeAndTheAQHI.pdf)
+[^8]: [https://www2.gov.bc.ca/assets/gov/environment/air-land-water/air/reports-pub/aqhi_network_review.pdf](https://www2.gov.bc.ca/assets/gov/environment/air-land-water/air/reports-pub/aqhi_network_review.pdf)
+[^9]: [https://doi.org/10.17269/s41997-019-00237-w](https://doi.org/10.17269/s41997-019-00237-w)
+[^10]: [https://www2.gov.bc.ca/gov/content/environment/air-land-water/air/air-quality/measuring/kitimat-so2-alert-pilot-project](https://www2.gov.bc.ca/gov/content/environment/air-land-water/air/air-quality/measuring/kitimat-so2-alert-pilot-project)
 
 "About the Air Quality Health Index." Government of Canada, 28 Apr. 2021, [www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html](https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/about.html).
 
 "Air Quality Health Index – Calculation." Government of Alberta, [www.alberta.ca/air-quality-health-index-calculation](https://www.alberta.ca/air-quality-health-index-calculation).
 
+BC Centre for Disease Control. "Wildfire Smoke and the Air Quality Health Index (AQHI)." May 2024, [www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/Health-Environment/BCCDC_WildFire_FactSheet_SmokeAndTheAQHI.pdf](https://www.bccdc.ca/resource-gallery/Documents/Guidelines%20and%20Forms/Guidelines%20and%20Manuals/Health-Environment/BCCDC_WildFire_FactSheet_SmokeAndTheAQHI.pdf).
+
 Chen, H., Copes, R. "Review of Air Quality Index and Air Quality Health Index." Public Health Ontario, 30 Jan. 2013, [www.publichealthontario.ca/-/media/documents/A/2013/air-quality-health-index.pdf](https://www.publichealthontario.ca/-/media/documents/A/2013/air-quality-health-index.pdf).
 
 "Guide to Air Quality Health Index forecasts." Government of Canada, 28 Apr. 2021, [www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html](https://www.canada.ca/en/environment-climate-change/services/weather-health/publications/guide-air-quality-index-forecasts.html).
 
+Haga, Donna. "A Review of Air Quality Health Index Monitoring in British Columbia." Environmental Quality Series, B.C. Ministry of Environment and Climate Change Strategy, 2022, [www2.gov.bc.ca/assets/gov/environment/air-land-water/air/reports-pub/aqhi_network_review.pdf](https://www2.gov.bc.ca/assets/gov/environment/air-land-water/air/reports-pub/aqhi_network_review.pdf).
+
 "How Info-Smog works." Government of Canada, 15 Mar. 2024, [www.canada.ca/en/environment-climate-change/services/info-smog/how-it-works.html](https://www.canada.ca/en/environment-climate-change/services/info-smog/how-it-works.html).
+
+"Kitimat SO2 Alert Pilot Project." Province of British Columbia, 30 May 2023, [www2.gov.bc.ca/gov/content/environment/air-land-water/air/air-quality/measuring/kitimat-so2-alert-pilot-project](https://www2.gov.bc.ca/gov/content/environment/air-land-water/air/air-quality/measuring/kitimat-so2-alert-pilot-project).
 
 "Latest air quality data map - Air Quality Health Index." Government of British Columbia, [www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html](https://www.env.gov.bc.ca/epd/bcairquality/readings/find-stations-map.html).
 
 "Local Air Quality Health Index." Government of Canada, 19 Aug. 2024, [weather.gc.ca/airquality/pages/index_e.html](https://weather.gc.ca/airquality/pages/index_e.html).
 
 Stieb, David M. et al. "A New Multipollutant, No-Threshold Air Quality Health IndexBased on Short-Term Associations Observed in Daily Time-Series Analyses." Journal of the Air & Waste Management Association, Mar. 2008, [www.tandfonline.com/doi/epdf/10.3155/1047-3289.58.3.435?needAccess=true](https://www.tandfonline.com/doi/epdf/10.3155/1047-3289.58.3.435?needAccess=true).
+
+Yao, Jiayun, et al. "Assessment of the Air Quality Health Index (AQHI) and Four Alternate AQHI-Plus Amendments for Wildfire Seasons in British Columbia." Canadian Journal of Public Health, vol. 111, no. 1, 2020, pp. 96–106, [doi.org/10.17269/s41997-019-00237-w](https://doi.org/10.17269/s41997-019-00237-w).
